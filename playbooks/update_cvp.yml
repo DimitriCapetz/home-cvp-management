@@ -36,7 +36,7 @@
 
     # Task will build/update Container Topology and Attach configlets to the Containers
     - name: "Updating Container Topology & Attaching Configlets"
-      tags: [ update, full ]
+      tags: [ update, container, full ]
       cv_container:
         cvp_facts: "{{ cvp_facts.ansible_facts }}"
         topology: "{{ CVP_CONTAINERS }}"
@@ -45,7 +45,7 @@
 
     # Task will update Device configlet list and which container the device is connected
     - name: "Updating Devices Configlets and Parent Container"
-      tags: [ update, full ]
+      tags: [ update, device, full ]
       cv_device:
         devices: "{{ CVP_DEVICES }}"
         cvp_facts: "{{ cvp_facts.ansible_facts }}"

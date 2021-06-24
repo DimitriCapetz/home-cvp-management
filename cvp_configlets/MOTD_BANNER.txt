@@ -1,8 +1,0 @@
-banner motd
-
----------------------------------------------------------
-Welcome to The Rock Central Network.
-Devices are managed by CVP.  CLI Changes will be removed.
----------------------------------------------------------
-
-EOF
