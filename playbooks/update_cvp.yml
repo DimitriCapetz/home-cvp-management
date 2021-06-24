@@ -14,7 +14,7 @@
 
     # Gathering CVP Facts
     - name: "Refreshing facts from CVP {{ inventory_hostname }}"
-      tags: [ upload, full ]
+      tags: [ upload, facts, full ]
       cv_facts:
       register: cvp_facts
 
