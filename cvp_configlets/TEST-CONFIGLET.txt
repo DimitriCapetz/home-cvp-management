@@ -1,2 +1,0 @@
-! This is a configlet
-ip route 0.0.0.0/0 10.1.1.1
