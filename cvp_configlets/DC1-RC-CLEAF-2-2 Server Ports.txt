@@ -1,0 +1,11 @@
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Ethernet7
+   description VLAN 12 to Orphan Server #4
+   switchport access vlan 12
+!
+interface Ethernet8
+   description VLAN 12 to Orphan Server #20
+   switchport access vlan 12
