@@ -1,0 +1,17 @@
+{# Create MLAGs for Leafs #}
+{% for k, v in MLAGs.items() %}
+{%   if k in item.hostname %}
+{%     for lag, config in v.items() %}
+interface {{ lag }}
+   description {{ config['description'] }}
+   switchport trunk allowed vlan {{ config['vlans'] }}
+   switchport mode trunk
+   mlag {{ config['id'] }}
+!
+interface {{ config['port'] }}
+   description {{ config['description'] }}
+   channel-group {{ config['id'] }} mode active
+!
+{%     endfor %}
+{%   endif %}
+{% endfor %}

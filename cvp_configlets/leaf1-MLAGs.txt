@@ -1,0 +1,10 @@
+interface Port-Channel1
+   description MLAG 1 to host1-1
+   switchport trunk allowed vlan 10,20,30,40,50,60
+   switchport mode trunk
+   mlag 1
+!
+interface Ethernet3
+   description MLAG 1 to host1-1
+   channel-group 1 mode active
+!

@@ -27,12 +27,3 @@ Tenants:
       60:
         name: DMZ_Network
         virtual_prefix: 10.60.60.1/24
-  TENANT-4:
-    l3vni: 50004
-    VLANs:
-      70:
-        name: Guest_Network
-        virtual_prefix: 10.70.70.1/24
-      80:
-        name: DMZ_Network
-        virtual_prefix: 10.80.80.1/24

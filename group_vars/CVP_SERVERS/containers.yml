@@ -35,9 +35,11 @@ CVP_CONTAINERS:
       - Compute Pod 1 BGP and VTEP Config
       - ANSIBLE_leaf1-VRFs
       - ANSIBLE_leaf1-VLANs
+      - ANSIBLE_leaf1-MLAGs
   Compute Pod 2:
     parent_container: Compute Leaves
     configlets:
       - Compute Pod 2 BGP and VTEP Config
       - ANSIBLE_leaf2-VRFs
       - ANSIBLE_leaf2-VLANs
+      - ANSIBLE_leaf2-MLAGs
