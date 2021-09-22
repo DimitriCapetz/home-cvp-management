@@ -1,0 +1,16 @@
+{# Create Orphan Port Configs for Leafs #}
+{% for k, v in Ports.items() %}
+{%   if k == item.hostname %}
+{%     for port, config in v.items() %}
+interface {{ port }}
+   description {{ config['description'] }}
+{%       if {{ config['mode'] }} == 'trunk' %}
+   switchport trunk allowed vlan {{ config['vlans'] }}
+   switchport mode trunk
+{%       elif {{ config['mode'] }} == 'access' %}
+   switchport access vlan {{ config['vlans'] }}
+{%       endif %}
+!
+{%     endfor %}
+{%   endif %}
+{% endfor %}
