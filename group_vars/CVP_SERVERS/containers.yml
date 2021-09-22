@@ -11,34 +11,33 @@
 ###############################################################
 
 CVP_CONTAINERS:
-  STAGING:
-    parent_container: Tenant
+  Data Center 1:
+    parent_container: Home
+    configlets: []
+  Spines:
+    parent_container: Data Center 1
     configlets:
-      - DC1_GLOBAL_COMMON
-      - DC1_ALIASES
-      - DC1_VLANS
-      - DC1_VARP-MAC
-      - DC1_MOTD_BANNER
-  DEMO:
-    parent_container: Tenant
+      - Spines BGP
+  Leaves:
+    parent_container: Data Center 1
+    configlets: []
+  Compute Leaves:
+    parent_container: Leaves
+    configlets: []
+  Border Leaves:
+    parent_container: Leaves
     configlets:
-      - DC1_GLOBAL_COMMON
-      - DC1_ALIASES
-      - DC1_VLANS
-      - DC1_VARP-MAC
-      - DC1_MOTD_BANNER
-  # COMPANY_XYZ:
-  #   parent_container: Tenant
-  #   configlets:
-  #     - DC1_GLOBAL_COMMON
-  #     - DC1_ALIASES
-  #     - DC1_VARP-MAC
-  #     - DC1_MOTD_BANNER
-  # HQ:
-  #   parent_container: COMPANY_XYZ
-  #   configlets:
-  #     - DC1_VLANS
-  # DR:
-  #   parent_container: COMPANY_XYZ
-  #   configlets:
-  #     - DC1_VLANS
+      - Border BGP and VTEP Config
+      - ANSIBLE_leaf3-VRFs
+  Compute Pod 1:
+    parent_container: Compute Leaves
+    configlets:
+      - Compute Pod 1 BGP and VTEP Config
+      - ANSIBLE_leaf1-VRFs
+      - ANSIBLE_leaf1-VLANs
+  Compute Pod 2:
+    parent_container: Compute Leaves
+    configlets:
+      - Compute Pod 2 BGP and VTEP Config
+      - ANSIBLE_leaf2-VRFs
+      - ANSIBLE_leaf2-VLANs

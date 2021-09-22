@@ -1,0 +1,64 @@
+!
+! Tenant TENANT-1
+!
+vrf instance TENANT-1
+!
+interface Vxlan1
+   vxlan vrf TENANT-1 vni 50001
+!
+ip routing vrf TENANT-1
+!
+router bgp 65103
+   !
+   vrf TENANT-1
+      route-target import evpn 50001:50001
+      route-target export evpn 50001:50001
+      redistribute connected
+!
+! Tenant TENANT-2
+!
+vrf instance TENANT-2
+!
+interface Vxlan1
+   vxlan vrf TENANT-2 vni 50002
+!
+ip routing vrf TENANT-2
+!
+router bgp 65103
+   !
+   vrf TENANT-2
+      route-target import evpn 50002:50002
+      route-target export evpn 50002:50002
+      redistribute connected
+!
+! Tenant TENANT-3
+!
+vrf instance TENANT-3
+!
+interface Vxlan1
+   vxlan vrf TENANT-3 vni 50003
+!
+ip routing vrf TENANT-3
+!
+router bgp 65103
+   !
+   vrf TENANT-3
+      route-target import evpn 50003:50003
+      route-target export evpn 50003:50003
+      redistribute connected
+!
+! Tenant TENANT-4
+!
+vrf instance TENANT-4
+!
+interface Vxlan1
+   vxlan vrf TENANT-4 vni 50004
+!
+ip routing vrf TENANT-4
+!
+router bgp 65103
+   !
+   vrf TENANT-4
+      route-target import evpn 50004:50004
+      route-target export evpn 50004:50004
+      redistribute connected

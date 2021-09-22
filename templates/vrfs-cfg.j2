@@ -1,0 +1,19 @@
+{# Create Common VRFs for Leafs #}
+{% for k, v in Tenants.items() %}
+!
+! Tenant {{ k }}
+!
+vrf instance {{ k }}
+!
+interface Vxlan1
+   vxlan vrf {{ k }} vni {{ v['l3vni'] }}
+!
+ip routing vrf {{ k }}
+!
+router bgp {{ item.asn }}
+   !
+   vrf {{ k }}
+      route-target import evpn {{ v['l3vni'] }}:{{ v['l3vni'] }}
+      route-target export evpn {{ v['l3vni'] }}:{{ v['l3vni'] }}
+      redistribute connected
+{% endfor %}

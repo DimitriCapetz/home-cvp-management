@@ -26,7 +26,7 @@
       vars:
         configlet_directory: 'cvp_configlets'
         file_extension: 'txt'
-        configlets_cvp_prefix: 'AVD'
+        configlets_cvp_prefix: 'ANSIBLE'
 
     # Need to refresh CVP facts after configlets have been uploaded on previous task
     - name: "Refreshing CVP Facts"

@@ -1,0 +1,38 @@
+---
+Tenants:
+  TENANT-1:
+    l3vni: 50001
+    VLANs:
+      10:
+        name: Data_Network
+        virtual_prefix: 10.10.10.1/24
+      20:
+        name: Voice_Network
+        virtual_prefix: 10.20.20.1/24
+  TENANT-2:
+    l3vni: 50002
+    VLANs:
+      30:
+        name: Server_Network
+        virtual_prefix: 10.30.30.1/24
+      40:
+        name: Test_Network
+        virtual_prefix: 10.40.40.1/24
+  TENANT-3:
+    l3vni: 50003
+    VLANs:
+      50:
+        name: Guest_Network
+        virtual_prefix: 10.50.50.1/24
+      60:
+        name: DMZ_Network
+        virtual_prefix: 10.60.60.1/24
+  TENANT-4:
+    l3vni: 50004
+    VLANs:
+      70:
+        name: Guest_Network
+        virtual_prefix: 10.70.70.1/24
+      80:
+        name: DMZ_Network
+        virtual_prefix: 10.80.80.1/24

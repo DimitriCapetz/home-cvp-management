@@ -1,0 +1,31 @@
+{# Create Common VLANs for Leafs #}
+{% for k, v in Tenants.items() %}
+!
+! Tenant {{ k }} VLANs
+!
+{% for key, value in v['VLANs'].items() %}
+vlan {{ key }}
+   name {{ value['name'] }}
+!
+{% endfor %}
+{% for key, value in v['VLANs'].items() %}
+interface Vlan{{ key }}
+   description {{ value['name'] }}
+   vrf {{ k }}
+   ip address virtual {{ value['virtual_prefix'] }}
+!
+{% endfor %}
+router bgp {{ item.asn }}
+{% for key, value in v['VLANs'].items() %}
+   !
+   vlan {{ key }}
+      rd auto
+      route-target both {{ key }}:{{ key }}
+      redistribute learned
+{% endfor %}
+!
+interface Vxlan1
+{% for key, value in v['VLANs'].items() %}
+   vxlan vlan {{ key }} vni {{ key }}
+{% endfor %}
+{% endfor %}

@@ -5,7 +5,7 @@
   hosts: localhost
 
   vars_files:
-    - ../datafiles/svis.yml
+    - ../datafiles/tenants.yml
 
   tasks:
 
@@ -14,11 +14,26 @@
       path: ../datafiles/devices.csv
     register: switches
 
+  #- name: Print Leaves
+  #  when: item.hostname is match(".*-1")
+  #  debug:
+  #    msg: "{{ item.hostname }}"
+  #  with_items: "{{ switches.list }}"
+
   - name: Create Base Config for each device in CSV File
     template: src=../templates/base-cfg.j2 dest=../cvp_configlets/{{ switch.hostname }}-BASE.txt
     loop: "{{ switches.list }}"
     loop_control:
       loop_var: switch
 
-  - name: Create Common SVIs for Leafs
-    template: src=../templates/svis-cfg.j2 dest=../cvp_configlets/SVIs.txt
+  - name: Create Common VRFs for Leafs
+    when: item.hostname is match(".*-1")
+    template: src=../templates/vrfs-cfg.j2 dest=../cvp_configlets/{{ item.hostname | regex_replace('-1$','') }}-VRFs.txt
+    with_items: "{{ switches.list }}"
+
+  - name: Create Common VLANs for Leafs
+    when: 
+      - item.hostname is match(".*-1")
+      - item.compute == "yes"
+    template: src=../templates/vlans-cfg.j2 dest=../cvp_configlets/{{ item.hostname | regex_replace('-1$','') }}-VLANs.txt
+    with_items: "{{ switches.list }}"
