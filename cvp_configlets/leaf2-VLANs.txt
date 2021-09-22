@@ -100,37 +100,3 @@ router bgp 65102
 interface Vxlan1
    vxlan vlan 50 vni 50
    vxlan vlan 60 vni 60
-!
-! Tenant TENANT-4 VLANs
-!
-vlan 70
-   name Private_Network
-!
-vlan 80
-   name Public_Network
-!
-interface Vlan70
-   description Private_Network
-   vrf TENANT-4
-   ip address virtual 10.70.70.1/24
-!
-interface Vlan80
-   description Public_Network
-   vrf TENANT-4
-   ip address virtual 10.80.80.1/24
-!
-router bgp 65102
-   !
-   vlan 70
-      rd auto
-      route-target both 70:70
-      redistribute learned
-   !
-   vlan 80
-      rd auto
-      route-target both 80:80
-      redistribute learned
-!
-interface Vxlan1
-   vxlan vlan 70 vni 70
-   vxlan vlan 80 vni 80

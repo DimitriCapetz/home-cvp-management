@@ -5,15 +5,10 @@ MLAGs:
       port: Ethernet3
       id: 1
       description: MLAG 1 to host1-1
-      vlans: 10,20,30,40,50,60,70,80
-    Port-Channel2:
-      port: Ethernet4
-      id: 2
-      description: MLAG 2 to NEW HOST
-      vlans: 10,20,30,40,50,60,70,80
+      vlans: 10,20,30,40,50,60
   leaf2:
     Port-Channel1:
       port: Ethernet3
       id: 1
       description: MLAG 1 to host2-1
-      vlans: 10,20,30,40,50,60,70,80
+      vlans: 10,20,30,40,50,60

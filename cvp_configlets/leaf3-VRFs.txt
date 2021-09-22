@@ -46,19 +46,3 @@ router bgp 65103
       route-target import evpn 50003:50003
       route-target export evpn 50003:50003
       redistribute connected
-!
-! Tenant TENANT-4
-!
-vrf instance TENANT-4
-!
-interface Vxlan1
-   vxlan vrf TENANT-4 vni 50004
-!
-ip routing vrf TENANT-4
-!
-router bgp 65103
-   !
-   vrf TENANT-4
-      route-target import evpn 50004:50004
-      route-target export evpn 50004:50004
-      redistribute connected
