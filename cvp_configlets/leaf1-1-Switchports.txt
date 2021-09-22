@@ -1,0 +1,5 @@
+interface Ethernet5
+   description Orphan Port - 1
+   switchport trunk allowed vlan 10,20,30,40
+   switchport mode trunk
+!

@@ -32,6 +32,7 @@ CVP_DEVICES:
       - ANSIBLE_leaf1-1-BASE
       - MLAG Switch A
       - leaf1-1 Config
+      - ANSIBLE_leaf1-1-Switchports
   leaf1-2:
     name: leaf1-2
     parentContainerName: Compute Pod 1
@@ -39,6 +40,7 @@ CVP_DEVICES:
       - ANSIBLE_leaf1-2-BASE
       - MLAG Switch B
       - leaf1-2 Config
+      - ANSIBLE_leaf1-2-Switchports
   leaf2-1:
     name: leaf2-1
     parentContainerName: Compute Pod 2
@@ -46,6 +48,7 @@ CVP_DEVICES:
       - ANSIBLE_leaf2-1-BASE
       - MLAG Switch A
       - leaf2-1 Config
+      - ANSIBLE_leaf2-1-Switchports
   leaf2-2:
     name: leaf2-2
     parentContainerName: Compute Pod 2
@@ -53,6 +56,7 @@ CVP_DEVICES:
       - ANSIBLE_leaf2-2-BASE
       - MLAG Switch B
       - leaf2-2 Config
+      - ANSIBLE_leaf2-2-Switchports
   leaf3-1:
     name: leaf3-1
     parentContainerName: Border Leaves

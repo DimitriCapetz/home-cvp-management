@@ -7,6 +7,7 @@
   vars_files:
     - ../datafiles/tenants.yml
     - ../datafiles/mlags.yml
+    - ../datafiles/orphans.yml
 
   tasks:
 

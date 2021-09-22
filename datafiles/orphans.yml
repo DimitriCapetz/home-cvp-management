@@ -2,11 +2,9 @@
 Ports:
   leaf1-1:
     Ethernet5:
-      mode: access
-      description: Orphan Port - Access
-      vlans: 10
+      description: Orphan Port - 1
+      vlans: 10,20,30,40
   leaf1-2:
     Ethernet5:
-      mode: trunk
-      description: Orphan Port - Trunk
-      vlans: 10,20,30,40,50,60
+      description: Orphan Port - 2
+      vlans: 50,60,70,80
