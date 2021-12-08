@@ -1,5 +1,5 @@
 ---
-- name: Update Configlets
+- name: Update Configlets and Devices
   hosts: cvp
   connection: local
   gather_facts: no
@@ -37,19 +37,16 @@
     # Task will build/update Container Topology and Attach configlets to the Containers
     - name: "Updating Container Topology & Attaching Configlets"
       tags: [ update, container, full ]
-      cv_container:
-        cvp_facts: "{{ cvp_facts.ansible_facts }}"
+      cv_container_v3:
         topology: "{{ CVP_CONTAINERS }}"
-        mode: merge
       register: CVP_CONTAINERS_RESULT
 
     # Task will update Device configlet list and which container the device is connected
     - name: "Updating Devices Configlets and Parent Container"
       tags: [ update, device, full ]
-      cv_device:
+      cv_device_v3:
         devices: "{{ CVP_DEVICES }}"
-        cvp_facts: "{{ cvp_facts.ansible_facts }}"
-        configlet_mode: override
+        state: present
       register: CVP_DEVICES_RESULT
 
     # Reminder message just in case there are Tasks that need to be executed in CVP
@@ -59,5 +56,9 @@
       debug:
         msg: "If needed, manually create change control & execute any pending tasks in CVP to apply changes"
 
-
+    # Automatically execute all tasks from Playbook
+    #- name: Execute all tasks registered in cvp_configlets variable
+    #  tags: [execute]
+    #  cv_task_v3:
+    #    tasks: "{{ CVP_DEVICES_RESULT.taskIds }}"
 

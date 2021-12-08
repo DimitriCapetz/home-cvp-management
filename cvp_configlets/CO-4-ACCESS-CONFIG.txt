@@ -1,0 +1,41 @@
+vlan 10
+   name Shared_VLAN
+!
+vlan 401
+   name CO-4_Data
+!
+vlan 402
+   name CO-4_Video
+!
+vlan 1014
+   name CO-4_L2_Service
+!
+interface Port-Channel1
+   description Uplink to CO-4 Router
+   switchport mode trunk
+!
+interface Ethernet1
+   description Po1 to CO-4 Et3
+   channel-group 1 mode active
+!
+interface Ethernet2
+   description Po1 to CO-4 Et4
+   channel-group 1 mode active
+!
+interface Ethernet3-8
+   description UNUSED
+   shutdown
+!
+interface Vlan10
+   ip address 10.10.10.104/24
+!
+interface Vlan401
+   ip address 100.4.1.104/24
+!
+interface Vlan402
+   ip address 10.4.2.104/24
+!
+interface Vlan1014
+   ip address 10.10.14.104/24
+!
+ip route 0.0.0.0/0 100.4.1.1

@@ -1,0 +1,25 @@
+!
+! Base Config for CO-4-ACCESS
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -ingestgrpcurl=10.112.112.2:9910 -taillogs -ingestauth=token,/tmp/token -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=management
+   no shutdown
+!
+hostname CO-4-ACCESS
+!
+vrf instance management
+!
+interface Management1
+   description OOB Management Interface
+   vrf management
+   ip address 10.99.99.130/24
+!
+ip route vrf management 0.0.0.0/0 10.99.99.1
+!
+ip routing vrf management
+!
+management api http-commands
+   no shutdown
+   !
+   vrf management
+      no shutdown

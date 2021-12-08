@@ -13,61 +13,57 @@
 ###############################################################
 
 CVP_DEVICES:
-  spine1:
-    name: spine1
-    parentContainerName: Spines
+  - fqdn: CO-1
+    parentContainerName: Home
     configlets:
-      - ANSIBLE_spine1-BASE
-      - spine1 Config
-  spine2:
-    name: spine2
-    parentContainerName: Spines
+      - ANSIBLE_CO-1-BASE
+      - ANSIBLE_CO-1-LOCAL-CONFIG
+      - ANSIBLE_CO-1-ROUTING
+  - fqdn: CO-2
+    parentContainerName: Home
     configlets:
-      - ANSIBLE_spine2-BASE
-      - spine2 Config
-  leaf1-1:
-    name: leaf1-1
-    parentContainerName: Compute Pod 1
+      - ANSIBLE_CO-2-BASE
+      - ANSIBLE_CO-2-LOCAL-CONFIG
+      - ANSIBLE_CO-2-ROUTING
+  - fqdn: CO-3
+    parentContainerName: Home
     configlets:
-      - ANSIBLE_leaf1-1-BASE
-      - MLAG Switch A
-      - leaf1-1 Config
-      - ANSIBLE_leaf1-1-Switchports
-  leaf1-2:
-    name: leaf1-2
-    parentContainerName: Compute Pod 1
+      - ANSIBLE_CO-3-BASE
+      - ANSIBLE_CO-3-LOCAL-CONFIG
+      - ANSIBLE_CO-3-ROUTING
+  - fqdn: CO-4
+    parentContainerName: Home
     configlets:
-      - ANSIBLE_leaf1-2-BASE
-      - MLAG Switch B
-      - leaf1-2 Config
-      - ANSIBLE_leaf1-2-Switchports
-  leaf2-1:
-    name: leaf2-1
-    parentContainerName: Compute Pod 2
+      - ANSIBLE_CO-4-BASE
+      - ANSIBLE_CO-4-LOCAL-CONFIG
+      - ANSIBLE_CO-4-ROUTING
+  - fqdn: CO-1-ACCESS
+    parentContainerName: CO-1
     configlets:
-      - ANSIBLE_leaf2-1-BASE
-      - MLAG Switch A
-      - leaf2-1 Config
-      - ANSIBLE_leaf2-1-Switchports
-  leaf2-2:
-    name: leaf2-2
-    parentContainerName: Compute Pod 2
+      - ANSIBLE_CO-1-ACCESS-BASE
+      - ANSIBLE_CO-1-ACCESS-CONFIG
+  - fqdn: CO-2-ACCESS
+    parentContainerName: CO-2
     configlets:
-      - ANSIBLE_leaf2-2-BASE
-      - MLAG Switch B
-      - leaf2-2 Config
-      - ANSIBLE_leaf2-2-Switchports
-  leaf3-1:
-    name: leaf3-1
-    parentContainerName: Border Leaves
+      - ANSIBLE_CO-2-ACCESS-BASE
+      - ANSIBLE_CO-2-ACCESS-CONFIG
+  - fqdn: CO-3-ACCESS
+    parentContainerName: CO-3
     configlets:
-      - ANSIBLE_leaf3-1-BASE
-      - MLAG Switch A
-      - leaf3-1 Config
-  leaf3-2:
-    name: leaf3-2
-    parentContainerName: Border Leaves
+      - ANSIBLE_CO-3-ACCESS-BASE
+      - ANSIBLE_CO-3-ACCESS-CONFIG
+  - fqdn: CO-4-ACCESS
+    parentContainerName: CO-4
     configlets:
-      - ANSIBLE_leaf3-2-BASE
-      - MLAG Switch B
-      - leaf3-2 Config
+      - ANSIBLE_CO-4-ACCESS-BASE
+      - ANSIBLE_CO-4-ACCESS-CONFIG
+  - fqdn: CO-2-DIA
+    parentContainerName: CO-2
+    configlets:
+      - ANSIBLE_CO-2-DIA-BASE
+      - ANSIBLE_CO-2-DIA-CONFIG
+  - fqdn: CO-3-DIA
+    parentContainerName: CO-3
+    configlets:
+      - ANSIBLE_CO-3-DIA-BASE
+      - ANSIBLE_CO-3-DIA-CONFIG
