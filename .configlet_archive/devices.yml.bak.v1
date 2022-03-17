@@ -1,0 +1,81 @@
+CVP_DEVICES:
+  WISUS01-DC1-CORE1:
+    name: WISUS01-DC1-CORE1
+    parentContainerName: SUS Core
+    configlets:
+      - Management Builder_00CBD4F691D8D963BBE2C0B5819C52BA_1
+  WISUS01-DC1-CORE2:
+    name: WISUS01-DC1-CORE2
+    parentContainerName: SUS Core
+    configlets:
+      - Management Builder_192504229DA1D815B7B337BBE12DD210_1
+  WISUS01-DC1-SPINE01:
+    name: WISUS01-DC1-SPINE01
+    parentContainerName: SUS Spines
+    configlets:
+      - Management Builder_0EA77B44EE10B934352714633024FB40_1
+  WISUS01-DC1-SPINE02:
+    name: WISUS01-DC1-SPINE02
+    parentContainerName: SUS Spines
+    configlets:
+      - Management Builder_E2E7A58C3880EB76CDE6492D1DCD8C4C_1
+  WISUS01-DC1-LEAF01:
+    name: WISUS01-DC1-LEAF01
+    parentContainerName: SUS Pod 1
+    configlets:
+      - Management Builder_6D3EC4248DF2EB1488DFA22F004DA174_1
+  WISUS01-DC1-LEAF02:
+    name: WISUS01-DC1-LEAF02
+    parentContainerName: SUS Pod 1
+    configlets:
+      - Management Builder_3E97399E0FB208EA0A917D03F567CE0B_1
+  WISUS01-DC1-LEAF03:
+    name: WISUS01-DC1-LEAF03
+    parentContainerName: SUS Pod 2
+    configlets:
+      - Management Builder_BEB6A2622F340A9A8C0635D880B7CD95_1
+  WISUS01-DC1-LEAF04:
+    name: WISUS01-DC1-LEAF04
+    parentContainerName: SUS Pod 2
+    configlets:
+      - Management Builder_A79A611A5ADCF736CDB949FC6EE013C6_1
+  WIWEA01-DC1-CORE1:
+    name: WIWEA01-DC1-CORE1
+    parentContainerName: WEA Core
+    configlets:
+      - Management Builder_CA582A2D8047E5BD38C0F87A2F18F316_1
+  WIWEA01-DC1-CORE2:
+    name: WIWEA01-DC1-CORE2
+    parentContainerName: WEA Core
+    configlets:
+      - Management Builder_674D298C1E99EECCEAE6FF259AC8B4C7_1
+  WIWEA01-DC1-SPINE01:
+    name: WIWEA01-DC1-SPINE01
+    parentContainerName: WEA Spines
+    configlets:
+      - Management Builder_375248B51EF9926C81974CD8A5C04CED_1
+  WIWEA01-DC1-SPINE02:
+    name: WIWEA01-DC1-SPINE02
+    parentContainerName: WEA Spines
+    configlets:
+      - Management Builder_F0B418A1C1C8BD6C0C7B74031C7D2B8B_1
+  WIWEA01-DC1-LEAF01:
+    name: WIWEA01-DC1-LEAF01
+    parentContainerName: WEA Pod 1
+    configlets:
+      - Management Builder_5F738B44C98720034ACF7432D32304F5_1
+  WIWEA01-DC1-LEAF02:
+    name: WIWEA01-DC1-LEAF02
+    parentContainerName: WEA Pod 1
+    configlets:
+      - Management Builder_77AD5FFFF6A53ABB9CFAA64207142ABB_1
+  WIWEA01-DC1-LEAF03:
+    name: WIWEA01-DC1-LEAF03
+    parentContainerName: WEA Pod 2
+    configlets:
+      - Management Builder_661EFA38AF057517187AFDA542C62A3E_1
+  WIWEA01-DC1-LEAF04:
+    name: WIWEA01-DC1-LEAF04
+    parentContainerName: WEA Pod 2
+    configlets:
+      - Management Builder_AFD39B35A4B2C97965B3FB11550680E5_1

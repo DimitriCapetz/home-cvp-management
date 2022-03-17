@@ -1,25 +1,43 @@
-###############################################################
-#
-# Container Topology:
-# Add new section for each container you want to manage configlets
-# Required fields:
-#  Key:
-#    name:
-#    parent_container:
-#    configlets: [list]
-#
-###############################################################
-
 CVP_CONTAINERS:
-  CO-1:
-    parent_container: Home
-    configlets: []
-  CO-2:
-    parent_container: Home
-    configlets: []
-  CO-3:
-    parent_container: Home
-    configlets: []
-  CO-4:
-    parent_container: Home
-    configlets: []
+  Core Network:
+    parentContainerName: Home
+  Sussex DC:
+    parentContainerName: Home
+    configlets:
+      - SUS VLANs
+      - WEA and SUS Extended VLANs
+  West Allis DC:
+    parentContainerName: Home
+    configlets:
+      - WEA VLANs
+      - WEA and SUS Extended VLANs
+  SUS Cores:
+    parentContainerName: Core Network
+  SUS Spines:
+    parentContainerName: Sussex DC
+    configlets:
+      - Spine Downlinks
+  SUS Leaves:
+    parentContainerName: Sussex DC
+    configlets:
+      - Leaf Uplinks
+  SUS Pod 1:
+    parentContainerName: SUS Leaves
+  SUS Pod 2:
+    parentContainerName: SUS Leaves
+  WEA Cores:
+    parentContainerName: Core Network
+  WEA Spines:
+    parentContainerName: West Allis DC
+    configlets:
+      - Spine Downlinks
+  WEA Leaves:
+    parentContainerName: West Allis DC
+    configlets:
+      - Leaf Uplinks
+  WEA Pod 1:
+    parentContainerName: WEA Leaves
+  WEA Pod 2:
+    parentContainerName: WEA Leaves
+  WEA Pod 3:
+    parentContainerName: WEA Leaves

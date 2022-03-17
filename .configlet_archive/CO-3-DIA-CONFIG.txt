@@ -29,7 +29,7 @@ interface Vlan3
    pim ipv4 sparse-mode
 !
 interface Vlan10
-   ip address 10.10.10.2/24
+   ip address 10.10.10.1/24
 !
 interface Vlan1011
    ip address 10.10.11.1/24

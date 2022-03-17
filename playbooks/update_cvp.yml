@@ -2,7 +2,7 @@
 - name: Update Configlets and Devices
   hosts: cvp
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   collections:
     - arista.cvp
@@ -12,21 +12,32 @@
 
   tasks:
 
+    - set_fact:
+        configlet_list: "{{ configlet_list|default({})|combine({item|basename: lookup('file', item)}) }}"
+      
+      with_fileglob: "cvp_configlets/*"
+    - debug:
+        var: configlet_list
+
     # Gathering CVP Facts
     - name: "Refreshing facts from CVP {{ inventory_hostname }}"
-      tags: [ facts, full ]
+      tags: [ facts ]
       cv_facts:
       register: cvp_facts
 
     # Upload configlets from a directory
     - name: "Upload configlets to CVP {{ inventory_hostname }}"
-      tags: [ upload, full ]
+      tags: [ provision ]
       import_role:
           name: arista.avd.cvp_configlet_upload
       vars:
         configlet_directory: 'cvp_configlets'
         file_extension: 'txt'
         configlets_cvp_prefix: 'ANSIBLE'
+      #cv_configlet_v3:
+      #  configlets: "{{configlet_list}}"
+      #  state: present
+      #register: cvp_configlet
 
     # Need to refresh CVP facts after configlets have been uploaded on previous task
     - name: "Refreshing CVP Facts"
@@ -39,6 +50,7 @@
       tags: [ update, container, full ]
       cv_container_v3:
         topology: "{{ CVP_CONTAINERS }}"
+        apply_mode: strict
       register: CVP_CONTAINERS_RESULT
 
     # Task will update Device configlet list and which container the device is connected
@@ -47,6 +59,7 @@
       cv_device_v3:
         devices: "{{ CVP_DEVICES }}"
         state: present
+        apply_mode: strict
       register: CVP_DEVICES_RESULT
 
     # Reminder message just in case there are Tasks that need to be executed in CVP
@@ -58,7 +71,7 @@
 
     # Automatically execute all tasks from Playbook
     #- name: Execute all tasks registered in cvp_configlets variable
-    #  tags: [execute]
+    #  tags: [ execute ]
     #  cv_task_v3:
     #    tasks: "{{ CVP_DEVICES_RESULT.taskIds }}"
 

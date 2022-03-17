@@ -1,69 +1,89 @@
-###############################################################
-# Device Inventory:
-# Add new section for each device you want to manage configlets
-# Required fields:
-#  Key:
-#    name:
-#    configlets:
-#    parentContainerName:
-#
-# Note: You do no need to list configlets that are inherited
-#       from a container the device is attached to.  CVP will
-#       merge them together
-###############################################################
-
 CVP_DEVICES:
-  - fqdn: CO-1
-    parentContainerName: Home
+  - fqdn: WISUS01-DC1-CORE1
+    parentContainerName: SUS Cores
     configlets:
-      - ANSIBLE_CO-1-BASE
-      - ANSIBLE_CO-1-LOCAL-CONFIG
-      - ANSIBLE_CO-1-ROUTING
-  - fqdn: CO-2
-    parentContainerName: Home
+      - Management Builder_00CBD4F691D8D963BBE2C0B5819C52BA_2
+      - MLAG Switch A
+      - WISUS01-DC1-CORE1 L3 Config
+  - fqdn: WISUS01-DC1-CORE2
+    parentContainerName: SUS Cores
     configlets:
-      - ANSIBLE_CO-2-BASE
-      - ANSIBLE_CO-2-LOCAL-CONFIG
-      - ANSIBLE_CO-2-ROUTING
-  - fqdn: CO-3
-    parentContainerName: Home
+      - Management Builder_192504229DA1D815B7B337BBE12DD210_2
+      - MLAG Switch B
+      - WISUS01-DC1-CORE2 L3 Config
+  - fqdn: WISUS01-DC1-SPINE01
+    parentContainerName: SUS Spines
     configlets:
-      - ANSIBLE_CO-3-BASE
-      - ANSIBLE_CO-3-LOCAL-CONFIG
-      - ANSIBLE_CO-3-ROUTING
-  - fqdn: CO-4
-    parentContainerName: Home
+      - Management Builder_0EA77B44EE10B934352714633024FB40_1
+      - MLAG Switch A
+      - WISUS01-DC1-SPINE01 L3 Config
+  - fqdn: WISUS01-DC1-SPINE02
+    parentContainerName: SUS Spines
     configlets:
-      - ANSIBLE_CO-4-BASE
-      - ANSIBLE_CO-4-LOCAL-CONFIG
-      - ANSIBLE_CO-4-ROUTING
-  - fqdn: CO-1-ACCESS
-    parentContainerName: CO-1
+      - Management Builder_E2E7A58C3880EB76CDE6492D1DCD8C4C_1
+      - MLAG Switch B
+      - WISUS01-DC1-SPINE02 L3 Config
+  - fqdn: WISUS01-DC1-LEAF01
+    parentContainerName: SUS Pod 1
     configlets:
-      - ANSIBLE_CO-1-ACCESS-BASE
-      - ANSIBLE_CO-1-ACCESS-CONFIG
-  - fqdn: CO-2-ACCESS
-    parentContainerName: CO-2
+      - Management Builder_6D3EC4248DF2EB1488DFA22F004DA174_1
+      - MLAG Switch A
+  - fqdn: WISUS01-DC1-LEAF02
+    parentContainerName: SUS Pod 1
     configlets:
-      - ANSIBLE_CO-2-ACCESS-BASE
-      - ANSIBLE_CO-2-ACCESS-CONFIG
-  - fqdn: CO-3-ACCESS
-    parentContainerName: CO-3
+      - Management Builder_3E97399E0FB208EA0A917D03F567CE0B_1
+      - MLAG Switch B
+  - fqdn: WISUS01-DC1-LEAF03
+    parentContainerName: SUS Pod 2
     configlets:
-      - ANSIBLE_CO-3-ACCESS-BASE
-      - ANSIBLE_CO-3-ACCESS-CONFIG
-  - fqdn: CO-4-ACCESS
-    parentContainerName: CO-4
+      - Management Builder_BEB6A2622F340A9A8C0635D880B7CD95_1
+      - MLAG Switch A
+  - fqdn: WISUS01-DC1-LEAF04
+    parentContainerName: SUS Pod 2
     configlets:
-      - ANSIBLE_CO-4-ACCESS-BASE
-      - ANSIBLE_CO-4-ACCESS-CONFIG
-  - fqdn: CO-2-DIA
-    parentContainerName: CO-2
+      - Management Builder_A79A611A5ADCF736CDB949FC6EE013C6_1
+      - MLAG Switch B
+  - fqdn: WIWEA01-DC1-CORE1
+    parentContainerName: WEA Cores
     configlets:
-      - ANSIBLE_CO-2-DIA-BASE
-      - ANSIBLE_CO-2-DIA-CONFIG
-  - fqdn: CO-3-DIA
-    parentContainerName: CO-3
+      - Management Builder_CA582A2D8047E5BD38C0F87A2F18F316_1
+      - MLAG Switch A
+      - WIWEA01-DC1-CORE1 L3 Config
+  - fqdn: WIWEA01-DC1-CORE2
+    parentContainerName: WEA Cores
     configlets:
-      - ANSIBLE_CO-3-DIA-BASE
-      - ANSIBLE_CO-3-DIA-CONFIG
+      - Management Builder_674D298C1E99EECCEAE6FF259AC8B4C7_1
+      - MLAG Switch B
+      - WIWEA01-DC1-CORE2 L3 Config
+  - fqdn: WIWEA01-DC1-SPINE01
+    parentContainerName: WEA Spines
+    configlets:
+      - Management Builder_375248B51EF9926C81974CD8A5C04CED_1
+      - MLAG Switch A
+      - WIWEA01-DC1-SPINE01 L3 Config
+  - fqdn: WIWEA01-DC1-SPINE02
+    parentContainerName: WEA Spines
+    configlets:
+      - Management Builder_F0B418A1C1C8BD6C0C7B74031C7D2B8B_1
+      - MLAG Switch B
+      - WIWEA01-DC1-SPINE02 L3 Config
+  - fqdn: WIWEA01-DC1-LEAF01
+    parentContainerName: WEA Pod 1
+    configlets:
+      - Management Builder_5F738B44C98720034ACF7432D32304F5_1
+      - MLAG Switch A
+  - fqdn: WIWEA01-DC1-LEAF02
+    parentContainerName: WEA Pod 1
+    configlets:
+      - Management Builder_77AD5FFFF6A53ABB9CFAA64207142ABB_1
+      - MLAG Switch B
+  - fqdn: WIWEA01-DC1-LEAF03
+    parentContainerName: WEA Pod 2
+    configlets:
+      - Management Builder_661EFA38AF057517187AFDA542C62A3E_1
+      - MLAG Switch A
+  - fqdn: WIWEA01-DC1-LEAF04
+    parentContainerName: WEA Pod 2
+    configlets:
+      - Management Builder_AFD39B35A4B2C97965B3FB11550680E5_1
+      - MLAG Switch B
