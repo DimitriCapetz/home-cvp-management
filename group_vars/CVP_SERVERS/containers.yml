@@ -17,13 +17,15 @@ CVP_CONTAINERS:
     parentContainerName: Sussex DC
     configlets:
       - Spine Downlinks
+      - SUS VTEP
+      - VXLAN Networks
   SUS Leaves:
     parentContainerName: Sussex DC
     configlets:
       - Leaf Uplinks
   SUS Pod 1:
     parentContainerName: SUS Leaves
-  SUS Pod 2:
+  SUS Pod 3:
     parentContainerName: SUS Leaves
   WEA Cores:
     parentContainerName: Core Network
@@ -31,13 +33,19 @@ CVP_CONTAINERS:
     parentContainerName: West Allis DC
     configlets:
       - Spine Downlinks
+      - WEA VTEP
+      - VXLAN Networks
   WEA Leaves:
     parentContainerName: West Allis DC
     configlets:
       - Leaf Uplinks
   WEA Pod 1:
     parentContainerName: WEA Leaves
+    configlets:
+      - WIWEA01-DC1 Pod 1 Server Ports
   WEA Pod 2:
     parentContainerName: WEA Leaves
+    configlets:
+      - WIWEA01-DC1 Pod 2 Server Ports
   WEA Pod 3:
     parentContainerName: WEA Leaves
