@@ -1,10 +1,10 @@
 ---
 Ports:
-  leaf1-1:
-    Ethernet5:
+  WISUS01-DC1-LEAF03:
+    Ethernet4:
       description: Orphan Port - 1
-      vlans: 10,20,30,40
-  leaf1-2:
-    Ethernet5:
+      vlans: 23,32
+  WISUS01-DC1-LEAF04:
+    Ethernet4:
       description: Orphan Port - 2
-      vlans: 50,60
+      vlans: 23,32

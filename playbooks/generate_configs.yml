@@ -41,7 +41,7 @@
     template: src=../templates/mlags-cfg.j2 dest=../cvp_configlets/{{ item.hostname | regex_replace('-LEAF0','-Pod-') }}-MLAGs.txt
     with_items: "{{ switches.list }}"
 
-#  - name: Configure Orphan Interfaces
-#    when: item.compute == "yes"
-#    template: src=../templates/orphans-cfg.j2 dest=../cvp_configlets/{{ item.hostname }}-Switchports.txt
-#    with_items: "{{ switches.list }}"
+  - name: Configure Orphan Interfaces
+    when: item.compute == "yes"
+    template: src=../templates/orphans-cfg.j2 dest=../cvp_configlets/{{ item.hostname }}-orphan-ports.txt
+    with_items: "{{ switches.list }}"
