@@ -1,51 +1,15 @@
 CVP_CONTAINERS:
-  Core Network:
-    parentContainerName: Home
-  Sussex DC:
+  COs:
     parentContainerName: Home
     configlets:
-      - SUS VLANs
-      - WEA and SUS Extended VLANs
-  West Allis DC:
+      - ANSIBLE_CO-SHARED-CONFIG
+  HEADEND:
     parentContainerName: Home
-    configlets:
-      - WEA VLANs
-      - WEA and SUS Extended VLANs
-  SUS Cores:
-    parentContainerName: Core Network
-  SUS Spines:
-    parentContainerName: Sussex DC
-    configlets:
-      - Spine Downlinks
-      - SUS VTEP
-      - VXLAN Networks
-  SUS Leaves:
-    parentContainerName: Sussex DC
-    configlets:
-      - Leaf Uplinks
-  SUS Pod 1:
-    parentContainerName: SUS Leaves
-  SUS Pod 3:
-    parentContainerName: SUS Leaves
-  WEA Cores:
-    parentContainerName: Core Network
-  WEA Spines:
-    parentContainerName: West Allis DC
-    configlets:
-      - Spine Downlinks
-      - WEA VTEP
-      - VXLAN Networks
-  WEA Leaves:
-    parentContainerName: West Allis DC
-    configlets:
-      - Leaf Uplinks
-  WEA Pod 1:
-    parentContainerName: WEA Leaves
-    configlets:
-      - WIWEA01-DC1 Pod 1 Server Ports
-  WEA Pod 2:
-    parentContainerName: WEA Leaves
-    configlets:
-      - WIWEA01-DC1 Pod 2 Server Ports
-  WEA Pod 3:
-    parentContainerName: WEA Leaves
+  CO-1:
+    parentContainerName: COs
+  CO-2:
+    parentContainerName: COs
+  CO-3:
+    parentContainerName: COs
+  CO-4:
+    parentContainerName: COs

@@ -1,0 +1,39 @@
+vlan 10
+   name Shared_VLAN
+!
+mpls ip
+!
+route-map LOCAL-ROUTES permit 100
+   match ip address prefix-list LOCAL-ROUTES
+!
+router bgp 111
+   no bgp default ipv4-unicast
+   maximum-paths 2
+   neighbor CO peer group
+   neighbor CO remote-as 111
+   neighbor CO update-source Loopback0
+   neighbor CO send-community standard extended
+   neighbor CO maximum-routes 12000
+   redistribute connected route-map LOCAL-ROUTES
+   !
+   vlan 10
+      rd auto
+      route-target both 10:10
+      redistribute learned
+   !
+   address-family evpn
+      neighbor default encapsulation mpls next-hop-self source-interface Loopback0
+      neighbor CO activate
+   !
+   address-family ipv4
+      neighbor CO activate
+!
+router isis 100
+   is-type level-2
+   timers local-convergence-delay protected-prefixes
+   !
+   address-family ipv4 unicast
+      fast-reroute ti-lfa mode node-protection level-2
+   !
+   segment-routing mpls
+      no shutdown

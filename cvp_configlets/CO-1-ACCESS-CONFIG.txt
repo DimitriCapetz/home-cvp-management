@@ -1,0 +1,41 @@
+vlan 10
+   name Shared_VLAN
+!
+vlan 101
+   name CO-1_Data
+!
+vlan 102
+   name CO-1_Video
+!
+vlan 1011
+   name CO-1_L2_Service
+!
+interface Port-Channel1
+   description Uplink to CO-1 Router
+   switchport mode trunk
+!
+interface Ethernet1
+   description Po1 to CO-1 Et3
+   channel-group 1 mode active
+!
+interface Ethernet2
+   description Po1 to CO-1 Et4
+   channel-group 1 mode active
+!
+interface Ethernet3-8
+   description UNUSED
+   shutdown
+!
+interface Vlan10
+   ip address 10.10.10.101/24
+!
+interface Vlan101
+   ip address 100.1.1.101/24
+!
+interface Vlan102
+   ip address 10.1.2.101/24
+!
+interface Vlan1011
+   ip address 10.10.11.101/24
+!
+ip route 0.0.0.0/0 100.1.1.1

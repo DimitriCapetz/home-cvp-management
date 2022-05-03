@@ -1,0 +1,31 @@
+vlan 101
+   name CO-1_Data
+!
+vlan 102
+   name CO-1_Video
+!
+interface Port-Channel1
+   description Uplink to CO-1-ACCESS
+   switchport trunk allowed vlan 10,101,102,1011
+   switchport mode trunk
+!
+interface Ethernet3
+   description Uplink to CO-1-ACCESS Et1
+   channel-group 1 mode active
+!
+interface Ethernet4
+   description Uplink to CO-1-ACCESS Et2
+   channel-group 1 mode active
+!
+interface Ethernet5-8
+   description UNUSED
+   shutdown
+!
+interface Vlan101
+   description CO-1 Data Network
+   ip address 100.1.1.1/24
+!
+interface Vlan102
+   description CO-1 Video Network
+   ip address 10.1.2.1/24
+   pim ipv4 sparse-mode

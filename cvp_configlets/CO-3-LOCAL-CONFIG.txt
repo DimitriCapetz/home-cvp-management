@@ -1,0 +1,36 @@
+vlan 301
+   name CO-3_Data
+!
+vlan 302
+   name CO-3_Video
+!
+interface Port-Channel1
+   description Uplink to CO-3-ACCESS
+   switchport trunk allowed vlan 10,301,302,1013
+   switchport mode trunk
+!
+interface Ethernet3
+   description Uplink to CO-3-ACCESS Et1
+   channel-group 1 mode active
+!
+interface Ethernet4
+   description Uplink to CO-3-ACCESS Et2
+   channel-group 1 mode active
+!
+interface Ethernet5
+   description Uplink to CO-3-DIA Et1
+   switchport trunk allowed vlan 2,10,1011-1012
+   switchport mode trunk
+!
+interface Ethernet6-8
+   description UNUSED
+   shutdown
+!
+interface Vlan301
+   description CO-3 Data Network
+   ip address 100.3.1.1/24
+!
+interface Vlan302
+   description CO-3 Video Network
+   ip address 10.3.2.1/24
+   pim ipv4 sparse-mode
