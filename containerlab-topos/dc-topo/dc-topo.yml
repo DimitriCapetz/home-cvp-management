@@ -24,13 +24,13 @@ topology:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.2
-      startup-config: ./containerlab-topos/dc-topo/configs/SPINE1.cfg
+      startup-config: ./configs/SPINE1.cfg
 
     SPINE2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.3
-      startup-config: ./containerlab-topos/dc-topo/configs/SPINE2.cfg
+      startup-config: ./configs/SPINE2.cfg
 
 #########################
 # LEAF                  #
@@ -40,37 +40,37 @@ topology:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.4
-      startup-config: ./containerlab-topos/dc-topo/configs/LEAF1.cfg
+      startup-config: ./configs/LEAF1.cfg
 
     LEAF2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.5
-      startup-config: ./containerlab-topos/dc-topo/configs/LEAF2.cfg
+      startup-config: ./configs/LEAF2.cfg
 
     LEAF3:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.6
-      startup-config: ./containerlab-topos/dc-topo/configs/LEAF3.cfg
+      startup-config: ./configs/LEAF3.cfg
 
     LEAF4:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.7
-      startup-config: ./containerlab-topos/dc-topo/configs/LEAF4.cfg
+      startup-config: ./configs/LEAF4.cfg
 
     LEAF5:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.8
-      startup-config: ./containerlab-topos/dc-topo/configs/LEAF5.cfg
+      startup-config: ./configs/LEAF5.cfg
 
     LEAF6:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.9
-      startup-config: ./containerlab-topos/dc-topo/configs/LEAF6.cfg
+      startup-config: ./configs/LEAF6.cfg
 
 #########################
 # BORDER                #
@@ -80,13 +80,13 @@ topology:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.10
-      startup-config: ./containerlab-topos/dc-topo/configs/BORDER1.cfg
+      startup-config: ./configs/BORDER1.cfg
 
     BORDER2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.11
-      startup-config: ./containerlab-topos/dc-topo/configs/BORDER2.cfg
+      startup-config: ./configs/BORDER2.cfg
 
 ###########################################
 # HOST                                    #
@@ -96,19 +96,19 @@ topology:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.12
-      startup-config: ./containerlab-topos/dc-topo/configs/HOST1.cfg
+      startup-config: ./configs/HOST1.cfg
 
     HOST2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.13
-      startup-config: ./containerlab-topos/dc-topo/configs/HOST2.cfg
+      startup-config: ./configs/HOST2.cfg
 
     HOST3:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.14
-      startup-config: ./containerlab-topos/dc-topo/configs/HOST3.cfg
+      startup-config: ./configs/HOST3.cfg
 
 ###########################################
 # WAN Simulation                          #
@@ -118,13 +118,13 @@ topology:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.15
-      startup-config: ./containerlab-topos/dc-topo/configs/WAN1.cfg
+      startup-config: ./configs/WAN1.cfg
 
     WAN2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.16
-      startup-config: ./containerlab-topos/dc-topo/configs/WAN2.cfg
+      startup-config: ./configs/WAN2.cfg
 
   links:
 ####################
