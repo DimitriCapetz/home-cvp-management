@@ -31,7 +31,7 @@ topology:
       mgmt_ipv4: 10.99.99.2
       startup-config: ./configs/SPINE1.cfg
       binds:
-        - spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     SPINE2:
       kind: ceos
@@ -39,7 +39,7 @@ topology:
       mgmt_ipv4: 10.99.99.3
       startup-config: ./configs/SPINE2.cfg
       binds:
-        - spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
 #########################
 # LEAF                  #
@@ -51,7 +51,7 @@ topology:
       mgmt_ipv4: 10.99.99.4
       startup-config: ./configs/LEAF1.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF2:
       kind: ceos
@@ -59,7 +59,7 @@ topology:
       mgmt_ipv4: 10.99.99.5
       startup-config: ./configs/LEAF2.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF3:
       kind: ceos
@@ -67,7 +67,7 @@ topology:
       mgmt_ipv4: 10.99.99.6
       startup-config: ./configs/LEAF3.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF4:
       kind: ceos
@@ -75,7 +75,7 @@ topology:
       mgmt_ipv4: 10.99.99.7
       startup-config: ./configs/LEAF4.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF5:
       kind: ceos
@@ -83,7 +83,7 @@ topology:
       mgmt_ipv4: 10.99.99.8
       startup-config: ./configs/LEAF5.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF6:
       kind: ceos
@@ -91,7 +91,7 @@ topology:
       mgmt_ipv4: 10.99.99.9
       startup-config: ./configs/LEAF6.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
 #########################
 # BORDER                #
@@ -103,7 +103,7 @@ topology:
       mgmt_ipv4: 10.99.99.10
       startup-config: ./configs/BORDER1.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     BORDER2:
       kind: ceos
@@ -111,7 +111,7 @@ topology:
       mgmt_ipv4: 10.99.99.11
       startup-config: ./configs/BORDER2.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
 ###########################################
 # HOST                                    #
@@ -123,7 +123,7 @@ topology:
       mgmt_ipv4: 10.99.99.12
       startup-config: ./configs/HOST1.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     HOST2:
       kind: ceos
@@ -131,7 +131,7 @@ topology:
       mgmt_ipv4: 10.99.99.13
       startup-config: ./configs/HOST2.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     HOST3:
       kind: ceos
@@ -139,7 +139,7 @@ topology:
       mgmt_ipv4: 10.99.99.14
       startup-config: ./configs/HOST3.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
 ###########################################
 # WAN Simulation                          #
@@ -151,7 +151,7 @@ topology:
       mgmt_ipv4: 10.99.99.15
       startup-config: ./configs/WAN1.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     WAN2:
       kind: ceos
@@ -159,7 +159,7 @@ topology:
       mgmt_ipv4: 10.99.99.16
       startup-config: ./configs/WAN2.cfg
       binds:
-        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
   links:
 ####################
