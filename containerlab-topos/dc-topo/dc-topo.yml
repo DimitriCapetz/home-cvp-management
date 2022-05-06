@@ -1,28 +1,19 @@
 ---
-# -------------------------------------------------------------
+# -------------------------------------------------------------------
 # Single DC Topology with external Core L3 Device
-# Can be reconfigured to L2 or L3
-# -------------------------------------------------------------
+# 2 Spines, 6 Leaves with 1 Host Each, 2 Borders with "external" WANs
+# Reconfigurable between L2LS and L3LS
+# -------------------------------------------------------------------
 
-name: atd-dc
-prefix: ""
+name: dc-topo
 
 mgmt:
-  network: mgmt
-  ipv4_subnet: 172.100.100.0/24
+  network: clab_mgmt
+  bridge: br0
+  ipv4_subnet: 10.99.99.0/24
+  ipv4-gw: 10.99.99.1
 
 topology:
-
-  defaults:
-    env:
-      INTFTYPE: et
-
-  kinds:
-    ceos:
-      image: ceos:4.28.0F
-    linux:
-      image: mitchv85/ohv-host
-
   nodes: 
 
 #########################
@@ -31,13 +22,15 @@ topology:
 
     SPINE1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.2
       startup-config: ./containerlab-topos/dc-topo/configs/SPINE1.cfg
 
     SPINE2:
       kind: ceos
-      mgmt_ipv4: 172.100.100.102
-      startup-config: ./clab-topos/atd-dc/configs/SPINE2.cfg
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.3
+      startup-config: ./containerlab-topos/dc-topo/configs/SPINE2.cfg
 
 #########################
 # LEAF                  #
@@ -45,27 +38,55 @@ topology:
 
     LEAF1:
       kind: ceos
-      mgmt_ipv4: 172.100.100.103
-      startup-config: ./clab-topos/atd-dc/configs/LEAF1.cfg
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.4
+      startup-config: ./containerlab-topos/dc-topo/configs/LEAF1.cfg
 
     LEAF2:
       kind: ceos
-      mgmt_ipv4: 172.100.100.104
-      startup-config: ./clab-topos/atd-dc/configs/LEAF2.cfg
-      ports:
-        - '22004:22'
-        - '8004:80'
-        - '44304:443'
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.5
+      startup-config: ./containerlab-topos/dc-topo/configs/LEAF2.cfg
 
     LEAF3:
       kind: ceos
-      mgmt_ipv4: 172.100.100.105
-      startup-config: ./clab-topos/atd-dc/configs/LEAF3.cfg
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.6
+      startup-config: ./containerlab-topos/dc-topo/configs/LEAF3.cfg
 
     LEAF4:
       kind: ceos
-      mgmt_ipv4: 172.100.100.106
-      startup-config: ./clab-topos/atd-dc/configs/LEAF4.cfg
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.7
+      startup-config: ./containerlab-topos/dc-topo/configs/LEAF4.cfg
+
+    LEAF5:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.8
+      startup-config: ./containerlab-topos/dc-topo/configs/LEAF5.cfg
+
+    LEAF6:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.9
+      startup-config: ./containerlab-topos/dc-topo/configs/LEAF6.cfg
+
+#########################
+# BORDER                #
+#########################
+
+    BORDER1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.10
+      startup-config: ./containerlab-topos/dc-topo/configs/BORDER1.cfg
+
+    BORDER2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.11
+      startup-config: ./containerlab-topos/dc-topo/configs/BORDER2.cfg
 
 ###########################################
 # HOST                                    #
@@ -73,55 +94,103 @@ topology:
 
     HOST1:
       kind: ceos
-      mgmt_ipv4: 172.100.100.107
-      startup-config: ./clab-topos/atd-dc/configs/HOST1.cfg
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.12
+      startup-config: ./containerlab-topos/dc-topo/configs/HOST1.cfg
 
     HOST2:
       kind: ceos
-      mgmt_ipv4: 172.100.100.108
-      startup-config: ./clab-topos/atd-dc/configs/HOST2.cfg
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.13
+      startup-config: ./containerlab-topos/dc-topo/configs/HOST2.cfg
+
+    HOST3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.14
+      startup-config: ./containerlab-topos/dc-topo/configs/HOST3.cfg
+
+###########################################
+# WAN Simulation                          #
+###########################################
+
+    WAN1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.15
+      startup-config: ./containerlab-topos/dc-topo/configs/WAN1.cfg
+
+    WAN2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.16
+      startup-config: ./containerlab-topos/dc-topo/configs/WAN2.cfg
 
   links:
 ####################
 # SPINE1 to LEAF   #
 ####################
-    - endpoints: ["SPINE1:et2", "LEAF1:et2"]
-    - endpoints: ["SPINE1:et3", "LEAF2:et2"]
-    - endpoints: ["SPINE1:et4", "LEAF3:et2"]
-    - endpoints: ["SPINE1:et5", "LEAF4:et2"]
+    - endpoints: ["SPINE1:eth1", "LEAF1:eth1"]
+    - endpoints: ["SPINE1:eth2", "LEAF2:eth1"]
+    - endpoints: ["SPINE1:eth3", "LEAF3:eth1"]
+    - endpoints: ["SPINE1:eth4", "LEAF4:eth1"]
+    - endpoints: ["SPINE1:eth5", "LEAF5:eth1"]
+    - endpoints: ["SPINE1:eth6", "LEAF6:eth1"]
+    - endpoints: ["SPINE1:eth7", "BORDER1:eth1"]
+    - endpoints: ["SPINE1:eth8", "BORDER2:eth1"]
 ####################
 # SPINE2 to LEAF   #
 ####################
-    - endpoints: ["SPINE2:et2", "LEAF1:et3"]
-    - endpoints: ["SPINE2:et3", "LEAF2:et3"]
-    - endpoints: ["SPINE2:et4", "LEAF3:et3"]
-    - endpoints: ["SPINE2:et5", "LEAF4:et3"]
+    - endpoints: ["SPINE2:eth1", "LEAF1:eth2"]
+    - endpoints: ["SPINE2:eth2", "LEAF2:eth2"]
+    - endpoints: ["SPINE2:eth3", "LEAF3:eth2"]
+    - endpoints: ["SPINE2:eth4", "LEAF4:eth2"]
+    - endpoints: ["SPINE2:eth5", "LEAF5:eth2"]
+    - endpoints: ["SPINE2:eth6", "LEAF6:eth2"]
+    - endpoints: ["SPINE2:eth7", "BORDER1:eth2"]
+    - endpoints: ["SPINE2:eth8", "BORDER2:eth2"]
 ####################
 # SPINE1 to SPINE2 #
 ####################
-    - endpoints: ["SPINE1:et1", "SPINE2:et1"]
-    - endpoints: ["SPINE1:et6", "SPINE2:et6"]
+    - endpoints: ["SPINE1:eth9", "SPINE2:eth9"]
+    - endpoints: ["SPINE1:eth10", "SPINE2:eth10"]
 ####################
 # LEAF1 to LEAF2   #
 ####################
-    - endpoints: ["LEAF1:et1", "LEAF2:et1"]
-    - endpoints: ["LEAF1:et6", "LEAF2:et6"]
+    - endpoints: ["LEAF1:eth9", "LEAF2:eth9"]
+    - endpoints: ["LEAF1:eth10", "LEAF2:eth10"]
 ####################
 # HOST1            #
 ####################
-    - endpoints: ["HOST1:et1", "LEAF1:et4"]
-    - endpoints: ["HOST1:et3", "LEAF1:et5"]
-    - endpoints: ["HOST1:et2", "LEAF2:et4"]
-    - endpoints: ["HOST1:et4", "LEAF2:et5"]
+    - endpoints: ["HOST1:eth1", "LEAF1:eth5"]
+    - endpoints: ["HOST1:eth2", "LEAF2:eth5"]
 ####################
 # LEAF3 to LEAF4   #
 ####################
-    - endpoints: ["LEAF3:et1", "LEAF4:et1"]
-    - endpoints: ["LEAF3:et6", "LEAF4:et6"]
+    - endpoints: ["LEAF3:eth9", "LEAF4:eth9"]
+    - endpoints: ["LEAF3:eth10", "LEAF4:eth10"]
 ####################
 # HOST2            #
 ####################
-    - endpoints: ["HOST2:et1", "LEAF3:et4"]
-    - endpoints: ["HOST2:et3", "LEAF3:et5"]
-    - endpoints: ["HOST2:et2", "LEAF4:et4"]
-    - endpoints: ["HOST2:et4", "LEAF4:et5"]
+    - endpoints: ["HOST2:eth1", "LEAF3:eth5"]
+    - endpoints: ["HOST2:eth2", "LEAF4:eth5"]
+####################
+# LEAF5 to LEAF6   #
+####################
+    - endpoints: ["LEAF5:eth9", "LEAF6:eth9"]
+    - endpoints: ["LEAF5:eth10", "LEAF6:eth10"]
+####################
+# HOST3            #
+####################
+    - endpoints: ["HOST3:eth1", "LEAF5:eth5"]
+    - endpoints: ["HOST3:eth2", "LEAF6:eth5"]
+########################
+# BORDER1 to BORDER2   #
+########################
+    - endpoints: ["BORDER1:eth9", "BORDER2:eth9"]
+    - endpoints: ["BORDER1:eth10", "BORDER2:eth10"]
+######################
+# WAN Sim            #
+######################
+    - endpoints: ["WAN1:eth1", "BORDER1:eth5"]
+    - endpoints: ["WAN2:eth1", "BORDER2:eth5"]
