@@ -14,6 +14,11 @@ mgmt:
   ipv4-gw: 10.99.99.1
 
 topology:
+
+  defaults:
+    env:
+      INTFTYPE: et
+
   nodes: 
 
 #########################
@@ -25,12 +30,16 @@ topology:
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.2
       startup-config: ./configs/SPINE1.cfg
+      binds:
+        - spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     SPINE2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.3
       startup-config: ./configs/SPINE2.cfg
+      binds:
+        - spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
 #########################
 # LEAF                  #
@@ -41,36 +50,48 @@ topology:
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.4
       startup-config: ./configs/LEAF1.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.5
       startup-config: ./configs/LEAF2.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF3:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.6
       startup-config: ./configs/LEAF3.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF4:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.7
       startup-config: ./configs/LEAF4.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF5:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.8
       startup-config: ./configs/LEAF5.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     LEAF6:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.9
       startup-config: ./configs/LEAF6.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
 #########################
 # BORDER                #
@@ -81,12 +102,16 @@ topology:
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.10
       startup-config: ./configs/BORDER1.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     BORDER2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.11
       startup-config: ./configs/BORDER2.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
 ###########################################
 # HOST                                    #
@@ -97,18 +122,24 @@ topology:
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.12
       startup-config: ./configs/HOST1.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     HOST2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.13
       startup-config: ./configs/HOST2.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     HOST3:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.14
       startup-config: ./configs/HOST3.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
 ###########################################
 # WAN Simulation                          #
@@ -119,78 +150,82 @@ topology:
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.15
       startup-config: ./configs/WAN1.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
     WAN2:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.16
       startup-config: ./configs/WAN2.cfg
+      binds:
+        - leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
   links:
 ####################
 # SPINE1 to LEAF   #
 ####################
-    - endpoints: ["SPINE1:eth1", "LEAF1:eth1"]
-    - endpoints: ["SPINE1:eth2", "LEAF2:eth1"]
-    - endpoints: ["SPINE1:eth3", "LEAF3:eth1"]
-    - endpoints: ["SPINE1:eth4", "LEAF4:eth1"]
-    - endpoints: ["SPINE1:eth5", "LEAF5:eth1"]
-    - endpoints: ["SPINE1:eth6", "LEAF6:eth1"]
-    - endpoints: ["SPINE1:eth7", "BORDER1:eth1"]
-    - endpoints: ["SPINE1:eth8", "BORDER2:eth1"]
+    - endpoints: ["SPINE1:et1", "LEAF1:et3"]
+    - endpoints: ["SPINE1:et2", "LEAF2:et3"]
+    - endpoints: ["SPINE1:et3", "LEAF3:et3"]
+    - endpoints: ["SPINE1:et4", "LEAF4:et3"]
+    - endpoints: ["SPINE1:et5", "LEAF5:et3"]
+    - endpoints: ["SPINE1:et6", "LEAF6:et3"]
+    - endpoints: ["SPINE1:et7", "BORDER1:et3"]
+    - endpoints: ["SPINE1:et8", "BORDER2:et3"]
 ####################
 # SPINE2 to LEAF   #
 ####################
-    - endpoints: ["SPINE2:eth1", "LEAF1:eth2"]
-    - endpoints: ["SPINE2:eth2", "LEAF2:eth2"]
-    - endpoints: ["SPINE2:eth3", "LEAF3:eth2"]
-    - endpoints: ["SPINE2:eth4", "LEAF4:eth2"]
-    - endpoints: ["SPINE2:eth5", "LEAF5:eth2"]
-    - endpoints: ["SPINE2:eth6", "LEAF6:eth2"]
-    - endpoints: ["SPINE2:eth7", "BORDER1:eth2"]
-    - endpoints: ["SPINE2:eth8", "BORDER2:eth2"]
+    - endpoints: ["SPINE2:et1", "LEAF1:et4"]
+    - endpoints: ["SPINE2:et2", "LEAF2:et4"]
+    - endpoints: ["SPINE2:et3", "LEAF3:et4"]
+    - endpoints: ["SPINE2:et4", "LEAF4:et4"]
+    - endpoints: ["SPINE2:et5", "LEAF5:et4"]
+    - endpoints: ["SPINE2:et6", "LEAF6:et4"]
+    - endpoints: ["SPINE2:et7", "BORDER1:et4"]
+    - endpoints: ["SPINE2:et8", "BORDER2:et4"]
 ####################
 # SPINE1 to SPINE2 #
 ####################
-    - endpoints: ["SPINE1:eth9", "SPINE2:eth9"]
-    - endpoints: ["SPINE1:eth10", "SPINE2:eth10"]
+    - endpoints: ["SPINE1:et9", "SPINE2:et9"]
+    - endpoints: ["SPINE1:et10", "SPINE2:et10"]
 ####################
 # LEAF1 to LEAF2   #
 ####################
-    - endpoints: ["LEAF1:eth9", "LEAF2:eth9"]
-    - endpoints: ["LEAF1:eth10", "LEAF2:eth10"]
+    - endpoints: ["LEAF1:et9", "LEAF2:et9"]
+    - endpoints: ["LEAF1:et10", "LEAF2:et10"]
 ####################
 # HOST1            #
 ####################
-    - endpoints: ["HOST1:eth1", "LEAF1:eth5"]
-    - endpoints: ["HOST1:eth2", "LEAF2:eth5"]
+    - endpoints: ["HOST1:et1", "LEAF1:et1"]
+    - endpoints: ["HOST1:et2", "LEAF2:et1"]
 ####################
 # LEAF3 to LEAF4   #
 ####################
-    - endpoints: ["LEAF3:eth9", "LEAF4:eth9"]
-    - endpoints: ["LEAF3:eth10", "LEAF4:eth10"]
+    - endpoints: ["LEAF3:et9", "LEAF4:et9"]
+    - endpoints: ["LEAF3:et10", "LEAF4:et10"]
 ####################
 # HOST2            #
 ####################
-    - endpoints: ["HOST2:eth1", "LEAF3:eth5"]
-    - endpoints: ["HOST2:eth2", "LEAF4:eth5"]
+    - endpoints: ["HOST2:et1", "LEAF3:et1"]
+    - endpoints: ["HOST2:et2", "LEAF4:et1"]
 ####################
 # LEAF5 to LEAF6   #
 ####################
-    - endpoints: ["LEAF5:eth9", "LEAF6:eth9"]
-    - endpoints: ["LEAF5:eth10", "LEAF6:eth10"]
+    - endpoints: ["LEAF5:et9", "LEAF6:et9"]
+    - endpoints: ["LEAF5:et10", "LEAF6:et10"]
 ####################
 # HOST3            #
 ####################
-    - endpoints: ["HOST3:eth1", "LEAF5:eth5"]
-    - endpoints: ["HOST3:eth2", "LEAF6:eth5"]
+    - endpoints: ["HOST3:et1", "LEAF5:et1"]
+    - endpoints: ["HOST3:et2", "LEAF6:et1"]
 ########################
 # BORDER1 to BORDER2   #
 ########################
-    - endpoints: ["BORDER1:eth9", "BORDER2:eth9"]
-    - endpoints: ["BORDER1:eth10", "BORDER2:eth10"]
+    - endpoints: ["BORDER1:et9", "BORDER2:et9"]
+    - endpoints: ["BORDER1:et10", "BORDER2:et10"]
 ######################
 # WAN Sim            #
 ######################
-    - endpoints: ["WAN1:eth1", "BORDER1:eth5"]
-    - endpoints: ["WAN2:eth1", "BORDER2:eth5"]
+    - endpoints: ["WAN1:et1", "BORDER1:et1"]
+    - endpoints: ["WAN2:et1", "BORDER2:et1"]
