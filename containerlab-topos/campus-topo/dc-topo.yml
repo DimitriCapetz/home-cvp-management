@@ -1,0 +1,310 @@
+---
+# --------------------------------------------------------------------------
+# Single Campus Topology with external Core L3 Device
+# 2 Spines, 3 Campus Pods with 2 Splines and 3 Leaves with 1 Host per Closet
+# "external" WANs Connected to Spines
+# Reconfigurable between L2LS and L3LS
+# --------------------------------------------------------------------------
+
+name: campus-topo
+prefix: ""
+
+mgmt:
+  network: clab_mgmt
+  bridge: br0
+  ipv4_subnet: 10.99.99.0/24
+  ipv4-gw: 10.99.99.1
+
+topology:
+
+  nodes: 
+
+#########################
+# CAMPUS-SPINE          #
+#########################
+
+    CAMPUS-SPINE1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.17
+      startup-config: ./configs/CAMPUS-SPINE1.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-SPINE2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.18
+      startup-config: ./configs/CAMPUS-SPINE2.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+#########################
+# CAMPUS-SPLINE         #
+#########################
+
+    CAMPUS-C1-SPLINE1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.19
+      startup-config: ./configs/CAMPUS-C1-SPLINE1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C1-SPLINE2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.20
+      startup-config: ./configs/CAMPUS-C1-SPLINE2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C2-SPLINE1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.21
+      startup-config: ./configs/CAMPUS-C2-SPLINE1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C2-SPLINE2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.22
+      startup-config: ./configs/CAMPUS-C2-SPLINE2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C3-SPLINE1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.23
+      startup-config: ./configs/CAMPUS-C3-SPLINE1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C3-SPLINE2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.24
+      startup-config: ./configs/CAMPUS-C3-SPLINE2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+#########################
+# CAMPUS-LEAF           #
+#########################
+
+    CAMPUS-C1-LEAF1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.25
+      startup-config: ./configs/CAMPUS-C1-LEAF1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C1-LEAF2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.26
+      startup-config: ./configs/CAMPUS-C1-LEAF2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C1-LEAF3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.27
+      startup-config: ./configs/CAMPUS-C1-LEAF3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+  
+    CAMPUS-C2-LEAF1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.28
+      startup-config: ./configs/CAMPUS-C2-LEAF1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C2-LEAF2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.29
+      startup-config: ./configs/CAMPUS-C2-LEAF2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C2-LEAF3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.30
+      startup-config: ./configs/CAMPUS-C2-LEAF3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+  
+    CAMPUS-C3-LEAF1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.31
+      startup-config: ./configs/CAMPUS-C3-LEAF1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C3-LEAF2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.32
+      startup-config: ./configs/CAMPUS-C3-LEAF2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C3-LEAF3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.33
+      startup-config: ./configs/CAMPUS-C3-LEAF3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+###########################################
+# HOST                                    #
+###########################################
+
+    CAMPUS-C1-HOST1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.34
+      startup-config: ./configs/CAMPUS-C1-HOST1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C2-HOST2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.35
+      startup-config: ./configs/CAMPUS-C2-HOST2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-C1-HOST3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.36
+      startup-config: ./configs/CAMPUS-C3-HOST3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+###########################################
+# WAN Simulation                          #
+###########################################
+
+    CAMPUS-WAN1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.37
+      startup-config: ./configs/CAMPUS-WAN1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    CAMPUS-WAN2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.38
+      startup-config: ./configs/CAMPUS-WAN2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+  links:
+####################
+# SPINE1 to SPLINE #
+####################
+    - endpoints: ["CAMPUS-SPINE1:eth3", "CAMPUS-C1-SPLINE1:eth5"]
+    - endpoints: ["CAMPUS-SPINE1:eth4", "CAMPUS-C1-SPLINE2:eth5"]
+    - endpoints: ["CAMPUS-SPINE1:eth5", "CAMPUS-C2-SPLINE1:eth5"]
+    - endpoints: ["CAMPUS-SPINE1:eth6", "CAMPUS-C2-SPLINE2:eth5"]
+    - endpoints: ["CAMPUS-SPINE1:eth7", "CAMPUS-C3-SPLINE1:eth5"]
+    - endpoints: ["CAMPUS-SPINE1:eth8", "CAMPUS-C3-SPLINE2:eth5"]
+####################
+# SPINE2 to SPLINE #
+####################
+    - endpoints: ["CAMPUS-SPINE2:eth3", "CAMPUS-C1-SPLINE1:eth6"]
+    - endpoints: ["CAMPUS-SPINE2:eth4", "CAMPUS-C1-SPLINE2:eth6"]
+    - endpoints: ["CAMPUS-SPINE2:eth5", "CAMPUS-C2-SPLINE1:eth6"]
+    - endpoints: ["CAMPUS-SPINE2:eth6", "CAMPUS-C2-SPLINE2:eth6"]
+    - endpoints: ["CAMPUS-SPINE2:eth7", "CAMPUS-C3-SPLINE1:eth6"]
+    - endpoints: ["CAMPUS-SPINE2:eth8", "CAMPUS-C3-SPLINE2:eth6"]
+####################
+# SPINE1 to SPINE2 #
+####################
+    - endpoints: ["CAMPUS-SPINE1:eth9", "CAMPUS-SPINE2:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth10", "CAMPUS-SPINE2:eth10"]
+###########################
+# C1 SPLINE1 to SPLINE2   #
+###########################
+    - endpoints: ["CAMPUS-C1-SPLINE1:eth3", "CAMPUS-C1-SPLINE2:eth3"]
+    - endpoints: ["CAMPUS-C1-SPLINE1:eth4", "CAMPUS-C1-SPLINE2:eth4"]
+###########################
+# C2 SPLINE1 to SPLINE2   #
+###########################
+    - endpoints: ["CAMPUS-C2-SPLINE1:eth3", "CAMPUS-C2-SPLINE2:eth3"]
+    - endpoints: ["CAMPUS-C2-SPLINE1:eth4", "CAMPUS-C2-SPLINE2:eth4"]
+###########################
+# C3 SPLINE1 to SPLINE2   #
+###########################
+    - endpoints: ["CAMPUS-C3-SPLINE1:eth3", "CAMPUS-C3-SPLINE2:eth3"]
+    - endpoints: ["CAMPUS-C3-SPLINE1:eth4", "CAMPUS-C3-SPLINE2:eth4"]
+###########################
+# C1 SPLINE1 to LEAFS     #
+###########################
+    - endpoints: ["CAMPUS-C1-SPLINE1:eth7", "CAMPUS-C1-LEAF1:eth5"]
+    - endpoints: ["CAMPUS-C1-SPLINE1:eth8", "CAMPUS-C1-LEAF2:eth5"]
+    - endpoints: ["CAMPUS-C1-SPLINE1:eth9", "CAMPUS-C1-LEAF3:eth5"]
+###########################
+# C1 SPLINE2 to LEAFS     #
+###########################
+    - endpoints: ["CAMPUS-C1-SPLINE2:eth7", "CAMPUS-C1-LEAF1:eth6"]
+    - endpoints: ["CAMPUS-C1-SPLINE2:eth8", "CAMPUS-C1-LEAF2:eth6"]
+    - endpoints: ["CAMPUS-C1-SPLINE2:eth9", "CAMPUS-C1-LEAF3:eth6"]
+###########################
+# C2 SPLINE1 to LEAFS     #
+###########################
+    - endpoints: ["CAMPUS-C2-SPLINE1:eth7", "CAMPUS-C2-LEAF1:eth5"]
+    - endpoints: ["CAMPUS-C2-SPLINE1:eth8", "CAMPUS-C2-LEAF2:eth5"]
+    - endpoints: ["CAMPUS-C2-SPLINE1:eth9", "CAMPUS-C2-LEAF3:eth5"]
+###########################
+# C2 SPLINE2 to LEAFS     #
+###########################
+    - endpoints: ["CAMPUS-C2-SPLINE2:eth7", "CAMPUS-C2-LEAF1:eth6"]
+    - endpoints: ["CAMPUS-C2-SPLINE2:eth8", "CAMPUS-C2-LEAF2:eth6"]
+    - endpoints: ["CAMPUS-C2-SPLINE2:eth9", "CAMPUS-C2-LEAF3:eth6"]
+###########################
+# C3 SPLINE1 to LEAFS     #
+###########################
+    - endpoints: ["CAMPUS-C3-SPLINE1:eth7", "CAMPUS-C3-LEAF1:eth5"]
+    - endpoints: ["CAMPUS-C3-SPLINE1:eth8", "CAMPUS-C3-LEAF2:eth5"]
+    - endpoints: ["CAMPUS-C3-SPLINE1:eth9", "CAMPUS-C3-LEAF3:eth5"]
+###########################
+# C3 SPLINE2 to LEAFS     #
+###########################
+    - endpoints: ["CAMPUS-C3-SPLINE2:eth7", "CAMPUS-C3-LEAF1:eth6"]
+    - endpoints: ["CAMPUS-C3-SPLINE2:eth8", "CAMPUS-C3-LEAF2:eth6"]
+    - endpoints: ["CAMPUS-C3-SPLINE2:eth9", "CAMPUS-C3-LEAF3:eth6"]
+####################
+# HOST1            #
+####################
+    - endpoints: ["CAMPUS-C1-HOST1:eth1", "CAMPUS-C1-LEAF1:eth1"]
+####################
+# HOST2            #
+####################
+    - endpoints: ["CAMPUS-C2-HOST2:eth1", "CAMPUS-C2-LEAF2:eth1"]
+####################
+# HOST3            #
+####################
+    - endpoints: ["CAMPUS-C3-HOST3:eth1", "CAMPUS-C3-SPLINE1:eth1"]
+    - endpoints: ["CAMPUS-C3-HOST3:eth2", "CAMPUS-C3-SPLINE2:eth1"]
+######################
+# WAN Sim            #
+######################
+    - endpoints: ["CAMPUS-WAN1:eth1", "CAMPUS-SPINE1:eth1"]
+    - endpoints: ["CAMPUS-WAN2:eth1", "CAMPUS-SPINE2:eth1"]
