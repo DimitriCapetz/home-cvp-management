@@ -1,25 +1,41 @@
 CVP_DEVICES:
-  - fqdn: CO-1
-    parentContainerName: CO-1
+  - fqdn: SPINE1
+    parentContainerName: Spines
     configlets:
-      - ANSIBLE_CO-1-BASE
-      - ANSIBLE_CO-1-LOCAL-CONFIG
-      - ANSIBLE_CO-1-ROUTING
-  - fqdn: CO-2
-    parentContainerName: CO-2
+      - clab_SPINE1-BASE
+  - fqdn: SPINE2
+    parentContainerName: Spines
     configlets:
-      - ANSIBLE_CO-2-BASE
-      - ANSIBLE_CO-2-LOCAL-CONFIG
-      - ANSIBLE_CO-2-ROUTING
-  - fqdn: CO-3
-    parentContainerName: CO-3
+      - clab_SPINE2-BASE
+  - fqdn: BORDER1
+    parentContainerName: Border Leaves
     configlets:
-      - ANSIBLE_CO-3-BASE
-      - ANSIBLE_CO-3-LOCAL-CONFIG
-      - ANSIBLE_CO-3-ROUTING
-  - fqdn: CO-4
-    parentContainerName: CO-4
+      - clab_BORDER1-BASE
+  - fqdn: BORDER2
+    parentContainerName: Border Leaves
     configlets:
-      - ANSIBLE_CO-4-BASE
-      - ANSIBLE_CO-4-LOCAL-CONFIG
-      - ANSIBLE_CO-4-ROUTING
+      - clab_BORDER2-BASE
+  - fqdn: LEAF1
+    parentContainerName: Compute Pod 1
+    configlets:
+      - clab_LEAF1-BASE
+  - fqdn: LEAF2
+    parentContainerName: Compute Pod 1
+    configlets:
+      - clab_LEAF2-BASE
+  - fqdn: LEAF3
+    parentContainerName: Compute Pod 2
+    configlets:
+      - clab_LEAF3-BASE
+  - fqdn: LEAF4
+    parentContainerName: Compute Pod 2
+    configlets:
+      - clab_LEAF4-BASE
+  - fqdn: LEAF5
+    parentContainerName: Compute Pod 3
+    configlets:
+      - clab_LEAF5-BASE
+  - fqdn: LEAF6
+    parentContainerName: Compute Pod 3
+    configlets:
+      - clab_LEAF6-BASE

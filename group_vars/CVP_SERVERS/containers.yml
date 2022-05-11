@@ -1,15 +1,17 @@
 CVP_CONTAINERS:
-  COs:
+  Spines:
     parentContainerName: Home
-    configlets:
-      - ANSIBLE_CO-SHARED-CONFIG
-  HEADEND:
+#    configlets:
+#      - ANSIBLE_CO-SHARED-CONFIG
+  Leaves:
     parentContainerName: Home
-  CO-1:
-    parentContainerName: COs
-  CO-2:
-    parentContainerName: COs
-  CO-3:
-    parentContainerName: COs
-  CO-4:
-    parentContainerName: COs
+  Border Leaves:
+    parentContainerName: Leaves
+  Compute Leaves:
+    parentContainerName: Leaves
+  Compute Pod 1:
+    parentContainerName: Compute Leaves
+  Compute Pod 2:
+    parentContainerName: Compute Leaves
+  Compute Pod 3:
+    parentContainerName: Compute Leaves
