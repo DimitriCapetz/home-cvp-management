@@ -1,18 +1,18 @@
 !
-! Base Config for SPINE1
+! Base Config for LEAF1
 !
 daemon TerminAttr
    exec /usr/bin/TerminAttr -ingestgrpcurl=10.112.112.2:9910 -taillogs -ingestauth=key,h0m3k3y -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=management
    no shutdown
 !
-hostname SPINE1
+hostname LEAF1
 !
 vrf instance management
 !
 interface Management1
    description OOB Management Interface
    vrf management
-   ip address 10.99.99.2/24
+   ip address 10.99.99.4/24
    no lldp transmit
    no lldp receive
 !
