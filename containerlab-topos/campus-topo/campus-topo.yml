@@ -187,7 +187,7 @@ topology:
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
-    CAMPUS-C1-HOST3:
+    CAMPUS-C3-HOST3:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.36
