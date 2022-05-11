@@ -1,41 +1,42 @@
 CVP_DEVICES:
-  - fqdn: SPINE1
-    parentContainerName: Spines
-    configlets:
-      - clab_SPINE1-BASE
-  - fqdn: SPINE2
-    parentContainerName: Spines
-    configlets:
-      - clab_SPINE2-BASE
-  - fqdn: BORDER1
-    parentContainerName: Border Leaves
-    configlets:
-      - clab_BORDER1-BASE
-  - fqdn: BORDER2
-    parentContainerName: Border Leaves
-    configlets:
-      - clab_BORDER2-BASE
-  - fqdn: LEAF1
-    parentContainerName: Compute Pod 1
-    configlets:
-      - clab_LEAF1-BASE
-  - fqdn: LEAF2
-    parentContainerName: Compute Pod 1
-    configlets:
-      - clab_LEAF2-BASE
-  - fqdn: LEAF3
-    parentContainerName: Compute Pod 2
-    configlets:
-      - clab_LEAF3-BASE
-  - fqdn: LEAF4
-    parentContainerName: Compute Pod 2
-    configlets:
-      - clab_LEAF4-BASE
-  - fqdn: LEAF5
-    parentContainerName: Compute Pod 3
-    configlets:
-      - clab_LEAF5-BASE
-  - fqdn: LEAF6
-    parentContainerName: Compute Pod 3
-    configlets:
-      - clab_LEAF6-BASE
+# Single DC Topology
+#  - fqdn: SPINE1
+#    parentContainerName: Spines
+#    configlets:
+#      - clab_SPINE1-BASE
+#  - fqdn: SPINE2
+#    parentContainerName: Spines
+#    configlets:
+#      - clab_SPINE2-BASE
+#  - fqdn: BORDER1
+#    parentContainerName: Border Leaves
+#    configlets:
+#      - clab_BORDER1-BASE
+#  - fqdn: BORDER2
+#    parentContainerName: Border Leaves
+#    configlets:
+#      - clab_BORDER2-BASE
+#  - fqdn: LEAF1
+#    parentContainerName: Compute Pod 1
+#    configlets:
+#      - clab_LEAF1-BASE
+#  - fqdn: LEAF2
+#    parentContainerName: Compute Pod 1
+#    configlets:
+#      - clab_LEAF2-BASE
+#  - fqdn: LEAF3
+#    parentContainerName: Compute Pod 2
+#    configlets:
+#      - clab_LEAF3-BASE
+#  - fqdn: LEAF4
+#    parentContainerName: Compute Pod 2
+#    configlets:
+#      - clab_LEAF4-BASE
+#  - fqdn: LEAF5
+#    parentContainerName: Compute Pod 3
+#    configlets:
+#      - clab_LEAF5-BASE
+#  - fqdn: LEAF6
+#    parentContainerName: Compute Pod 3
+#    configlets:
+#      - clab_LEAF6-BASE
