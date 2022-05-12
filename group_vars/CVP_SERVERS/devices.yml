@@ -3,54 +3,54 @@ CVP_DEVICES:
   - fqdn: SPINE1
     parentContainerName: Spines
     configlets:
-      - clab_SPINE1-BASE
-      - clab_SPINE-MLAG-SIDE-A
+      - clab_DC-SPINE1-BASE
+      - clab_DC-SPINE-MLAG-SIDE-A
       - clab_DC-SPINE1-CONFIG
   - fqdn: SPINE2
     parentContainerName: Spines
     configlets:
-      - clab_SPINE2-BASE
-      - clab_SPINE-MLAG-SIDE-B
+      - clab_DC-SPINE2-BASE
+      - clab_DC-SPINE-MLAG-SIDE-B
       - clab_DC-SPINE2-CONFIG
   - fqdn: BORDER1
     parentContainerName: Border Leaves
     configlets:
-      - clab_BORDER1-BASE
-      - clab_LEAF-MLAG-SIDE-A
+      - clab_DC-BORDER1-BASE
+      - clab_DC-LEAF-MLAG-SIDE-A
       - clab_DC-BORDER1-CONFIG
   - fqdn: BORDER2
     parentContainerName: Border Leaves
     configlets:
-      - clab_BORDER2-BASE
-      - clab_LEAF-MLAG-SIDE-B
+      - clab_DC-BORDER2-BASE
+      - clab_DC-LEAF-MLAG-SIDE-B
       - clab_DC-BORDER2-CONFIG
   - fqdn: LEAF1
     parentContainerName: Compute Pod 1
     configlets:
-      - clab_LEAF1-BASE
-      - clab_LEAF-MLAG-SIDE-A
+      - clab_DC-LEAF1-BASE
+      - clab_DC-LEAF-MLAG-SIDE-A
   - fqdn: LEAF2
     parentContainerName: Compute Pod 1
     configlets:
-      - clab_LEAF2-BASE
-      - clab_LEAF-MLAG-SIDE-B
+      - clab_DC-LEAF2-BASE
+      - clab_DC-LEAF-MLAG-SIDE-B
   - fqdn: LEAF3
     parentContainerName: Compute Pod 2
     configlets:
-      - clab_LEAF3-BASE
-      - clab_LEAF-MLAG-SIDE-A
+      - clab_DC-LEAF3-BASE
+      - clab_DC-LEAF-MLAG-SIDE-A
   - fqdn: LEAF4
     parentContainerName: Compute Pod 2
     configlets:
-      - clab_LEAF4-BASE
-      - clab_LEAF-MLAG-SIDE-B
+      - clab_DC-LEAF4-BASE
+      - clab_DC-LEAF-MLAG-SIDE-B
   - fqdn: LEAF5
     parentContainerName: Compute Pod 3
     configlets:
-      - clab_LEAF5-BASE
-      - clab_LEAF-MLAG-SIDE-A
+      - clab_DC-LEAF5-BASE
+      - clab_DC-LEAF-MLAG-SIDE-A
   - fqdn: LEAF6
     parentContainerName: Compute Pod 3
     configlets:
-      - clab_LEAF6-BASE
-      - clab_LEAF-MLAG-SIDE-B
+      - clab_DC-LEAF6-BASE
+      - clab_DC-LEAF-MLAG-SIDE-B
