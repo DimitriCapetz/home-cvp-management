@@ -3,7 +3,7 @@ from cvprac.cvp_client import CvpClient
 topo = input("Which Topo to decom? ")
 
 if topo == "DC":
-    containerList = ["Compute Pod 1", "Compute Pod 2", "Compute Pod 3", "Compute Leaves", "Border Leaves", "Leaves", "Spines"]
+    containerList = ["Compute Pod 1", "Compute Pod 2", "Compute Pod 3", "Compute Leaves", "Border Leaves", "Leaves", "Spines", "Data Center"]
 elif topo == "Campus":
     containerList = ["Compute Pod 1", "Compute Pod 2", "Compute Pod 3", "Compute Leaves", "Border Leaves", "Leaves", "Spines"]
 
