@@ -1,18 +1,18 @@
 CVP_CONTAINERS:
 # Single DC Topology
-#  Spines:
-#    parentContainerName: Home
-##    configlets:
-##      - ANSIBLE_CO-SHARED-CONFIG
-#  Leaves:
-#    parentContainerName: Home
-#  Border Leaves:
-#    parentContainerName: Leaves
-#  Compute Leaves:
-#    parentContainerName: Leaves
-#  Compute Pod 1:
-#    parentContainerName: Compute Leaves
-#  Compute Pod 2:
-#    parentContainerName: Compute Leaves
-#  Compute Pod 3:
-#    parentContainerName: Compute Leaves
+  Spines:
+    parentContainerName: Home
+#    configlets:
+#      - clab_SPINE-SHARED-CONFIG
+  Leaves:
+    parentContainerName: Home
+  Border Leaves:
+    parentContainerName: Leaves
+  Compute Leaves:
+    parentContainerName: Leaves
+  Compute Pod 1:
+    parentContainerName: Compute Leaves
+  Compute Pod 2:
+    parentContainerName: Compute Leaves
+  Compute Pod 3:
+    parentContainerName: Compute Leaves
