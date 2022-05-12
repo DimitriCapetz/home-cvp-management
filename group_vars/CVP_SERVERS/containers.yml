@@ -1,17 +1,15 @@
 CVP_CONTAINERS:
 # Single DC Topology
-#  Data Center:
-#    parentContainerName: Home
-#    configlets:
-#      - clab_DC-VLANs
-  Spines:
-#    parentContainerName: Data Center
+  Data Center:
     parentContainerName: Home
+    configlets:
+      - clab_DC-VLANs
+  Spines:
+    parentContainerName: Data Center
     configlets:
       - clab_DC-SPINE-SHARED
   Leaves:
-#    parentContainerName: Data Center
-    parentContainerName: Home
+    parentContainerName: Data Center
   Border Leaves:
     parentContainerName: Leaves
     configlets:
