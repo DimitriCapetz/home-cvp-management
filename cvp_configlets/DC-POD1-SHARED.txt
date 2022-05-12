@@ -1,0 +1,10 @@
+interface Port-Channel101
+   description MLAG to HOST1
+   switchport trunk allowed vlan 10,20,30
+   switchport mode trunk
+   mlag 101
+   sflow enable
+!
+interface Ethernet1
+   description Po101 to HOST1
+   channel-group 101 mode active

@@ -1,0 +1,31 @@
+interface Ethernet1
+   description L3 Connection to WAN2
+   no switchport
+   ip address 22.22.22.2/30
+   sflow enable
+!
+interface Ethernet49/1
+   description L3 Connection to SPINE1
+   no switchport
+   ip address 10.0.0.3/31
+   sflow enable
+!
+interface Ethernet50/1
+   description L3 Connection to SPINE2
+   no switchport
+   ip address 10.0.0.7/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.0.0.255/32
+!
+router bgp 65432
+   neighbor 10.0.0.2 peer group SPINE
+   neighbor 10.0.0.6 peer group SPINE
+   neighbor 10.255.255.254 peer group BORDER
+   neighbor 22.22.22.1 peer group WAN
+   neighbor 22.22.22.1 remote-as 22222
+!
+router general
+   router-id ipv4 10.0.0.255

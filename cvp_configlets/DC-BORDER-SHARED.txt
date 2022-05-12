@@ -1,0 +1,27 @@
+ip prefix-list DC-ROUTES
+   seq 10 permit 10.10.10.0/24
+   seq 20 permit 10.20.20.0/24
+   seq 30 permit 10.30.30.0/24
+   seq 40 permit 10.40.40.0/24
+   seq 50 permit 10.50.50.0/24
+   seq 60 permit 10.0.0.0/24 ge 31
+!
+route-map DC-ROUTES permit 10
+   match ip address prefix-list DC-ROUTES
+!
+route-map WAN-IN permit 10
+!
+route-map WAN-OUT permit 10
+   match ip address prefix-list DC-ROUTES
+!
+router bgp 65432
+   maximum-paths 2
+   neighbor BORDER peer group
+   neighbor BORDER remote-as 65432
+   neighbor BORDER next-hop-self
+   neighbor SPINE peer group
+   neighbor SPINE remote-as 65001
+   neighbor WAN peer group
+   neighbor WAN route-map WAN-IN in
+   neighbor WAN route-map WAN-OUT out
+   redistribute connected route-map DC-ROUTES
