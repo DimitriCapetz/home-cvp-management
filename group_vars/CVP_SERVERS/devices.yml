@@ -1,5 +1,7 @@
 CVP_DEVICES:
-# Single DC Topology
+###########################
+# Single DC L2LS Topology #
+###########################
 #  - fqdn: SPINE1
 #    parentContainerName: Spines
 #    configlets:
@@ -54,3 +56,84 @@ CVP_DEVICES:
 #    configlets:
 #      - clab_DC-LEAF6-BASE
 #      - clab_DC-LEAF-MLAG-SIDE-B
+###################
+# Campus Topology #
+###################
+  - fqdn: CAMPUS-SPINE1
+    parentContainerName: Spines
+    configlets:
+      - clab_CAMPUS-SPINE1-BASE
+      - clab_CAMPUS-SPINE-MLAG-SIDE-A
+      - clab_CAMPUS-SPINE1-CONFIG
+  - fqdn: CAMPUS-SPINE2
+    parentContainerName: Spines
+    configlets:
+      - clab_CAMPUS-SPINE2-BASE
+      - clab_CAMPUS-SPINE-MLAG-SIDE-B
+      - clab_CAMPUS-SPINE2-CONFIG
+  - fqdn: CAMPUS-C1-LEAF1
+    parentContainerName: Campus Pod 1 Leaves
+    configlets:
+      - clab_CAMPUS-LEAF1-BASE
+  - fqdn: CAMPUS-C1-LEAF2
+    parentContainerName: Campus Pod 1 Leaves
+    configlets:
+      - clab_CAMPUS-LEAF2-BASE
+  - fqdn: CAMPUS-C1-LEAF3
+    parentContainerName: Campus Pod 1 Leaves
+    configlets:
+      - clab_CAMPUS-LEAF3-BASE
+  - fqdn: CAMPUS-C1-SPLINE1
+    parentContainerName: Campus Pod 1 Splines
+    configlets:
+      - clab_CAMPUS-C1-SPLINE1-BASE
+      - clab_CAMPUS-SPLINE-MLAG-SIDE-A
+  - fqdn: CAMPUS-C1-SPLINE2
+    parentContainerName: Campus Pod 1 Splines
+    configlets:
+      - clab_CAMPUS-C1-SPLINE2-BASE
+      - clab_CAMPUS-SPLINE-MLAG-SIDE-B
+  - fqdn: CAMPUS-C2-LEAF1
+    parentContainerName: Campus Pod 2 Leaves
+    configlets:
+      - clab_CAMPUS-LEAF1-BASE
+  - fqdn: CAMPUS-C2-LEAF2
+    parentContainerName: Campus Pod 2 Leaves
+    configlets:
+      - clab_CAMPUS-LEAF2-BASE
+  - fqdn: CAMPUS-C2-LEAF3
+    parentContainerName: Campus Pod 2 Leaves
+    configlets:
+      - clab_CAMPUS-LEAF3-BASE
+  - fqdn: CAMPUS-C2-SPLINE1
+    parentContainerName: Campus Pod 2 Splines
+    configlets:
+      - clab_CAMPUS-C2-SPLINE1-BASE
+      - clab_CAMPUS-SPLINE-MLAG-SIDE-A
+  - fqdn: CAMPUS-C2-SPLINE2
+    parentContainerName: Campus Pod 2 Splines
+    configlets:
+      - clab_CAMPUS-C2-SPLINE2-BASE
+      - clab_CAMPUS-SPLINE-MLAG-SIDE-B
+  - fqdn: CAMPUS-C3-LEAF1
+    parentContainerName: Campus Pod 3 Leaves
+    configlets:
+      - clab_CAMPUS-LEAF1-BASE
+  - fqdn: CAMPUS-C3-LEAF2
+    parentContainerName: Campus Pod 3 Leaves
+    configlets:
+      - clab_CAMPUS-LEAF2-BASE
+  - fqdn: CAMPUS-C3-LEAF3
+    parentContainerName: Campus Pod 3 Leaves
+    configlets:
+      - clab_CAMPUS-LEAF3-BASE
+  - fqdn: CAMPUS-C3-SPLINE1
+    parentContainerName: Campus Pod 3 Splines
+    configlets:
+      - clab_CAMPUS-C3-SPLINE1-BASE
+      - clab_CAMPUS-SPLINE-MLAG-SIDE-A
+  - fqdn: CAMPUS-C3-SPLINE2
+    parentContainerName: Campus Pod 3 Splines
+    configlets:
+      - clab_CAMPUS-C3-SPLINE2-BASE
+      - clab_CAMPUS-SPLINE-MLAG-SIDE-B

@@ -1,5 +1,7 @@
 CVP_CONTAINERS:
-# Single DC Topology
+###########################
+# Single DC L2LS Topology #
+###########################
 #  Data Center:
 #    parentContainerName: Home
 #    configlets:
@@ -30,3 +32,47 @@ CVP_CONTAINERS:
 #    parentContainerName: Compute Leaves
 #    configlets:
 #      - clab_DC-POD3-SHARED
+###################
+# Campus Topology #
+###################
+  Campus:
+    parentContainerName: Home
+    configlets:
+      - clab_CAMPUS-VLANs
+  Spines:
+    parentContainerName: Campus
+  Closets:
+    parentContainerName: Campus
+  Campus Pod 1:
+    parentContainerName: Closets
+  Campus Pod 2:
+    parentContainerName: Closets
+  Campus Pod 3:
+    parentContainerName: Closets
+  Campus Pod 1 Splines:
+    parentContainerName: Campus Pod 1
+    configlets:
+      - clab_CAMPUS-SPLINE-SHARED
+      - clab_CAMPUS-POD1-SPLINE-SHARED
+  Campus Pod 1 Leaves:
+    parentContainerName: Campus Pod 1
+    configlets:
+      - clab_CAMPUS-LEAF-SHARED
+  Campus Pod 2 Splines:
+    parentContainerName: Campus Pod 2
+    configlets:
+      - clab_CAMPUS-SPLINE-SHARED
+      - clab_CAMPUS-POD2-SPLINE-SHARED
+  Campus Pod 2 Leaves:
+    parentContainerName: Campus Pod 2
+    configlets:
+      - clab_CAMPUS-LEAF-SHARED
+  Campus Pod 3 Splines:
+    parentContainerName: Campus Pod 3
+    configlets:
+      - clab_CAMPUS-SPLINE-SHARED
+      - clab_CAMPUS-POD3-SPLINE-SHARED
+  Campus Pod 3 Leaves:
+    parentContainerName: Campus Pod 3
+    configlets:
+      - clab_CAMPUS-LEAF-SHARED

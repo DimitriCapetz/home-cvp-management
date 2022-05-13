@@ -187,11 +187,11 @@ topology:
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
-    CAMPUS-C3-HOST3:
+    CAMPUS-C3-AP1:
       kind: ceos
       image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.36
-      startup-config: ./configs/CAMPUS-C3-HOST3.cfg
+      startup-config: ./configs/CAMPUS-C3-AP1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
@@ -299,10 +299,10 @@ topology:
 ####################
     - endpoints: ["CAMPUS-C2-HOST2:eth1", "CAMPUS-C2-LEAF2:eth1"]
 ####################
-# HOST3            #
+# AP1              #
 ####################
-    - endpoints: ["CAMPUS-C3-HOST3:eth1", "CAMPUS-C3-SPLINE1:eth1"]
-    - endpoints: ["CAMPUS-C3-HOST3:eth2", "CAMPUS-C3-SPLINE2:eth1"]
+    - endpoints: ["CAMPUS-C3-AP1:eth1", "CAMPUS-C3-SPLINE1:eth1"]
+    - endpoints: ["CAMPUS-C3-AP1:eth2", "CAMPUS-C3-SPLINE2:eth1"]
 ######################
 # WAN Sim            #
 ######################

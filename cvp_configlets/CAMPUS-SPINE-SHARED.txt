@@ -1,0 +1,69 @@
+interface Port-Channel1
+   description MLAG Downlink to Campus Pod 1
+   switchport mode trunk
+   mlag 1
+   sflow enable
+!
+interface Port-Channel2
+   description MLAG Downlink to Campus Pod 2
+   switchport mode trunk
+   mlag 2
+   sflow enable
+!
+interface Port-Channel3
+   description MLAG Downlink to Campus Pod 3
+   switchport mode trunk
+   mlag 3
+   sflow enable
+!
+interface Ethernet1
+   description Po1 to CAMPUS-C1-SPLINE1
+   channel-group 1 mode active
+!
+interface Ethernet2
+   description Po1 to CAMPUS-C1-SPLINE2
+   channel-group 1 mode active
+!
+interface Ethernet3
+   description Po2 to CAMPUS-C2-SPLINE1
+   channel-group 2 mode active
+!
+interface Ethernet4
+   description Po2 to CAMPUS-C2-SPLINE2
+   channel-group 2 mode active
+!
+interface Ethernet5
+   description Po3 to CAMPUS-C3-SPLINE1
+   channel-group 3 mode active
+!
+interface Ethernet6
+   description Po3 to CAMPUS-C3-SPLINE2
+   channel-group 3 mode active
+!
+ip virtual-router mac-address 00:1C:73:00:00:01
+!
+ip prefix-list CAMPUS-ROUTES
+   seq 10 permit 10.10.10.0/24
+   seq 20 permit 10.20.20.0/24
+   seq 30 permit 10.30.30.0/24
+   seq 40 permit 10.40.40.0/24
+   seq 50 permit 10.50.50.0/24
+   seq 60 permit 10.0.0.0/24 ge 31
+!
+route-map CAMPUS-ROUTES permit 10
+   match ip address prefix-list CAMPUS-ROUTES
+!
+route-map WAN-IN permit 10
+!
+route-map WAN-OUT permit 10
+   match ip address prefix-list CAMPUS-ROUTES
+!
+router bgp 65001
+   maximum-paths 2
+   neighbor SPINE peer group
+   neighbor SPINE remote-as 65001
+   neighbor SPINE next-hop-self
+   neighbor WAN peer group
+   neighbor WAN route-map WAN-IN in
+   neighbor WAN route-map WAN-OUT out
+   redistribute connected route-map CAMPUS-ROUTES

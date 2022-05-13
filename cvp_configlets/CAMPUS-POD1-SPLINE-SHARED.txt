@@ -1,0 +1,29 @@
+interface Port-Channel101
+   description MLAG to CAMPUS-C1-LEAF1
+   switchport mode trunk
+   mlag 101
+   sflow enable
+!
+interface Port-Channel102
+   description MLAG to CAMPUS-C1-LEAF2
+   switchport mode trunk
+   mlag 102
+   sflow enable
+!
+interface Port-Channel103
+   description MLAG to CAMPUS-C1-LEAF3
+   switchport mode trunk
+   mlag 103
+   sflow enable
+!
+interface Ethernet50/1
+   description Po101 to CAMPUS-C1-LEAF1
+   channel-group 101 mode active
+!
+interface Ethernet51/1
+   description Po102 to CAMPUS-C1-LEAF2
+   channel-group 102 mode active
+!
+interface Ethernet52/1
+   description Po103 to CAMPUS-C1-LEAF3
+   channel-group 103 mode active
