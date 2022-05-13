@@ -5,7 +5,7 @@ topo = input("Which Topo to decom? ")
 if topo == "DC":
     containerList = ["Compute Pod 1", "Compute Pod 2", "Compute Pod 3", "Compute Leaves", "Border Leaves", "Leaves", "Spines", "Data Center"]
 elif topo == "Campus":
-    containerList = ["Compute Pod 1", "Compute Pod 2", "Compute Pod 3", "Compute Leaves", "Border Leaves", "Leaves", "Spines"]
+    containerList = ["Campus Pod 1 Splines", "Campus Pod 1 Leaves", "Campus Pod 2 Splines", "Campus Pod 2 Leaves", "Campus Pod 3 Splines", "Campus Pod 3 Leaves", "Campus Pod 1", "Campus Pod 2", "Campus Pod 3", "Closets", "Spines", "Campus"]
 
 # Disable Cert Warnings for Test Environment
 import urllib3
