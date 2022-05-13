@@ -16,27 +16,27 @@ interface Port-Channel3
    mlag 3
    sflow enable
 !
-interface Ethernet1
+interface Ethernet3
    description Po1 to CAMPUS-C1-SPLINE1
    channel-group 1 mode active
 !
-interface Ethernet2
+interface Ethernet4
    description Po1 to CAMPUS-C1-SPLINE2
    channel-group 1 mode active
 !
-interface Ethernet3
+interface Ethernet5
    description Po2 to CAMPUS-C2-SPLINE1
    channel-group 2 mode active
 !
-interface Ethernet4
+interface Ethernet6
    description Po2 to CAMPUS-C2-SPLINE2
    channel-group 2 mode active
 !
-interface Ethernet5
+interface Ethernet7
    description Po3 to CAMPUS-C3-SPLINE1
    channel-group 3 mode active
 !
-interface Ethernet6
+interface Ethernet8
    description Po3 to CAMPUS-C3-SPLINE2
    channel-group 3 mode active
 !

@@ -41,6 +41,8 @@ CVP_CONTAINERS:
       - clab_CAMPUS-VLANs
   Spines:
     parentContainerName: Campus
+    configlets:
+      - clab_CAMPUS-SPINE-SHARED
   Closets:
     parentContainerName: Campus
   Campus Pod 1:

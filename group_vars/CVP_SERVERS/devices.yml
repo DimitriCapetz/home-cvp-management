@@ -74,15 +74,15 @@ CVP_DEVICES:
   - fqdn: CAMPUS-C1-LEAF1
     parentContainerName: Campus Pod 1 Leaves
     configlets:
-      - clab_CAMPUS-LEAF1-BASE
+      - clab_CAMPUS-C1-LEAF1-BASE
   - fqdn: CAMPUS-C1-LEAF2
     parentContainerName: Campus Pod 1 Leaves
     configlets:
-      - clab_CAMPUS-LEAF2-BASE
+      - clab_CAMPUS-C1-LEAF2-BASE
   - fqdn: CAMPUS-C1-LEAF3
     parentContainerName: Campus Pod 1 Leaves
     configlets:
-      - clab_CAMPUS-LEAF3-BASE
+      - clab_CAMPUS-C1-LEAF3-BASE
   - fqdn: CAMPUS-C1-SPLINE1
     parentContainerName: Campus Pod 1 Splines
     configlets:
@@ -96,15 +96,15 @@ CVP_DEVICES:
   - fqdn: CAMPUS-C2-LEAF1
     parentContainerName: Campus Pod 2 Leaves
     configlets:
-      - clab_CAMPUS-LEAF1-BASE
+      - clab_CAMPUS-C2-LEAF1-BASE
   - fqdn: CAMPUS-C2-LEAF2
     parentContainerName: Campus Pod 2 Leaves
     configlets:
-      - clab_CAMPUS-LEAF2-BASE
+      - clab_CAMPUS-C2-LEAF2-BASE
   - fqdn: CAMPUS-C2-LEAF3
     parentContainerName: Campus Pod 2 Leaves
     configlets:
-      - clab_CAMPUS-LEAF3-BASE
+      - clab_CAMPUS-C2-LEAF3-BASE
   - fqdn: CAMPUS-C2-SPLINE1
     parentContainerName: Campus Pod 2 Splines
     configlets:
@@ -118,15 +118,15 @@ CVP_DEVICES:
   - fqdn: CAMPUS-C3-LEAF1
     parentContainerName: Campus Pod 3 Leaves
     configlets:
-      - clab_CAMPUS-LEAF1-BASE
+      - clab_CAMPUS-C3-LEAF1-BASE
   - fqdn: CAMPUS-C3-LEAF2
     parentContainerName: Campus Pod 3 Leaves
     configlets:
-      - clab_CAMPUS-LEAF2-BASE
+      - clab_CAMPUS-C3-LEAF2-BASE
   - fqdn: CAMPUS-C3-LEAF3
     parentContainerName: Campus Pod 3 Leaves
     configlets:
-      - clab_CAMPUS-LEAF3-BASE
+      - clab_CAMPUS-C3-LEAF3-BASE
   - fqdn: CAMPUS-C3-SPLINE1
     parentContainerName: Campus Pod 3 Splines
     configlets:

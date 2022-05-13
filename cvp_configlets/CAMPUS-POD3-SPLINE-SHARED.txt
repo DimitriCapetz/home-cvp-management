@@ -27,14 +27,14 @@ interface Ethernet1
    description Po201 to CAMPUS-C3-AP1
    channel-group 201 mode active
 !
-interface Ethernet50/1
+interface Ethernet51/1
    description Po101 to CAMPUS-C3-LEAF1
    channel-group 101 mode active
 !
-interface Ethernet51/1
+interface Ethernet52/1
    description Po102 to CAMPUS-C3-LEAF2
    channel-group 102 mode active
 !
-interface Ethernet52/1
+interface Ethernet53/1
    description Po103 to CAMPUS-C3-LEAF3
    channel-group 103 mode active
