@@ -19,4 +19,4 @@ sudo sed -i 's/..:..:..:..:..:../00:1c:73:b7:00:00/' clab-campus-topo/CAMPUS-WAN
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:b8:00:00/' clab-campus-topo/CAMPUS-WAN2/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:b9:00:00/' clab-campus-topo/CAMPUS-C1-HOST1/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:c0:00:00/' clab-campus-topo/CAMPUS-C2-HOST2/flash/system_mac_address
-sudo sed -i 's/..:..:..:..:..:../00:1c:73:c1:00:00/' clab-campus-topo/CAMPUS-C3-HOST3/flash/system_mac_address
+sudo sed -i 's/..:..:..:..:..:../00:1c:73:c1:00:00/' clab-campus-topo/CAMPUS-C3-AP1/flash/system_mac_address
