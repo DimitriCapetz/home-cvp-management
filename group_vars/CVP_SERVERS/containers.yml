@@ -35,46 +35,46 @@ CVP_CONTAINERS:
 ###################
 # Campus Topology #
 ###################
-  Campus:
-    parentContainerName: Home
-    configlets:
-      - clab_CAMPUS-VLANs
-  Spines:
-    parentContainerName: Campus
-    configlets:
-      - clab_CAMPUS-SPINE-SHARED
-  Closets:
-    parentContainerName: Campus
-  Campus Pod 1:
-    parentContainerName: Closets
-  Campus Pod 2:
-    parentContainerName: Closets
-  Campus Pod 3:
-    parentContainerName: Closets
-  Campus Pod 1 Splines:
-    parentContainerName: Campus Pod 1
-    configlets:
-      - clab_CAMPUS-SPLINE-SHARED
-      - clab_CAMPUS-POD1-SPLINE-SHARED
-  Campus Pod 1 Leaves:
-    parentContainerName: Campus Pod 1
-    configlets:
-      - clab_CAMPUS-LEAF-SHARED
-  Campus Pod 2 Splines:
-    parentContainerName: Campus Pod 2
-    configlets:
-      - clab_CAMPUS-SPLINE-SHARED
-      - clab_CAMPUS-POD2-SPLINE-SHARED
-  Campus Pod 2 Leaves:
-    parentContainerName: Campus Pod 2
-    configlets:
-      - clab_CAMPUS-LEAF-SHARED
-  Campus Pod 3 Splines:
-    parentContainerName: Campus Pod 3
-    configlets:
-      - clab_CAMPUS-SPLINE-SHARED
-      - clab_CAMPUS-POD3-SPLINE-SHARED
-  Campus Pod 3 Leaves:
-    parentContainerName: Campus Pod 3
-    configlets:
-      - clab_CAMPUS-LEAF-SHARED
+#  Campus:
+#    parentContainerName: Home
+#    configlets:
+#      - clab_CAMPUS-VLANs
+#  Spines:
+#    parentContainerName: Campus
+#    configlets:
+#      - clab_CAMPUS-SPINE-SHARED
+#  Closets:
+#    parentContainerName: Campus
+#  Campus Pod 1:
+#    parentContainerName: Closets
+#  Campus Pod 2:
+#    parentContainerName: Closets
+#  Campus Pod 3:
+#    parentContainerName: Closets
+#  Campus Pod 1 Splines:
+#    parentContainerName: Campus Pod 1
+#    configlets:
+#      - clab_CAMPUS-SPLINE-SHARED
+#      - clab_CAMPUS-POD1-SPLINE-SHARED
+#  Campus Pod 1 Leaves:
+#    parentContainerName: Campus Pod 1
+#    configlets:
+#      - clab_CAMPUS-LEAF-SHARED
+#  Campus Pod 2 Splines:
+#    parentContainerName: Campus Pod 2
+#    configlets:
+#      - clab_CAMPUS-SPLINE-SHARED
+#      - clab_CAMPUS-POD2-SPLINE-SHARED
+#  Campus Pod 2 Leaves:
+#    parentContainerName: Campus Pod 2
+#    configlets:
+#      - clab_CAMPUS-LEAF-SHARED
+#  Campus Pod 3 Splines:
+#    parentContainerName: Campus Pod 3
+#    configlets:
+#      - clab_CAMPUS-SPLINE-SHARED
+#      - clab_CAMPUS-POD3-SPLINE-SHARED
+#  Campus Pod 3 Leaves:
+#    parentContainerName: Campus Pod 3
+#    configlets:
+#      - clab_CAMPUS-LEAF-SHARED
