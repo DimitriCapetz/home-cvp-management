@@ -1,0 +1,436 @@
+---
+# -------------------------------------------------------------------
+# Dual DC Topology with managed Core L3 Devices
+# 2 Spines, 6 Leaves with 1 Host Each, 2 Gateways in each DC
+# Reconfigurable between L2LS and L3LS and a variety of DCI options
+# -------------------------------------------------------------------
+
+name: dual-dc-topo
+
+mgmt:
+  network: clab_mgmt
+  bridge: br0
+  ipv4_subnet: 10.99.99.0/24
+  ipv4-gw: 10.99.99.1
+
+topology:
+
+  nodes: 
+
+#########################
+# SPINES                #
+#########################
+
+    ENT-DC1-SPINE1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.39
+      startup-config: ./configs/ENT-DC1-SPINE1.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-SPINE2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.40
+      startup-config: ./configs/ENT-DC1-SPINE2.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-SPINE1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.41
+      startup-config: ./configs/ENT-DC2-SPINE1.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-SPINE2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.42
+      startup-config: ./configs/ENT-DC2-SPINE2.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+#########################
+# LEAVES                #
+#########################
+
+    ENT-DC1-LEAF1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.43
+      startup-config: ./configs/ENT-DC1-LEAF1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-LEAF2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.44
+      startup-config: ./configs/ENT-DC1-LEAF2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-LEAF3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.45
+      startup-config: ./configs/ENT-DC1-LEAF3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-LEAF4:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.46
+      startup-config: ./configs/ENT-DC1-LEAF4.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-LEAF5:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.47
+      startup-config: ./configs/ENT-DC1-LEAF5.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-LEAF6:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.48
+      startup-config: ./configs/ENT-DC1-LEAF6.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-LEAF1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.49
+      startup-config: ./configs/ENT-DC2-LEAF1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-LEAF2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.50
+      startup-config: ./configs/ENT-DC2-LEAF2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-LEAF3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.51
+      startup-config: ./configs/ENT-DC2-LEAF3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-LEAF4:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.52
+      startup-config: ./configs/ENT-DC2-LEAF4.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-LEAF5:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.53
+      startup-config: ./configs/ENT-DC2-LEAF5.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-LEAF6:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.54
+      startup-config: ./configs/ENT-DC2-LEAF6.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+#########################
+# BORDER GATEWAYS       #
+#########################
+
+    ENT-DC1-BORDER1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.55
+      startup-config: ./configs/ENT-DC1-BORDER1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-BORDER2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.56
+      startup-config: ./configs/ENT-DC1-BORDER2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-BORDER1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.57
+      startup-config: ./configs/ENT-DC2-BORDER1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-BORDER2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.58
+      startup-config: ./configs/ENT-DC2-BORDER2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+###########################################
+# Core Routers                            #
+###########################################
+
+    ENT-DC1-CORE1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.59
+      startup-config: ./configs/ENT-DC1-CORE1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-CORE2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.60
+      startup-config: ./configs/ENT-DC1-CORE2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-CORE1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.61
+      startup-config: ./configs/ENT-DC2-CORE1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-CORE2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.62
+      startup-config: ./configs/ENT-DC2-CORE2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+###########################################
+# HOST                                    #
+###########################################
+
+    ENT-DC1-HOST1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.63
+      startup-config: ./configs/ENT-DC1-HOST1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-HOST2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.64
+      startup-config: ./configs/ENT-DC1-HOST2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC1-HOST3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.65
+      startup-config: ./configs/ENT-DC1-HOST3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-HOST1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.66
+      startup-config: ./configs/ENT-DC2-HOST1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-HOST2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.67
+      startup-config: ./configs/ENT-DC2-HOST2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-HOST3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.68
+      startup-config: ./configs/ENT-DC2-HOST3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+###########################################
+# WAN Sim                                 #
+###########################################
+
+    ENT-DC1-WAN1:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.69
+      startup-config: ./configs/ENT-DC1-WAN1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-DC2-WAN2:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.70
+      startup-config: ./configs/ENT-DC2-WAN2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+    ENT-CORE-WAN3:
+      kind: ceos
+      image: ceos:4.28.0F
+      mgmt_ipv4: 10.99.99.71
+      startup-config: ./configs/ENT-CORE-WAN3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+
+  links:
+######################
+# DC1 SPINE1 to LEAF #
+######################
+    - endpoints: ["ENT-DC1-SPINE1:eth1", "ENT-DC1-LEAF1:eth3"]
+    - endpoints: ["ENT-DC1-SPINE1:eth2", "ENT-DC1-LEAF2:eth3"]
+    - endpoints: ["ENT-DC1-SPINE1:eth3", "ENT-DC1-LEAF3:eth3"]
+    - endpoints: ["ENT-DC1-SPINE1:eth4", "ENT-DC1-LEAF4:eth3"]
+    - endpoints: ["ENT-DC1-SPINE1:eth5", "ENT-DC1-LEAF5:eth3"]
+    - endpoints: ["ENT-DC1-SPINE1:eth6", "ENT-DC1-LEAF6:eth3"]
+    - endpoints: ["ENT-DC1-SPINE1:eth7", "ENT-DC1-BORDER1:eth3"]
+    - endpoints: ["ENT-DC1-SPINE1:eth8", "ENT-DC1-BORDER2:eth3"]
+######################
+# DC1 SPINE2 to LEAF #
+######################
+    - endpoints: ["ENT-DC1-SPINE2:eth1", "ENT-DC1-LEAF1:eth4"]
+    - endpoints: ["ENT-DC1-SPINE2:eth2", "ENT-DC1-LEAF2:eth4"]
+    - endpoints: ["ENT-DC1-SPINE2:eth3", "ENT-DC1-LEAF3:eth4"]
+    - endpoints: ["ENT-DC1-SPINE2:eth4", "ENT-DC1-LEAF4:eth4"]
+    - endpoints: ["ENT-DC1-SPINE2:eth5", "ENT-DC1-LEAF5:eth4"]
+    - endpoints: ["ENT-DC1-SPINE2:eth6", "ENT-DC1-LEAF6:eth4"]
+    - endpoints: ["ENT-DC1-SPINE2:eth7", "ENT-DC1-BORDER1:eth4"]
+    - endpoints: ["ENT-DC1-SPINE2:eth8", "ENT-DC1-BORDER2:eth4"]
+######################
+# DC1 BORDER to CORE #
+######################
+    - endpoints: ["ENT-DC1-BORDER1:eth5", "ENT-DC1-CORE1:eth5"]
+    - endpoints: ["ENT-DC1-BORDER2:eth5", "ENT-DC1-CORE1:eth6"]
+    - endpoints: ["ENT-DC1-BORDER1:eth6", "ENT-DC1-CORE2:eth5"]
+    - endpoints: ["ENT-DC1-BORDER2:eth6", "ENT-DC1-CORE2:eth6"]
+######################
+# DC1 LEAF1 to LEAF2 #
+######################
+    - endpoints: ["ENT-DC1-LEAF1:eth9", "ENT-DC1-LEAF2:eth9"]
+    - endpoints: ["ENT-DC1-LEAF1:eth10", "ENT-DC1-LEAF2:eth10"]
+######################
+# DC1 LEAF3 to LEAF4 #
+######################
+    - endpoints: ["ENT-DC1-LEAF3:eth9", "ENT-DC1-LEAF4:eth9"]
+    - endpoints: ["ENT-DC1-LEAF3:eth10", "ENT-DC1-LEAF4:eth10"]
+######################
+# DC1 LEAF5 to LEAF6 #
+######################
+    - endpoints: ["ENT-DC1-LEAF5:eth9", "ENT-DC1-LEAF6:eth9"]
+    - endpoints: ["ENT-DC1-LEAF5:eth10", "ENT-DC1-LEAF6:eth10"]
+##########################
+# DC1 BORDER1 to BORDER2 #
+##########################
+    - endpoints: ["ENT-DC1-BORDER1:eth9", "ENT-DC1-BORDER2:eth9"]
+    - endpoints: ["ENT-DC1-BORDER1:eth10", "ENT-DC1-BORDER2:eth10"]
+####################
+# DC1 HOSTS        #
+####################
+    - endpoints: ["ENT-DC1-HOST1:eth1", "ENT-DC1-LEAF1:eth1"]
+    - endpoints: ["ENT-DC1-HOST1:eth2", "ENT-DC1-LEAF2:eth1"]
+    - endpoints: ["ENT-DC1-HOST2:eth1", "ENT-DC1-LEAF3:eth1"]
+    - endpoints: ["ENT-DC1-HOST2:eth2", "ENT-DC1-LEAF4:eth1"]
+    - endpoints: ["ENT-DC1-HOST3:eth1", "ENT-DC1-LEAF5:eth1"]
+    - endpoints: ["ENT-DC1-HOST3:eth2", "ENT-DC1-LEAF6:eth1"]
+######################
+# DC2 SPINE1 to LEAF #
+######################
+    - endpoints: ["ENT-DC2-SPINE1:eth1", "ENT-DC2-LEAF1:eth3"]
+    - endpoints: ["ENT-DC2-SPINE1:eth2", "ENT-DC2-LEAF2:eth3"]
+    - endpoints: ["ENT-DC2-SPINE1:eth3", "ENT-DC2-LEAF3:eth3"]
+    - endpoints: ["ENT-DC2-SPINE1:eth4", "ENT-DC2-LEAF4:eth3"]
+    - endpoints: ["ENT-DC2-SPINE1:eth5", "ENT-DC2-LEAF5:eth3"]
+    - endpoints: ["ENT-DC2-SPINE1:eth6", "ENT-DC2-LEAF6:eth3"]
+    - endpoints: ["ENT-DC2-SPINE1:eth7", "ENT-DC2-BORDER1:eth3"]
+    - endpoints: ["ENT-DC2-SPINE1:eth8", "ENT-DC2-BORDER2:eth3"]
+######################
+# DC2 SPINE2 to LEAF #
+######################
+    - endpoints: ["ENT-DC2-SPINE2:eth1", "ENT-DC2-LEAF1:eth4"]
+    - endpoints: ["ENT-DC2-SPINE2:eth2", "ENT-DC2-LEAF2:eth4"]
+    - endpoints: ["ENT-DC2-SPINE2:eth3", "ENT-DC2-LEAF3:eth4"]
+    - endpoints: ["ENT-DC2-SPINE2:eth4", "ENT-DC2-LEAF4:eth4"]
+    - endpoints: ["ENT-DC2-SPINE2:eth5", "ENT-DC2-LEAF5:eth4"]
+    - endpoints: ["ENT-DC2-SPINE2:eth6", "ENT-DC2-LEAF6:eth4"]
+    - endpoints: ["ENT-DC2-SPINE2:eth7", "ENT-DC2-BORDER1:eth4"]
+    - endpoints: ["ENT-DC2-SPINE2:eth8", "ENT-DC2-BORDER2:eth4"]
+######################
+# DC2 BORDER to CORE #
+######################
+    - endpoints: ["ENT-DC2-BORDER1:eth5", "ENT-DC2-CORE1:eth5"]
+    - endpoints: ["ENT-DC2-BORDER2:eth5", "ENT-DC2-CORE1:eth6"]
+    - endpoints: ["ENT-DC2-BORDER1:eth6", "ENT-DC2-CORE2:eth5"]
+    - endpoints: ["ENT-DC2-BORDER2:eth6", "ENT-DC2-CORE2:eth6"]
+######################
+# DC2 LEAF1 to LEAF2 #
+######################
+    - endpoints: ["ENT-DC2-LEAF1:eth9", "ENT-DC2-LEAF2:eth9"]
+    - endpoints: ["ENT-DC2-LEAF1:eth10", "ENT-DC2-LEAF2:eth10"]
+######################
+# DC2 LEAF3 to LEAF4 #
+######################
+    - endpoints: ["ENT-DC2-LEAF3:eth9", "ENT-DC2-LEAF4:eth9"]
+    - endpoints: ["ENT-DC2-LEAF3:eth10", "ENT-DC2-LEAF4:eth10"]
+######################
+# DC2 LEAF5 to LEAF6 #
+######################
+    - endpoints: ["ENT-DC2-LEAF5:eth9", "ENT-DC2-LEAF6:eth9"]
+    - endpoints: ["ENT-DC2-LEAF5:eth10", "ENT-DC2-LEAF6:eth10"]
+##########################
+# DC2 BORDER1 to BORDER2 #
+##########################
+    - endpoints: ["ENT-DC2-BORDER1:eth9", "ENT-DC2-BORDER2:eth9"]
+    - endpoints: ["ENT-DC2-BORDER1:eth10", "ENT-DC2-BORDER2:eth10"]
+####################
+# DC2 HOSTS        #
+####################
+    - endpoints: ["ENT-DC2-HOST1:eth1", "ENT-DC2-LEAF1:eth1"]
+    - endpoints: ["ENT-DC2-HOST1:eth2", "ENT-DC2-LEAF2:eth1"]
+    - endpoints: ["ENT-DC2-HOST2:eth1", "ENT-DC2-LEAF3:eth1"]
+    - endpoints: ["ENT-DC2-HOST2:eth2", "ENT-DC2-LEAF4:eth1"]
+    - endpoints: ["ENT-DC2-HOST3:eth1", "ENT-DC2-LEAF5:eth1"]
+    - endpoints: ["ENT-DC2-HOST3:eth2", "ENT-DC2-LEAF6:eth1"]
+###################
+# DC CORES        #
+###################
+    - endpoints: ["ENT-DC1-CORE1:eth3", "ENT-DC2-CORE1:eth3"]
+    - endpoints: ["ENT-DC1-CORE2:eth3", "ENT-DC2-CORE2:eth3"]
+######################
+# WAN Sim            #
+######################
+    - endpoints: ["ENT-DC1-WAN1:eth1", "ENT-DC1-BORDER1:eth1"]
+    - endpoints: ["ENT-DC2-WAN2:eth1", "ENT-DC2-BORDER2:eth1"]
+    - endpoints: ["ENT-CORE-WAN3:eth1", "ENT-DC1-CORE1:eth1"]
+    - endpoints: ["ENT-CORE-WAN3:eth2", "ENT-DC2-CORE1:eth1"]
