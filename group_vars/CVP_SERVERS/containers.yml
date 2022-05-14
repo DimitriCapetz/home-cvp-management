@@ -78,3 +78,72 @@ CVP_CONTAINERS:
 #    parentContainerName: Campus Pod 3
 #    configlets:
 #      - clab_CAMPUS-LEAF-SHARED
+###########################
+# Dual DC L3LS-v Topology #
+###########################
+  Enterprise Data Centers:
+    parentContainerName: Home
+  Data Center 1:
+    parentContainerName: Enterprise Data Centers
+  Data Center 2:
+    parentContainerName: Enterprise Data Centers
+  DC1 Spines:
+    parentContainerName: Data Center 1
+    configlets:
+      - clab_ENT-DC1-SPINE-SHARED
+  DC1 Leaves:
+    parentContainerName: Data Center 1
+  DC1 Border Leaves:
+    parentContainerName: DC1 Leaves
+    configlets:
+      - clab_ENT-DC1-BORDER-SHARED
+  DC1 Compute Leaves:
+    parentContainerName: DC1 Leaves
+    configlets:
+      - clab_ENT-DC1-LEAVES-SHARED
+  DC1 Compute Pod 1:
+    parentContainerName: DC1 Compute Leaves
+    configlets:
+      - clab_ENT-DC1-POD1-SHARED
+  DC1 Compute Pod 2:
+    parentContainerName: DC1 Compute Leaves
+    configlets:
+      - clab_ENT-DC1-POD2-SHARED
+  DC1 Compute Pod 3:
+    parentContainerName: DC1 Compute Leaves
+    configlets:
+      - clab_ENT-DC1-POD3-SHARED
+  DC1 Core:
+    parentContainerName: Data Center 1
+    configlets:
+      - clab_ENT-DC1-CORE-SHARED
+  DC2 Spines:
+    parentContainerName: Data Center 2
+    configlets:
+      - clab_ENT-DC2-SPINE-SHARED
+  DC2 Leaves:
+    parentContainerName: Data Center 2
+  DC2 Border Leaves:
+    parentContainerName: DC2 Leaves
+    configlets:
+      - clab_ENT-DC2-BORDER-SHARED
+  DC2 Compute Leaves:
+    parentContainerName: DC2 Leaves
+    configlets:
+      - clab_ENT-DC2-LEAVES-SHARED
+  DC2 Compute Pod 1:
+    parentContainerName: DC2 Compute Leaves
+    configlets:
+      - clab_ENT-DC2-POD1-SHARED
+  DC2 Compute Pod 2:
+    parentContainerName: DC2 Compute Leaves
+    configlets:
+      - clab_ENT-DC2-POD2-SHARED
+  DC2 Compute Pod 3:
+    parentContainerName: DC2 Compute Leaves
+    configlets:
+      - clab_ENT-DC2-POD3-SHARED
+  DC2 Core:
+    parentContainerName: Data Center 2
+    configlets:
+      - clab_ENT-DC2-CORE-SHARED

@@ -1,0 +1,23 @@
+interface Ethernet7/1
+   description L3 Connection to BORDER1
+   no switchport
+   ip address 10.0.0.4/31
+   sflow enable
+!
+interface Ethernet8/1
+   description L3 Connection to BORDER2
+   no switchport
+   ip address 10.0.0.6/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.0.0.253/32
+!
+router bgp 65001
+   neighbor 10.0.0.5 peer group BORDER
+   neighbor 10.0.0.7 peer group BORDER
+   neighbor 10.255.255.254 peer group SPINE
+!
+router general
+   router-id ipv4 10.0.0.253

@@ -15,8 +15,11 @@ elif topo == "Campus":
         ]
 elif topo == "Dual":
     containerList = [
-        "Compute Pod 1", "Compute Pod 2", "Compute Pod 3", "Compute Leaves", 
-        "Border Leaves", "Leaves", "Spines", "Enterprise Data Centers"
+        "DC1 Compute Pod 1", "DC1 Compute Pod 2", "DC1 Compute Pod 3", "DC1 Compute Leaves", 
+        "DC2 Compute Pod 1", "DC2 Compute Pod 2", "DC2 Compute Pod 3", "DC2 Compute Leaves", 
+        "DC1 Border Leaves", "DC1 Leaves", "DC1 Spines", "DC1 Core", 
+        "DC2 Border Leaves", "DC2 Leaves", "DC2 Spines", "DC2 Core", 
+        "Data Center 1", "Data Center 2", "Enterprise Data Centers"
         ]
 
 # Disable Cert Warnings for Test Environment
