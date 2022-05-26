@@ -195,12 +195,12 @@ CVP_DEVICES:
   - fqdn: ENT-DC1-CORE1
     parentContainerName: DC1 Core
     configlets:
-      - clab_ENT-DC1-SPINE1-BASE
+      - clab_ENT-DC1-CORE1-BASE
       #- clab_ENT-DC1-SPINE1-CONFIG
   - fqdn: ENT-DC1-CORE2
     parentContainerName: DC1 Core
     configlets:
-      - clab_ENT-DC1-SPINE2-BASE
+      - clab_ENT-DC1-CORE2-BASE
       #- clab_ENT-DC1-SPINE2-CONFIG
   - fqdn: ENT-DC2-SPINE1
     parentContainerName: DC2 Spines
@@ -257,10 +257,10 @@ CVP_DEVICES:
   - fqdn: ENT-DC2-CORE1
     parentContainerName: DC2 Core
     configlets:
-      - clab_ENT-DC2-SPINE1-BASE
+      - clab_ENT-DC2-CORE1-BASE
       #- clab_ENT-DC2-SPINE1-CONFIG
   - fqdn: ENT-DC2-CORE2
     parentContainerName: DC2 Core
     configlets:
-      - clab_ENT-DC2-SPINE2-BASE
+      - clab_ENT-DC2-CORE2-BASE
       #- clab_ENT-DC2-SPINE2-CONFIG
