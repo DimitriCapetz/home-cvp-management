@@ -140,127 +140,127 @@ CVP_DEVICES:
 ###########################
 # Dual DC L3LS-v Topology #
 ###########################
-  - fqdn: ENT-DC1-SPINE1
-    parentContainerName: DC1 Spines
-    configlets:
-      - clab_ENT-DC1-SPINE1-BASE
-      #- clab_ENT-DC1-SPINE1-CONFIG
-  - fqdn: ENT-DC1-SPINE2
-    parentContainerName: DC1 Spines
-    configlets:
-      - clab_ENT-DC1-SPINE2-BASE
-      #- clab_ENT-DC1-SPINE2-CONFIG
-  - fqdn: ENT-DC1-BORDER1
-    parentContainerName: DC1 Border Leaves
-    configlets:
-      - clab_ENT-DC1-BORDER1-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
-      #- clab_ENT-DC1-BORDER1-CONFIG
-  - fqdn: ENT-DC1-BORDER2
-    parentContainerName: DC1 Border Leaves
-    configlets:
-      - clab_ENT-DC1-BORDER2-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
-      #- clab_ENT-DC1-BORDER2-CONFIG
-  - fqdn: ENT-DC1-LEAF1
-    parentContainerName: DC1 Compute Pod 1
-    configlets:
-      - clab_ENT-DC1-LEAF1-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
-  - fqdn: ENT-DC1-LEAF2
-    parentContainerName: DC1 Compute Pod 1
-    configlets:
-      - clab_ENT-DC1-LEAF2-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
-  - fqdn: ENT-DC1-LEAF3
-    parentContainerName: DC1 Compute Pod 2
-    configlets:
-      - clab_ENT-DC1-LEAF3-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
-  - fqdn: ENT-DC1-LEAF4
-    parentContainerName: DC1 Compute Pod 2
-    configlets:
-      - clab_ENT-DC1-LEAF4-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
-  - fqdn: ENT-DC1-LEAF5
-    parentContainerName: DC1 Compute Pod 3
-    configlets:
-      - clab_ENT-DC1-LEAF5-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
-  - fqdn: ENT-DC1-LEAF6
-    parentContainerName: DC1 Compute Pod 3
-    configlets:
-      - clab_ENT-DC1-LEAF6-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
-  - fqdn: ENT-DC1-CORE1
-    parentContainerName: DC1 Core
-    configlets:
-      - clab_ENT-DC1-CORE1-BASE
-      #- clab_ENT-DC1-SPINE1-CONFIG
-  - fqdn: ENT-DC1-CORE2
-    parentContainerName: DC1 Core
-    configlets:
-      - clab_ENT-DC1-CORE2-BASE
-      #- clab_ENT-DC1-SPINE2-CONFIG
-  - fqdn: ENT-DC2-SPINE1
-    parentContainerName: DC2 Spines
-    configlets:
-      - clab_ENT-DC2-SPINE1-BASE
-      #- clab_ENT-DC2-SPINE1-CONFIG
-  - fqdn: ENT-DC2-SPINE2
-    parentContainerName: DC2 Spines
-    configlets:
-      - clab_ENT-DC2-SPINE2-BASE
-      #- clab_ENT-DC2-SPINE2-CONFIG
-  - fqdn: ENT-DC2-BORDER1
-    parentContainerName: DC2 Border Leaves
-    configlets:
-      - clab_ENT-DC2-BORDER1-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
-      #- clab_ENT-DC2-BORDER1-CONFIG
-  - fqdn: ENT-DC2-BORDER2
-    parentContainerName: DC2 Border Leaves
-    configlets:
-      - clab_ENT-DC2-BORDER2-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
-      #- clab_ENT-DC2-BORDER2-CONFIG
-  - fqdn: ENT-DC2-LEAF1
-    parentContainerName: DC2 Compute Pod 1
-    configlets:
-      - clab_ENT-DC2-LEAF1-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
-  - fqdn: ENT-DC2-LEAF2
-    parentContainerName: DC2 Compute Pod 1
-    configlets:
-      - clab_ENT-DC2-LEAF2-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
-  - fqdn: ENT-DC2-LEAF3
-    parentContainerName: DC2 Compute Pod 2
-    configlets:
-      - clab_ENT-DC2-LEAF3-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
-  - fqdn: ENT-DC2-LEAF4
-    parentContainerName: DC2 Compute Pod 2
-    configlets:
-      - clab_ENT-DC2-LEAF4-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
-  - fqdn: ENT-DC2-LEAF5
-    parentContainerName: DC2 Compute Pod 3
-    configlets:
-      - clab_ENT-DC2-LEAF5-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
-  - fqdn: ENT-DC2-LEAF6
-    parentContainerName: DC2 Compute Pod 3
-    configlets:
-      - clab_ENT-DC2-LEAF6-BASE
-      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
-  - fqdn: ENT-DC2-CORE1
-    parentContainerName: DC2 Core
-    configlets:
-      - clab_ENT-DC2-CORE1-BASE
-      #- clab_ENT-DC2-SPINE1-CONFIG
-  - fqdn: ENT-DC2-CORE2
-    parentContainerName: DC2 Core
-    configlets:
-      - clab_ENT-DC2-CORE2-BASE
-      #- clab_ENT-DC2-SPINE2-CONFIG
+#  - fqdn: ENT-DC1-SPINE1
+#    parentContainerName: DC1 Spines
+#    configlets:
+#      - clab_ENT-DC1-SPINE1-BASE
+#      #- clab_ENT-DC1-SPINE1-CONFIG
+#  - fqdn: ENT-DC1-SPINE2
+#    parentContainerName: DC1 Spines
+#    configlets:
+#      - clab_ENT-DC1-SPINE2-BASE
+#      #- clab_ENT-DC1-SPINE2-CONFIG
+#  - fqdn: ENT-DC1-BORDER1
+#    parentContainerName: DC1 Border Leaves
+#    configlets:
+#      - clab_ENT-DC1-BORDER1-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
+#      #- clab_ENT-DC1-BORDER1-CONFIG
+#  - fqdn: ENT-DC1-BORDER2
+#    parentContainerName: DC1 Border Leaves
+#    configlets:
+#      - clab_ENT-DC1-BORDER2-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
+#      #- clab_ENT-DC1-BORDER2-CONFIG
+#  - fqdn: ENT-DC1-LEAF1
+#    parentContainerName: DC1 Compute Pod 1
+#    configlets:
+#      - clab_ENT-DC1-LEAF1-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
+#  - fqdn: ENT-DC1-LEAF2
+#    parentContainerName: DC1 Compute Pod 1
+#    configlets:
+#      - clab_ENT-DC1-LEAF2-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
+#  - fqdn: ENT-DC1-LEAF3
+#    parentContainerName: DC1 Compute Pod 2
+#    configlets:
+#      - clab_ENT-DC1-LEAF3-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
+#  - fqdn: ENT-DC1-LEAF4
+#    parentContainerName: DC1 Compute Pod 2
+#    configlets:
+#      - clab_ENT-DC1-LEAF4-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
+#  - fqdn: ENT-DC1-LEAF5
+#    parentContainerName: DC1 Compute Pod 3
+#    configlets:
+#      - clab_ENT-DC1-LEAF5-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
+#  - fqdn: ENT-DC1-LEAF6
+#    parentContainerName: DC1 Compute Pod 3
+#    configlets:
+#      - clab_ENT-DC1-LEAF6-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
+#  - fqdn: ENT-DC1-CORE1
+#    parentContainerName: DC1 Core
+#    configlets:
+#      - clab_ENT-DC1-CORE1-BASE
+#      #- clab_ENT-DC1-SPINE1-CONFIG
+#  - fqdn: ENT-DC1-CORE2
+#    parentContainerName: DC1 Core
+#    configlets:
+#      - clab_ENT-DC1-CORE2-BASE
+#      #- clab_ENT-DC1-SPINE2-CONFIG
+#  - fqdn: ENT-DC2-SPINE1
+#    parentContainerName: DC2 Spines
+#    configlets:
+#      - clab_ENT-DC2-SPINE1-BASE
+#      #- clab_ENT-DC2-SPINE1-CONFIG
+#  - fqdn: ENT-DC2-SPINE2
+#    parentContainerName: DC2 Spines
+#    configlets:
+#      - clab_ENT-DC2-SPINE2-BASE
+#      #- clab_ENT-DC2-SPINE2-CONFIG
+#  - fqdn: ENT-DC2-BORDER1
+#    parentContainerName: DC2 Border Leaves
+#    configlets:
+#      - clab_ENT-DC2-BORDER1-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
+#      #- clab_ENT-DC2-BORDER1-CONFIG
+#  - fqdn: ENT-DC2-BORDER2
+#    parentContainerName: DC2 Border Leaves
+#    configlets:
+#      - clab_ENT-DC2-BORDER2-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
+#      #- clab_ENT-DC2-BORDER2-CONFIG
+#  - fqdn: ENT-DC2-LEAF1
+#    parentContainerName: DC2 Compute Pod 1
+#    configlets:
+#      - clab_ENT-DC2-LEAF1-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
+#  - fqdn: ENT-DC2-LEAF2
+#    parentContainerName: DC2 Compute Pod 1
+#    configlets:
+#      - clab_ENT-DC2-LEAF2-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
+#  - fqdn: ENT-DC2-LEAF3
+#    parentContainerName: DC2 Compute Pod 2
+#    configlets:
+#      - clab_ENT-DC2-LEAF3-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
+#  - fqdn: ENT-DC2-LEAF4
+#    parentContainerName: DC2 Compute Pod 2
+#    configlets:
+#      - clab_ENT-DC2-LEAF4-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
+#  - fqdn: ENT-DC2-LEAF5
+#    parentContainerName: DC2 Compute Pod 3
+#    configlets:
+#      - clab_ENT-DC2-LEAF5-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-A
+#  - fqdn: ENT-DC2-LEAF6
+#    parentContainerName: DC2 Compute Pod 3
+#    configlets:
+#      - clab_ENT-DC2-LEAF6-BASE
+#      #- clab_ENT-DC-LEAF-MLAG-SIDE-B
+#  - fqdn: ENT-DC2-CORE1
+#    parentContainerName: DC2 Core
+#    configlets:
+#      - clab_ENT-DC2-CORE1-BASE
+#      #- clab_ENT-DC2-SPINE1-CONFIG
+#  - fqdn: ENT-DC2-CORE2
+#    parentContainerName: DC2 Core
+#    configlets:
+#      - clab_ENT-DC2-CORE2-BASE
+#      #- clab_ENT-DC2-SPINE2-CONFIG
