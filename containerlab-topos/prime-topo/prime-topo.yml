@@ -133,19 +133,19 @@ topology:
       binds:
         - ./configs/access-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
-    PRIME-DC1-CE2:
+    PRIME-DC2-CE1:
       kind: ceos
       image: ceos:4.28.1F
       mgmt_ipv4: 10.99.99.85
-      startup-config: ./configs/PRIME-DC1-CE2.cfg
+      startup-config: ./configs/PRIME-DC2-CE1.cfg
       binds:
         - ./configs/access-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
-    PRIME-DC1-CE3:
+    PRIME-DC3-CE1:
       kind: ceos
       image: ceos:4.28.1F
       mgmt_ipv4: 10.99.99.86
-      startup-config: ./configs/PRIME-DC1-CE3.cfg
+      startup-config: ./configs/PRIME-DC3-CE1.cfg
       binds:
         - ./configs/access-mappings.json:/mnt/flash/EosIntfMapping.json:ro
 
