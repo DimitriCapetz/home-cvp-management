@@ -12,6 +12,8 @@
       "eth7": "Ethernet53/1",
       "eth8": "Ethernet54/1",
       "eth9": "Ethernet55/1",
-      "eth10": "Ethernet56/1"
+      "eth10": "Ethernet56/1",
+      "eth11": "Ethernet3",
+      "eth12": "Ethernet4"
     }
   }

@@ -195,6 +195,8 @@ topology:
 ####################
     - endpoints: ["HOST1:eth1", "LEAF1:eth1"]
     - endpoints: ["HOST1:eth2", "LEAF2:eth1"]
+    - endpoints: ["HOST1:eth11", "LEAF1:eth11"]
+    - endpoints: ["HOST1:eth12", "LEAF2:eth11"]
 ####################
 # LEAF3 to LEAF4   #
 ####################
@@ -205,6 +207,8 @@ topology:
 ####################
     - endpoints: ["HOST2:eth1", "LEAF3:eth1"]
     - endpoints: ["HOST2:eth2", "LEAF4:eth1"]
+    - endpoints: ["HOST2:eth11", "LEAF3:eth11"]
+    - endpoints: ["HOST2:eth12", "LEAF4:eth11"]
 ####################
 # LEAF5 to LEAF6   #
 ####################
@@ -215,6 +219,8 @@ topology:
 ####################
     - endpoints: ["HOST3:eth1", "LEAF5:eth1"]
     - endpoints: ["HOST3:eth2", "LEAF6:eth1"]
+    - endpoints: ["HOST3:eth11", "LEAF5:eth11"]
+    - endpoints: ["HOST3:eth12", "LEAF6:eth11"]
 ########################
 # BORDER1 to BORDER2   #
 ########################
