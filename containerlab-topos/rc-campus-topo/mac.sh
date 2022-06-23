@@ -32,3 +32,37 @@ sudo sed -i 's/..:..:..:..:..:../00:1c:73:40:00:00/' clab-rc-campus-topo/CAMPUS-
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:41:00:00/' clab-rc-campus-topo/CAMPUS-FL3-C2-LEAF2/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:42:00:00/' clab-rc-campus-topo/CAMPUS-WAN1/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:43:00:00/' clab-rc-campus-topo/CAMPUS-WAN2/flash/system_mac_address
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-SPINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-SPINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-SPINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-SPINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-SPINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-SPINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-SPINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-SPINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C1-SPLINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C1-SPLINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C2-SPLINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C2-SPLINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-C1-SPLINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-C1-SPLINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-C2-SPLINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-C2-SPLINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-C1-SPLINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-C1-SPLINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-C2-SPLINE1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-C2-SPLINE2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C1-LEAF1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C1-LEAF2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C2-LEAF1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C2-LEAF2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-C1-LEAF1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-C1-LEAF2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-C2-LEAF1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-C2-LEAF2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-C1-LEAF1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-C1-LEAF2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-C2-LEAF1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-C2-LEAF2/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-WAN1/flash/cv-onboarding-token
+sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-WAN2/flash/cv-onboarding-token
