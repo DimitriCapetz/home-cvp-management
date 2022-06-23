@@ -1,0 +1,2 @@
+sudo sed -i 's/..:..:..:..:..:../00:1c:73:10:00:00/' clab-campus-topo/CAMPUS-SPINE1/flash/system_mac_address
+sudo sed -i 's/..:..:..:..:..:../00:1c:73:11:00:00/' clab-campus-topo/CAMPUS-SPINE2/flash/system_mac_address

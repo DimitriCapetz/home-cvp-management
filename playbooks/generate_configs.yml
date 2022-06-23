@@ -16,11 +16,11 @@
       path: ../datafiles/devices.csv
     register: switches
 
-#  - name: Create Base Config for each device in CSV File
-#    template: src=../templates/base-cfg.j2 dest=../cvp_configlets/{{ switch.hostname }}-BASE.txt
-#    loop: "{{ switches.list }}"
-#    loop_control:
-#      loop_var: switch
+  - name: Create Base Config for each device in CSV File
+    template: src=../templates/ceos-base-cfg.j2 dest=../cvp_configlets/{{ switch.hostname }}.cfg
+    loop: "{{ switches.list }}"
+    loop_control:
+      loop_var: switch
 #
 #  - name: Create Common VRFs for Leafs
 #    when: item.hostname is match(".*-1")
@@ -34,14 +34,14 @@
 #    template: src=../templates/vlans-cfg.j2 dest=../cvp_configlets/{{ item.hostname | regex_replace('-1$','') }}-VLANs.txt
 #    with_items: "{{ switches.list }}"
 
-  - name: Configure MLAG Interfaces
-    when: 
-      - item.hostname is match(".*LEAF01|.*LEAF03")
-      - item.compute == "yes"
-    template: src=../templates/mlags-cfg.j2 dest=../cvp_configlets/{{ item.hostname | regex_replace('-LEAF0','-Pod-') }}-MLAGs.txt
-    with_items: "{{ switches.list }}"
-
-  - name: Configure Orphan Interfaces
-    when: item.compute == "yes"
-    template: src=../templates/orphans-cfg.j2 dest=../cvp_configlets/{{ item.hostname }}-orphan-ports.txt
-    with_items: "{{ switches.list }}"
+#  - name: Configure MLAG Interfaces
+#    when: 
+#      - item.hostname is match(".*LEAF01|.*LEAF03")
+#      - item.compute == "yes"
+#    template: src=../templates/mlags-cfg.j2 dest=../cvp_configlets/{{ item.hostname | regex_replace('-LEAF0','-Pod-') }}-MLAGs.txt
+#    with_items: "{{ switches.list }}"
+#
+#  - name: Configure Orphan Interfaces
+#    when: item.compute == "yes"
+#    template: src=../templates/orphans-cfg.j2 dest=../cvp_configlets/{{ item.hostname }}-orphan-ports.txt
+#    with_items: "{{ switches.list }}"
