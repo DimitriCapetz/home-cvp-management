@@ -1,0 +1,7 @@
+!
+! Base Config for RC-CAMPUS-WAN1
+!
+hostname RC-CAMPUS-WAN1
+!
+interface Management1
+   ip address 10.99.99.120/24

@@ -1,0 +1,7 @@
+!
+! Base Config for RC-CAMPUS-FL1-C1-LEAF1
+!
+hostname RC-CAMPUS-FL1-C1-LEAF1
+!
+interface Management1
+   ip address 10.99.99.102/24
