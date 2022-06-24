@@ -1,0 +1,7 @@
+!
+! Base Config for {{ switch.hostname }}
+!
+hostname {{ switch.hostname }}
+!
+interface Management1
+   ip address {{ switch.mgmt_ip }}/{{ switch.netmask }}
