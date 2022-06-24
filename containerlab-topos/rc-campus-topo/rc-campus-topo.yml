@@ -611,11 +611,11 @@ topology:
 # HOST #
 ########
     - endpoints: ["CAMPUS-FL1-C1-HOST1:eth1", "CAMPUS-FL1-C1-LEAF1:eth1"]
-    - endpoints: ["CAMPUS-FL1-C2-HOST1:eth1", "CAMPUS-FL1-C1-LEAF2:eth1"]
+    - endpoints: ["CAMPUS-FL1-C2-HOST1:eth1", "CAMPUS-FL1-C2-LEAF2:eth1"]
     - endpoints: ["CAMPUS-FL2-C1-HOST1:eth1", "CAMPUS-FL2-C1-LEAF1:eth1"]
-    - endpoints: ["CAMPUS-FL2-C2-HOST1:eth1", "CAMPUS-FL2-C1-SPLINE2:eth1"]
+    - endpoints: ["CAMPUS-FL2-C2-HOST1:eth1", "CAMPUS-FL2-C2-SPLINE2:eth1"]
     - endpoints: ["CAMPUS-FL3-C1-HOST1:eth1", "CAMPUS-FL3-C1-SPLINE1:eth1"]
-    - endpoints: ["CAMPUS-FL3-C2-HOST1:eth1", "CAMPUS-FL3-C1-LEAF2:eth1"]
+    - endpoints: ["CAMPUS-FL3-C2-HOST1:eth1", "CAMPUS-FL3-C2-LEAF2:eth1"]
 ######################
 # WAN Sim            #
 ######################
