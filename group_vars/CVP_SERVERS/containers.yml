@@ -2,36 +2,36 @@ CVP_CONTAINERS:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-  Data Center:
-    parentContainerName: Home
-    configlets:
-      - clab_DC-VLANs
-  Spines:
-    parentContainerName: Data Center
-    configlets:
-      - clab_DC-SPINE-SHARED
-  Leaves:
-    parentContainerName: Data Center
-  Border Leaves:
-    parentContainerName: Leaves
-    configlets:
-      - clab_DC-BORDER-SHARED
-  Compute Leaves:
-    parentContainerName: Leaves
-    configlets:
-      - clab_DC-LEAVES-SHARED
-  Compute Pod 1:
-    parentContainerName: Compute Leaves
-    configlets:
-      - clab_DC-POD1-SHARED
-  Compute Pod 2:
-    parentContainerName: Compute Leaves
-    configlets:
-      - clab_DC-POD2-SHARED
-  Compute Pod 3:
-    parentContainerName: Compute Leaves
-    configlets:
-      - clab_DC-POD3-SHARED
+#  Data Center:
+#    parentContainerName: Home
+#    configlets:
+#      - clab_DC-VLANs
+#  Spines:
+#    parentContainerName: Data Center
+#    configlets:
+#      - clab_DC-SPINE-SHARED
+#  Leaves:
+#    parentContainerName: Data Center
+#  Border Leaves:
+#    parentContainerName: Leaves
+#    configlets:
+#      - clab_DC-BORDER-SHARED
+#  Compute Leaves:
+#    parentContainerName: Leaves
+#    configlets:
+#      - clab_DC-LEAVES-SHARED
+#  Compute Pod 1:
+#    parentContainerName: Compute Leaves
+#    configlets:
+#      - clab_DC-POD1-SHARED
+#  Compute Pod 2:
+#    parentContainerName: Compute Leaves
+#    configlets:
+#      - clab_DC-POD2-SHARED
+#  Compute Pod 3:
+#    parentContainerName: Compute Leaves
+#    configlets:
+#      - clab_DC-POD3-SHARED
 ###################
 # Campus Topology #
 ###################
@@ -147,3 +147,8 @@ CVP_CONTAINERS:
 #    parentContainerName: Data Center 2
 #    #configlets:
 #    #  - clab_ENT-DC2-CORE-SHARED
+######################
+# RC Campus Topology #
+######################
+  Rocket Central Campus:
+    parentContainerName: Home
