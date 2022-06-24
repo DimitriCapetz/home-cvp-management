@@ -1,11 +1,5 @@
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:10:00:00/' clab-rc-campus-topo/CAMPUS-SPINE1/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:11:00:00/' clab-rc-campus-topo/CAMPUS-SPINE2/flash/system_mac_address
-sudo sed -i 's/..:..:..:..:..:../00:1c:73:12:00:00/' clab-rc-campus-topo/CAMPUS-FL1-SPINE1/flash/system_mac_address
-sudo sed -i 's/..:..:..:..:..:../00:1c:73:13:00:00/' clab-rc-campus-topo/CAMPUS-FL1-SPINE2/flash/system_mac_address
-sudo sed -i 's/..:..:..:..:..:../00:1c:73:14:00:00/' clab-rc-campus-topo/CAMPUS-FL2-SPINE1/flash/system_mac_address
-sudo sed -i 's/..:..:..:..:..:../00:1c:73:15:00:00/' clab-rc-campus-topo/CAMPUS-FL2-SPINE2/flash/system_mac_address
-sudo sed -i 's/..:..:..:..:..:../00:1c:73:16:00:00/' clab-rc-campus-topo/CAMPUS-FL3-SPINE1/flash/system_mac_address
-sudo sed -i 's/..:..:..:..:..:../00:1c:73:17:00:00/' clab-rc-campus-topo/CAMPUS-FL3-SPINE2/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:18:00:00/' clab-rc-campus-topo/CAMPUS-FL1-C1-SPLINE1/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:19:00:00/' clab-rc-campus-topo/CAMPUS-FL1-C1-SPLINE2/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:20:00:00/' clab-rc-campus-topo/CAMPUS-FL1-C2-SPLINE1/flash/system_mac_address
@@ -34,12 +28,6 @@ sudo sed -i 's/..:..:..:..:..:../00:1c:73:42:00:00/' clab-rc-campus-topo/CAMPUS-
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:43:00:00/' clab-rc-campus-topo/CAMPUS-WAN2/flash/system_mac_address
 sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-SPINE1/flash/cv-onboarding-token
 sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-SPINE2/flash/cv-onboarding-token
-sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-SPINE1/flash/cv-onboarding-token
-sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-SPINE2/flash/cv-onboarding-token
-sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-SPINE1/flash/cv-onboarding-token
-sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL2-SPINE2/flash/cv-onboarding-token
-sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-SPINE1/flash/cv-onboarding-token
-sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL3-SPINE2/flash/cv-onboarding-token
 sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C1-SPLINE1/flash/cv-onboarding-token
 sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C1-SPLINE2/flash/cv-onboarding-token
 sudo cp cv-onboarding-token clab-rc-campus-topo/CAMPUS-FL1-C2-SPLINE1/flash/cv-onboarding-token

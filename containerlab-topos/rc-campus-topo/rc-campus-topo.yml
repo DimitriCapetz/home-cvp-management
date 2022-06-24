@@ -80,94 +80,6 @@ topology:
         graph-level: 2
         graph-icon: switch
 
-############
-# FL-SPINE #
-############
-
-    CAMPUS-FL1-SPINE1:
-      kind: ceos
-      mgmt_ipv4: 172.100.100.5
-      startup-config: ./configs/CAMPUS-FL1-SPINE1.cfg
-      binds:
-        - ./configs/fl-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      ports:
-        - '22003:22'
-        - '8003:80'
-        - '44303:443'
-      labels:
-        graph-level: 3
-        graph-icon: switch
-
-    CAMPUS-FL1-SPINE2:
-      kind: ceos
-      mgmt_ipv4: 172.100.100.6
-      startup-config: ./configs/CAMPUS-FL1-SPINE2.cfg
-      binds:
-        - ./configs/fl-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      ports:
-        - '22004:22'
-        - '8004:80'
-        - '44304:443'
-      labels:
-        graph-level: 3
-        graph-icon: switch
-
-    CAMPUS-FL2-SPINE1:
-      kind: ceos
-      mgmt_ipv4: 172.100.100.7
-      startup-config: ./configs/CAMPUS-FL2-SPINE1.cfg
-      binds:
-        - ./configs/fl-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      ports:
-        - '22005:22'
-        - '8005:80'
-        - '44305:443'
-      labels:
-        graph-level: 3
-        graph-icon: switch
-
-    CAMPUS-FL2-SPINE2:
-      kind: ceos
-      mgmt_ipv4: 172.100.100.8
-      startup-config: ./configs/CAMPUS-FL2-SPINE2.cfg
-      binds:
-        - ./configs/fl-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      ports:
-        - '22006:22'
-        - '8006:80'
-        - '44306:443'
-      labels:
-        graph-level: 3
-        graph-icon: switch
-
-    CAMPUS-FL3-SPINE1:
-      kind: ceos
-      mgmt_ipv4: 172.100.100.9
-      startup-config: ./configs/CAMPUS-FL3-SPINE1.cfg
-      binds:
-        - ./configs/fl-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      ports:
-        - '22007:22'
-        - '8007:80'
-        - '44307:443'
-      labels:
-        graph-level: 3
-        graph-icon: switch
-
-    CAMPUS-FL3-SPINE2:
-      kind: ceos
-      mgmt_ipv4: 172.100.100.10
-      startup-config: ./configs/CAMPUS-FL3-SPINE2.cfg
-      binds:
-        - ./configs/fl-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      ports:
-        - '22008:22'
-        - '8008:80'
-        - '44308:443'
-      labels:
-        graph-level: 3
-        graph-icon: switch
-
 #########################
 # CAMPUS-SPLINE         #
 #########################
@@ -183,7 +95,7 @@ topology:
         - '8009:80'
         - '44309:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL1-C1-SPLINE2:
@@ -197,7 +109,7 @@ topology:
         - '8010:80'
         - '44310:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL1-C2-SPLINE1:
@@ -211,7 +123,7 @@ topology:
         - '8011:80'
         - '44311:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL1-C2-SPLINE2:
@@ -225,7 +137,7 @@ topology:
         - '8012:80'
         - '44312:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL2-C1-SPLINE1:
@@ -239,7 +151,7 @@ topology:
         - '8013:80'
         - '44313:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL2-C1-SPLINE2:
@@ -253,7 +165,7 @@ topology:
         - '8014:80'
         - '44314:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL2-C2-SPLINE1:
@@ -267,7 +179,7 @@ topology:
         - '8015:80'
         - '44315:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL2-C2-SPLINE2:
@@ -281,7 +193,7 @@ topology:
         - '8016:80'
         - '44316:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL3-C1-SPLINE1:
@@ -295,7 +207,7 @@ topology:
         - '8017:80'
         - '44317:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL3-C1-SPLINE2:
@@ -309,7 +221,7 @@ topology:
         - '8018:80'
         - '44318:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL3-C2-SPLINE1:
@@ -323,7 +235,7 @@ topology:
         - '8019:80'
         - '44319:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
     CAMPUS-FL3-C2-SPLINE2:
@@ -337,7 +249,7 @@ topology:
         - '8020:80'
         - '44320:443'
       labels:
-        graph-level: 4
+        graph-level: 3
         graph-icon: switch
 
 ###############
@@ -355,7 +267,7 @@ topology:
         - '8021:80'
         - '44321:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL1-C1-LEAF2:
@@ -369,7 +281,7 @@ topology:
         - '8022:80'
         - '44322:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL1-C2-LEAF1:
@@ -383,7 +295,7 @@ topology:
         - '8023:80'
         - '44323:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL1-C2-LEAF2:
@@ -397,7 +309,7 @@ topology:
         - '8024:80'
         - '44324:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL2-C1-LEAF1:
@@ -411,7 +323,7 @@ topology:
         - '8025:80'
         - '44325:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL2-C1-LEAF2:
@@ -425,7 +337,7 @@ topology:
         - '8026:80'
         - '44326:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL2-C2-LEAF1:
@@ -439,7 +351,7 @@ topology:
         - '8027:80'
         - '44327:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL2-C2-LEAF2:
@@ -453,7 +365,7 @@ topology:
         - '8028:80'
         - '44328:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL3-C1-LEAF1:
@@ -467,7 +379,7 @@ topology:
         - '8029:80'
         - '44329:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL3-C1-LEAF2:
@@ -481,7 +393,7 @@ topology:
         - '8030:80'
         - '44330:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL3-C2-LEAF1:
@@ -495,7 +407,7 @@ topology:
         - '8031:80'
         - '44331:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
     CAMPUS-FL3-C2-LEAF2:
@@ -509,7 +421,7 @@ topology:
         - '8032:80'
         - '44332:443'
       labels:
-        graph-level: 5
+        graph-level: 4
         graph-icon: switch
 
 ###########################################
@@ -525,7 +437,7 @@ topology:
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.10.10.101/24 -g 10.10.10.1
       labels:
-        graph-level: 6
+        graph-level: 5
         graph-icon: host
 
     CAMPUS-FL1-C2-HOST1:
@@ -537,7 +449,7 @@ topology:
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.20.20.102/24 -g 10.20.20.1
       labels:
-        graph-level: 6
+        graph-level: 5
         graph-icon: host
 
     CAMPUS-FL2-C1-HOST1:
@@ -549,7 +461,7 @@ topology:
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.10.10.103/24 -g 10.10.10.1
       labels:
-        graph-level: 6
+        graph-level: 5
         graph-icon: host
 
     CAMPUS-FL2-C2-HOST1:
@@ -561,7 +473,7 @@ topology:
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.10.10.104/24 -g 10.10.10.1
       labels:
-        graph-level: 6
+        graph-level: 5
         graph-icon: host
 
     CAMPUS-FL3-C1-HOST1:
@@ -573,7 +485,7 @@ topology:
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.20.20.105/24 -g 10.20.20.1
       labels:
-        graph-level: 6
+        graph-level: 5
         graph-icon: host
 
     CAMPUS-FL3-C2-HOST1:
@@ -585,7 +497,7 @@ topology:
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.30.30.106/24 -g 10.30.30.1
       labels:
-        graph-level: 6
+        graph-level: 5
         graph-icon: host
 
 ###########################################
@@ -621,62 +533,53 @@ topology:
         graph-icon: switch
 
   links:
-######################
-# SPINE1 to FL-SPINE #
-######################
-    - endpoints: ["CAMPUS-SPINE1:eth1", "CAMPUS-FL1-SPINE1:eth9"]
-    - endpoints: ["CAMPUS-SPINE1:eth2", "CAMPUS-FL1-SPINE2:eth9"]
-    - endpoints: ["CAMPUS-SPINE1:eth3", "CAMPUS-FL2-SPINE1:eth9"]
-    - endpoints: ["CAMPUS-SPINE1:eth4", "CAMPUS-FL2-SPINE2:eth9"]
-    - endpoints: ["CAMPUS-SPINE1:eth5", "CAMPUS-FL3-SPINE1:eth9"]
-    - endpoints: ["CAMPUS-SPINE1:eth6", "CAMPUS-FL3-SPINE2:eth9"]
-######################
-# SPINE2 to FL-SPINE #
-######################
-    - endpoints: ["CAMPUS-SPINE2:eth1", "CAMPUS-FL1-SPINE1:eth10"]
-    - endpoints: ["CAMPUS-SPINE2:eth2", "CAMPUS-FL1-SPINE2:eth10"]
-    - endpoints: ["CAMPUS-SPINE2:eth3", "CAMPUS-FL2-SPINE1:eth10"]
-    - endpoints: ["CAMPUS-SPINE2:eth4", "CAMPUS-FL2-SPINE2:eth10"]
-    - endpoints: ["CAMPUS-SPINE2:eth5", "CAMPUS-FL3-SPINE1:eth10"]
-    - endpoints: ["CAMPUS-SPINE2:eth6", "CAMPUS-FL3-SPINE2:eth10"]
 ####################
-# SPINE Peer-links #
+# SPINE1 to SPLINE #
 ####################
-    - endpoints: ["CAMPUS-SPINE1:eth11", "CAMPUS-SPINE2:eth11"]
-    - endpoints: ["CAMPUS-SPINE1:eth12", "CAMPUS-SPINE2:eth12"]
-    - endpoints: ["CAMPUS-FL1-SPINE1:eth11", "CAMPUS-FL1-SPINE2:eth11"]
-    - endpoints: ["CAMPUS-FL1-SPINE1:eth12", "CAMPUS-FL1-SPINE2:eth12"]
-    - endpoints: ["CAMPUS-FL2-SPINE1:eth11", "CAMPUS-FL2-SPINE2:eth11"]
-    - endpoints: ["CAMPUS-FL2-SPINE1:eth12", "CAMPUS-FL2-SPINE2:eth12"]
-    - endpoints: ["CAMPUS-FL3-SPINE1:eth11", "CAMPUS-FL3-SPINE2:eth11"]
-    - endpoints: ["CAMPUS-FL3-SPINE1:eth12", "CAMPUS-FL3-SPINE2:eth12"]
-######################
-# FL SPLINE to SPINE #
-######################
-    - endpoints: ["CAMPUS-FL1-C1-SPLINE1:eth5", "CAMPUS-FL1-SPINE1:eth1"]
-    - endpoints: ["CAMPUS-FL1-C1-SPLINE1:eth6", "CAMPUS-FL1-SPINE2:eth1"]
-    - endpoints: ["CAMPUS-FL1-C1-SPLINE2:eth5", "CAMPUS-FL1-SPINE1:eth2"]
-    - endpoints: ["CAMPUS-FL1-C1-SPLINE2:eth6", "CAMPUS-FL1-SPINE2:eth2"]
-    - endpoints: ["CAMPUS-FL1-C2-SPLINE1:eth5", "CAMPUS-FL1-SPINE1:eth3"]
-    - endpoints: ["CAMPUS-FL1-C2-SPLINE1:eth6", "CAMPUS-FL1-SPINE2:eth3"]
-    - endpoints: ["CAMPUS-FL1-C2-SPLINE2:eth5", "CAMPUS-FL1-SPINE1:eth4"]
-    - endpoints: ["CAMPUS-FL1-C2-SPLINE2:eth6", "CAMPUS-FL1-SPINE2:eth4"]
-    - endpoints: ["CAMPUS-FL2-C1-SPLINE1:eth5", "CAMPUS-FL2-SPINE1:eth1"]
-    - endpoints: ["CAMPUS-FL2-C1-SPLINE1:eth6", "CAMPUS-FL2-SPINE2:eth1"]
-    - endpoints: ["CAMPUS-FL2-C1-SPLINE2:eth5", "CAMPUS-FL2-SPINE1:eth2"]
-    - endpoints: ["CAMPUS-FL2-C1-SPLINE2:eth6", "CAMPUS-FL2-SPINE2:eth2"]
-    - endpoints: ["CAMPUS-FL2-C2-SPLINE1:eth5", "CAMPUS-FL2-SPINE1:eth3"]
-    - endpoints: ["CAMPUS-FL2-C2-SPLINE1:eth6", "CAMPUS-FL2-SPINE2:eth3"]
-    - endpoints: ["CAMPUS-FL2-C2-SPLINE2:eth5", "CAMPUS-FL2-SPINE1:eth4"]
-    - endpoints: ["CAMPUS-FL2-C2-SPLINE2:eth6", "CAMPUS-FL2-SPINE2:eth4"]
-    - endpoints: ["CAMPUS-FL3-C1-SPLINE1:eth5", "CAMPUS-FL3-SPINE1:eth1"]
-    - endpoints: ["CAMPUS-FL3-C1-SPLINE1:eth6", "CAMPUS-FL3-SPINE2:eth1"]
-    - endpoints: ["CAMPUS-FL3-C1-SPLINE2:eth5", "CAMPUS-FL3-SPINE1:eth2"]
-    - endpoints: ["CAMPUS-FL3-C1-SPLINE2:eth6", "CAMPUS-FL3-SPINE2:eth2"]
-    - endpoints: ["CAMPUS-FL3-C2-SPLINE1:eth5", "CAMPUS-FL3-SPINE1:eth3"]
-    - endpoints: ["CAMPUS-FL3-C2-SPLINE1:eth6", "CAMPUS-FL3-SPINE2:eth3"]
-    - endpoints: ["CAMPUS-FL3-C2-SPLINE2:eth5", "CAMPUS-FL3-SPINE1:eth4"]
-    - endpoints: ["CAMPUS-FL3-C2-SPLINE2:eth6", "CAMPUS-FL3-SPINE2:eth4"]
+    - endpoints: ["CAMPUS-SPINE1:eth1", "CAMPUS-FL1-C1-SPLINE1:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth2", "CAMPUS-FL1-C1-SPLINE2:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth3", "CAMPUS-FL1-C2-SPLINE1:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth4", "CAMPUS-FL1-C2-SPLINE2:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth5", "CAMPUS-FL2-C1-SPLINE1:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth6", "CAMPUS-FL2-C1-SPLINE2:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth7", "CAMPUS-FL2-C2-SPLINE1:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth8", "CAMPUS-FL2-C2-SPLINE2:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth9", "CAMPUS-FL3-C1-SPLINE1:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth10", "CAMPUS-FL3-C1-SPLINE2:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth11", "CAMPUS-FL3-C2-SPLINE1:eth9"]
+    - endpoints: ["CAMPUS-SPINE1:eth12", "CAMPUS-FL3-C2-SPLINE2:eth9"]
+####################
+# SPINE2 to SPLINE #
+####################
+    - endpoints: ["CAMPUS-SPINE2:eth1", "CAMPUS-FL1-C1-SPLINE1:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth2", "CAMPUS-FL1-C1-SPLINE2:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth3", "CAMPUS-FL1-C2-SPLINE1:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth4", "CAMPUS-FL1-C2-SPLINE2:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth5", "CAMPUS-FL2-C1-SPLINE1:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth6", "CAMPUS-FL2-C1-SPLINE2:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth7", "CAMPUS-FL2-C2-SPLINE1:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth8", "CAMPUS-FL2-C2-SPLINE2:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth9", "CAMPUS-FL3-C1-SPLINE1:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth10", "CAMPUS-FL3-C1-SPLINE2:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth11", "CAMPUS-FL3-C2-SPLINE1:eth10"]
+    - endpoints: ["CAMPUS-SPINE2:eth12", "CAMPUS-FL3-C2-SPLINE2:eth10"]
+#####################
+# Switch Peer-links #
+#####################
+    - endpoints: ["CAMPUS-SPINE1:eth15", "CAMPUS-SPINE2:eth15"]
+    - endpoints: ["CAMPUS-SPINE1:eth16", "CAMPUS-SPINE2:eth16"]
+    - endpoints: ["CAMPUS-FL1-C1-SPLINE1:eth3", "CAMPUS-FL1-C1-SPLINE2:eth3"]
+    - endpoints: ["CAMPUS-FL1-C1-SPLINE1:eth4", "CAMPUS-FL1-C1-SPLINE2:eth4"]
+    - endpoints: ["CAMPUS-FL1-C2-SPLINE1:eth3", "CAMPUS-FL1-C2-SPLINE2:eth3"]
+    - endpoints: ["CAMPUS-FL1-C2-SPLINE1:eth4", "CAMPUS-FL1-C2-SPLINE2:eth4"]
+    - endpoints: ["CAMPUS-FL2-C1-SPLINE1:eth3", "CAMPUS-FL2-C1-SPLINE2:eth3"]
+    - endpoints: ["CAMPUS-FL2-C1-SPLINE1:eth4", "CAMPUS-FL2-C1-SPLINE2:eth4"]
+    - endpoints: ["CAMPUS-FL2-C2-SPLINE1:eth3", "CAMPUS-FL2-C2-SPLINE2:eth3"]
+    - endpoints: ["CAMPUS-FL2-C2-SPLINE1:eth4", "CAMPUS-FL2-C2-SPLINE2:eth4"]
+    - endpoints: ["CAMPUS-FL3-C1-SPLINE1:eth3", "CAMPUS-FL3-C1-SPLINE2:eth3"]
+    - endpoints: ["CAMPUS-FL3-C1-SPLINE1:eth4", "CAMPUS-FL3-C1-SPLINE2:eth4"]
+    - endpoints: ["CAMPUS-FL3-C2-SPLINE1:eth3", "CAMPUS-FL3-C2-SPLINE2:eth3"]
+    - endpoints: ["CAMPUS-FL3-C2-SPLINE1:eth4", "CAMPUS-FL3-C2-SPLINE2:eth4"]
 #####################
 # FL SPLINE to LEAF #
 #####################
@@ -713,9 +616,8 @@ topology:
     - endpoints: ["CAMPUS-FL2-C2-HOST1:eth1", "CAMPUS-FL2-C1-SPLINE2:eth1"]
     - endpoints: ["CAMPUS-FL3-C1-HOST1:eth1", "CAMPUS-FL3-C1-SPLINE1:eth1"]
     - endpoints: ["CAMPUS-FL3-C2-HOST1:eth1", "CAMPUS-FL3-C1-LEAF2:eth1"]
-
 ######################
 # WAN Sim            #
 ######################
-    - endpoints: ["CAMPUS-WAN1:eth9", "CAMPUS-SPINE1:eth9"]
-    - endpoints: ["CAMPUS-WAN2:eth9", "CAMPUS-SPINE2:eth9"]
+    - endpoints: ["CAMPUS-WAN1:eth13", "CAMPUS-SPINE1:eth13"]
+    - endpoints: ["CAMPUS-WAN2:eth13", "CAMPUS-SPINE2:eth13"]
