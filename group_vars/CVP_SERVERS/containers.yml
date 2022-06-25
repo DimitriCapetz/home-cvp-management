@@ -147,8 +147,81 @@ CVP_CONTAINERS:
 #    parentContainerName: Data Center 2
 #    #configlets:
 #    #  - clab_ENT-DC2-CORE-SHARED
-######################
-# RC Campus Topology #
-######################
+################################
+# RC Campus Topology - Studios #
+################################
+#  Rocket Central Campus:
+#    parentContainerName: Home
+###################################
+# RC Campus Topology - Configlets #
+###################################
   Rocket Central Campus:
     parentContainerName: Home
+  Spines:
+    parentContainerName: Rocket Central Campus
+    configlets:
+      - clab_RC-CAMPUS-SPINE-SHARED
+  Closets:
+    parentContainerName: Rocket Central Campus
+    configlets:
+      - clab_RC-CAMPUS-VLANs
+  Floor 1 Closet 1:
+    parentContainerName: Closets
+  Floor 1 Closet 2:
+    parentContainerName: Closets
+  Floor 2 Closet 1:
+    parentContainerName: Closets
+  Floor 2 Closet 2:
+    parentContainerName: Closets
+  Floor 3 Closet 1:
+    parentContainerName: Closets
+  Floor 3 Closet 2:
+    parentContainerName: Closets
+  Floor 1 Closet 1 Splines:
+    parentContainerName: Floor 1 Closet 1
+    configlets:
+      - clab_RC-CAMPUS-FL1-C1-SPLINE-SHARED
+  Floor 1 Closet 1 Leaves:
+    parentContainerName: Floor 1 Closet 1
+    configlets:
+      - clab_RC-CAMPUS-LEAF-SHARED
+  Floor 1 Closet 2 Splines:
+    parentContainerName: Floor 1 Closet 2
+    configlets:
+      - clab_RC-CAMPUS-FL1-C2-SPLINE-SHARED
+  Floor 1 Closet 2 Leaves:
+    parentContainerName: Floor 1 Closet 2
+    configlets:
+      - clab_RC-CAMPUS-LEAF-SHARED
+  Floor 2 Closet 1 Splines:
+    parentContainerName: Floor 2 Closet 1
+    configlets:
+      - clab_RC-CAMPUS-FL2-C1-SPLINE-SHARED
+  Floor 2 Closet 1 Leaves:
+    parentContainerName: Floor 2 Closet 1
+    configlets:
+      - clab_RC-CAMPUS-LEAF-SHARED
+  Floor 2 Closet 2 Splines:
+    parentContainerName: Floor 2 Closet 2
+    configlets:
+      - clab_RC-CAMPUS-FL2-C2-SPLINE-SHARED
+  Floor 2 Closet 2 Leaves:
+    parentContainerName: Floor 2 Closet 2
+    configlets:
+      - clab_RC-CAMPUS-LEAF-SHARED
+  Floor 3 Closet 1 Splines:
+    parentContainerName: Floor 3 Closet 1
+    configlets:
+      - clab_RC-CAMPUS-FL3-C1-SPLINE-SHARED
+  Floor 3 Closet 1 Leaves:
+    parentContainerName: Floor 3 Closet 1
+    configlets:
+      - clab_RC-CAMPUS-LEAF-SHARED
+  Floor 3 Closet 2 Splines:
+    parentContainerName: Floor 3 Closet 2
+    configlets:
+      - clab_RC-CAMPUS-FL3-C2-SPLINE-SHARED
+  Floor 3 Closet 2 Leaves:
+    parentContainerName: Floor 3 Closet 2
+    configlets:
+      - clab_RC-CAMPUS-LEAF-SHARED

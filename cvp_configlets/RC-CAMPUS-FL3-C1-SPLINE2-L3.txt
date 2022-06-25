@@ -1,0 +1,20 @@
+interface Ethernet53/1
+   description Uplink to RC-CAMPUS-SPINE1
+   no switchport
+   mtu 9214
+   ip address 10.1.1.19/31
+!
+interface Ethernet54/1
+   description Uplink to RC-CAMPUS-SPINE2
+   no switchport
+   mtu 9214
+   ip address 10.1.2.19/31
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.255.255.110/32
+!
+router bgp 65031
+   router-id 10.255.255.110
+   neighbor 10.1.1.18 peer group SPINES-IPv4
+   neighbor 10.1.2.18 peer group SPINES-IPv4

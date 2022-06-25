@@ -1,0 +1,11 @@
+interface Port-Channel1
+   description Uplink to Splines
+   switchport mode trunk
+!
+interface Ethernet49
+   description Po1 to Closet SPLINE1
+   channel-group 1 mode active
+!
+interface Ethernet50
+   description Po1 to Closet SPLINE2
+   channel-group 1 mode active

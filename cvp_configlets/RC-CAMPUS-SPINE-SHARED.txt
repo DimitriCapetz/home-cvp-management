@@ -1,0 +1,28 @@
+ip prefix-list LOOPBACKS
+   seq 100 permit 10.255.255.0/24 eq 32
+   seq 110 permit 10.255.254.0/24 eq 32
+!
+route-map LOOPBACKS permit 10
+   match ip address prefix-list LOOPBACKS
+!
+peer-filter SPLINES
+   10 match as-range 65001-65500 result accept
+!
+router bgp 65000
+   maximum-paths 2
+   no bgp default ipv4-unicast
+   bgp listen range 10.255.255.0/24 peer-group SPLINES-EVPN peer-filter SPLINES
+   neighbor SPLINES-IPv4 peer group
+   neighbor SPLINES-IPv4 send-community standard extended
+   neighbor SPLINES-EVPN peer group
+   neighbor SPLINES-EVPN update-source Loopback0
+   neighbor SPLINES-EVPN ebgp-multihop 3
+   neighbor SPLINES-EVPN send-community standard extended
+   redistribute connected route-map LOOPBACKS
+   !
+   address-family evpn
+      bgp next-hop-unchanged
+      neighbor SPLINES-EVPN activate
+   !
+   address-family ipv4
+      neighbor SPLINES-IPv4 activate

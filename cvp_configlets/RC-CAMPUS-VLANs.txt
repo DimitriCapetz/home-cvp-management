@@ -1,0 +1,8 @@
+vlan 10
+   name RC_Users
+!
+vlan 20
+   name RC_Guests
+!
+vlan 30
+   name RC_Phones
