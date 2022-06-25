@@ -267,240 +267,240 @@ CVP_DEVICES:
 ################################
 # RC Campus Topology - Studios #
 ################################
-#  - fqdn: RC-CAMPUS-SPINE1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-SPINE1-MGMT
-#  - fqdn: RC-CAMPUS-SPINE2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-SPINE2-MGMT
-#  - fqdn: RC-CAMPUS-FL1-C1-SPLINE1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL1-C1-SPLINE1-MGMT
-#  - fqdn: RC-CAMPUS-FL1-C1-SPLINE2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL1-C1-SPLINE2-MGMT
-#  - fqdn: RC-CAMPUS-FL1-C2-SPLINE1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL1-C2-SPLINE1-MGMT
-#  - fqdn: RC-CAMPUS-FL1-C2-SPLINE2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL1-C2-SPLINE2-MGMT
-#  - fqdn: RC-CAMPUS-FL2-C1-SPLINE1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL2-C1-SPLINE1-MGMT
-#  - fqdn: RC-CAMPUS-FL2-C1-SPLINE2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL2-C1-SPLINE2-MGMT
-#  - fqdn: RC-CAMPUS-FL2-C2-SPLINE1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL2-C2-SPLINE1-MGMT
-#  - fqdn: RC-CAMPUS-FL2-C2-SPLINE2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL2-C2-SPLINE2-MGMT
-#  - fqdn: RC-CAMPUS-FL3-C1-SPLINE1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL3-C1-SPLINE1-MGMT
-#  - fqdn: RC-CAMPUS-FL3-C1-SPLINE2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL3-C1-SPLINE2-MGMT
-#  - fqdn: RC-CAMPUS-FL3-C2-SPLINE1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL3-C2-SPLINE1-MGMT
-#  - fqdn: RC-CAMPUS-FL3-C2-SPLINE2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL3-C2-SPLINE2-MGMT
-#  - fqdn: RC-CAMPUS-FL1-C1-LEAF1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL1-C1-LEAF1-MGMT
-#  - fqdn: RC-CAMPUS-FL1-C1-LEAF2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL1-C1-LEAF2-MGMT
-#  - fqdn: RC-CAMPUS-FL1-C2-LEAF1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL1-C2-LEAF1-MGMT
-#  - fqdn: RC-CAMPUS-FL1-C2-LEAF2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL1-C2-LEAF2-MGMT
-#  - fqdn: RC-CAMPUS-FL2-C1-LEAF1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL2-C1-LEAF1-MGMT
-#  - fqdn: RC-CAMPUS-FL2-C1-LEAF2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL2-C1-LEAF2-MGMT
-#  - fqdn: RC-CAMPUS-FL2-C2-LEAF1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL2-C2-LEAF1-MGMT
-#  - fqdn: RC-CAMPUS-FL2-C2-LEAF2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL2-C2-LEAF2-MGMT
-#  - fqdn: RC-CAMPUS-FL3-C1-LEAF1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL3-C1-LEAF1-MGMT
-#  - fqdn: RC-CAMPUS-FL3-C1-LEAF2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL3-C1-LEAF2-MGMT
-#  - fqdn: RC-CAMPUS-FL3-C2-LEAF1
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL3-C2-LEAF1-MGMT
-#  - fqdn: RC-CAMPUS-FL3-C2-LEAF2
-#    parentContainerName: Rocket Central Campus
-#    configlets:
-#      - clab_RC-CAMPUS-FL3-C2-LEAF2-MGMT
-###################################
-# RC Campus Topology - Configlets #
-###################################
   - fqdn: RC-CAMPUS-SPINE1
-    parentContainerName: Spines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-SPINE1-MGMT
-      - clab_RC-CAMPUS-SPINE1-L3
   - fqdn: RC-CAMPUS-SPINE2
-    parentContainerName: Spines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-SPINE2-MGMT
-      - clab_RC-CAMPUS-SPINE2-L3
   - fqdn: RC-CAMPUS-FL1-C1-SPLINE1
-    parentContainerName: Floor 1 Closet 1 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL1-C1-SPLINE1-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
-      - clab_RC-CAMPUS-FL1-C1-SPLINE1-L3
   - fqdn: RC-CAMPUS-FL1-C1-SPLINE2
-    parentContainerName: Floor 1 Closet 1 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL1-C1-SPLINE2-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
-      - clab_RC-CAMPUS-FL1-C1-SPLINE2-L3
   - fqdn: RC-CAMPUS-FL1-C2-SPLINE1
-    parentContainerName: Floor 1 Closet 2 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL1-C2-SPLINE1-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
-      - clab_RC-CAMPUS-FL1-C2-SPLINE1-L3
   - fqdn: RC-CAMPUS-FL1-C2-SPLINE2
-    parentContainerName: Floor 1 Closet 2 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL1-C2-SPLINE2-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
-      - clab_RC-CAMPUS-FL1-C2-SPLINE2-L3
   - fqdn: RC-CAMPUS-FL2-C1-SPLINE1
-    parentContainerName: Floor 2 Closet 1 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL2-C1-SPLINE1-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
-      - clab_RC-CAMPUS-FL2-C1-SPLINE1-L3
   - fqdn: RC-CAMPUS-FL2-C1-SPLINE2
-    parentContainerName: Floor 2 Closet 1 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL2-C1-SPLINE2-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
-      - clab_RC-CAMPUS-FL2-C1-SPLINE2-L3
   - fqdn: RC-CAMPUS-FL2-C2-SPLINE1
-    parentContainerName: Floor 2 Closet 2 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL2-C2-SPLINE1-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
-      - clab_RC-CAMPUS-FL2-C2-SPLINE1-L3
   - fqdn: RC-CAMPUS-FL2-C2-SPLINE2
-    parentContainerName: Floor 2 Closet 2 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL2-C2-SPLINE2-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
-      - clab_RC-CAMPUS-FL2-C2-SPLINE2-L3
   - fqdn: RC-CAMPUS-FL3-C1-SPLINE1
-    parentContainerName: Floor 3 Closet 1 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL3-C1-SPLINE1-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
-      - clab_RC-CAMPUS-FL3-C1-SPLINE1-L3
   - fqdn: RC-CAMPUS-FL3-C1-SPLINE2
-    parentContainerName: Floor 3 Closet 1 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL3-C1-SPLINE2-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
-      - clab_RC-CAMPUS-FL3-C1-SPLINE2-L3
   - fqdn: RC-CAMPUS-FL3-C2-SPLINE1
-    parentContainerName: Floor 3 Closet 2 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL3-C2-SPLINE1-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
-      - clab_RC-CAMPUS-FL3-C2-SPLINE1-L3
   - fqdn: RC-CAMPUS-FL3-C2-SPLINE2
-    parentContainerName: Floor 3 Closet 2 Splines
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL3-C2-SPLINE2-MGMT
-      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
-      - clab_RC-CAMPUS-FL3-C2-SPLINE2-L3
   - fqdn: RC-CAMPUS-FL1-C1-LEAF1
-    parentContainerName: Floor 1 Closet 1 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL1-C1-LEAF1-MGMT
   - fqdn: RC-CAMPUS-FL1-C1-LEAF2
-    parentContainerName: Floor 1 Closet 1 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL1-C1-LEAF2-MGMT
   - fqdn: RC-CAMPUS-FL1-C2-LEAF1
-    parentContainerName: Floor 1 Closet 2 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL1-C2-LEAF1-MGMT
   - fqdn: RC-CAMPUS-FL1-C2-LEAF2
-    parentContainerName: Floor 1 Closet 2 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL1-C2-LEAF2-MGMT
   - fqdn: RC-CAMPUS-FL2-C1-LEAF1
-    parentContainerName: Floor 2 Closet 1 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL2-C1-LEAF1-MGMT
   - fqdn: RC-CAMPUS-FL2-C1-LEAF2
-    parentContainerName: Floor 2 Closet 1 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL2-C1-LEAF2-MGMT
   - fqdn: RC-CAMPUS-FL2-C2-LEAF1
-    parentContainerName: Floor 2 Closet 2 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL2-C2-LEAF1-MGMT
   - fqdn: RC-CAMPUS-FL2-C2-LEAF2
-    parentContainerName: Floor 2 Closet 2 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL2-C2-LEAF2-MGMT
   - fqdn: RC-CAMPUS-FL3-C1-LEAF1
-    parentContainerName: Floor 3 Closet 1 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL3-C1-LEAF1-MGMT
   - fqdn: RC-CAMPUS-FL3-C1-LEAF2
-    parentContainerName: Floor 3 Closet 1 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL3-C1-LEAF2-MGMT
   - fqdn: RC-CAMPUS-FL3-C2-LEAF1
-    parentContainerName: Floor 3 Closet 2 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL3-C2-LEAF1-MGMT
   - fqdn: RC-CAMPUS-FL3-C2-LEAF2
-    parentContainerName: Floor 3 Closet 2 Leaves
+    parentContainerName: Rocket Central Campus
     configlets:
       - clab_RC-CAMPUS-FL3-C2-LEAF2-MGMT
+###################################
+# RC Campus Topology - Configlets #
+###################################
+#  - fqdn: RC-CAMPUS-SPINE1
+#    parentContainerName: Spines
+#    configlets:
+#      - clab_RC-CAMPUS-SPINE1-MGMT
+#      - clab_RC-CAMPUS-SPINE1-L3
+#  - fqdn: RC-CAMPUS-SPINE2
+#    parentContainerName: Spines
+#    configlets:
+#      - clab_RC-CAMPUS-SPINE2-MGMT
+#      - clab_RC-CAMPUS-SPINE2-L3
+#  - fqdn: RC-CAMPUS-FL1-C1-SPLINE1
+#    parentContainerName: Floor 1 Closet 1 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL1-C1-SPLINE1-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
+#      - clab_RC-CAMPUS-FL1-C1-SPLINE1-L3
+#  - fqdn: RC-CAMPUS-FL1-C1-SPLINE2
+#    parentContainerName: Floor 1 Closet 1 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL1-C1-SPLINE2-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
+#      - clab_RC-CAMPUS-FL1-C1-SPLINE2-L3
+#  - fqdn: RC-CAMPUS-FL1-C2-SPLINE1
+#    parentContainerName: Floor 1 Closet 2 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL1-C2-SPLINE1-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
+#      - clab_RC-CAMPUS-FL1-C2-SPLINE1-L3
+#  - fqdn: RC-CAMPUS-FL1-C2-SPLINE2
+#    parentContainerName: Floor 1 Closet 2 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL1-C2-SPLINE2-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
+#      - clab_RC-CAMPUS-FL1-C2-SPLINE2-L3
+#  - fqdn: RC-CAMPUS-FL2-C1-SPLINE1
+#    parentContainerName: Floor 2 Closet 1 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL2-C1-SPLINE1-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
+#      - clab_RC-CAMPUS-FL2-C1-SPLINE1-L3
+#  - fqdn: RC-CAMPUS-FL2-C1-SPLINE2
+#    parentContainerName: Floor 2 Closet 1 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL2-C1-SPLINE2-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
+#      - clab_RC-CAMPUS-FL2-C1-SPLINE2-L3
+#  - fqdn: RC-CAMPUS-FL2-C2-SPLINE1
+#    parentContainerName: Floor 2 Closet 2 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL2-C2-SPLINE1-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
+#      - clab_RC-CAMPUS-FL2-C2-SPLINE1-L3
+#  - fqdn: RC-CAMPUS-FL2-C2-SPLINE2
+#    parentContainerName: Floor 2 Closet 2 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL2-C2-SPLINE2-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
+#      - clab_RC-CAMPUS-FL2-C2-SPLINE2-L3
+#  - fqdn: RC-CAMPUS-FL3-C1-SPLINE1
+#    parentContainerName: Floor 3 Closet 1 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL3-C1-SPLINE1-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
+#      - clab_RC-CAMPUS-FL3-C1-SPLINE1-L3
+#  - fqdn: RC-CAMPUS-FL3-C1-SPLINE2
+#    parentContainerName: Floor 3 Closet 1 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL3-C1-SPLINE2-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
+#      - clab_RC-CAMPUS-FL3-C1-SPLINE2-L3
+#  - fqdn: RC-CAMPUS-FL3-C2-SPLINE1
+#    parentContainerName: Floor 3 Closet 2 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL3-C2-SPLINE1-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-A
+#      - clab_RC-CAMPUS-FL3-C2-SPLINE1-L3
+#  - fqdn: RC-CAMPUS-FL3-C2-SPLINE2
+#    parentContainerName: Floor 3 Closet 2 Splines
+#    configlets:
+#      - clab_RC-CAMPUS-FL3-C2-SPLINE2-MGMT
+#      - clab_RC-CAMPUS-SPLINE-MLAG-SIDE-B
+#      - clab_RC-CAMPUS-FL3-C2-SPLINE2-L3
+#  - fqdn: RC-CAMPUS-FL1-C1-LEAF1
+#    parentContainerName: Floor 1 Closet 1 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL1-C1-LEAF1-MGMT
+#  - fqdn: RC-CAMPUS-FL1-C1-LEAF2
+#    parentContainerName: Floor 1 Closet 1 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL1-C1-LEAF2-MGMT
+#  - fqdn: RC-CAMPUS-FL1-C2-LEAF1
+#    parentContainerName: Floor 1 Closet 2 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL1-C2-LEAF1-MGMT
+#  - fqdn: RC-CAMPUS-FL1-C2-LEAF2
+#    parentContainerName: Floor 1 Closet 2 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL1-C2-LEAF2-MGMT
+#  - fqdn: RC-CAMPUS-FL2-C1-LEAF1
+#    parentContainerName: Floor 2 Closet 1 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL2-C1-LEAF1-MGMT
+#  - fqdn: RC-CAMPUS-FL2-C1-LEAF2
+#    parentContainerName: Floor 2 Closet 1 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL2-C1-LEAF2-MGMT
+#  - fqdn: RC-CAMPUS-FL2-C2-LEAF1
+#    parentContainerName: Floor 2 Closet 2 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL2-C2-LEAF1-MGMT
+#  - fqdn: RC-CAMPUS-FL2-C2-LEAF2
+#    parentContainerName: Floor 2 Closet 2 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL2-C2-LEAF2-MGMT
+#  - fqdn: RC-CAMPUS-FL3-C1-LEAF1
+#    parentContainerName: Floor 3 Closet 1 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL3-C1-LEAF1-MGMT
+#  - fqdn: RC-CAMPUS-FL3-C1-LEAF2
+#    parentContainerName: Floor 3 Closet 1 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL3-C1-LEAF2-MGMT
+#  - fqdn: RC-CAMPUS-FL3-C2-LEAF1
+#    parentContainerName: Floor 3 Closet 2 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL3-C2-LEAF1-MGMT
+#  - fqdn: RC-CAMPUS-FL3-C2-LEAF2
+#    parentContainerName: Floor 3 Closet 2 Leaves
+#    configlets:
+#      - clab_RC-CAMPUS-FL3-C2-LEAF2-MGMT

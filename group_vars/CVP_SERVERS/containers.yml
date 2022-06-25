@@ -147,11 +147,6 @@ CVP_CONTAINERS:
 #    parentContainerName: Data Center 2
 #    #configlets:
 #    #  - clab_ENT-DC2-CORE-SHARED
-################################
-# RC Campus Topology - Studios #
-################################
-#  Rocket Central Campus:
-#    parentContainerName: Home
 ###################################
 # RC Campus Topology - Configlets #
 ###################################
