@@ -21,6 +21,15 @@ elif topo == "Dual":
         "DC2 Border Leaves", "DC2 Leaves", "DC2 Spines", "DC2 Core", 
         "Data Center 1", "Data Center 2", "Enterprise Data Centers"
         ]
+elif topo == "RC":
+    containerList = [
+        "Spines", "Floor 3 Closet 2 Leaves", "Floor 3 Closet 1 Leaves", "Floor 2 Closet 2 Leaves", 
+        "Floor 2 Closet 1 Leaves", "Floor 1 Closet 2 Leaves", "Floor 1 Closet 1 Leaves",
+        "Floor 3 Closet 2 Splines", "Floor 3 Closet 1 Splines", "Floor 2 Closet 2 Splines",
+        "Floor 2 Closet 1 Splines", "Floor 1 Closet 2 Splines", "Floor 1 Closet 1 Splines",
+        "Floor 3 Closet 2", "Floor 3 Closet 1", "Floor 2 Closet 2", 
+        "Floor 2 Closet 1", "Floor 1 Closet 2", "Floor 1 Closet 1", "Closets", "Rocket Central Campus"
+        ]
 
 # Disable Cert Warnings for Test Environment
 import urllib3
