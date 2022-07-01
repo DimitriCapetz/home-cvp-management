@@ -1,0 +1,72 @@
+vlan 12
+   name DC1_DC2_Peering
+!
+vlan 13
+   name DC1_DC3_Peering
+!
+interface Port-Channel1
+   description MLAG Downlink to PRIME-DC1-ACCESS Layer
+   switchport trunk allowed vlan 12,13
+   switchport mode trunk
+   mlag 1
+   sflow enable
+!
+interface Ethernet1/1
+   description Po1 to PRIME-DC1-ACCESS1
+   channel-group 1 mode active
+!
+interface Ethernet2/1
+   description Po1 to PRIME-DC1-ACCESS2
+   channel-group 1 mode active
+!
+interface Loopback1
+   description MLAG VTEP
+   ip address 10.255.254.10/32
+!
+interface Vxlan1
+   vxlan source-interface Loopback1
+   vxlan virtual-router encapsulation mac-address mlag-system-id
+   vxlan udp-port 4789
+   vxlan vlan 12 vni 12
+   vxlan vlan 13 vni 13
+!
+ip virtual-router mac-address 00:1C:73:00:00:01
+!
+ip prefix-list INFRA
+   seq 100 permit 10.255.255.0/24 eq 32
+   seq 110 permit 10.255.254.0/24 eq 32
+   seq 120 permit 10.0.0.0/24 eq 31
+!
+route-map INFRA permit 100
+   match ip address prefix-list INFRA
+!
+router bgp 65001
+   maximum-paths 2
+   no bgp default ipv4-unicast
+   neighbor DCI-IPv4 peer group
+   neighbor DCI-IPv4 send-community standard extended
+   neighbor DCI-EVPN peer group
+   neighbor DCI-EVPN update-source Loopback0
+   neighbor DCI-EVPN ebgp-multihop 5
+   neighbor DCI-EVPN send-community standard extended
+   neighbor PEER peer group
+   neighbor PEER remote-as 65001
+   neighbor PEER next-hop-self
+   neighbor PEER send-community standard extended
+   neighbor 10.255.255.21 peer group DCI-EVPN
+   neighbor 10.255.255.21 remote-as 65002
+   neighbor 10.255.255.22 peer group DCI-EVPN
+   neighbor 10.255.255.22 remote-as 65002
+   neighbor 10.255.255.31 peer group DCI-EVPN
+   neighbor 10.255.255.31 remote-as 65003
+   neighbor 10.255.255.32 peer group DCI-EVPN
+   neighbor 10.255.255.32 remote-as 65003
+   redistribute connected route-map INFRA
+   !
+   address-family evpn
+      bgp next-hop-unchanged
+      neighbor DCI-EVPN activate
+   !
+   address-family ipv4
+      neighbor DCI-IPv4 activate
+      neighbor PEER activate

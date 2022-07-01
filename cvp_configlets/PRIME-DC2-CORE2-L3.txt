@@ -1,0 +1,17 @@
+interface Ethernet3/1
+   description L3 Connection to PRIME-DC1-CORE1 Et3/1
+   no switchport
+   ip address 10.0.0.1/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.255.255.22/32
+!
+router bgp 65002
+   neighbor 10.0.0.0 peer group DCI-IPv4
+   neighbor 10.0.0.0 remote-as 65001
+   neighbor 10.255.255.254 peer group PEER
+!
+router general
+   router-id ipv4 10.255.255.22

@@ -1,0 +1,31 @@
+vlan 12
+   name DC1_DC2_Peering
+!
+vlan 13
+   name DC1_DC3_Peering
+!
+interface Port-Channel1
+   description MLAG Uplinks to PRIME-DC1-COREs
+   switchport trunk allowed vlan 12,13
+   switchport mode trunk
+   mlag 1
+   sflow enable
+!
+interface Port-Channel101
+   description MLAG to PRIME-DC1-CE1
+   switchport trunk allowed vlan 12,13
+   switchport mode trunk
+   mlag 101
+   sflow enable
+!
+interface Ethernet1
+   description Po101 to PRIME-DC1-CE1
+   channel-group 101 mode active
+!
+interface Ethernet49/1
+   description Po1 to PRIME-DC1-CORE1
+   channel-group 1 mode active
+!
+interface Ethernet50/1
+   description Po1 to PRIME-DC1-CORE2
+   channel-group 1 mode active

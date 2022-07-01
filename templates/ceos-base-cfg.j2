@@ -1,10 +1,12 @@
 !
 ! Base Config for {{ switch.hostname }}
 !
+{% if switch.cvp == 'yes' %}
 daemon TerminAttr
    exec /usr/bin/TerminAttr -ingestgrpcurl=10.112.112.2:9910 -taillogs -ingestauth=key,h0m3k3y -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=management
    no shutdown
 !
+{% endif %}
 aaa root secret sha512 $6$lNQBozz2B8Ls7M9.$Qb4f5KI6IUSHELalOL/n4igTYDyq5OM0wKnY.aJbBJjX/rS65Y9.40Bj7rc7nASZaOD9YfBaMjKZQJzfId3C91
 !
 username admin privilege 15 role network-admin secret sha512 $6$Nck9evzfm5e9C0Vg$bZ/XSXJ/.ZqJ6NQkPXV3s48IdFB7QS5vzSOYTbmwtenuUKQcFlWgP0lE.uWPPGVMJVA/2Yo8eiRax5mxh7Q0y1
