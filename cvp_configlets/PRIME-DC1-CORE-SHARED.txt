@@ -43,6 +43,7 @@ route-map INFRA permit 100
 router bgp 65001
    maximum-paths 2
    no bgp default ipv4-unicast
+   rd auto
    neighbor DCI-IPv4 peer group
    neighbor DCI-IPv4 send-community standard extended
    neighbor DCI-EVPN peer group
@@ -62,6 +63,16 @@ router bgp 65001
    neighbor 10.255.255.32 peer group DCI-EVPN
    neighbor 10.255.255.32 remote-as 65003
    redistribute connected route-map INFRA
+   !
+   vlan 12
+      rd auto
+      route-target both 12:12
+      redistribute learned
+   !
+   vlan 13
+      rd auto
+      route-target both 13:13
+      redistribute learned
    !
    address-family evpn
       bgp next-hop-unchanged
