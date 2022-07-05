@@ -27,7 +27,7 @@ router bgp 65199
    neighbor WAN route-map WAN-OUT out
    neighbor 10.1.1.1 peer group SPINES-EVPN
    neighbor 10.1.1.2 peer group SPINES-EVPN
-   redistribute connected route-map DC1-INFRA
+   redistribute connected route-map DC1-ROUTES
    !
    address-family evpn
       neighbor SPINES-EVPN activate

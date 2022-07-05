@@ -1,0 +1,14 @@
+router bgp 65001
+   maximum-paths 2
+   no bgp default ipv4-unicast
+   neighbor DC1-BORDER-IPv4 peer group
+   neighbor DC1-BORDER-IPv4 remote-as 65199
+   neighbor DC1-BORDER-IPv4 send-community standard extended
+   neighbor DC2-CORE-IPv4 peer group
+   neighbor DC2-CORE-IPv4 remote-as 65002
+   neighbor DC2-CORE-IPv4 send-community standard extended
+   redistribute connected route-map DC1-ROUTES
+   !
+   address-family ipv4
+      neighbor DC1-BORDER-IPv4 activate
+      neighbor DC2-CORE-IPv4 activate

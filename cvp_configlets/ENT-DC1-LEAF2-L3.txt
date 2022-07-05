@@ -1,0 +1,23 @@
+interface Ethernet49/1
+   description L3 Connection to ENT-DC1-SPINE1
+   no switchport
+   ip address 10.0.11.3/31
+   sflow enable
+!
+interface Ethernet50/1
+   description L3 Connection to ENT-DC1-SPINE2
+   no switchport
+   ip address 10.0.12.3/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.1.1.102/32
+!
+router bgp 65101
+   neighbor 10.0.11.2 peer group SPINES-IPv4
+   neighbor 10.0.12.2 peer group SPINES-IPv4
+   neighbor 10.255.255.255 peer group LEAF-PEER
+!
+router general
+   router-id ipv4 10.1.1.102

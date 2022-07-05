@@ -1,0 +1,32 @@
+interface Ethernet49/1
+   description L3 Connection to ENT-DC2-CORE2
+   no switchport
+   ip address 10.12.12.126/31
+   sflow enable
+!
+interface Ethernet51/1
+   description L3 Connection to ENT-DC1-BORDER1
+   no switchport
+   ip address 10.12.12.64/31
+   sflow enable
+!
+interface Ethernet52/1
+   description L3 Connection to ENT-DC1-BORDER2
+   no switchport
+   ip address 10.12.12.66/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.1.1.202/32
+!
+ip route 10.12.12.64/26 Null0
+!
+router bgp 65001
+   neighbor 10.12.12.65 peer group DC1-BORDER-IPv4
+   neighbor 10.12.12.67 peer group DC1-BORDER-IPv4
+   neighbor 10.12.12.127 peer group DC2-CORE-IPv4
+   network 10.12.12.64/26
+!
+router general
+   router-id ipv4 10.1.1.202

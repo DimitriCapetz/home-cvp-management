@@ -24,11 +24,21 @@ ip prefix-list DC2-INFRA
    seq 120 permit 10.0.21.0/24
    seq 130 permit 10.0.22.0/24
 !
+ip prefix-list SHARED-SUBNETS
+   seq 100 permit 10.10.10.0/24
+   seq 110 permit 10.20.20.0/24
+   seq 120 permit 10.30.30.0/24
+   seq 130 permit 10.40.40.0/24
+   seq 140 permit 10.50.50.0/24
+!
 route-map DC1-ROUTES permit 100
    match ip address prefix-list DC1-INFRA
 !
 route-map DC1-ROUTES permit 110
    match ip address prefix-list DC1-SUBNETS
+!
+route-map DC1-ROUTES permit 120
+   match ip address prefix-list SHARED-SUBNETS
 !
 route-map DC2-ROUTES permit 100
    match ip address prefix-list DC2-INFRA
@@ -36,8 +46,14 @@ route-map DC2-ROUTES permit 100
 route-map DC2-ROUTES permit 110
    match ip address prefix-list DC2-SUBNETS
 !
+route-map DC2-ROUTES permit 120
+   match ip address prefix-list SHARED-SUBNETS
+!
 route-map WAN-OUT permit 100
    match ip address prefix-list DC1-SUBNETS
 !
 route-map WAN-OUT permit 110
    match ip address prefix-list DC2-SUBNETS
+!
+route-map WAN-OUT permit 120
+   match ip address prefix-list SHARED-SUBNETS
