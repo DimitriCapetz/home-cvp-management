@@ -7,13 +7,13 @@ if topo == "DC":
         "Compute Pod 1", "Compute Pod 2", "Compute Pod 3", "Compute Leaves", 
         "Border Leaves", "Leaves", "Spines", "Data Center"
         ]
-elif topo == "Campus":
+elif topo == "CAMPUS":
     containerList = [
         "Campus Pod 1 Splines", "Campus Pod 1 Leaves", "Campus Pod 2 Splines", 
         "Campus Pod 2 Leaves", "Campus Pod 3 Splines", "Campus Pod 3 Leaves", 
         "Campus Pod 1", "Campus Pod 2", "Campus Pod 3", "Closets", "Spines", "Campus"
         ]
-elif topo == "Dual":
+elif topo == "ENT":
     containerList = [
         "DC1 Compute Pod 1", "DC1 Compute Pod 2", "DC1 Compute Pod 3", "DC1 Compute Leaves", 
         "DC2 Compute Pod 1", "DC2 Compute Pod 2", "DC2 Compute Pod 3", "DC2 Compute Leaves", 
