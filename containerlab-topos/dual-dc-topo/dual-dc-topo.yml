@@ -15,7 +15,39 @@ mgmt:
 
 topology:
 
+  kinds:
+    ceos:
+      image: ceos:4.28.1F
+    linux:
+      image: mitchv85/ohv-host
+
   nodes: 
+
+###########################################
+# Graphite Node                           #
+# Provides Topology Graphing and the      #
+# ability to connect to nodes in the      #
+# topology via a web/ssh session          #
+###########################################
+
+    graphite:
+      kind: linux
+      image: netreplica/graphite
+      mgmt_ipv4: 10.99.99.87
+      env:
+        GRAPHITE_DEFAULT_TYPE: clab
+        GRAPHITE_DEFAULT_TOPO: dual-dc-topo
+        # CLAB_SSH_CONNECTION: ${SSH_CONNECTION}
+      binds:
+        # - .:/var/www/localhost/htdocs/clab   <----  This is the old path in docker image netreplica/graphite:webssh2
+        - .:/htdocs/clab    # New path required for latest version
+      ports:
+        - 80:80
+      exec:
+        # - sh -c 'generate_offline_graph.sh'   # used to generate offline graphs
+        - sh -c 'graphite_motd.sh 80'
+      labels:
+        graph-hide: yes
 
 #########################
 # SPINES                #
@@ -23,35 +55,43 @@ topology:
 
     ENT-DC1-SPINE1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.39
       startup-config: ./configs/ENT-DC1-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
 
     ENT-DC1-SPINE2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.40
       startup-config: ./configs/ENT-DC1-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
 
     ENT-DC2-SPINE1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.41
       startup-config: ./configs/ENT-DC2-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
 
     ENT-DC2-SPINE2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.42
       startup-config: ./configs/ENT-DC2-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
 
 #########################
 # LEAVES                #
@@ -59,99 +99,123 @@ topology:
 
     ENT-DC1-LEAF1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.43
       startup-config: ./configs/ENT-DC1-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC1-LEAF2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.44
       startup-config: ./configs/ENT-DC1-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC1-LEAF3:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.45
       startup-config: ./configs/ENT-DC1-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC1-LEAF4:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.46
       startup-config: ./configs/ENT-DC1-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC1-LEAF5:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.47
       startup-config: ./configs/ENT-DC1-LEAF5.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC1-LEAF6:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.48
       startup-config: ./configs/ENT-DC1-LEAF6.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC2-LEAF1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.49
       startup-config: ./configs/ENT-DC2-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC2-LEAF2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.50
       startup-config: ./configs/ENT-DC2-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC2-LEAF3:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.51
       startup-config: ./configs/ENT-DC2-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC2-LEAF4:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.52
       startup-config: ./configs/ENT-DC2-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC2-LEAF5:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.53
       startup-config: ./configs/ENT-DC2-LEAF5.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
     ENT-DC2-LEAF6:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.54
       startup-config: ./configs/ENT-DC2-LEAF6.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
 #########################
 # BORDER GATEWAYS       #
@@ -159,35 +223,43 @@ topology:
 
     ENT-DC1-BORDER1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.55
       startup-config: ./configs/ENT-DC1-BORDER1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
 
     ENT-DC1-BORDER2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.56
       startup-config: ./configs/ENT-DC1-BORDER2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
 
     ENT-DC2-BORDER1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.57
       startup-config: ./configs/ENT-DC2-BORDER1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
 
     ENT-DC2-BORDER2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.58
       startup-config: ./configs/ENT-DC2-BORDER2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
 
 ###########################################
 # Core Routers                            #
@@ -195,35 +267,43 @@ topology:
 
     ENT-DC1-CORE1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.59
       startup-config: ./configs/ENT-DC1-CORE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
 
     ENT-DC1-CORE2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.60
       startup-config: ./configs/ENT-DC1-CORE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
 
     ENT-DC2-CORE1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.61
       startup-config: ./configs/ENT-DC2-CORE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
 
     ENT-DC2-CORE2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.62
       startup-config: ./configs/ENT-DC2-CORE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
 
 ###########################################
 # HOST                                    #
@@ -231,51 +311,63 @@ topology:
 
     ENT-DC1-HOST1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.63
       startup-config: ./configs/ENT-DC1-HOST1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: host
 
     ENT-DC1-HOST2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.64
       startup-config: ./configs/ENT-DC1-HOST2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: host
 
     ENT-DC1-HOST3:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.65
       startup-config: ./configs/ENT-DC1-HOST3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: host
 
     ENT-DC2-HOST1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.66
       startup-config: ./configs/ENT-DC2-HOST1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: host
 
     ENT-DC2-HOST2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.67
       startup-config: ./configs/ENT-DC2-HOST2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: host
 
     ENT-DC2-HOST3:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.68
       startup-config: ./configs/ENT-DC2-HOST3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: host
 
 ###########################################
 # WAN Sim                                 #
@@ -283,27 +375,33 @@ topology:
 
     ENT-DC1-WAN1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.69
       startup-config: ./configs/ENT-DC1-WAN1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: router
 
     ENT-DC2-WAN2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.70
       startup-config: ./configs/ENT-DC2-WAN2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: router
 
     ENT-CORE-WAN3:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.71
       startup-config: ./configs/ENT-CORE-WAN3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: router
 
   links:
 ######################

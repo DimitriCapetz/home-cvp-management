@@ -1,0 +1,43 @@
+ip prefix-list DC1-SUBNETS
+   seq 100 permit 10.110.10.0/24
+   seq 110 permit 10.120.20.0/24
+   seq 120 permit 10.130.30.0/24
+   seq 130 permit 10.140.40.0/24
+   seq 140 permit 10.150.50.0/24
+!
+ip prefix-list DC1-INFRA
+   seq 100 permit 10.1.1.0/24 eq 32
+   seq 110 permit 10.1.11.0/24 eq 32
+   seq 120 permit 10.0.11.0/24
+   seq 130 permit 10.0.12.0/24
+!
+ip prefix-list DC2-SUBNETS
+   seq 100 permit 10.210.10.0/24
+   seq 110 permit 10.220.20.0/24
+   seq 120 permit 10.230.30.0/24
+   seq 130 permit 10.240.40.0/24
+   seq 140 permit 10.250.50.0/24
+!
+ip prefix-list DC2-INFRA
+   seq 100 permit 10.2.2.0/24 eq 32
+   seq 110 permit 10.2.22.0/24 eq 32
+   seq 120 permit 10.0.21.0/24
+   seq 130 permit 10.0.22.0/24
+!
+route-map DC1-ROUTES permit 100
+   match ip address prefix-list DC1-INFRA
+!
+route-map DC1-ROUTES permit 110
+   match ip address prefix-list DC1-SUBNETS
+!
+route-map DC2-ROUTES permit 100
+   match ip address prefix-list DC2-INFRA
+!
+route-map DC2-ROUTES permit 110
+   match ip address prefix-list DC2-SUBNETS
+!
+route-map WAN-OUT permit 100
+   match ip address prefix-list DC1-SUBNETS
+!
+route-map WAN-OUT permit 110
+   match ip address prefix-list DC2-SUBNETS
