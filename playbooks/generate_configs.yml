@@ -1,6 +1,6 @@
 ---
-# ansible-playbook create_base_configs.yml
-- name: Create Base Configlets from CSV data
+# ansible-playbook generate_configs.yml
+- name: Create Base Configlets from CSV or YAML data
   gather_facts: false
   hosts: localhost
 
@@ -8,30 +8,40 @@
     - ../datafiles/tenants.yml
     - ../datafiles/mlags.yml
     - ../datafiles/orphans.yml
+    - ../datafiles/devices.yml
 
   tasks:
 
-  - name: "Reading in CSV file"
-    tags: [ base, mgmt ]
-    read_csv:
-      path: ../datafiles/devices.csv
-    register: switches
+#  - name: "Reading in CSV file"
+#    tags: [ base, mgmt ]
+#    read_csv:
+#      path: ../datafiles/devices.csv
+#    register: switches
 
-  - name: Create Base Config for each device in CSV File
+#  - name: Create Base Config for each device in CSV File
+#    tags: [ base ]
+#    template: src=../templates/ceos-base-cfg.j2 dest=../cvp_configlets/{{ switch.hostname }}.cfg
+#    loop: "{{ switches.list }}"
+#    loop_control:
+#      loop_var: switch
+
+  - name: Create MGMT Config for each device in YAML File
     tags: [ base ]
-    template: src=../templates/ceos-base-cfg.j2 dest=../cvp_configlets/{{ switch.hostname }}.cfg
-    loop: "{{ switches.list }}"
-    loop_control:
-      loop_var: switch
+    template: src=../templates/ceos-mgmt-cfg-yml.j2 dest=../cvp_configlets/{{ item.key }}.cfg
+    loop: "{{ SWITCHES | dict2items }}"
 
-  - name: Create MGMT Config for each device in CSV File
+#  - name: Create MGMT Config for each device in CSV File
+#    tags: [ mgmt ]
+#    template: src=../templates/ceos-mgmt-cfg.j2 dest=../cvp_configlets/{{ switch.hostname }}-MGMT-TEST.txt
+#    loop: "{{ switches.list }}"
+#    loop_control:
+#      loop_var: switch
+
+  - name: Create MGMT Config for each device in YAML File
     tags: [ mgmt ]
-    template: src=../templates/ceos-mgmt-cfg.j2 dest=../cvp_configlets/{{ switch.hostname }}-MGMT.txt
-    loop: "{{ switches.list }}"
-    loop_control:
-      loop_var: switch
-
-#
+    template: src=../templates/ceos-mgmt-cfg-yml.j2 dest=../cvp_configlets/{{ item.key }}-MGMT.txt
+    loop: "{{ SWITCHES | dict2items }}"
+  
 #  - name: Create Common VRFs for Leafs
 #    when: item.hostname is match(".*-1")
 #    template: src=../templates/vrfs-cfg.j2 dest=../cvp_configlets/{{ item.hostname | regex_replace('-1$','') }}-VRFs.txt
