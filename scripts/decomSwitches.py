@@ -47,12 +47,10 @@ clnt.connect(nodes=['www.cv-staging.corp.arista.io'], username='', password='', 
 devices = clnt.api.get_inventory()
 devicesToDecom = []
 
-print(devices)
-'''
 # Parse out all provisioned devices and remove from Provisioning Inventory
 if devices:
     for device in devices:
-        if device["containerName"] != "Undefined":
+        if device["containerName"] in containerList:
             devicesToDecom.append(device["systemMacAddress"])
 
 decom = clnt.api.delete_devices(devicesToDecom)
@@ -72,4 +70,3 @@ for container in containerList:
             decom = clnt.api.delete_container(name, key, parentName, parentId)
             print(container + " Decom Status:")
             print(decom)
-'''
