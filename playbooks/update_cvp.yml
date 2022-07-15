@@ -33,7 +33,7 @@
       vars:
         configlet_directory: 'cvp_configlets'
         file_extension: 'txt'
-        configlets_cvp_prefix: 'dcapetz - lab - '
+        configlets_cvp_prefix: 'dcapetz - lab'
       #cv_configlet_v3:
       #  configlets: "{{configlet_list}}"
       #  state: present
