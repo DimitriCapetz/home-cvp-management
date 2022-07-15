@@ -2,7 +2,7 @@
 ! Base Config for PRIME-DC3-CE1
 !
 daemon TerminAttr
-   exec /usr/bin/TerminAttr -ingestgrpcurl=10.112.112.2:9910 -taillogs -ingestauth=key,h0m3k3y -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=management
+   exec /usr/bin/TerminAttr -cvaddr=apiserver.cv-staging.corp.arista.io:443 -cvcompression=gzip -cvvrf=management -taillogs -cvauth=token-secure,/mnt/flash/cv-onboarding-token -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
    no shutdown
 !
 hostname PRIME-DC3-CE1

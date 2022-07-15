@@ -2,5 +2,5 @@ all:
   children:
     CVP_SERVERS:
       hosts:
-        cvp:
-          ansible_host: 10.112.112.2
+        cvaas:
+          ansible_host: www.cv-staging.corp.arista.io

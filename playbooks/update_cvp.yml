@@ -1,6 +1,6 @@
 ---
 - name: Update Configlets and Devices
-  hosts: cvp
+  hosts: cvaas
   connection: local
   gather_facts: false
 
@@ -33,7 +33,7 @@
       vars:
         configlet_directory: 'cvp_configlets'
         file_extension: 'txt'
-        configlets_cvp_prefix: 'clab'
+        configlets_cvp_prefix: 'dcapetz - lab - '
       #cv_configlet_v3:
       #  configlets: "{{configlet_list}}"
       #  state: present

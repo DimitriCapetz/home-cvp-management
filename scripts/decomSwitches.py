@@ -4,8 +4,8 @@ topo = input("Which Topo to decom? ")
 
 if topo == "DC":
     containerList = [
-        "Compute Pod 1", "Compute Pod 2", "Compute Pod 3", "Compute Leaves", 
-        "Border Leaves", "Leaves", "Spines", "Data Center"
+        "DC Compute Pod 1", "DC Compute Pod 2", "DC Compute Pod 3", "DC Compute Leaves", 
+        "DC Border Leaves", "DC Leaves", "DC Spines", "DC Data Center"
         ]
 elif topo == "CAMPUS":
     containerList = [
@@ -43,10 +43,12 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Connect to CVP and get Device Inventory
 clnt = CvpClient()
-clnt.connect(['home-cvp.dime-a-tron.com'], 'cvpadmin', '0227DcDc!')
+clnt.connect(nodes=['www.cv-staging.corp.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjY2NTg0MiwiZHNuIjoiZGNhcGV0eiIsImRzdCI6ImFjY291bnQiLCJleHAiOjE2NzM4MTI5MTIsImlhdCI6MTY1NzkxMTcxNSwic2lkIjoiOTVlZGYwOWRjMjMyNjI2YTY1OTEzZWI5MjBiNzRkNjdmNTM2YzFiMThkZmRjYTFmNmY2NmYwM2RiZWRlNWE0MS1DNVF2V3lFZFdBVGM5SW1EWjJnOTRjMS03LWFFdC12eklhRFJjNnUwIn0.i5Tuw-uU5-0tmnzHlE-GAC1EcGnG7_g4zVLVM8u6d-yceDTf8Jtn5gkAKTd37u1uAbqa29A-8-v6FWcOC0fnIg')
 devices = clnt.api.get_inventory()
 devicesToDecom = []
 
+print(devices)
+'''
 # Parse out all provisioned devices and remove from Provisioning Inventory
 if devices:
     for device in devices:
@@ -70,3 +72,4 @@ for container in containerList:
             decom = clnt.api.delete_container(name, key, parentName, parentId)
             print(container + " Decom Status:")
             print(decom)
+'''

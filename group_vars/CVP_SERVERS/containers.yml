@@ -2,47 +2,47 @@ CVP_CONTAINERS:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-#  Data Center:
-#    parentContainerName: Home
-#    configlets:
-#      - clab_DC-VLANs
-#  Spines:
-#    parentContainerName: Data Center
-#    configlets:
-#      - clab_DC-SPINE-SHARED
-#  Leaves:
-#    parentContainerName: Data Center
-#  Border Leaves:
-#    parentContainerName: Leaves
-#    configlets:
-#      - clab_DC-BORDER-SHARED
-#  Compute Leaves:
-#    parentContainerName: Leaves
-#    configlets:
-#      - clab_DC-LEAVES-SHARED
-#  Compute Pod 1:
-#    parentContainerName: Compute Leaves
-#    configlets:
-#      - clab_DC-POD1-SHARED
-#  Compute Pod 2:
-#    parentContainerName: Compute Leaves
-#    configlets:
-#      - clab_DC-POD2-SHARED
-#  Compute Pod 3:
-#    parentContainerName: Compute Leaves
-#    configlets:
-#      - clab_DC-POD3-SHARED
+  DC Data Center:
+    parentContainerName: Dimitri's Virtual Lab
+    configlets:
+      - dcapetz - lab - DC-VLANs
+  DC Spines:
+    parentContainerName: DC Data Center
+    configlets:
+      - dcapetz - lab - DC-SPINE-SHARED
+  DC Leaves:
+    parentContainerName: DC Data Center
+  DC Border Leaves:
+    parentContainerName: DC Leaves
+    configlets:
+      - dcapetz - lab - DC-BORDER-SHARED
+  DC Compute Leaves:
+    parentContainerName: DC Leaves
+    configlets:
+      - dcapetz - lab - DC-LEAVES-SHARED
+  DC Compute Pod 1:
+    parentContainerName: DC Compute Leaves
+    configlets:
+      - dcapetz - lab - DC-POD1-SHARED
+  DC Compute Pod 2:
+    parentContainerName: DC Compute Leaves
+    configlets:
+      - dcapetz - lab - DC-POD2-SHARED
+  DC Compute Pod 3:
+    parentContainerName: DC Compute Leaves
+    configlets:
+      - dcapetz - lab - DC-POD3-SHARED
 ###################
 # Campus Topology #
 ###################
 #  Campus:
 #    parentContainerName: Home
 #    configlets:
-#      - clab_CAMPUS-VLANs
+#      - dcapetz - lab - CAMPUS-VLANs
 #  Spines:
 #    parentContainerName: Campus
 #    configlets:
-#      - clab_CAMPUS-SPINE-SHARED
+#      - dcapetz - lab - CAMPUS-SPINE-SHARED
 #  Closets:
 #    parentContainerName: Campus
 #  Campus Pod 1:
@@ -54,30 +54,30 @@ CVP_CONTAINERS:
 #  Campus Pod 1 Splines:
 #    parentContainerName: Campus Pod 1
 #    configlets:
-#      - clab_CAMPUS-SPLINE-SHARED
-#      - clab_CAMPUS-POD1-SPLINE-SHARED
+#      - dcapetz - lab - CAMPUS-SPLINE-SHARED
+#      - dcapetz - lab - CAMPUS-POD1-SPLINE-SHARED
 #  Campus Pod 1 Leaves:
 #    parentContainerName: Campus Pod 1
 #    configlets:
-#      - clab_CAMPUS-LEAF-SHARED
+#      - dcapetz - lab - CAMPUS-LEAF-SHARED
 #  Campus Pod 2 Splines:
 #    parentContainerName: Campus Pod 2
 #    configlets:
-#      - clab_CAMPUS-SPLINE-SHARED
-#      - clab_CAMPUS-POD2-SPLINE-SHARED
+#      - dcapetz - lab - CAMPUS-SPLINE-SHARED
+#      - dcapetz - lab - CAMPUS-POD2-SPLINE-SHARED
 #  Campus Pod 2 Leaves:
 #    parentContainerName: Campus Pod 2
 #    configlets:
-#      - clab_CAMPUS-LEAF-SHARED
+#      - dcapetz - lab - CAMPUS-LEAF-SHARED
 #  Campus Pod 3 Splines:
 #    parentContainerName: Campus Pod 3
 #    configlets:
-#      - clab_CAMPUS-SPLINE-SHARED
-#      - clab_CAMPUS-POD3-SPLINE-SHARED
+#      - dcapetz - lab - CAMPUS-SPLINE-SHARED
+#      - dcapetz - lab - CAMPUS-POD3-SPLINE-SHARED
 #  Campus Pod 3 Leaves:
 #    parentContainerName: Campus Pod 3
 #    configlets:
-#      - clab_CAMPUS-LEAF-SHARED
+#      - dcapetz - lab - CAMPUS-LEAF-SHARED
 ###########################
 # Dual DC L3LS-v Topology #
 ###########################
@@ -90,63 +90,63 @@ CVP_CONTAINERS:
 #  DC1 Spines:
 #    parentContainerName: Data Center 1
 #    #configlets:
-#    #  - clab_ENT-DC1-SPINE-SHARED
+#    #  - dcapetz - lab - ENT-DC1-SPINE-SHARED
 #  DC1 Leaves:
 #    parentContainerName: Data Center 1
 #  DC1 Border Leaves:
 #    parentContainerName: DC1 Leaves
 #    #configlets:
-#    #  - clab_ENT-DC1-BORDER-SHARED
+#    #  - dcapetz - lab - ENT-DC1-BORDER-SHARED
 #  DC1 Compute Leaves:
 #    parentContainerName: DC1 Leaves
 #    #configlets:
-#    #  - clab_ENT-DC1-LEAVES-SHARED
+#    #  - dcapetz - lab - ENT-DC1-LEAVES-SHARED
 #  DC1 Compute Pod 1:
 #    parentContainerName: DC1 Compute Leaves
 #    #configlets:
-#    #  - clab_ENT-DC1-POD1-SHARED
+#    #  - dcapetz - lab - ENT-DC1-POD1-SHARED
 #  DC1 Compute Pod 2:
 #    parentContainerName: DC1 Compute Leaves
 #    #configlets:
-#    #  - clab_ENT-DC1-POD2-SHARED
+#    #  - dcapetz - lab - ENT-DC1-POD2-SHARED
 #  DC1 Compute Pod 3:
 #    parentContainerName: DC1 Compute Leaves
 #    #configlets:
-#    #  - clab_ENT-DC1-POD3-SHARED
+#    #  - dcapetz - lab - ENT-DC1-POD3-SHARED
 #  DC1 Core:
 #    parentContainerName: Data Center 1
 #    #configlets:
-#    #  - clab_ENT-DC1-CORE-SHARED
+#    #  - dcapetz - lab - ENT-DC1-CORE-SHARED
 #  DC2 Spines:
 #    parentContainerName: Data Center 2
 #    #configlets:
-#    #  - clab_ENT-DC2-SPINE-SHARED
+#    #  - dcapetz - lab - ENT-DC2-SPINE-SHARED
 #  DC2 Leaves:
 #    parentContainerName: Data Center 2
 #  DC2 Border Leaves:
 #    parentContainerName: DC2 Leaves
 #    #configlets:
-#    #  - clab_ENT-DC2-BORDER-SHARED
+#    #  - dcapetz - lab - ENT-DC2-BORDER-SHARED
 #  DC2 Compute Leaves:
 #    parentContainerName: DC2 Leaves
 #    #configlets:
-#    #  - clab_ENT-DC2-LEAVES-SHARED
+#    #  - dcapetz - lab - ENT-DC2-LEAVES-SHARED
 #  DC2 Compute Pod 1:
 #    parentContainerName: DC2 Compute Leaves
 #    #configlets:
-#    #  - clab_ENT-DC2-POD1-SHARED
+#    #  - dcapetz - lab - ENT-DC2-POD1-SHARED
 #  DC2 Compute Pod 2:
 #    parentContainerName: DC2 Compute Leaves
 #    #configlets:
-#    #  - clab_ENT-DC2-POD2-SHARED
+#    #  - dcapetz - lab - ENT-DC2-POD2-SHARED
 #  DC2 Compute Pod 3:
 #    parentContainerName: DC2 Compute Leaves
 #    #configlets:
-#    #  - clab_ENT-DC2-POD3-SHARED
+#    #  - dcapetz - lab - ENT-DC2-POD3-SHARED
 #  DC2 Core:
 #    parentContainerName: Data Center 2
 #    #configlets:
-#    #  - clab_ENT-DC2-CORE-SHARED
+#    #  - dcapetz - lab - ENT-DC2-CORE-SHARED
 ###################################
 # RC Campus Topology - Configlets #
 ###################################
@@ -155,11 +155,11 @@ CVP_CONTAINERS:
 #  Spines:
 #    parentContainerName: Rocket Central Campus
 #    configlets:
-#      - clab_RC-CAMPUS-SPINE-SHARED
+#      - dcapetz - lab - RC-CAMPUS-SPINE-SHARED
 #  Closets:
 #    parentContainerName: Rocket Central Campus
 #    configlets:
-#      - clab_RC-CAMPUS-VLANs
+#      - dcapetz - lab - RC-CAMPUS-VLANs
 #  Floor 1 Closet 1:
 #    parentContainerName: Closets
 #  Floor 1 Closet 2:
@@ -175,51 +175,51 @@ CVP_CONTAINERS:
 #  Floor 1 Closet 1 Splines:
 #    parentContainerName: Floor 1 Closet 1
 #    configlets:
-#      - clab_RC-CAMPUS-FL1-C1-SPLINE-SHARED
+#      - dcapetz - lab - RC-CAMPUS-FL1-C1-SPLINE-SHARED
 #  Floor 1 Closet 1 Leaves:
 #    parentContainerName: Floor 1 Closet 1
 #    configlets:
-#      - clab_RC-CAMPUS-LEAF-SHARED
+#      - dcapetz - lab - RC-CAMPUS-LEAF-SHARED
 #  Floor 1 Closet 2 Splines:
 #    parentContainerName: Floor 1 Closet 2
 #    configlets:
-#      - clab_RC-CAMPUS-FL1-C2-SPLINE-SHARED
+#      - dcapetz - lab - RC-CAMPUS-FL1-C2-SPLINE-SHARED
 #  Floor 1 Closet 2 Leaves:
 #    parentContainerName: Floor 1 Closet 2
 #    configlets:
-#      - clab_RC-CAMPUS-LEAF-SHARED
+#      - dcapetz - lab - RC-CAMPUS-LEAF-SHARED
 #  Floor 2 Closet 1 Splines:
 #    parentContainerName: Floor 2 Closet 1
 #    configlets:
-#      - clab_RC-CAMPUS-FL2-C1-SPLINE-SHARED
+#      - dcapetz - lab - RC-CAMPUS-FL2-C1-SPLINE-SHARED
 #  Floor 2 Closet 1 Leaves:
 #    parentContainerName: Floor 2 Closet 1
 #    configlets:
-#      - clab_RC-CAMPUS-LEAF-SHARED
+#      - dcapetz - lab - RC-CAMPUS-LEAF-SHARED
 #  Floor 2 Closet 2 Splines:
 #    parentContainerName: Floor 2 Closet 2
 #    configlets:
-#      - clab_RC-CAMPUS-FL2-C2-SPLINE-SHARED
+#      - dcapetz - lab - RC-CAMPUS-FL2-C2-SPLINE-SHARED
 #  Floor 2 Closet 2 Leaves:
 #    parentContainerName: Floor 2 Closet 2
 #    configlets:
-#      - clab_RC-CAMPUS-LEAF-SHARED
+#      - dcapetz - lab - RC-CAMPUS-LEAF-SHARED
 #  Floor 3 Closet 1 Splines:
 #    parentContainerName: Floor 3 Closet 1
 #    configlets:
-#      - clab_RC-CAMPUS-FL3-C1-SPLINE-SHARED
+#      - dcapetz - lab - RC-CAMPUS-FL3-C1-SPLINE-SHARED
 #  Floor 3 Closet 1 Leaves:
 #    parentContainerName: Floor 3 Closet 1
 #    configlets:
-#      - clab_RC-CAMPUS-LEAF-SHARED
+#      - dcapetz - lab - RC-CAMPUS-LEAF-SHARED
 #  Floor 3 Closet 2 Splines:
 #    parentContainerName: Floor 3 Closet 2
 #    configlets:
-#      - clab_RC-CAMPUS-FL3-C2-SPLINE-SHARED
+#      - dcapetz - lab - RC-CAMPUS-FL3-C2-SPLINE-SHARED
 #  Floor 3 Closet 2 Leaves:
 #    parentContainerName: Floor 3 Closet 2
 #    configlets:
-#      - clab_RC-CAMPUS-LEAF-SHARED
+#      - dcapetz - lab - RC-CAMPUS-LEAF-SHARED
 #######################
 # Prime Core Topology #
 #######################
@@ -234,24 +234,24 @@ CVP_CONTAINERS:
   DC1 Core Routers:
     parentContainerName: DC1
     configlets:
-      - clab_PRIME-DC1-CORE-SHARED
+      - dcapetz - lab - PRIME-DC1-CORE-SHARED
   DC2 Core Routers:
     parentContainerName: DC2
     configlets:
-      - clab_PRIME-DC2-CORE-SHARED
+      - dcapetz - lab - PRIME-DC2-CORE-SHARED
   DC3 Core Routers:
     parentContainerName: DC3
     configlets:
-      - clab_PRIME-DC3-CORE-SHARED
+      - dcapetz - lab - PRIME-DC3-CORE-SHARED
   DC1 Access Switches:
     parentContainerName: DC1
     configlets:
-      - clab_PRIME-DC1-ACCESS-SHARED
+      - dcapetz - lab - PRIME-DC1-ACCESS-SHARED
   DC2 Access Switches:
     parentContainerName: DC2
     configlets:
-      - clab_PRIME-DC2-ACCESS-SHARED
+      - dcapetz - lab - PRIME-DC2-ACCESS-SHARED
   DC3 Access Switches:
     parentContainerName: DC3
     configlets:
-      - clab_PRIME-DC3-ACCESS-SHARED
+      - dcapetz - lab - PRIME-DC3-ACCESS-SHARED

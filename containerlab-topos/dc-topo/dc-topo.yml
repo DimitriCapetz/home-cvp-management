@@ -15,127 +15,185 @@ mgmt:
 
 topology:
 
+  kinds:
+    ceos:
+      image: ceos:4.28.1F
+    linux:
+      image: mitchv85/ohv-host
+
   nodes: 
+
+###########################################
+# Graphite Node                           #
+# Provides Topology Graphing and the      #
+# ability to connect to nodes in the      #
+# topology via a web/ssh session          #
+###########################################
+
+    graphite:
+      kind: linux
+      image: netreplica/graphite
+      mgmt_ipv4: 10.99.99.254
+      env:
+        GRAPHITE_DEFAULT_TYPE: clab
+        GRAPHITE_DEFAULT_TOPO: dc-topo
+        # CLAB_SSH_CONNECTION: ${SSH_CONNECTION}
+      binds:
+        # - .:/var/www/localhost/htdocs/clab   <----  This is the old path in docker image netreplica/graphite:webssh2
+        - .:/htdocs/clab    # New path required for latest version
+      ports:
+        - 80:80
+      exec:
+        # - sh -c 'generate_offline_graph.sh'   # used to generate offline graphs
+        - sh -c 'graphite_motd.sh 80'
+      labels:
+        graph-hide: yes
 
 #########################
 # SPINE                 #
 #########################
 
-    SPINE1:
+    DC-SPINE1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.2
-      startup-config: ./configs/SPINE1.cfg
+      startup-config: ./configs/DC-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
 
-    SPINE2:
+    DC-SPINE2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.3
-      startup-config: ./configs/SPINE2.cfg
+      startup-config: ./configs/DC-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
 
 #########################
 # LEAF                  #
 #########################
 
-    LEAF1:
+    DC-LEAF1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.4
-      startup-config: ./configs/LEAF1.cfg
+      startup-config: ./configs/DC-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
-    LEAF2:
+    DC-LEAF2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.5
-      startup-config: ./configs/LEAF2.cfg
+      startup-config: ./configs/DC-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
-    LEAF3:
+    DC-LEAF3:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.6
-      startup-config: ./configs/LEAF3.cfg
+      startup-config: ./configs/DC-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
-    LEAF4:
+    DC-LEAF4:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.7
-      startup-config: ./configs/LEAF4.cfg
+      startup-config: ./configs/DC-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
-    LEAF5:
+    DC-LEAF5:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.8
-      startup-config: ./configs/LEAF5.cfg
+      startup-config: ./configs/DC-LEAF5.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
-    LEAF6:
+    DC-LEAF6:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.9
-      startup-config: ./configs/LEAF6.cfg
+      startup-config: ./configs/DC-LEAF6.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
 
 #########################
 # BORDER                #
 #########################
 
-    BORDER1:
+    DC-BORDER1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.10
-      startup-config: ./configs/BORDER1.cfg
+      startup-config: ./configs/DC-BORDER1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
 
-    BORDER2:
+    DC-BORDER2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.11
-      startup-config: ./configs/BORDER2.cfg
+      startup-config: ./configs/DC-BORDER2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
 
 ###########################################
 # HOST                                    #
 ###########################################
 
-    HOST1:
-      kind: ceos
-      image: ceos:4.28.0F
+    DC-HOST1:
+      kind: linux
+      image: mitchv85/ohv-host
       mgmt_ipv4: 10.99.99.12
-      startup-config: ./configs/HOST1.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.10.10.101/24 -g 10.10.10.1
+      labels:
+        graph-level: 5
+        graph-icon: host
 
-    HOST2:
-      kind: ceos
-      image: ceos:4.28.0F
+    DC-HOST2:
+      kind: linux
+      image: mitchv85/ohv-host
       mgmt_ipv4: 10.99.99.13
-      startup-config: ./configs/HOST2.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.20.20.101/24 -g 10.20.20.1
+      labels:
+        graph-level: 5
+        graph-icon: host
 
-    HOST3:
-      kind: ceos
-      image: ceos:4.28.0F
+    DC-HOST3:
+      kind: linux
+      image: mitchv85/ohv-host
       mgmt_ipv4: 10.99.99.14
-      startup-config: ./configs/HOST3.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.30.30.101/24 -g 10.30.30.1
+      labels:
+        graph-level: 5
+        graph-icon: host
 
 ###########################################
 # WAN Simulation                          #
@@ -143,91 +201,95 @@ topology:
 
     WAN1:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.15
       startup-config: ./configs/WAN1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
 
     WAN2:
       kind: ceos
-      image: ceos:4.28.0F
       mgmt_ipv4: 10.99.99.16
       startup-config: ./configs/WAN2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
 
   links:
 ####################
-# SPINE1 to LEAF   #
+# DC-SPINE1 to LEAF   #
 ####################
-    - endpoints: ["SPINE1:eth1", "LEAF1:eth3"]
-    - endpoints: ["SPINE1:eth2", "LEAF2:eth3"]
-    - endpoints: ["SPINE1:eth3", "LEAF3:eth3"]
-    - endpoints: ["SPINE1:eth4", "LEAF4:eth3"]
-    - endpoints: ["SPINE1:eth5", "LEAF5:eth3"]
-    - endpoints: ["SPINE1:eth6", "LEAF6:eth3"]
-    - endpoints: ["SPINE1:eth7", "BORDER1:eth3"]
-    - endpoints: ["SPINE1:eth8", "BORDER2:eth3"]
+    - endpoints: ["DC-SPINE1:eth1", "DC-LEAF1:eth3"]
+    - endpoints: ["DC-SPINE1:eth2", "DC-LEAF2:eth3"]
+    - endpoints: ["DC-SPINE1:eth3", "DC-LEAF3:eth3"]
+    - endpoints: ["DC-SPINE1:eth4", "DC-LEAF4:eth3"]
+    - endpoints: ["DC-SPINE1:eth5", "DC-LEAF5:eth3"]
+    - endpoints: ["DC-SPINE1:eth6", "DC-LEAF6:eth3"]
+    - endpoints: ["DC-SPINE1:eth7", "DC-BORDER1:eth3"]
+    - endpoints: ["DC-SPINE1:eth8", "DC-BORDER2:eth3"]
 ####################
-# SPINE2 to LEAF   #
+# DC-SPINE2 to LEAF   #
 ####################
-    - endpoints: ["SPINE2:eth1", "LEAF1:eth4"]
-    - endpoints: ["SPINE2:eth2", "LEAF2:eth4"]
-    - endpoints: ["SPINE2:eth3", "LEAF3:eth4"]
-    - endpoints: ["SPINE2:eth4", "LEAF4:eth4"]
-    - endpoints: ["SPINE2:eth5", "LEAF5:eth4"]
-    - endpoints: ["SPINE2:eth6", "LEAF6:eth4"]
-    - endpoints: ["SPINE2:eth7", "BORDER1:eth4"]
-    - endpoints: ["SPINE2:eth8", "BORDER2:eth4"]
+    - endpoints: ["DC-SPINE2:eth1", "DC-LEAF1:eth4"]
+    - endpoints: ["DC-SPINE2:eth2", "DC-LEAF2:eth4"]
+    - endpoints: ["DC-SPINE2:eth3", "DC-LEAF3:eth4"]
+    - endpoints: ["DC-SPINE2:eth4", "DC-LEAF4:eth4"]
+    - endpoints: ["DC-SPINE2:eth5", "DC-LEAF5:eth4"]
+    - endpoints: ["DC-SPINE2:eth6", "DC-LEAF6:eth4"]
+    - endpoints: ["DC-SPINE2:eth7", "DC-BORDER1:eth4"]
+    - endpoints: ["DC-SPINE2:eth8", "DC-BORDER2:eth4"]
 ####################
-# SPINE1 to SPINE2 #
+# DC-SPINE1 to DC-SPINE2 #
 ####################
-    - endpoints: ["SPINE1:eth9", "SPINE2:eth9"]
-    - endpoints: ["SPINE1:eth10", "SPINE2:eth10"]
+    - endpoints: ["DC-SPINE1:eth9", "DC-SPINE2:eth9"]
+    - endpoints: ["DC-SPINE1:eth10", "DC-SPINE2:eth10"]
 ####################
-# LEAF1 to LEAF2   #
+# DC-LEAF1 to DC-LEAF2   #
 ####################
-    - endpoints: ["LEAF1:eth9", "LEAF2:eth9"]
-    - endpoints: ["LEAF1:eth10", "LEAF2:eth10"]
+    - endpoints: ["DC-LEAF1:eth9", "DC-LEAF2:eth9"]
+    - endpoints: ["DC-LEAF1:eth10", "DC-LEAF2:eth10"]
 ####################
-# HOST1            #
+# DC-HOST1            #
 ####################
-    - endpoints: ["HOST1:eth1", "LEAF1:eth1"]
-    - endpoints: ["HOST1:eth2", "LEAF2:eth1"]
-    - endpoints: ["HOST1:eth11", "LEAF1:eth11"]
-    - endpoints: ["HOST1:eth12", "LEAF2:eth11"]
+    - endpoints: ["DC-HOST1:eth1", "DC-LEAF1:eth1"]
+    - endpoints: ["DC-HOST1:eth2", "DC-LEAF2:eth1"]
+    - endpoints: ["DC-HOST1:eth11", "DC-LEAF1:eth11"]
+    - endpoints: ["DC-HOST1:eth12", "DC-LEAF2:eth11"]
 ####################
-# LEAF3 to LEAF4   #
+# DC-LEAF3 to DC-LEAF4   #
 ####################
-    - endpoints: ["LEAF3:eth9", "LEAF4:eth9"]
-    - endpoints: ["LEAF3:eth10", "LEAF4:eth10"]
+    - endpoints: ["DC-LEAF3:eth9", "DC-LEAF4:eth9"]
+    - endpoints: ["DC-LEAF3:eth10", "DC-LEAF4:eth10"]
 ####################
-# HOST2            #
+# DC-HOST2            #
 ####################
-    - endpoints: ["HOST2:eth1", "LEAF3:eth1"]
-    - endpoints: ["HOST2:eth2", "LEAF4:eth1"]
-    - endpoints: ["HOST2:eth11", "LEAF3:eth11"]
-    - endpoints: ["HOST2:eth12", "LEAF4:eth11"]
+    - endpoints: ["DC-HOST2:eth1", "DC-LEAF3:eth1"]
+    - endpoints: ["DC-HOST2:eth2", "DC-LEAF4:eth1"]
+    - endpoints: ["DC-HOST2:eth11", "DC-LEAF3:eth11"]
+    - endpoints: ["DC-HOST2:eth12", "DC-LEAF4:eth11"]
 ####################
-# LEAF5 to LEAF6   #
+# DC-LEAF5 to DC-LEAF6   #
 ####################
-    - endpoints: ["LEAF5:eth9", "LEAF6:eth9"]
-    - endpoints: ["LEAF5:eth10", "LEAF6:eth10"]
+    - endpoints: ["DC-LEAF5:eth9", "DC-LEAF6:eth9"]
+    - endpoints: ["DC-LEAF5:eth10", "DC-LEAF6:eth10"]
 ####################
-# HOST3            #
+# DC-HOST3            #
 ####################
-    - endpoints: ["HOST3:eth1", "LEAF5:eth1"]
-    - endpoints: ["HOST3:eth2", "LEAF6:eth1"]
-    - endpoints: ["HOST3:eth11", "LEAF5:eth11"]
-    - endpoints: ["HOST3:eth12", "LEAF6:eth11"]
+    - endpoints: ["DC-HOST3:eth1", "DC-LEAF5:eth1"]
+    - endpoints: ["DC-HOST3:eth2", "DC-LEAF6:eth1"]
+    - endpoints: ["DC-HOST3:eth11", "DC-LEAF5:eth11"]
+    - endpoints: ["DC-HOST3:eth12", "DC-LEAF6:eth11"]
 ########################
-# BORDER1 to BORDER2   #
+# DC-BORDER1 to DC-BORDER2   #
 ########################
-    - endpoints: ["BORDER1:eth9", "BORDER2:eth9"]
-    - endpoints: ["BORDER1:eth10", "BORDER2:eth10"]
+    - endpoints: ["DC-BORDER1:eth9", "DC-BORDER2:eth9"]
+    - endpoints: ["DC-BORDER1:eth10", "DC-BORDER2:eth10"]
 ######################
 # WAN Sim            #
 ######################
-    - endpoints: ["WAN1:eth1", "BORDER1:eth1"]
-    - endpoints: ["WAN2:eth1", "BORDER2:eth1"]
+    - endpoints: ["WAN1:eth1", "DC-BORDER1:eth1"]
+    - endpoints: ["WAN2:eth1", "DC-BORDER2:eth1"]
