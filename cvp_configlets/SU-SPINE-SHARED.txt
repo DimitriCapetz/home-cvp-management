@@ -13,18 +13,22 @@ interface Port-Channel2
 interface Ethernet1
    description Po1 to LEAF1
    channel-group 1 mode active
+   lacp timer fast
 !
 interface Ethernet2
    description Po1 to LEAF2
    channel-group 1 mode active
+   lacp timer fast
 !
 interface Ethernet3
    description Po2 to LEAF3
    channel-group 2 mode active
+   lacp timer fast
 !
 interface Ethernet4
    description Po2 to LEAF4
    channel-group 2 mode active
+   lacp timer fast
 !
 ip virtual-router mac-address 00:1C:73:00:00:01
 !

@@ -8,3 +8,4 @@ interface Port-Channel101
 interface Ethernet3
    description Po101 to HOST2
    channel-group 101 mode active
+   lacp timer fast

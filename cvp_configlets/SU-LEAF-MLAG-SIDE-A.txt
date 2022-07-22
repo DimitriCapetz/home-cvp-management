@@ -12,6 +12,7 @@ interface Port-Channel2000
 interface Ethernet4
    description Po2000 to MLAG Peer Et4
    channel-group 2000 mode active
+   lacp timer fast
 !
 interface Vlan4094
    description MLAG Peer Network

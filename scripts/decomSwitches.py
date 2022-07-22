@@ -38,8 +38,8 @@ elif topo == "PRIME":
         ]
 elif topo == "SU":
     containerList = [
-        "DC Rack 1", "DC Rack 2", "DC Border Leaves", 
-        "DC Leaves", "DC Spines", "DC Data Center"
+        "DC Rack 1", "DC Rack 2", "DC Leaves", 
+        "DC Spines", "DC Data Center"
         ]
 
 # Disable Cert Warnings for Test Environment

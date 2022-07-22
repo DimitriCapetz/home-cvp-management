@@ -7,7 +7,9 @@ interface Port-Channel1
 interface Ethernet1
    description Po1 to SPINE1
    channel-group 1 mode active
+   lacp timer fast
 !
 interface Ethernet2
    description Po1 to SPINE2
    channel-group 1 mode active
+   lacp timer fast
