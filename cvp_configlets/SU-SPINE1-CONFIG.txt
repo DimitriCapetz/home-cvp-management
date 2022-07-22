@@ -35,7 +35,7 @@ interface Loopback0
 !
 router bgp 65001
    neighbor 10.0.0.1 peer group CORE
-   neighbor 10.255.255.255 peer group SPINE
+   neighbor 10.255.255.254 peer group SPINE
 !
 router general
    router-id ipv4 10.0.0.252

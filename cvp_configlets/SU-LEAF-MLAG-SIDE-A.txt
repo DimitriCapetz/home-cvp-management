@@ -15,10 +15,10 @@ interface Ethernet4
 !
 interface Vlan4094
    description MLAG Peer Network
-   ip address 10.255.255.254/31
+   ip address 10.255.255.253/30
 !
 mlag configuration
    domain-id MLAG
    local-interface Vlan4094
-   peer-address 10.255.255.255
+   peer-address 10.255.255.254
    peer-link Port-Channel2000

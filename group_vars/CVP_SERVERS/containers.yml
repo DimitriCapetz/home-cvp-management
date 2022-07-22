@@ -255,9 +255,9 @@ CVP_CONTAINERS:
 #    parentContainerName: DC3
 #    configlets:
 #      - dcapetz - lab_PRIME-DC3-ACCESS-SHARED
-###########################
-# Single DC L2LS Topology #
-###########################
+#############################
+# Software Upgrade Topology #
+#############################
   DC Data Center:
     parentContainerName: Dimitri's Virtual Lab
     configlets:
@@ -271,10 +271,10 @@ CVP_CONTAINERS:
     configlets:
       - dcapetz - lab_SU-LEAVES-SHARED
   DC Rack 1:
-    parentContainerName: DC Compute Leaves
+    parentContainerName: DC Leaves
     configlets:
       - dcapetz - lab_SU-POD1-SHARED
   DC Rack 2:
-    parentContainerName: DC Compute Leaves
+    parentContainerName: DC Leaves
     configlets:
       - dcapetz - lab_SU-POD2-SHARED

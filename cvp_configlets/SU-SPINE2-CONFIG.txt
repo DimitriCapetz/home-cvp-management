@@ -1,7 +1,7 @@
 interface Ethernet5
    description L3 Connection to CORE
    no switchport
-   ip address 10.0.0.4/31
+   ip address 10.0.0.2/31
    sflow enable
 !
 interface Vlan10
@@ -34,8 +34,8 @@ interface Loopback0
    ip address 10.0.0.253/32
 !
 router bgp 65001
-   neighbor 10.0.0.5 peer group CORE
-   neighbor 10.255.255.254 peer group SPINE
+   neighbor 10.0.0.3 peer group CORE
+   neighbor 10.255.255.253 peer group SPINE
 !
 router general
    router-id ipv4 10.0.0.253

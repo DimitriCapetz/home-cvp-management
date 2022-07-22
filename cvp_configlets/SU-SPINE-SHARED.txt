@@ -42,8 +42,10 @@ route-map DC-ROUTES permit 10
 router bgp 65001
    maximum-paths 2
    neighbor CORE peer group
-   neighbor CORE remote-as 65432
+   neighbor CORE remote-as 11111
+   neighbor CORE send-community standard extended
    neighbor SPINE peer group
    neighbor SPINE remote-as 65001
    neighbor SPINE next-hop-self
+   neighbor SPINE send-community standard extended
    redistribute connected route-map DC-ROUTES

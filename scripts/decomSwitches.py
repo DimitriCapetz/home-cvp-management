@@ -36,6 +36,11 @@ elif topo == "PRIME":
         "DC1 Access Switches", "DC2 Access Switches", "DC3 Access Switches", 
         "DC3", "DC2", "DC1", "Prime Therapeutics Core"
         ]
+elif topo == "SU":
+    containerList = [
+        "DC Rack 1", "DC Rack 2", "DC Border Leaves", 
+        "DC Leaves", "DC Spines", "DC Data Center"
+        ]
 
 # Disable Cert Warnings for Test Environment
 import urllib3
