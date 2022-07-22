@@ -1,0 +1,49 @@
+interface Port-Channel1
+   description MLAG Downlink to Pod 1
+   switchport mode trunk
+   mlag 1
+   sflow enable
+!
+interface Port-Channel2
+   description MLAG Downlink to Pod 2
+   switchport mode trunk
+   mlag 2
+   sflow enable
+!
+interface Ethernet1
+   description Po1 to LEAF1
+   channel-group 1 mode active
+!
+interface Ethernet2
+   description Po1 to LEAF2
+   channel-group 1 mode active
+!
+interface Ethernet3
+   description Po2 to LEAF3
+   channel-group 2 mode active
+!
+interface Ethernet4
+   description Po2 to LEAF4
+   channel-group 2 mode active
+!
+ip virtual-router mac-address 00:1C:73:00:00:01
+!
+ip prefix-list DC-ROUTES
+   seq 10 permit 10.10.10.0/24
+   seq 20 permit 10.20.20.0/24
+   seq 30 permit 10.30.30.0/24
+   seq 40 permit 10.40.40.0/24
+   seq 50 permit 10.50.50.0/24
+   seq 60 permit 10.0.0.0/24 ge 31
+!
+route-map DC-ROUTES permit 10
+   match ip address prefix-list DC-ROUTES
+!
+router bgp 65001
+   maximum-paths 2
+   neighbor CORE peer group
+   neighbor CORE remote-as 65432
+   neighbor SPINE peer group
+   neighbor SPINE remote-as 65001
+   neighbor SPINE next-hop-self
+   redistribute connected route-map DC-ROUTES

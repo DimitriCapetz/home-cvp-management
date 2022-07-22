@@ -1,0 +1,14 @@
+vlan 10
+   name Server_Vlan_10
+!
+vlan 20
+   name Server_Vlan_20
+!
+vlan 30
+   name Server_Vlan_30
+!
+vlan 40
+   name Server_Vlan_40
+!
+vlan 50
+   name Server_Vlan_50

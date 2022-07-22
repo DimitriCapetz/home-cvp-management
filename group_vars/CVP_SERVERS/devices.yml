@@ -2,60 +2,60 @@ CVP_DEVICES:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-  - fqdn: DC-SPINE1
-    parentContainerName: DC Spines
-    configlets:
-      - dcapetz - lab_DC-SPINE1-BASE
-      - dcapetz - lab_DC-SPINE-MLAG-SIDE-A
-      - dcapetz - lab_DC-SPINE1-CONFIG
-  - fqdn: DC-SPINE2
-    parentContainerName: DC Spines
-    configlets:
-      - dcapetz - lab_DC-SPINE2-BASE
-      - dcapetz - lab_DC-SPINE-MLAG-SIDE-B
-      - dcapetz - lab_DC-SPINE2-CONFIG
-  - fqdn: DC-BORDER1
-    parentContainerName: DC Border Leaves
-    configlets:
-      - dcapetz - lab_DC-BORDER1-BASE
-      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
-      - dcapetz - lab_DC-BORDER1-CONFIG
-  - fqdn: DC-BORDER2
-    parentContainerName: DC Border Leaves
-    configlets:
-      - dcapetz - lab_DC-BORDER2-BASE
-      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
-      - dcapetz - lab_DC-BORDER2-CONFIG
-  - fqdn: DC-LEAF1
-    parentContainerName: DC Compute Pod 1
-    configlets:
-      - dcapetz - lab_DC-LEAF1-BASE
-      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
-  - fqdn: DC-LEAF2
-    parentContainerName: DC Compute Pod 1
-    configlets:
-      - dcapetz - lab_DC-LEAF2-BASE
-      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
-  - fqdn: DC-LEAF3
-    parentContainerName: DC Compute Pod 2
-    configlets:
-      - dcapetz - lab_DC-LEAF3-BASE
-      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
-  - fqdn: DC-LEAF4
-    parentContainerName: DC Compute Pod 2
-    configlets:
-      - dcapetz - lab_DC-LEAF4-BASE
-      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
-  - fqdn: DC-LEAF5
-    parentContainerName: DC Compute Pod 3
-    configlets:
-      - dcapetz - lab_DC-LEAF5-BASE
-      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
-  - fqdn: DC-LEAF6
-    parentContainerName: DC Compute Pod 3
-    configlets:
-      - dcapetz - lab_DC-LEAF6-BASE
-      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+#  - fqdn: DC-SPINE1
+#    parentContainerName: DC Spines
+#    configlets:
+#      - dcapetz - lab_DC-SPINE1-BASE
+#      - dcapetz - lab_DC-SPINE-MLAG-SIDE-A
+#      - dcapetz - lab_DC-SPINE1-CONFIG
+#  - fqdn: DC-SPINE2
+#    parentContainerName: DC Spines
+#    configlets:
+#      - dcapetz - lab_DC-SPINE2-BASE
+#      - dcapetz - lab_DC-SPINE-MLAG-SIDE-B
+#      - dcapetz - lab_DC-SPINE2-CONFIG
+#  - fqdn: DC-BORDER1
+#    parentContainerName: DC Border Leaves
+#    configlets:
+#      - dcapetz - lab_DC-BORDER1-BASE
+#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+#      - dcapetz - lab_DC-BORDER1-CONFIG
+#  - fqdn: DC-BORDER2
+#    parentContainerName: DC Border Leaves
+#    configlets:
+#      - dcapetz - lab_DC-BORDER2-BASE
+#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+#      - dcapetz - lab_DC-BORDER2-CONFIG
+#  - fqdn: DC-LEAF1
+#    parentContainerName: DC Compute Pod 1
+#    configlets:
+#      - dcapetz - lab_DC-LEAF1-BASE
+#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+#  - fqdn: DC-LEAF2
+#    parentContainerName: DC Compute Pod 1
+#    configlets:
+#      - dcapetz - lab_DC-LEAF2-BASE
+#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+#  - fqdn: DC-LEAF3
+#    parentContainerName: DC Compute Pod 2
+#    configlets:
+#      - dcapetz - lab_DC-LEAF3-BASE
+#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+#  - fqdn: DC-LEAF4
+#    parentContainerName: DC Compute Pod 2
+#    configlets:
+#      - dcapetz - lab_DC-LEAF4-BASE
+#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+#  - fqdn: DC-LEAF5
+#    parentContainerName: DC Compute Pod 3
+#    configlets:
+#      - dcapetz - lab_DC-LEAF5-BASE
+#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+#  - fqdn: DC-LEAF6
+#    parentContainerName: DC Compute Pod 3
+#    configlets:
+#      - dcapetz - lab_DC-LEAF6-BASE
+#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
 ###################
 # Campus Topology #
 ###################
@@ -573,3 +573,38 @@ CVP_DEVICES:
 #    configlets:
 #      - dcapetz - lab_PRIME-DC3-ACCESS2-MGMT
 #      - dcapetz - lab_PRIME-ACCESS-MLAG-SIDE-B
+#############################
+# Software Upgrade Topology #
+#############################
+  - fqdn: SU-SPINE1
+    parentContainerName: DC Spines
+    configlets:
+      - dcapetz - lab_SU-SPINE1-BASE
+      - dcapetz - lab_SU-SPINE-MLAG-SIDE-A
+      - dcapetz - lab_SU-SPINE1-CONFIG
+  - fqdn: SU-SPINE2
+    parentContainerName: DC Spines
+    configlets:
+      - dcapetz - lab_SU-SPINE2-BASE
+      - dcapetz - lab_SU-SPINE-MLAG-SIDE-B
+      - dcapetz - lab_SU-SPINE2-CONFIG
+  - fqdn: SU-LEAF1
+    parentContainerName: DC Rack 1
+    configlets:
+      - dcapetz - lab_SU-LEAF1-BASE
+      - dcapetz - lab_SU-LEAF-MLAG-SIDE-A
+  - fqdn: SU-LEAF2
+    parentContainerName: DC Rack 1
+    configlets:
+      - dcapetz - lab_SU-LEAF2-BASE
+      - dcapetz - lab_SU-LEAF-MLAG-SIDE-B
+  - fqdn: SU-LEAF3
+    parentContainerName: DC Rack 2
+    configlets:
+      - dcapetz - lab_SU-LEAF3-BASE
+      - dcapetz - lab_SU-LEAF-MLAG-SIDE-A
+  - fqdn: SU-LEAF4
+    parentContainerName: DC Rack 2
+    configlets:
+      - dcapetz - lab_SU-LEAF4-BASE
+      - dcapetz - lab_SU-LEAF-MLAG-SIDE-B

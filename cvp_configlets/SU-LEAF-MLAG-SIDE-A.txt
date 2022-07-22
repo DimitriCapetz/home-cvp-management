@@ -1,0 +1,24 @@
+no spanning-tree vlan-id 4094
+!
+vlan 4094
+   name MLAG
+   trunk group PEER
+!
+interface Port-Channel2000
+   description MLAG Peer-link
+   switchport mode trunk
+   switchport trunk group PEER
+!
+interface Ethernet4
+   description Po2000 to MLAG Peer Et4
+   channel-group 2000 mode active
+!
+interface Vlan4094
+   description MLAG Peer Network
+   ip address 10.255.255.254/31
+!
+mlag configuration
+   domain-id MLAG
+   local-interface Vlan4094
+   peer-address 10.255.255.255
+   peer-link Port-Channel2000
