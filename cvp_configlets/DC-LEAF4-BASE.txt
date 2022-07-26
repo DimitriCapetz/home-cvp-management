@@ -12,11 +12,11 @@ vrf instance management
 interface Management1
    description OOB Management Interface
    vrf management
-   ip address 10.99.99.7/24
+   ip address 172.100.100.7/24
    no lldp transmit
    no lldp receive
 !
-ip route vrf management 0.0.0.0/0 10.99.99.1
+ip route vrf management 0.0.0.0/0 172.100.100.1
 !
 ip routing vrf management
 !
