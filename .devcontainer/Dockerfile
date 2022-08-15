@@ -1,8 +1,8 @@
 # Container Image
-FROM python:3.8
+FROM python:3.9
 
 # Install additional utils
-RUN apt update && apt install -y sudo \
+RUN apt update --allow-insecure-repositories && apt install -y sudo \
                                  vim \
                                  git \
                                  zip \
