@@ -1,142 +1,191 @@
 ---
 SWITCHES:
-  ENT-DC1-SPINE1:
-    mgmt_ip: 10.99.99.39
+  DE-SMET-1:
+    mgmt_ip: 10.99.99.122
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65100
-    compute: no
-    cvp: yes
-  ENT-DC1-SPINE2:
-    mgmt_ip: 10.99.99.40
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  DE-SMET-2:
+    mgmt_ip: 10.99.99.123
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65100
-    compute: no
-    cvp: yes
-  ENT-DC2-SPINE1:
-    mgmt_ip: 10.99.99.41
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  VOLGA-1:
+    mgmt_ip: 10.99.99.124
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65200
-    compute: no
-    cvp: yes
-  ENT-DC2-SPINE2:
-    mgmt_ip: 10.99.99.42
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  VOLGA-2:
+    mgmt_ip: 10.99.99.125
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65200
-    compute: no
-    cvp: yes
-  ENT-DC1-LEAF1:
-    mgmt_ip: 10.99.99.43
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  FLANDREAU-1:
+    mgmt_ip: 10.99.99.126
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65101
-    compute: yes
-    cvp: yes
-  ENT-DC1-LEAF2:
-    mgmt_ip: 10.99.99.44
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  FLANDREAU-2:
+    mgmt_ip: 10.99.99.127
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65101
-    compute: yes
-    cvp: yes
-  ENT-DC1-LEAF3:
-    mgmt_ip: 10.99.99.45
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  SDN-SIM:
+    mgmt_ip: 10.99.99.128
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65102
-    compute: yes
-    cvp: yes
-  ENT-DC1-LEAF4:
-    mgmt_ip: 10.99.99.46
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'no'
+  HOSMER-1:
+    mgmt_ip: 10.99.99.129
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65102
-    compute: yes
-    cvp: yes
-  ENT-DC1-LEAF5:
-    mgmt_ip: 10.99.99.47
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  HOSMER-2:
+    mgmt_ip: 10.99.99.130
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65103
-    compute: yes
-    cvp: yes
-  ENT-DC1-LEAF6:
-    mgmt_ip: 10.99.99.48
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  IPSWITCH-1:
+    mgmt_ip: 10.99.99.131
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65103
-    compute: yes
-    cvp: yes
-  ENT-DC2-LEAF1:
-    mgmt_ip: 10.99.99.49
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  IPSWITCH-2:
+    mgmt_ip: 10.99.99.132
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65201
-    compute: yes
-    cvp: yes
-  ENT-DC2-LEAF2:
-    mgmt_ip: 10.99.99.50
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  MOUND-CITY-1:
+    mgmt_ip: 10.99.99.133
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65201
-    compute: yes
-    cvp: yes
-  ENT-DC2-LEAF3:
-    mgmt_ip: 10.99.99.51
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  MOUND-CITY-2:
+    mgmt_ip: 10.99.99.134
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65202
-    compute: yes
-    cvp: yes
-  ENT-DC2-LEAF4:
-    mgmt_ip: 10.99.99.52
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  LEOLA-1:
+    mgmt_ip: 10.99.99.135
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65202
-    compute: yes
-    cvp: yes
-  ENT-DC2-LEAF5:
-    mgmt_ip: 10.99.99.53
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  LEOLA-2:
+    mgmt_ip: 10.99.99.136
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65203
-    compute: yes
-    cvp: yes
-  ENT-DC2-LEAF6:
-    mgmt_ip: 10.99.99.54
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  GLENHAM-1:
+    mgmt_ip: 10.99.99.137
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65203
-    compute: yes
-    cvp: yes
-  ENT-DC1-BORDER1:
-    mgmt_ip: 10.99.99.55
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  GLENHAM-2:
+    mgmt_ip: 10.99.99.138
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65199
-    compute: no
-    cvp: yes
-  ENT-DC1-BORDER2:
-    mgmt_ip: 10.99.99.56
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  LONG-LAKE-1:
+    mgmt_ip: 10.99.99.139
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65199
-    compute: no
-    cvp: yes
-  ENT-DC2-BORDER1:
-    mgmt_ip: 10.99.99.57
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  LONG-LAKE-2:
+    mgmt_ip: 10.99.99.140
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65299
-    compute: no
-    cvp: yes
-  ENT-DC2-BORDER2:
-    mgmt_ip: 10.99.99.58
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  POLLOCK-1:
+    mgmt_ip: 10.99.99.141
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 65299
-    compute: no
-    cvp: yes
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  POLLOCK-2:
+    mgmt_ip: 10.99.99.142
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  EUREKA-1:
+    mgmt_ip: 10.99.99.143
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  EUREKA-2:
+    mgmt_ip: 10.99.99.144
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  HERREID-1:
+    mgmt_ip: 10.99.99.145
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  HERREID-2:
+    mgmt_ip: 10.99.99.146
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'yes'
+  HERREID-CORE-ROUTER:
+    mgmt_ip: 10.99.99.153
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'no'
+  L2-UPSTREAM:
+    mgmt_ip: 10.99.99.152
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 19881
+    compute: 'no'
+    cvp: 'no'
