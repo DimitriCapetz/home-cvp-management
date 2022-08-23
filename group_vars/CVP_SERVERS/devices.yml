@@ -576,35 +576,134 @@ CVP_DEVICES:
 #############################
 # Software Upgrade Topology #
 #############################
-  - fqdn: SU-SPINE1
-    parentContainerName: SU Spines
+#  - fqdn: SU-SPINE1
+#    parentContainerName: SU Spines
+#    configlets:
+#      - dcapetz - lab_SU-SPINE1-BASE
+#      - dcapetz - lab_SU-SPINE-MLAG-SIDE-A
+#      - dcapetz - lab_SU-SPINE1-CONFIG
+#  - fqdn: SU-SPINE2
+#    parentContainerName: SU Spines
+#    configlets:
+#      - dcapetz - lab_SU-SPINE2-BASE
+#      - dcapetz - lab_SU-SPINE-MLAG-SIDE-B
+#      - dcapetz - lab_SU-SPINE2-CONFIG
+#  - fqdn: SU-LEAF1
+#    parentContainerName: SU Rack 1
+#    configlets:
+#      - dcapetz - lab_SU-LEAF1-BASE
+#      - dcapetz - lab_SU-LEAF-MLAG-SIDE-A
+#  - fqdn: SU-LEAF2
+#    parentContainerName: SU Rack 1
+#    configlets:
+#      - dcapetz - lab_SU-LEAF2-BASE
+#      - dcapetz - lab_SU-LEAF-MLAG-SIDE-B
+#  - fqdn: SU-LEAF3
+#    parentContainerName: SU Rack 2
+#    configlets:
+#      - dcapetz - lab_SU-LEAF3-BASE
+#      - dcapetz - lab_SU-LEAF-MLAG-SIDE-A
+#  - fqdn: SU-LEAF4
+#    parentContainerName: SU Rack 2
+#    configlets:
+#      - dcapetz - lab_SU-LEAF4-BASE
+#      - dcapetz - lab_SU-LEAF-MLAG-SIDE-B
+####################
+# SP Ring Topology #
+####################
+  - fqdn: DE-SMET-1
+    parentContainerName: De Smet
     configlets:
-      - dcapetz - lab_SU-SPINE1-BASE
-      - dcapetz - lab_SU-SPINE-MLAG-SIDE-A
-      - dcapetz - lab_SU-SPINE1-CONFIG
-  - fqdn: SU-SPINE2
-    parentContainerName: SU Spines
+      - dcapetz - lab_DE-SMET-1-MGMT
+  - fqdn: DE-SMET-2
+    parentContainerName: De Smet
     configlets:
-      - dcapetz - lab_SU-SPINE2-BASE
-      - dcapetz - lab_SU-SPINE-MLAG-SIDE-B
-      - dcapetz - lab_SU-SPINE2-CONFIG
-  - fqdn: SU-LEAF1
-    parentContainerName: SU Rack 1
+      - dcapetz - lab_DE-SMET-2-MGMT
+  - fqdn: VOLGA-1
+    parentContainerName: Volga
     configlets:
-      - dcapetz - lab_SU-LEAF1-BASE
-      - dcapetz - lab_SU-LEAF-MLAG-SIDE-A
-  - fqdn: SU-LEAF2
-    parentContainerName: SU Rack 1
+      - dcapetz - lab_VOLGA-1-MGMT
+  - fqdn: VOLGA-2
+    parentContainerName: Volga
     configlets:
-      - dcapetz - lab_SU-LEAF2-BASE
-      - dcapetz - lab_SU-LEAF-MLAG-SIDE-B
-  - fqdn: SU-LEAF3
-    parentContainerName: SU Rack 2
+      - dcapetz - lab_VOLGA-2-MGMT
+  - fqdn: FLANDREAU-1
+    parentContainerName: Flandreau
     configlets:
-      - dcapetz - lab_SU-LEAF3-BASE
-      - dcapetz - lab_SU-LEAF-MLAG-SIDE-A
-  - fqdn: SU-LEAF4
-    parentContainerName: SU Rack 2
+      - dcapetz - lab_FLANDREAU-1-MGMT
+  - fqdn: FLANDREAU-2
+    parentContainerName: Flandreau
     configlets:
-      - dcapetz - lab_SU-LEAF4-BASE
-      - dcapetz - lab_SU-LEAF-MLAG-SIDE-B
+      - dcapetz - lab_FLANDREAU-2-MGMT
+  - fqdn: HOSMER-1
+    parentContainerName: Hosmer
+    configlets:
+      - dcapetz - lab_HOSMER-1-MGMT
+  - fqdn: HOSMER-2
+    parentContainerName: Hosmer
+    configlets:
+      - dcapetz - lab_HOSMER-2-MGMT
+  - fqdn: IPSWITCH-1
+    parentContainerName: Ipswitch
+    configlets:
+      - dcapetz - lab_IPSWITCH-1-MGMT
+  - fqdn: IPSWITCH-2
+    parentContainerName: Ipswitch
+    configlets:
+      - dcapetz - lab_IPSWITCH-2-MGMT
+  - fqdn: MOUND-CITY-1
+    parentContainerName: Mound City
+    configlets:
+      - dcapetz - lab_MOUND-CITY-1-MGMT
+  - fqdn: MOUND-CITY-2
+    parentContainerName: Mound City
+    configlets:
+      - dcapetz - lab_MOUND-CITY-2-MGMT
+  - fqdn: LEOLA-1
+    parentContainerName: LEOLA
+    configlets:
+      - dcapetz - lab_LEOLA-1-MGMT
+  - fqdn: LEOLA-2
+    parentContainerName: LEOLA
+    configlets:
+      - dcapetz - lab_LEOLA-2-MGMT
+  - fqdn: GLENHAM-1
+    parentContainerName: Glenham
+    configlets:
+      - dcapetz - lab_GLENHAM-1-MGMT
+  - fqdn: GLENHAM-2
+    parentContainerName: Glenham
+    configlets:
+      - dcapetz - lab_GLENHAM-2-MGMT
+  - fqdn: LONG-LAKE-1
+    parentContainerName: Long Lake
+    configlets:
+      - dcapetz - lab_LONG-LAKE-1-MGMT
+  - fqdn: LONG-LAKE-2
+    parentContainerName: Long Lake
+    configlets:
+      - dcapetz - lab_LONG-LAKE-2-MGMT
+  - fqdn: POLLOCK-1
+    parentContainerName: Pollock
+    configlets:
+      - dcapetz - lab_POLLOCK-1-MGMT
+  - fqdn: POLLOCK-2
+    parentContainerName: Pollock
+    configlets:
+      - dcapetz - lab_POLLOCK-2-MGMT
+  - fqdn: EUREKA-1
+    parentContainerName: Eureka
+    configlets:
+      - dcapetz - lab_EUREKA-1-MGMT
+  - fqdn: EUREKA-2
+    parentContainerName: Eureka
+    configlets:
+      - dcapetz - lab_EUREKA-2-MGMT
+  - fqdn: HERREID-1
+    parentContainerName: Herreid
+    configlets:
+      - dcapetz - lab_HERREID-1-MGMT
+  - fqdn: HERREID-2
+    parentContainerName: Herreid
+    configlets:
+      - dcapetz - lab_HERREID-2-MGMT

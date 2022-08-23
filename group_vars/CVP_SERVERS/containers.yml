@@ -258,23 +258,58 @@ CVP_CONTAINERS:
 #############################
 # Software Upgrade Topology #
 #############################
-  SU Data Center:
+#  SU Data Center:
+#    parentContainerName: Dimitri's Virtual Lab
+#    configlets:
+#      - dcapetz - lab_SU-VLANs
+#  SU Spines:
+#    parentContainerName: DC Data Center
+#    configlets:
+#      - dcapetz - lab_SU-SPINE-SHARED
+#  SU Leaves:
+#    parentContainerName: DC Data Center
+#    configlets:
+#      - dcapetz - lab_SU-LEAVES-SHARED
+#  SU Rack 1:
+#    parentContainerName: DC Leaves
+#    configlets:
+#      - dcapetz - lab_SU-POD1-SHARED
+#  SU Rack 2:
+#    parentContainerName: DC Leaves
+#    configlets:
+#      - dcapetz - lab_SU-POD2-SHARED
+####################
+# SP Ring Topology #
+####################
+  SP Transport Network:
     parentContainerName: Dimitri's Virtual Lab
-    configlets:
-      - dcapetz - lab_SU-VLANs
-  SU Spines:
-    parentContainerName: DC Data Center
-    configlets:
-      - dcapetz - lab_SU-SPINE-SHARED
-  SU Leaves:
-    parentContainerName: DC Data Center
-    configlets:
-      - dcapetz - lab_SU-LEAVES-SHARED
-  SU Rack 1:
-    parentContainerName: DC Leaves
-    configlets:
-      - dcapetz - lab_SU-POD1-SHARED
-  SU Rack 2:
-    parentContainerName: DC Leaves
-    configlets:
-      - dcapetz - lab_SU-POD2-SHARED
+#    configlets:
+#      - dcapetz - lab_DC-VLANs
+  CLEC Exchanges:
+    parentContainerName: SP Transport Network
+  ILEC Exchanges:
+    parentContainerName: SP Transport Network
+  De Smet:
+    parentContainerName: CLEC Exchanges
+  Volga:
+    parentContainerName: CLEC Exchanges
+  Flandreau:
+    parentContainerName: CLEC Exchanges
+  Hosmer:
+    parentContainerName: ILEC Exchanges
+  Ipswitch:
+    parentContainerName: ILEC Exchanges
+  Mound City:
+    parentContainerName: ILEC Exchanges
+  Leola:
+    parentContainerName: ILEC Exchanges
+  Glenham:
+    parentContainerName: ILEC Exchanges
+  Long Lake:
+    parentContainerName: ILEC Exchanges
+  Pollock:
+    parentContainerName: ILEC Exchanges
+  Eureka:
+    parentContainerName: ILEC Exchanges
+  Herreid:
+    parentContainerName: ILEC Exchanges
