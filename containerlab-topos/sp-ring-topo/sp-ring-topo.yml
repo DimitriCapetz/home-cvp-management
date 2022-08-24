@@ -37,7 +37,7 @@ topology:
       mgmt_ipv4: 10.99.99.87
       env:
         GRAPHITE_DEFAULT_TYPE: clab
-        GRAPHITE_DEFAULT_TOPO: rc-campus-topo
+        GRAPHITE_DEFAULT_TOPO: sp-ring-topo
         # CLAB_SSH_CONNECTION: ${SSH_CONNECTION}
       binds:
         # - .:/var/www/localhost/htdocs/clab   <----  This is the old path in docker image netreplica/graphite:webssh2
