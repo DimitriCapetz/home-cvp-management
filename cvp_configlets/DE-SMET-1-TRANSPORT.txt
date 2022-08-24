@@ -4,3 +4,6 @@ interface Loopback0
 !
 router isis 100
    net 49.1111.0000.0011.00
+!
+router general
+   router-id ipv4 10.0.1.1

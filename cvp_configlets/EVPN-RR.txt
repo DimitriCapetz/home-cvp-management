@@ -1,0 +1,13 @@
+router bgp 19881
+   no bgp default ipv4-unicast
+   bgp listen range 10.0.0.0/20 peer-group RR-CLIENT remote-as 19881
+   maximum-paths 2
+   neighbor RR-CLIENT peer group
+   neighbor RR-CLIENT remote-as 19881
+   neighbor RR-CLIENT update-source Loopback0
+   neighbor RR-CLIENT route-reflector-client
+   neighbor RR-CLIENT send-community standard extended
+   !
+   address-family evpn
+      neighbor default encapsulation mpls next-hop-self source-interface Loopback0
+      neighbor RR-CLIENT activate
