@@ -283,8 +283,8 @@ CVP_CONTAINERS:
 ####################
   SP Transport Network:
     parentContainerName: Dimitri's Virtual Lab
-#    configlets:
-#      - dcapetz - lab_DC-VLANs
+    configlets:
+      - dcapetz - lab_Shared Transport Config
   CLEC Exchanges:
     parentContainerName: SP Transport Network
   ILEC Exchanges:

@@ -615,10 +615,12 @@ CVP_DEVICES:
     parentContainerName: De Smet
     configlets:
       - dcapetz - lab_DE-SMET-1-MGMT
+      - dcapetz - lab_DE-SMET-1-TRANSPORT
   - fqdn: DE-SMET-2
     parentContainerName: De Smet
     configlets:
       - dcapetz - lab_DE-SMET-2-MGMT
+      - dcapetz - lab_DE-SMET-1-TRANSPORT
   - fqdn: VOLGA-1
     parentContainerName: Volga
     configlets:

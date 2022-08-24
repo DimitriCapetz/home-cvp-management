@@ -1,0 +1,6 @@
+interface Loopback0
+   ip address 10.0.1.2/32
+   node-segment ipv4 index 12
+!
+router isis 100
+   net 49.1111.0000.0012.00

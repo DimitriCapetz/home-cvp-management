@@ -1,0 +1,45 @@
+no spanning-tree vlan-id 4094
+!
+vlan 4094
+   name PEER_NETWORK
+   trunk group PEER
+!
+interface Port-Channel2000
+   description Peer-link
+   switchport trunk group PEER
+   switchport mode trunk
+!
+interface Ethernet41/1
+   description Transport Interface
+   ip address unnumbered Loopback0
+   isis enable 100
+   isis circuit-type level-2
+   isis network point-to-point
+!
+interface Ethernet45/1-46/1
+   description Po2000 to Peer Router
+   channel-group 2000 mode active
+!
+interface Vlan4094
+   description Peer Network
+   ip address unnumbered Loopback0
+   isis enable 100
+   isis circuit-type level-2
+   isis network point-to-point
+!
+interface Loopback0
+   description Transport / Router-ID
+   ip address 10.0.1.1/32
+   isis enable 100
+   isis passive
+   node-segment ipv4 index 11
+!
+mpls ip
+!
+router isis 100
+   is-type level-2
+   !
+   address-family ipv4 unicast
+   !
+   segment-routing mpls
+      no shutdown
