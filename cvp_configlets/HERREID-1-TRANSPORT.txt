@@ -1,3 +1,8 @@
+interface Ethernet43/1.501
+   description L3 Uplink for Internet Routing
+   encapsulation dot1q vlan 501
+   ip address 10.130.130.1/30
+!
 interface Loopback0
    ip address 10.0.12.1/32
    node-segment ipv4 index 121
@@ -7,3 +12,14 @@ router isis 100
 !
 router general
    router-id ipv4 10.0.12.1
+!
+router bgp 19881
+   !
+   vpws FLANDREAU-TOWER
+      rd 10.0.12.1:3
+   !
+   vpws LONG-LAKE-TOWER
+      rd 10.0.12.1:9
+   !
+   vrf INTERNET
+      neighbor 10.130.130.2 peer group CORE

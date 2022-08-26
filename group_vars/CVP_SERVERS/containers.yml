@@ -319,3 +319,5 @@ CVP_CONTAINERS:
       - dcapetz - lab_Eureka Access Config
   Herreid:
     parentContainerName: ILEC Exchanges
+    configlets:
+      - dcapetz - lab_HERREID Core Config

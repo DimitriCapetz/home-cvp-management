@@ -646,6 +646,7 @@ CVP_DEVICES:
       - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
       - dcapetz - lab_FLANDREAU-1-TRANSPORT
       - dcapetz - lab_EVPN-RR-CLIENT
+      - dcapetz - lab_FLANDREAU-1 Tower Config
   - fqdn: FLANDREAU-2
     parentContainerName: Flandreau
     configlets:
@@ -739,6 +740,7 @@ CVP_DEVICES:
       - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
       - dcapetz - lab_LONG-LAKE-2-TRANSPORT
       - dcapetz - lab_EVPN-RR-CLIENT
+      - dcapetz - lab_LONG-LAKE-2 Tower Config
   - fqdn: POLLOCK-1
     parentContainerName: Pollock
     configlets:

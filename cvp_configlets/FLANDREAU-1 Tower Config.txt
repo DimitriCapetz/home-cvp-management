@@ -1,0 +1,17 @@
+interface Ethernet2
+   description Cell Tower
+   no switchport
+!
+patch panel
+   patch FLANDREAU-TOWER
+      connector 1 interface Ethernet2
+      connector 2 pseudowire bgp vpws FLANDREAU-TOWER pseudowire FLANDREAU-TOWER
+!
+router bgp 19881
+   !
+   vpws FLANDREAU-TOWER
+      rd 10.0.3.1:3
+      route-target import export evpn 3:3
+      !
+      pseudowire FLANDREAU-TOWER
+         evpn vpws id local 3 remote 123
