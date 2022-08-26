@@ -1,6 +1,7 @@
 router bgp 19881
    no bgp default ipv4-unicast
    bgp listen range 10.0.0.0/20 peer-group RR-CLIENT remote-as 19881
+   rd auto
    maximum-paths 2
    neighbor RR-CLIENT peer group
    neighbor RR-CLIENT remote-as 19881

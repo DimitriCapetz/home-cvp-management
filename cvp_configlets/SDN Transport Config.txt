@@ -1,0 +1,7 @@
+interface Ethernet42/1
+   description SDN Transport Interface
+   no switchport
+   ip address unnumbered Loopback0
+   isis enable 100
+   isis circuit-type level-2
+   isis network point-to-point

@@ -1,3 +1,5 @@
+platform tfa personality arfa
+!
 no spanning-tree vlan-id 4093
 !
 vlan 4093
@@ -37,8 +39,10 @@ mpls ip
 !
 router isis 100
    is-type level-2
+!   timers local-convergence-delay protected-prefixes
    !
    address-family ipv4 unicast
+!      fast-reroute ti-lfa mode link-protection level-2
    !
    segment-routing mpls
       no shutdown

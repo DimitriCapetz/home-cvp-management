@@ -1,0 +1,26 @@
+vlan 10
+   name DE-SMET_SUBS
+!
+vrf instance INTERNET
+!
+ip routing vrf INTERNET
+!
+interface Port-Channel1
+   description Access Uplink
+   switchport access vlan 10
+   mlag 1
+!
+interface Ethernet1
+   channel-group 1 mode active
+!
+interface Vlan10
+   description De Smet Internet Subscribers
+   vrf INTERNET
+   ip virtual-router address 10.10.10.1
+!
+router bgp 19881
+   !
+   vrf INTERNET
+      route-target import evpn 5001:5001
+      route-target import evpn 5001:5001
+      redistribute connected

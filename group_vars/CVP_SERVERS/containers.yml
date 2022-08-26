@@ -291,6 +291,8 @@ CVP_CONTAINERS:
     parentContainerName: SP Transport Network
   De Smet:
     parentContainerName: CLEC Exchanges
+    configlets:
+      - dcapetz - lab_De Smet Access Config
   Volga:
     parentContainerName: CLEC Exchanges
   Flandreau:
@@ -299,6 +301,8 @@ CVP_CONTAINERS:
     parentContainerName: ILEC Exchanges
   Ipswitch:
     parentContainerName: ILEC Exchanges
+    configlets:
+      - dcapetz - lab_Ipswitch Access Config
   Mound City:
     parentContainerName: ILEC Exchanges
   Leola:
@@ -311,5 +315,7 @@ CVP_CONTAINERS:
     parentContainerName: ILEC Exchanges
   Eureka:
     parentContainerName: ILEC Exchanges
+    configlets:
+      - dcapetz - lab_Eureka Access Config
   Herreid:
     parentContainerName: ILEC Exchanges

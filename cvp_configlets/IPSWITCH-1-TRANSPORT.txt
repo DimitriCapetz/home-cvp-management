@@ -7,3 +7,8 @@ router isis 100
 !
 router general
    router-id ipv4 10.0.5.1
+!
+! Local VLANs
+!
+interface Vlan50
+   ip address 10.50.50.2/24

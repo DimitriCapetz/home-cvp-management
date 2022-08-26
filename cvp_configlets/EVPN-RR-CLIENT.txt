@@ -1,5 +1,6 @@
 router bgp 19881
    no bgp default ipv4-unicast
+   rd auto
    maximum-paths 2
    neighbor RR peer group
    neighbor RR remote-as 19881
