@@ -611,175 +611,175 @@ CVP_DEVICES:
 ####################
 # SP Ring Topology #
 ####################
-  - fqdn: DE-SMET-1
-    parentContainerName: De Smet
-    configlets:
-      - dcapetz - lab_DE-SMET-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_DE-SMET-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR
-  - fqdn: DE-SMET-2
-    parentContainerName: De Smet
-    configlets:
-      - dcapetz - lab_DE-SMET-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_DE-SMET-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: VOLGA-1
-    parentContainerName: Volga
-    configlets:
-      - dcapetz - lab_VOLGA-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_VOLGA-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: VOLGA-2
-    parentContainerName: Volga
-    configlets:
-      - dcapetz - lab_VOLGA-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_VOLGA-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: FLANDREAU-1
-    parentContainerName: Flandreau
-    configlets:
-      - dcapetz - lab_FLANDREAU-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_FLANDREAU-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-      - dcapetz - lab_FLANDREAU-1 Tower Config
-  - fqdn: FLANDREAU-2
-    parentContainerName: Flandreau
-    configlets:
-      - dcapetz - lab_FLANDREAU-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_FLANDREAU-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: HOSMER-1
-    parentContainerName: Hosmer
-    configlets:
-      - dcapetz - lab_HOSMER-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_HOSMER-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: HOSMER-2
-    parentContainerName: Hosmer
-    configlets:
-      - dcapetz - lab_HOSMER-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_HOSMER-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: IPSWITCH-1
-    parentContainerName: Ipswitch
-    configlets:
-      - dcapetz - lab_IPSWITCH-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_IPSWITCH-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: IPSWITCH-2
-    parentContainerName: Ipswitch
-    configlets:
-      - dcapetz - lab_IPSWITCH-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_IPSWITCH-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: MOUND-CITY-1
-    parentContainerName: Mound City
-    configlets:
-      - dcapetz - lab_MOUND-CITY-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_MOUND-CITY-1-TRANSPORT
-      - dcapetz - lab_SDN Transport Config
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: MOUND-CITY-2
-    parentContainerName: Mound City
-    configlets:
-      - dcapetz - lab_MOUND-CITY-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_MOUND-CITY-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: LEOLA-1
-    parentContainerName: Leola
-    configlets:
-      - dcapetz - lab_LEOLA-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_LEOLA-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: LEOLA-2
-    parentContainerName: Leola
-    configlets:
-      - dcapetz - lab_LEOLA-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_LEOLA-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: GLENHAM-1
-    parentContainerName: Glenham
-    configlets:
-      - dcapetz - lab_GLENHAM-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_GLENHAM-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: GLENHAM-2
-    parentContainerName: Glenham
-    configlets:
-      - dcapetz - lab_GLENHAM-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_GLENHAM-2-TRANSPORT
-      - dcapetz - lab_SDN Transport Config
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: LONG-LAKE-1
-    parentContainerName: Long Lake
-    configlets:
-      - dcapetz - lab_LONG-LAKE-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_LONG-LAKE-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: LONG-LAKE-2
-    parentContainerName: Long Lake
-    configlets:
-      - dcapetz - lab_LONG-LAKE-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_LONG-LAKE-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-      - dcapetz - lab_LONG-LAKE-2 Tower Config
-  - fqdn: POLLOCK-1
-    parentContainerName: Pollock
-    configlets:
-      - dcapetz - lab_POLLOCK-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_POLLOCK-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: POLLOCK-2
-    parentContainerName: Pollock
-    configlets:
-      - dcapetz - lab_POLLOCK-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_POLLOCK-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: EUREKA-1
-    parentContainerName: Eureka
-    configlets:
-      - dcapetz - lab_EUREKA-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_EUREKA-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: EUREKA-2
-    parentContainerName: Eureka
-    configlets:
-      - dcapetz - lab_EUREKA-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_EUREKA-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: HERREID-1
-    parentContainerName: Herreid
-    configlets:
-      - dcapetz - lab_HERREID-1-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
-      - dcapetz - lab_HERREID-1-TRANSPORT
-      - dcapetz - lab_EVPN-RR-CLIENT
-  - fqdn: HERREID-2
-    parentContainerName: Herreid
-    configlets:
-      - dcapetz - lab_HERREID-2-MGMT
-      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
-      - dcapetz - lab_HERREID-2-TRANSPORT
-      - dcapetz - lab_EVPN-RR
+#  - fqdn: DE-SMET-1
+#    parentContainerName: De Smet
+#    configlets:
+#      - dcapetz - lab_DE-SMET-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_DE-SMET-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR
+#  - fqdn: DE-SMET-2
+#    parentContainerName: De Smet
+#    configlets:
+#      - dcapetz - lab_DE-SMET-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_DE-SMET-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: VOLGA-1
+#    parentContainerName: Volga
+#    configlets:
+#      - dcapetz - lab_VOLGA-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_VOLGA-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: VOLGA-2
+#    parentContainerName: Volga
+#    configlets:
+#      - dcapetz - lab_VOLGA-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_VOLGA-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: FLANDREAU-1
+#    parentContainerName: Flandreau
+#    configlets:
+#      - dcapetz - lab_FLANDREAU-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_FLANDREAU-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#      - dcapetz - lab_FLANDREAU-1 Tower Config
+#  - fqdn: FLANDREAU-2
+#    parentContainerName: Flandreau
+#    configlets:
+#      - dcapetz - lab_FLANDREAU-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_FLANDREAU-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: HOSMER-1
+#    parentContainerName: Hosmer
+#    configlets:
+#      - dcapetz - lab_HOSMER-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_HOSMER-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: HOSMER-2
+#    parentContainerName: Hosmer
+#    configlets:
+#      - dcapetz - lab_HOSMER-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_HOSMER-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: IPSWITCH-1
+#    parentContainerName: Ipswitch
+#    configlets:
+#      - dcapetz - lab_IPSWITCH-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_IPSWITCH-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: IPSWITCH-2
+#    parentContainerName: Ipswitch
+#    configlets:
+#      - dcapetz - lab_IPSWITCH-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_IPSWITCH-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: MOUND-CITY-1
+#    parentContainerName: Mound City
+#    configlets:
+#      - dcapetz - lab_MOUND-CITY-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_MOUND-CITY-1-TRANSPORT
+#      - dcapetz - lab_SDN Transport Config
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: MOUND-CITY-2
+#    parentContainerName: Mound City
+#    configlets:
+#      - dcapetz - lab_MOUND-CITY-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_MOUND-CITY-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: LEOLA-1
+#    parentContainerName: Leola
+#    configlets:
+#      - dcapetz - lab_LEOLA-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_LEOLA-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: LEOLA-2
+#    parentContainerName: Leola
+#    configlets:
+#      - dcapetz - lab_LEOLA-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_LEOLA-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: GLENHAM-1
+#    parentContainerName: Glenham
+#    configlets:
+#      - dcapetz - lab_GLENHAM-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_GLENHAM-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: GLENHAM-2
+#    parentContainerName: Glenham
+#    configlets:
+#      - dcapetz - lab_GLENHAM-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_GLENHAM-2-TRANSPORT
+#      - dcapetz - lab_SDN Transport Config
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: LONG-LAKE-1
+#    parentContainerName: Long Lake
+#    configlets:
+#      - dcapetz - lab_LONG-LAKE-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_LONG-LAKE-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: LONG-LAKE-2
+#    parentContainerName: Long Lake
+#    configlets:
+#      - dcapetz - lab_LONG-LAKE-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_LONG-LAKE-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#      - dcapetz - lab_LONG-LAKE-2 Tower Config
+#  - fqdn: POLLOCK-1
+#    parentContainerName: Pollock
+#    configlets:
+#      - dcapetz - lab_POLLOCK-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_POLLOCK-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: POLLOCK-2
+#    parentContainerName: Pollock
+#    configlets:
+#      - dcapetz - lab_POLLOCK-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_POLLOCK-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: EUREKA-1
+#    parentContainerName: Eureka
+#    configlets:
+#      - dcapetz - lab_EUREKA-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_EUREKA-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: EUREKA-2
+#    parentContainerName: Eureka
+#    configlets:
+#      - dcapetz - lab_EUREKA-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_EUREKA-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: HERREID-1
+#    parentContainerName: Herreid
+#    configlets:
+#      - dcapetz - lab_HERREID-1-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-A
+#      - dcapetz - lab_HERREID-1-TRANSPORT
+#      - dcapetz - lab_EVPN-RR-CLIENT
+#  - fqdn: HERREID-2
+#    parentContainerName: Herreid
+#    configlets:
+#      - dcapetz - lab_HERREID-2-MGMT
+#      - dcapetz - lab_SP-TRANSPORT-MLAG-SIDE-B
+#      - dcapetz - lab_HERREID-2-TRANSPORT
+#      - dcapetz - lab_EVPN-RR

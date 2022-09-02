@@ -281,43 +281,43 @@ CVP_CONTAINERS:
 ####################
 # SP Ring Topology #
 ####################
-  SP Transport Network:
-    parentContainerName: Dimitri's Virtual Lab
-    configlets:
-      - dcapetz - lab_Shared Transport Config
-  CLEC Exchanges:
-    parentContainerName: SP Transport Network
-  ILEC Exchanges:
-    parentContainerName: SP Transport Network
-  De Smet:
-    parentContainerName: CLEC Exchanges
-    configlets:
-      - dcapetz - lab_De Smet Access Config
-  Volga:
-    parentContainerName: CLEC Exchanges
-  Flandreau:
-    parentContainerName: CLEC Exchanges
-  Hosmer:
-    parentContainerName: ILEC Exchanges
-  Ipswitch:
-    parentContainerName: ILEC Exchanges
-    configlets:
-      - dcapetz - lab_Ipswitch Access Config
-  Mound City:
-    parentContainerName: ILEC Exchanges
-  Leola:
-    parentContainerName: ILEC Exchanges
-  Glenham:
-    parentContainerName: ILEC Exchanges
-  Long Lake:
-    parentContainerName: ILEC Exchanges
-  Pollock:
-    parentContainerName: ILEC Exchanges
-  Eureka:
-    parentContainerName: ILEC Exchanges
-    configlets:
-      - dcapetz - lab_Eureka Access Config
-  Herreid:
-    parentContainerName: ILEC Exchanges
-    configlets:
-      - dcapetz - lab_HERREID Core Config
+#  SP Transport Network:
+#    parentContainerName: Dimitri's Virtual Lab
+#    configlets:
+#      - dcapetz - lab_Shared Transport Config
+#  CLEC Exchanges:
+#    parentContainerName: SP Transport Network
+#  ILEC Exchanges:
+#    parentContainerName: SP Transport Network
+#  De Smet:
+#    parentContainerName: CLEC Exchanges
+#    configlets:
+#      - dcapetz - lab_De Smet Access Config
+#  Volga:
+#    parentContainerName: CLEC Exchanges
+#  Flandreau:
+#    parentContainerName: CLEC Exchanges
+#  Hosmer:
+#    parentContainerName: ILEC Exchanges
+#  Ipswitch:
+#    parentContainerName: ILEC Exchanges
+#    configlets:
+#      - dcapetz - lab_Ipswitch Access Config
+#  Mound City:
+#    parentContainerName: ILEC Exchanges
+#  Leola:
+#    parentContainerName: ILEC Exchanges
+#  Glenham:
+#    parentContainerName: ILEC Exchanges
+#  Long Lake:
+#    parentContainerName: ILEC Exchanges
+#  Pollock:
+#    parentContainerName: ILEC Exchanges
+#  Eureka:
+#    parentContainerName: ILEC Exchanges
+#    configlets:
+#      - dcapetz - lab_Eureka Access Config
+#  Herreid:
+#    parentContainerName: ILEC Exchanges
+#    configlets:
+#      - dcapetz - lab_HERREID Core Config

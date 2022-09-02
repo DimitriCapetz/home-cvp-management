@@ -44,7 +44,7 @@ elif topo == "SU":
 elif topo == "RING":
     containerList = [
         "Ipswitch", "Hosmer", "Mound City", "Glenham", "De Smet",
-        "Leola", "Long Lake", "Pollock", "Volga", "Flandreau"
+        "Leola", "Long Lake", "Pollock", "Volga", "Flandreau",
         "Eureka", "Herreid", "ILEC Exchanges", "CLEC Exchanges", "SP Transport Network"
         ]
 
