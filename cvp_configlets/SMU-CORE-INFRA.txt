@@ -1,0 +1,23 @@
+!
+! Base Config for SMU-CORE Layer
+!
+interface Port-Channel1
+   description Agg Downlink
+   switchport mode trunk
+   mlag 1
+!
+interface Ethernet3
+   description Po1 to SMU-AGG1
+   channel-group 1 mode active
+!
+interface Ethernet4
+   description Po1 to SMU-AGG2
+   channel-group 1 mode active
+!
+interface Ethernet55/1
+   description Po2000 to MLAG Peer
+   channel-group 2000 mode active
+!
+interface Ethernet56/1
+   description Po2000 to MLAG Peer
+   channel-group 2000 mode active

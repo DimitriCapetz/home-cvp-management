@@ -45,7 +45,11 @@ elif topo == "VALLEY":
     containerList = [
         "Ipswitch", "Hosmer", "Mound City", "Glenham", "De Smet",
         "Leola", "Long Lake", "Pollock", "Volga", "Flandreau",
-        "Eureka", "Herreid", "ILEC Exchanges", "CLEC Exchanges", "SP Transport Network"
+        "Eureka", "Herreid", "ILEC Exchanges", "CLEC Exchanges", "VT Transport Network"
+        ]
+elif topo == "SMU":
+    containerList = [
+        "L3 Core", "L2 Aggregation", "SMU Core Network"
         ]
 
 # Disable Cert Warnings for Test Environment

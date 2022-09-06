@@ -1,0 +1,181 @@
+---
+# --------------------------------------------------------------------------
+# Simulation of Simple L3/L2 Core for SP
+# 1 Central Office with Redundant PEs and L3 Transport
+# External WAN Simulation and Hosts
+# --------------------------------------------------------------------------
+
+name: smu-topo
+prefix: ""
+
+mgmt:
+  network: clab_mgmt
+  bridge: br0
+  ipv4_subnet: 10.99.99.0/24
+  ipv4-gw: 10.99.99.1
+
+topology:
+
+  kinds:
+    ceos:
+      image: ceos:4.28.1F
+    linux:
+      image: mitchv85/ohv-host
+
+  nodes: 
+
+###########################################
+# Graphite Node                           #
+# Provides Topology Graphing and the      #
+# ability to connect to nodes in the      #
+# topology via a web/ssh session          #
+###########################################
+
+    graphite:
+      kind: linux
+      image: netreplica/graphite
+      mgmt_ipv4: 10.99.99.87
+      env:
+        GRAPHITE_DEFAULT_TYPE: clab
+        GRAPHITE_DEFAULT_TOPO: smu-topo
+        # CLAB_SSH_CONNECTION: ${SSH_CONNECTION}
+      binds:
+        # - .:/var/www/localhost/htdocs/clab   <----  This is the old path in docker image netreplica/graphite:webssh2
+        - .:/htdocs/clab    # New path required for latest version
+      ports:
+        - 80:80
+      exec:
+        # - sh -c 'generate_offline_graph.sh'   # used to generate offline graphs
+        - sh -c 'graphite_motd.sh 80'
+      labels:
+        graph-hide: yes
+
+############
+# SMU Core #
+############
+
+    SMU-CORE1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.154
+      startup-config: ./configs/SMU-CORE1.cfg
+      binds:
+        - ./configs/7280SR3-48YC8-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    SMU-CORE2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.155
+      startup-config: ./configs/SMU-CORE2.cfg
+      binds:
+        - ./configs/7280SR3-48YC8-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    SMU-AGG1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.156
+      startup-config: ./configs/SMU-AGG1.cfg
+      binds:
+        - ./configs/7020TR-48-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+    SMU-AGG2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.157
+      startup-config: ./configs/SMU-AGG2.cfg
+      binds:
+        - ./configs/7020TR-48-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+###################
+# HOST Simulation #
+###################
+
+    SMU-ACCESS1:
+      kind: linux
+      image: mitchv85/ohv-host
+      mgmt_ipv4: 172.100.100.158
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -b -i 10.10.10.101/24 -g 10.10.10.1
+      labels:
+        graph-level: 4
+        graph-icon: host
+
+    SMU-HOST1:
+      kind: linux
+      image: mitchv85/ohv-host
+      mgmt_ipv4: 172.100.100.159
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.20.20.101/24 -g 10.20.20.1
+      labels:
+        graph-level: 4
+        graph-icon: host
+
+    SMU-HOST2:
+      kind: linux
+      image: mitchv85/ohv-host
+      mgmt_ipv4: 172.100.100.160
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.30.30.101/24 -g 10.30.30.1
+      labels:
+        graph-level: 4
+        graph-icon: host
+
+##################
+# WAN Simulation #
+##################
+
+    SMU-DIA1:
+      kind: ceos
+      mgmt_ipv4: 172.100.100.161
+      startup-config: ./configs/SMU-DIA1.cfg
+      binds:
+        - ./configs/7280SR3-48YC8-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
+
+    WAN2:
+      kind: ceos
+      mgmt_ipv4: 172.100.100.162
+      startup-config: ./configs/SMU-DIA2.cfg
+      binds:
+        - ./configs/7280SR3-48YC8-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
+
+  links:
+##############
+# Peer-links #
+##############
+    - endpoints: ["SMU-CORE1:eth11", "SMU-CORE2:eth11"]
+    - endpoints: ["SMU-CORE1:eth12", "SMU-CORE2:eth12"]
+    - endpoints: ["SMU-AGG1:eth9", "SMU-AGG2:eth9"]
+    - endpoints: ["SMU-AGG1:eth10", "SMU-AGG2:et10"]
+###############
+# Core to Agg #
+###############
+    - endpoints: ["SMU-CORE1:eth3", "SMU-AGG1:eth5"]
+    - endpoints: ["SMU-CORE1:eth4", "SMU-AGG2:eth5"]
+    - endpoints: ["SMU-CORE2:eth3", "SMU-AGG1:eth6"]
+    - endpoints: ["SMU-CORE2:eth4", "SMU-AGG2:eth6"]
+####################
+# Host Connections #
+####################
+    - endpoints: ["SMU-CORE1:eth3", "SMU-ACCESS:eth1"]
+    - endpoints: ["SMU-CORE2:eth3", "SMU-ACCESS:eth2"]
+    - endpoints: ["SMU-AGG1:eth1", "SMU-HOST1:eth1"]
+    - endpoints: ["SMU-AGG2:eth1", "SMU-HOST2:eth1"]
+##################
+# WAN Simulation #
+##################
+    - endpoints: ["SMU-DIA1:eth1", "SMU-CORE1:eth1"]
+    - endpoints: ["SMU-DIA2:eth1", "SMU-CORE2:eth1"]

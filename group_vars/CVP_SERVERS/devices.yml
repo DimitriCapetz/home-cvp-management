@@ -783,3 +783,26 @@ CVP_DEVICES:
 #      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
 #      - dcapetz - lab_VT HERREID-2-TRANSPORT
 #      - dcapetz - lab_VT EVPN-RR
+################
+# SMU Topology #
+################
+  - fqdn: SMU-CORE1
+    parentContainerName: L3 Core
+    configlets:
+      - dcapetz - lab_SMU-CORE1-MGMT
+      - dcapetz - lab_SMU-MLAG-SIDE-A
+  - fqdn: SMU-CORE2
+    parentContainerName: L3 Core
+    configlets:
+      - dcapetz - lab_SMU-CORE2-MGMT
+      - dcapetz - lab_SMU-MLAG-SIDE-B
+  - fqdn: SMU-AGG1
+    parentContainerName: L2 Aggregation
+    configlets:
+      - dcapetz - lab_SMU-AGG1-MGMT
+      - dcapetz - lab_SMU-MLAG-SIDE-A
+  - fqdn: SMU-AGG2
+    parentContainerName: L2 Aggregation
+    configlets:
+      - dcapetz - lab_SMU-AGG2-MGMT
+      - dcapetz - lab_SMU-MLAG-SIDE-B

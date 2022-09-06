@@ -1,191 +1,44 @@
 ---
 SWITCHES:
-  DE-SMET-1:
-    mgmt_ip: 10.99.99.122
+  SMU-CORE1:
+    mgmt_ip: 10.99.99.154
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
+    bgp_asn: 396678
     compute: 'no'
     cvp: 'yes'
-  DE-SMET-2:
-    mgmt_ip: 10.99.99.123
+  SMU-CORE2:
+    mgmt_ip: 10.99.99.155
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
+    bgp_asn: 396678
     compute: 'no'
     cvp: 'yes'
-  VOLGA-1:
-    mgmt_ip: 10.99.99.124
+  SMU-AGG1:
+    mgmt_ip: 10.99.99.156
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
+    bgp_asn: 396678
     compute: 'no'
     cvp: 'yes'
-  VOLGA-2:
-    mgmt_ip: 10.99.99.125
+  SMU-AGG2:
+    mgmt_ip: 10.99.99.157
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
+    bgp_asn: 396678
     compute: 'no'
     cvp: 'yes'
-  FLANDREAU-1:
-    mgmt_ip: 10.99.99.126
+  SMU-DIA1:
+    mgmt_ip: 10.99.99.161
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  FLANDREAU-2:
-    mgmt_ip: 10.99.99.127
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  SDN-SIM:
-    mgmt_ip: 10.99.99.128
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
+    bgp_asn: 396678
     compute: 'no'
     cvp: 'no'
-  HOSMER-1:
-    mgmt_ip: 10.99.99.129
+  SMU-DIA2:
+    mgmt_ip: 10.99.99.162
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  HOSMER-2:
-    mgmt_ip: 10.99.99.130
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  IPSWITCH-1:
-    mgmt_ip: 10.99.99.131
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  IPSWITCH-2:
-    mgmt_ip: 10.99.99.132
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  MOUND-CITY-1:
-    mgmt_ip: 10.99.99.133
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  MOUND-CITY-2:
-    mgmt_ip: 10.99.99.134
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  LEOLA-1:
-    mgmt_ip: 10.99.99.135
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  LEOLA-2:
-    mgmt_ip: 10.99.99.136
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  GLENHAM-1:
-    mgmt_ip: 10.99.99.137
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  GLENHAM-2:
-    mgmt_ip: 10.99.99.138
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  LONG-LAKE-1:
-    mgmt_ip: 10.99.99.139
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  LONG-LAKE-2:
-    mgmt_ip: 10.99.99.140
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  POLLOCK-1:
-    mgmt_ip: 10.99.99.141
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  POLLOCK-2:
-    mgmt_ip: 10.99.99.142
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  EUREKA-1:
-    mgmt_ip: 10.99.99.143
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  EUREKA-2:
-    mgmt_ip: 10.99.99.144
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  HERREID-1:
-    mgmt_ip: 10.99.99.145
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  HERREID-2:
-    mgmt_ip: 10.99.99.146
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'yes'
-  HERREID-CORE-ROUTER:
-    mgmt_ip: 10.99.99.153
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
-    compute: 'no'
-    cvp: 'no'
-  L2-UPSTREAM:
-    mgmt_ip: 10.99.99.152
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    bgp_asn: 19881
+    bgp_asn: 396678
     compute: 'no'
     cvp: 'no'

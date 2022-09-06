@@ -321,3 +321,16 @@ CVP_CONTAINERS:
 #    parentContainerName: ILEC Exchanges
 #    configlets:
 #      - dcapetz - lab_VT HERREID Core Config
+################
+# SMU Topology #
+################
+  SMU Core Network:
+    parentContainerName: Dimitri's Virtual Lab
+  L2 Aggregation:
+    parentContainerName: SMU Core Network
+    configlets:
+      - dcapetz - lab_SMU-AGG-INFRA
+  L3 Core:
+    parentContainerName: SMU Core Network
+    configlets:
+      - dcapetz - lab_SMU-CORE-INFRA
