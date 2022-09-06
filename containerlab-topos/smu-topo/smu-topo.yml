@@ -159,7 +159,7 @@ topology:
     - endpoints: ["SMU-CORE1:eth11", "SMU-CORE2:eth11"]
     - endpoints: ["SMU-CORE1:eth12", "SMU-CORE2:eth12"]
     - endpoints: ["SMU-AGG1:eth9", "SMU-AGG2:eth9"]
-    - endpoints: ["SMU-AGG1:eth10", "SMU-AGG2:et10"]
+    - endpoints: ["SMU-AGG1:eth10", "SMU-AGG2:eth10"]
 ###############
 # Core to Agg #
 ###############
