@@ -170,8 +170,8 @@ topology:
 ####################
 # Host Connections #
 ####################
-    - endpoints: ["SMU-CORE1:eth3", "SMU-ACCESS:eth1"]
-    - endpoints: ["SMU-CORE2:eth3", "SMU-ACCESS:eth2"]
+    - endpoints: ["SMU-CORE1:eth2", "SMU-ACCESS:eth1"]
+    - endpoints: ["SMU-CORE2:eth2", "SMU-ACCESS:eth2"]
     - endpoints: ["SMU-AGG1:eth1", "SMU-HOST1:eth1"]
     - endpoints: ["SMU-AGG2:eth1", "SMU-HOST2:eth1"]
 ##################

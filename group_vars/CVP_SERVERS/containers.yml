@@ -334,3 +334,4 @@ CVP_CONTAINERS:
     parentContainerName: SMU Core Network
     configlets:
       - dcapetz - lab_SMU-CORE-INFRA
+      - dcapetz - lab_SMU-CORE-SHARED

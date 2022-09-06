@@ -1,0 +1,34 @@
+!
+! Shared Config for SMU-CORE Layer
+!
+vlan 10
+   name SUBSCRIBER_ACCESS
+!
+vlan 20
+   name HOST_VLAN
+!
+vlan 30
+   name SERVER_VLAN
+!
+interface Port-Channel101
+   description Access Chassis Downlink
+   switchport access vlan 10
+   mlag 101
+!
+interface Ethernet2
+   description Access Chassis Downlink
+   channel-group 101 mode active
+!
+interface Vlan10
+   description Subscriber Network
+   ip virtual-router address 10.10.10.1
+!
+interface Vlan20
+   description Host Network
+   ip virtual-router address 10.20.20.1
+!
+interface Vlan30
+   description Subscriber Network
+   ip virtual-router address 10.30.30.1
+!
+ip virtual-router mac-address 00:1C:73:00:00:01

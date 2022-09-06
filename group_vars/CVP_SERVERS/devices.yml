@@ -791,11 +791,13 @@ CVP_DEVICES:
     configlets:
       - dcapetz - lab_SMU-CORE1-MGMT
       - dcapetz - lab_SMU-MLAG-SIDE-A
+      - dcapetz - lab_SMU-CORE1-L3
   - fqdn: SMU-CORE2
     parentContainerName: L3 Core
     configlets:
       - dcapetz - lab_SMU-CORE2-MGMT
       - dcapetz - lab_SMU-MLAG-SIDE-B
+      - dcapetz - lab_SMU-CORE2-L3
   - fqdn: SMU-AGG1
     parentContainerName: L2 Aggregation
     configlets:

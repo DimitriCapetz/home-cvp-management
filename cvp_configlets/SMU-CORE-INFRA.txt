@@ -21,3 +21,21 @@ interface Ethernet55/1
 interface Ethernet56/1
    description Po2000 to MLAG Peer
    channel-group 2000 mode active
+!
+! Edge BGP Policy
+!
+ip route 207.177.124.0/24 null0 name SMU_SUMMARY
+!
+ip prefix-list LOCAL-ROUTES seq 100 permit 207.177.124.0/24
+!
+route-map LOCAL-ROUTES permit 100
+   match ip address prefix-list LOCAL-ROUTES
+!
+router bgp 396678
+   neighbor DIA peer group
+   neighbor DIA route-map LOCAL-ROUTES out
+   neighbor PEER peer group
+   neighbor PEER remote-as 396678
+   neighbor PEER next-hop-self
+   redistribute connected
+   redistribute static
