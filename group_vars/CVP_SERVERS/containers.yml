@@ -326,6 +326,8 @@ CVP_CONTAINERS:
 ################
   SMU Core Network:
     parentContainerName: Dimitri's Virtual Lab
+    configlets:
+      - dcapetz - lab_SMU-VLANs
   L2 Aggregation:
     parentContainerName: SMU Core Network
     configlets:

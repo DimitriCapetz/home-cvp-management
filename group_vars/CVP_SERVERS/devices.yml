@@ -803,6 +803,7 @@ CVP_DEVICES:
     configlets:
       - dcapetz - lab_SMU-AGG1-MGMT
       - dcapetz - lab_SMU-MLAG-SIDE-A
+      - dcapetz - lab_SMU-AGG1-PORTS
   - fqdn: SMU-AGG2
     parentContainerName: L2 Aggregation
     configlets:

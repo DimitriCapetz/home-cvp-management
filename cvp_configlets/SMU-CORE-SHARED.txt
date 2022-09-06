@@ -1,15 +1,6 @@
 !
 ! Shared Config for SMU-CORE Layer
 !
-vlan 10
-   name SUBSCRIBER_ACCESS
-!
-vlan 20
-   name HOST_VLAN
-!
-vlan 30
-   name SERVER_VLAN
-!
 interface Port-Channel101
    description Access Chassis Downlink
    switchport access vlan 10
