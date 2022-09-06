@@ -142,7 +142,7 @@ topology:
         graph-level: 1
         graph-icon: switch
 
-    WAN2:
+    SMU-DIA2:
       kind: ceos
       mgmt_ipv4: 172.100.100.162
       startup-config: ./configs/SMU-DIA2.cfg
@@ -170,8 +170,8 @@ topology:
 ####################
 # Host Connections #
 ####################
-    - endpoints: ["SMU-CORE1:eth2", "SMU-ACCESS:eth1"]
-    - endpoints: ["SMU-CORE2:eth2", "SMU-ACCESS:eth2"]
+    - endpoints: ["SMU-CORE1:eth2", "SMU-ACCESS1:eth1"]
+    - endpoints: ["SMU-CORE2:eth2", "SMU-ACCESS1:eth2"]
     - endpoints: ["SMU-AGG1:eth1", "SMU-HOST1:eth1"]
     - endpoints: ["SMU-AGG2:eth1", "SMU-HOST2:eth1"]
 ##################
