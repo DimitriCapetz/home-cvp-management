@@ -278,21 +278,21 @@ CVP_CONTAINERS:
 #    parentContainerName: DC Leaves
 #    configlets:
 #      - dcapetz - lab_SU-POD2-SHARED
-####################
-# SP Ring Topology #
-####################
-#  SP Transport Network:
+###########################
+# Valley Telecom Topology #
+###########################
+#  Valley Telecom Transport Network:
 #    parentContainerName: Dimitri's Virtual Lab
 #    configlets:
-#      - dcapetz - lab_Shared Transport Config
+#      - dcapetz - lab_VT Shared Transport Config
 #  CLEC Exchanges:
-#    parentContainerName: SP Transport Network
+#    parentContainerName: Valley Telecom Transport Network
 #  ILEC Exchanges:
-#    parentContainerName: SP Transport Network
+#    parentContainerName: Valley Telecom Transport Network
 #  De Smet:
 #    parentContainerName: CLEC Exchanges
 #    configlets:
-#      - dcapetz - lab_De Smet Access Config
+#      - dcapetz - lab_VT De Smet Access Config
 #  Volga:
 #    parentContainerName: CLEC Exchanges
 #  Flandreau:
@@ -302,7 +302,7 @@ CVP_CONTAINERS:
 #  Ipswitch:
 #    parentContainerName: ILEC Exchanges
 #    configlets:
-#      - dcapetz - lab_Ipswitch Access Config
+#      - dcapetz - lab_VT Ipswitch Access Config
 #  Mound City:
 #    parentContainerName: ILEC Exchanges
 #  Leola:
@@ -316,8 +316,8 @@ CVP_CONTAINERS:
 #  Eureka:
 #    parentContainerName: ILEC Exchanges
 #    configlets:
-#      - dcapetz - lab_Eureka Access Config
+#      - dcapetz - lab_VT Eureka Access Config
 #  Herreid:
 #    parentContainerName: ILEC Exchanges
 #    configlets:
-#      - dcapetz - lab_HERREID Core Config
+#      - dcapetz - lab_VT HERREID Core Config

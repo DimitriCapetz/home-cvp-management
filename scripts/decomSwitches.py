@@ -41,7 +41,7 @@ elif topo == "SU":
         "SU Rack 1", "SU Rack 2", "SU Leaves", 
         "SU Spines", "SU Data Center"
         ]
-elif topo == "RING":
+elif topo == "VALLEY":
     containerList = [
         "Ipswitch", "Hosmer", "Mound City", "Glenham", "De Smet",
         "Leola", "Long Lake", "Pollock", "Volga", "Flandreau",
