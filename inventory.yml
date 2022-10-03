@@ -3,4 +3,7 @@ all:
     CVP_SERVERS:
       hosts:
         cvaas:
-          ansible_host: www.cv-staging.corp.arista.io
+          # Staging CVaaS
+          #ansible_host: www.cv-staging.corp.arista.io
+          # Prod CVaaS
+          ansible_host: www.arista.io

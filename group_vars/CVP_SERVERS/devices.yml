@@ -786,26 +786,65 @@ CVP_DEVICES:
 ################
 # SMU Topology #
 ################
-  - fqdn: SMU-CORE1
-    parentContainerName: L3 Core
+#  - fqdn: SMU-CORE1
+#    parentContainerName: L3 Core
+#    configlets:
+#      - dcapetz - lab_SMU-CORE1-MGMT
+#      - dcapetz - lab_SMU-MLAG-SIDE-A
+#      - dcapetz - lab_SMU-CORE1-L3
+#  - fqdn: SMU-CORE2
+#    parentContainerName: L3 Core
+#    configlets:
+#      - dcapetz - lab_SMU-CORE2-MGMT
+#      - dcapetz - lab_SMU-MLAG-SIDE-B
+#      - dcapetz - lab_SMU-CORE2-L3
+#  - fqdn: SMU-AGG1
+#    parentContainerName: L2 Aggregation
+#    configlets:
+#      - dcapetz - lab_SMU-AGG1-MGMT
+#      - dcapetz - lab_SMU-MLAG-SIDE-A
+#      - dcapetz - lab_SMU-AGG1-PORTS
+#  - fqdn: SMU-AGG2
+#    parentContainerName: L2 Aggregation
+#    configlets:
+#      - dcapetz - lab_SMU-AGG2-MGMT
+#      - dcapetz - lab_SMU-MLAG-SIDE-B
+#####################################################
+# Dual Small Office Topology - For use with Studios #
+#####################################################
+  - fqdn: OFFICE-1-LEAF1
+    parentContainerName: Office 1 Leaves
     configlets:
-      - dcapetz - lab_SMU-CORE1-MGMT
-      - dcapetz - lab_SMU-MLAG-SIDE-A
-      - dcapetz - lab_SMU-CORE1-L3
-  - fqdn: SMU-CORE2
-    parentContainerName: L3 Core
+      - dcapetz - lab_OFFICE-1-LEAF1-BASE
+  - fqdn: OFFICE-1-LEAF2
+    parentContainerName: Office 1 Leaves
     configlets:
-      - dcapetz - lab_SMU-CORE2-MGMT
-      - dcapetz - lab_SMU-MLAG-SIDE-B
-      - dcapetz - lab_SMU-CORE2-L3
-  - fqdn: SMU-AGG1
-    parentContainerName: L2 Aggregation
+      - dcapetz - lab_OFFICE-1-LEAF2-BASE
+  - fqdn: OFFICE-1-LEAF3
+    parentContainerName: Office 1 Leaves
     configlets:
-      - dcapetz - lab_SMU-AGG1-MGMT
-      - dcapetz - lab_SMU-MLAG-SIDE-A
-      - dcapetz - lab_SMU-AGG1-PORTS
-  - fqdn: SMU-AGG2
-    parentContainerName: L2 Aggregation
+      - dcapetz - lab_OFFICE-1-LEAF3-BASE
+  - fqdn: OFFICE-1-SPLINE1
+    parentContainerName: Office 1 Splines
     configlets:
-      - dcapetz - lab_SMU-AGG2-MGMT
-      - dcapetz - lab_SMU-MLAG-SIDE-B
+      - dcapetz - lab_OFFICE-1-SPLINE1-BASE
+  - fqdn: OFFICE-1-SPLINE2
+    parentContainerName: Office 1 Splines
+    configlets:
+      - dcapetz - lab_OFFICE-2-SPLINE2-BASE
+  - fqdn: OFFICE-2-LEAF1
+    parentContainerName: Office 2 Leaves
+    configlets:
+      - dcapetz - lab_OFFICE-2-LEAF1-BASE
+  - fqdn: OFFICE-2-LEAF2
+    parentContainerName: Office 2 Leaves
+    configlets:
+      - dcapetz - lab_OFFICE-2-LEAF2-BASE
+  - fqdn: OFFICE-2-SPLINE1
+    parentContainerName: Office 2 Splines
+    configlets:
+      - dcapetz - lab_OFFICE-2-SPLINE1-BASE
+  - fqdn: OFFICE-2-SPLINE2
+    parentContainerName: Office 2 Splines
+    configlets:
+      - dcapetz - lab_OFFICE-2-SPLINE2-BASE

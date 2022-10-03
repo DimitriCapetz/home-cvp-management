@@ -324,16 +324,33 @@ CVP_CONTAINERS:
 ################
 # SMU Topology #
 ################
-  SMU Core Network:
-    parentContainerName: Dimitri's Virtual Lab
-    configlets:
-      - dcapetz - lab_SMU-VLANs
-  L2 Aggregation:
-    parentContainerName: SMU Core Network
-    configlets:
-      - dcapetz - lab_SMU-AGG-INFRA
-  L3 Core:
-    parentContainerName: SMU Core Network
-    configlets:
-      - dcapetz - lab_SMU-CORE-INFRA
-      - dcapetz - lab_SMU-CORE-SHARED
+#  SMU Core Network:
+#    parentContainerName: Dimitri's Virtual Lab
+#    configlets:
+#      - dcapetz - lab_SMU-VLANs
+#  L2 Aggregation:
+#    parentContainerName: SMU Core Network
+#    configlets:
+#      - dcapetz - lab_SMU-AGG-INFRA
+#  L3 Core:
+#    parentContainerName: SMU Core Network
+#    configlets:
+#      - dcapetz - lab_SMU-CORE-INFRA
+#      - dcapetz - lab_SMU-CORE-SHARED
+#####################################################
+# Dual Small Office Topology - For use with Studios #
+#####################################################
+  Offices:
+    parentContainerName: Arista Central SE
+  Office 1:
+    parentContainerName: Offices
+  Office 2:
+    parentContainerName: Offices
+  Office 1 Splines:
+    parentContainerName: Office 1
+  Office 1 Leaves:
+    parentContainerName: Office 1
+  Office 2 Splines:
+    parentContainerName: Office 2
+  Office 2 Leaves:
+    parentContainerName: Office 2

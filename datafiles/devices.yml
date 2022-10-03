@@ -1,44 +1,65 @@
 ---
 SWITCHES:
-  SMU-CORE1:
-    mgmt_ip: 10.99.99.154
+  OFFICE-1-LEAF1:
+    mgmt_ip: 10.99.99.163
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 396678
+    bgp_asn: 12345
     compute: 'no'
-    cvp: 'yes'
-  SMU-CORE2:
-    mgmt_ip: 10.99.99.155
+    cvp: 'prod'
+  OFFICE-1-LEAF2:
+    mgmt_ip: 10.99.99.164
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 396678
+    bgp_asn: 12345
     compute: 'no'
-    cvp: 'yes'
-  SMU-AGG1:
-    mgmt_ip: 10.99.99.156
+    cvp: 'prod'
+  OFFICE-1-LEAF3:
+    mgmt_ip: 10.99.99.165
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 396678
+    bgp_asn: 12345
     compute: 'no'
-    cvp: 'yes'
-  SMU-AGG2:
-    mgmt_ip: 10.99.99.157
+    cvp: 'prod'
+  OFFICE-1-SPLINE1:
+    mgmt_ip: 10.99.99.166
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 396678
+    bgp_asn: 12345
     compute: 'no'
-    cvp: 'yes'
-  SMU-DIA1:
-    mgmt_ip: 10.99.99.161
+    cvp: 'prod'
+  OFFICE-1-SPLINE2:
+    mgmt_ip: 10.99.99.167
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 396678
+    bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  SMU-DIA2:
-    mgmt_ip: 10.99.99.162
+    cvp: 'prod'
+  OFFICE-2-LEAF1:
+    mgmt_ip: 10.99.99.168
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    bgp_asn: 396678
+    bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
+    cvp: 'prod'
+  OFFICE-2-LEAF2:
+    mgmt_ip: 10.99.99.169
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 12345
+    compute: 'no'
+    cvp: 'prod'
+  OFFICE-2-SPLINE1:
+    mgmt_ip: 10.99.99.170
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 12345
+    compute: 'no'
+    cvp: 'prod'
+  OFFICE-2-SPLINE2:
+    mgmt_ip: 10.99.99.171
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    bgp_asn: 12345
+    compute: 'no'
+    cvp: 'prod'

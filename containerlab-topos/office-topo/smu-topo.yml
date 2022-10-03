@@ -1,0 +1,243 @@
+---
+# --------------------------------------------------------------------------
+# Simulation of Simple Small Office Setup
+# 1 Offices with Redundant Splines and Leaves
+# For use with Studios
+# --------------------------------------------------------------------------
+
+name: office-topo
+prefix: ""
+
+mgmt:
+  network: clab_mgmt
+  bridge: br0
+  ipv4_subnet: 10.99.99.0/24
+  ipv4-gw: 10.99.99.1
+
+topology:
+
+  kinds:
+    ceos:
+      image: ceos:4.28.3M
+    linux:
+      image: mitchv85/ohv-host
+
+  nodes: 
+
+###########################################
+# Graphite Node                           #
+# Provides Topology Graphing and the      #
+# ability to connect to nodes in the      #
+# topology via a web/ssh session          #
+###########################################
+
+    graphite:
+      kind: linux
+      image: netreplica/graphite
+      mgmt_ipv4: 10.99.99.87
+      env:
+        GRAPHITE_DEFAULT_TYPE: clab
+        GRAPHITE_DEFAULT_TOPO: office-topo
+        # CLAB_SSH_CONNECTION: ${SSH_CONNECTION}
+      binds:
+        # - .:/var/www/localhost/htdocs/clab   <----  This is the old path in docker image netreplica/graphite:webssh2
+        - .:/htdocs/clab    # New path required for latest version
+      ports:
+        - 80:80
+      exec:
+        # - sh -c 'generate_offline_graph.sh'   # used to generate offline graphs
+        - sh -c 'graphite_motd.sh 80'
+      labels:
+        graph-hide: yes
+
+############
+# Office 1 #
+############
+
+    OFFICE-1-LEAF1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.163
+      startup-config: ./configs/OFFICE-1-LEAF1.cfg
+      binds:
+        - ./configs/720XP-48ZC2-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    OFFICE-1-LEAF2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.164
+      startup-config: ./configs/OFFICE-1-LEAF2.cfg
+      binds:
+        - ./configs/720XP-48ZC2-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    OFFICE-1-LEAF3:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.165
+      startup-config: ./configs/OFFICE-1-LEAF3.cfg
+      binds:
+        - ./configs/720XP-48ZC2-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    OFFICE-1-SPLINE1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.166
+      startup-config: ./configs/OFFICE-1-SPLINE1.cfg
+      binds:
+        - ./configs/720XP-48ZC2-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
+
+    OFFICE-1-SPLINE2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.167
+      startup-config: ./configs/OFFICE-1-SPLINE2.cfg
+      binds:
+        - ./configs/720XP-48ZC2-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
+
+############
+# Office 2 #
+############
+
+    OFFICE-2-LEAF1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.168
+      startup-config: ./configs/OFFICE-2-LEAF1.cfg
+      binds:
+        - ./configs/720XP-48ZC2-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    OFFICE-2-LEAF2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.169
+      startup-config: ./configs/OFFICE-2-LEAF2.cfg
+      binds:
+        - ./configs/720XP-48ZC2-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    OFFICE-2-SPLINE1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.170
+      startup-config: ./configs/OFFICE-2-SPLINE1.cfg
+      binds:
+        - ./configs/720XP-48ZC2-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
+
+    OFFICE-2-SPLINE2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.171
+      startup-config: ./configs/OFFICE-2-SPLINE2.cfg
+      binds:
+        - ./configs/720XP-48ZC2-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
+
+###################
+# Host Simulation #
+###################
+
+    OFFICE-1-HOST1:
+      kind: linux
+      image: mitchv85/ohv-host
+      mgmt_ipv4: 10.99.99.172
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.110.110.101/24 -g 10.110.110.1
+      labels:
+        graph-level: 3
+        graph-icon: host
+
+    OFFICE-1-HOST2:
+      kind: linux
+      image: mitchv85/ohv-host
+      mgmt_ipv4: 10.99.99.173
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.110.110.102/24 -g 10.110.110.1
+      labels:
+        graph-level: 3
+        graph-icon: host
+
+    OFFICE-1-HOST3:
+      kind: linux
+      image: mitchv85/ohv-host
+      mgmt_ipv4: 10.99.99.174
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.110.110.103/24 -g 10.110.110.1
+      labels:
+        graph-level: 3
+        graph-icon: host
+
+    OFFICE-1-HOST4:
+      kind: linux
+      image: mitchv85/ohv-host
+      mgmt_ipv4: 10.99.99.175
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.110.110.104/24 -g 10.110.110.1
+      labels:
+        graph-level: 3
+        graph-icon: host
+
+    OFFICE-2-HOST1:
+      kind: linux
+      image: mitchv85/ohv-host
+      mgmt_ipv4: 10.99.99.176
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.220.220.101/24 -g 10.220.220.1
+      labels:
+        graph-level: 3
+        graph-icon: host
+
+    OFFICE-2-HOST2:
+      kind: linux
+      image: mitchv85/ohv-host
+      mgmt_ipv4: 10.99.99.177
+      exec:
+        - bash /usr/local/bin/hostnetconfig.sh -i 10.220.220.102/24 -g 10.220.220.1
+      labels:
+        graph-level: 3
+
+  links:
+##############
+# Peer-links #
+##############
+    - endpoints: ["OFFICE-1-SPLINE1:eth3", "OFFICE-1-SPLINE2:eth3"]
+    - endpoints: ["OFFICE-1-SPLINE1:eth4", "OFFICE-1-SPLINE2:eth4"]
+    - endpoints: ["OFFICE-2-SPLINE1:eth3", "OFFICE-2-SPLINE2:eth3"]
+    - endpoints: ["OFFICE-2-SPLINE1:eth4", "OFFICE-2-SPLINE2:eth4"]
+###########
+# Uplinks #
+###########
+    - endpoints: ["OFFICE-1-SPLINE1:eth5", "OFFICE-1-LEAF1:eth5"]
+    - endpoints: ["OFFICE-1-SPLINE1:eth6", "OFFICE-1-LEAF2:eth5"]
+    - endpoints: ["OFFICE-1-SPLINE1:eth7", "OFFICE-1-LEAF3:eth5"]
+    - endpoints: ["OFFICE-1-SPLINE2:eth5", "OFFICE-1-LEAF1:eth6"]
+    - endpoints: ["OFFICE-1-SPLINE2:eth6", "OFFICE-1-LEAF2:eth6"]
+    - endpoints: ["OFFICE-1-SPLINE2:eth7", "OFFICE-1-LEAF3:eth6"]
+    - endpoints: ["OFFICE-2-SPLINE1:eth5", "OFFICE-2-LEAF1:eth5"]
+    - endpoints: ["OFFICE-2-SPLINE1:eth6", "OFFICE-2-LEAF2:eth5"]
+    - endpoints: ["OFFICE-2-SPLINE2:eth5", "OFFICE-2-LEAF1:eth6"]
+    - endpoints: ["OFFICE-2-SPLINE2:eth6", "OFFICE-2-LEAF2:eth6"]
+################
+# Host Uplinks #
+################
+    - endpoints: ["OFFICE-1-LEAF1:eth1", "OFFICE-1-HOST1:eth1"]
+    - endpoints: ["OFFICE-1-LEAF2:eth1", "OFFICE-1-HOST2:eth1"]
+    - endpoints: ["OFFICE-1-LEAF3:eth1", "OFFICE-1-HOST3:eth1"]
+    - endpoints: ["OFFICE-1-SPLINE1:eth1", "OFFICE-1-HOST4:eth1"]
+    - endpoints: ["OFFICE-2-LEAF1:eth1", "OFFICE-2-HOST1:eth1"]
+    - endpoints: ["OFFICE-2-LEAF2:eth1", "OFFICE-2-HOST2:eth1"]
