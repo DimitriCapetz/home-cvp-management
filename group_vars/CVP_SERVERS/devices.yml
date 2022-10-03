@@ -831,7 +831,7 @@ CVP_DEVICES:
   - fqdn: OFFICE-1-SPLINE2
     parentContainerName: Office 1 Splines
     configlets:
-      - dcapetz - lab_OFFICE-2-SPLINE2-MGMT
+      - dcapetz - lab_OFFICE-1-SPLINE2-MGMT
   - fqdn: OFFICE-2-LEAF1
     parentContainerName: Office 2 Leaves
     configlets:
