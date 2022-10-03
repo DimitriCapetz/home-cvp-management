@@ -815,36 +815,36 @@ CVP_DEVICES:
   - fqdn: OFFICE-1-LEAF1
     parentContainerName: Office 1 Leaves
     configlets:
-      - dcapetz - lab_OFFICE-1-LEAF1-BASE
+      - dcapetz - lab_OFFICE-1-LEAF1-MGMT
   - fqdn: OFFICE-1-LEAF2
     parentContainerName: Office 1 Leaves
     configlets:
-      - dcapetz - lab_OFFICE-1-LEAF2-BASE
+      - dcapetz - lab_OFFICE-1-LEAF2-MGMT
   - fqdn: OFFICE-1-LEAF3
     parentContainerName: Office 1 Leaves
     configlets:
-      - dcapetz - lab_OFFICE-1-LEAF3-BASE
+      - dcapetz - lab_OFFICE-1-LEAF3-MGMT
   - fqdn: OFFICE-1-SPLINE1
     parentContainerName: Office 1 Splines
     configlets:
-      - dcapetz - lab_OFFICE-1-SPLINE1-BASE
+      - dcapetz - lab_OFFICE-1-SPLINE1-MGMT
   - fqdn: OFFICE-1-SPLINE2
     parentContainerName: Office 1 Splines
     configlets:
-      - dcapetz - lab_OFFICE-2-SPLINE2-BASE
+      - dcapetz - lab_OFFICE-2-SPLINE2-MGMT
   - fqdn: OFFICE-2-LEAF1
     parentContainerName: Office 2 Leaves
     configlets:
-      - dcapetz - lab_OFFICE-2-LEAF1-BASE
+      - dcapetz - lab_OFFICE-2-LEAF1-MGMT
   - fqdn: OFFICE-2-LEAF2
     parentContainerName: Office 2 Leaves
     configlets:
-      - dcapetz - lab_OFFICE-2-LEAF2-BASE
+      - dcapetz - lab_OFFICE-2-LEAF2-MGMT
   - fqdn: OFFICE-2-SPLINE1
     parentContainerName: Office 2 Splines
     configlets:
-      - dcapetz - lab_OFFICE-2-SPLINE1-BASE
+      - dcapetz - lab_OFFICE-2-SPLINE1-MGMT
   - fqdn: OFFICE-2-SPLINE2
     parentContainerName: Office 2 Splines
     configlets:
-      - dcapetz - lab_OFFICE-2-SPLINE2-BASE
+      - dcapetz - lab_OFFICE-2-SPLINE2-MGMT
