@@ -80,9 +80,6 @@ interface Loopback0
    isis passive
    node-segment ipv4 index {{ item.value.octet }}
 !
-router general
-   router-id ipv4 10.0.0.{{ item.value.octet }}
-!
 router isis 100
    net 49.1111.0000.00{{ item.value.octet }}.00
    is-type level-2
@@ -93,6 +90,7 @@ router isis 100
       fast-reroute ti-lfa mode node-protection level-2
    !
    segment-routing mpls
+      router-id 10.0.0.{{ item.value.octet }}
       no shutdown
 !
 interface Ethernet51/1
@@ -104,6 +102,7 @@ interface Ethernet51/1
    isis network point-to-point
 !
 router bgp 100
+   router-id 10.0.0.{{ item.value.octet }}
    no bgp default ipv4-unicast
    maximum-paths 2
    rd auto
