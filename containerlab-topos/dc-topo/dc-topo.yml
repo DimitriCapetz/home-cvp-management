@@ -257,8 +257,6 @@ topology:
 ############
     - endpoints: ["DC-HOST1:eth1", "DC-LEAF1:eth1"]
     - endpoints: ["DC-HOST1:eth2", "DC-LEAF2:eth1"]
-    - endpoints: ["DC-HOST1:eth11", "DC-LEAF1:eth11"]
-    - endpoints: ["DC-HOST1:eth12", "DC-LEAF2:eth11"]
 ########################
 # DC-LEAF3 to DC-LEAF4 #
 ########################
@@ -269,8 +267,6 @@ topology:
 ############
     - endpoints: ["DC-HOST2:eth1", "DC-LEAF3:eth1"]
     - endpoints: ["DC-HOST2:eth2", "DC-LEAF4:eth1"]
-    - endpoints: ["DC-HOST2:eth11", "DC-LEAF3:eth11"]
-    - endpoints: ["DC-HOST2:eth12", "DC-LEAF4:eth11"]
 ########################
 # DC-LEAF5 to DC-LEAF6 #
 ########################
@@ -281,8 +277,6 @@ topology:
 ############
     - endpoints: ["DC-HOST3:eth1", "DC-LEAF5:eth1"]
     - endpoints: ["DC-HOST3:eth2", "DC-LEAF6:eth1"]
-    - endpoints: ["DC-HOST3:eth11", "DC-LEAF5:eth11"]
-    - endpoints: ["DC-HOST3:eth12", "DC-LEAF6:eth11"]
 ############################
 # DC-BORDER1 to DC-BORDER2 #
 ############################
