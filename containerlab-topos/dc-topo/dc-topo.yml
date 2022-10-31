@@ -161,9 +161,9 @@ topology:
         graph-level: 2
         graph-icon: switch
 
-###########################################
-# HOST                                    #
-###########################################
+########
+# HOST #
+########
 
     DC-HOST1:
       kind: linux
@@ -195,9 +195,9 @@ topology:
         graph-level: 5
         graph-icon: host
 
-###########################################
-# WAN Simulation                          #
-###########################################
+##################
+# WAN Simulation #
+##################
 
     WAN1:
       kind: ceos
@@ -220,9 +220,9 @@ topology:
         graph-icon: switch
 
   links:
-####################
-# DC-SPINE1 to LEAF   #
-####################
+#####################
+# DC-SPINE1 to LEAF #
+#####################
     - endpoints: ["DC-SPINE1:eth1", "DC-LEAF1:eth3"]
     - endpoints: ["DC-SPINE1:eth2", "DC-LEAF2:eth3"]
     - endpoints: ["DC-SPINE1:eth3", "DC-LEAF3:eth3"]
@@ -231,9 +231,9 @@ topology:
     - endpoints: ["DC-SPINE1:eth6", "DC-LEAF6:eth3"]
     - endpoints: ["DC-SPINE1:eth7", "DC-BORDER1:eth3"]
     - endpoints: ["DC-SPINE1:eth8", "DC-BORDER2:eth3"]
-####################
-# DC-SPINE2 to LEAF   #
-####################
+#####################
+# DC-SPINE2 to LEAF #
+#####################
     - endpoints: ["DC-SPINE2:eth1", "DC-LEAF1:eth4"]
     - endpoints: ["DC-SPINE2:eth2", "DC-LEAF2:eth4"]
     - endpoints: ["DC-SPINE2:eth3", "DC-LEAF3:eth4"]
@@ -242,54 +242,54 @@ topology:
     - endpoints: ["DC-SPINE2:eth6", "DC-LEAF6:eth4"]
     - endpoints: ["DC-SPINE2:eth7", "DC-BORDER1:eth4"]
     - endpoints: ["DC-SPINE2:eth8", "DC-BORDER2:eth4"]
-####################
+##########################
 # DC-SPINE1 to DC-SPINE2 #
-####################
+##########################
     - endpoints: ["DC-SPINE1:eth9", "DC-SPINE2:eth9"]
     - endpoints: ["DC-SPINE1:eth10", "DC-SPINE2:eth10"]
-####################
-# DC-LEAF1 to DC-LEAF2   #
-####################
+########################
+# DC-LEAF1 to DC-LEAF2 #
+########################
     - endpoints: ["DC-LEAF1:eth9", "DC-LEAF2:eth9"]
     - endpoints: ["DC-LEAF1:eth10", "DC-LEAF2:eth10"]
-####################
-# DC-HOST1            #
-####################
+############
+# DC-HOST1 #
+############
     - endpoints: ["DC-HOST1:eth1", "DC-LEAF1:eth1"]
     - endpoints: ["DC-HOST1:eth2", "DC-LEAF2:eth1"]
     - endpoints: ["DC-HOST1:eth11", "DC-LEAF1:eth11"]
     - endpoints: ["DC-HOST1:eth12", "DC-LEAF2:eth11"]
-####################
-# DC-LEAF3 to DC-LEAF4   #
-####################
+########################
+# DC-LEAF3 to DC-LEAF4 #
+########################
     - endpoints: ["DC-LEAF3:eth9", "DC-LEAF4:eth9"]
     - endpoints: ["DC-LEAF3:eth10", "DC-LEAF4:eth10"]
-####################
-# DC-HOST2            #
-####################
+############
+# DC-HOST2 #
+############
     - endpoints: ["DC-HOST2:eth1", "DC-LEAF3:eth1"]
     - endpoints: ["DC-HOST2:eth2", "DC-LEAF4:eth1"]
     - endpoints: ["DC-HOST2:eth11", "DC-LEAF3:eth11"]
     - endpoints: ["DC-HOST2:eth12", "DC-LEAF4:eth11"]
-####################
-# DC-LEAF5 to DC-LEAF6   #
-####################
+########################
+# DC-LEAF5 to DC-LEAF6 #
+########################
     - endpoints: ["DC-LEAF5:eth9", "DC-LEAF6:eth9"]
     - endpoints: ["DC-LEAF5:eth10", "DC-LEAF6:eth10"]
-####################
-# DC-HOST3            #
-####################
+############
+# DC-HOST3 #
+############
     - endpoints: ["DC-HOST3:eth1", "DC-LEAF5:eth1"]
     - endpoints: ["DC-HOST3:eth2", "DC-LEAF6:eth1"]
     - endpoints: ["DC-HOST3:eth11", "DC-LEAF5:eth11"]
     - endpoints: ["DC-HOST3:eth12", "DC-LEAF6:eth11"]
-########################
-# DC-BORDER1 to DC-BORDER2   #
-########################
+############################
+# DC-BORDER1 to DC-BORDER2 #
+############################
     - endpoints: ["DC-BORDER1:eth9", "DC-BORDER2:eth9"]
     - endpoints: ["DC-BORDER1:eth10", "DC-BORDER2:eth10"]
-######################
-# WAN Sim            #
-######################
+###########
+# WAN Sim #
+###########
     - endpoints: ["WAN1:eth1", "DC-BORDER1:eth1"]
     - endpoints: ["WAN2:eth1", "DC-BORDER2:eth1"]
