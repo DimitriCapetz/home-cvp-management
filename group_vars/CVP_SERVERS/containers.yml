@@ -2,34 +2,34 @@ CVP_CONTAINERS:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-#  DC Data Center:
-#    parentContainerName: Dimitri's Virtual Lab
+  DC Data Center:
+    parentContainerName: Dimitri's Virtual Lab
 #    configlets:
 #      - dcapetz - lab_DC-VLANs
-#  DC Spines:
-#    parentContainerName: DC Data Center
+  DC Spines:
+    parentContainerName: DC Data Center
 #    configlets:
 #      - dcapetz - lab_DC-SPINE-SHARED
-#  DC Leaves:
-#    parentContainerName: DC Data Center
-#  DC Border Leaves:
-#    parentContainerName: DC Leaves
+  DC Leaves:
+    parentContainerName: DC Data Center
+  DC Border Leaves:
+    parentContainerName: DC Leaves
 #    configlets:
 #      - dcapetz - lab_DC-BORDER-SHARED
-#  DC Compute Leaves:
-#    parentContainerName: DC Leaves
+  DC Compute Leaves:
+    parentContainerName: DC Leaves
 #    configlets:
 #      - dcapetz - lab_DC-LEAVES-SHARED
-#  DC Compute Pod 1:
-#    parentContainerName: DC Compute Leaves
+  DC Compute Pod 1:
+    parentContainerName: DC Compute Leaves
 #    configlets:
 #      - dcapetz - lab_DC-POD1-SHARED
-#  DC Compute Pod 2:
-#    parentContainerName: DC Compute Leaves
+  DC Compute Pod 2:
+    parentContainerName: DC Compute Leaves
 #    configlets:
 #      - dcapetz - lab_DC-POD2-SHARED
-#  DC Compute Pod 3:
-#    parentContainerName: DC Compute Leaves
+  DC Compute Pod 3:
+    parentContainerName: DC Compute Leaves
 #    configlets:
 #      - dcapetz - lab_DC-POD3-SHARED
 ###################
@@ -340,17 +340,17 @@ CVP_CONTAINERS:
 #####################################################
 # Dual Small Office Topology - For use with Studios #
 #####################################################
-  Offices:
-    parentContainerName: Arista Central SE
-  Office 1:
-    parentContainerName: Offices
-  Office 2:
-    parentContainerName: Offices
-  Office 1 Splines:
-    parentContainerName: Office 1
-  Office 1 Leaves:
-    parentContainerName: Office 1
-  Office 2 Splines:
-    parentContainerName: Office 2
-  Office 2 Leaves:
-    parentContainerName: Office 2
+#  Offices:
+#    parentContainerName: Arista Central SE
+#  Office 1:
+#    parentContainerName: Offices
+#  Office 2:
+#    parentContainerName: Offices
+#  Office 1 Splines:
+#    parentContainerName: Office 1
+#  Office 1 Leaves:
+#    parentContainerName: Office 1
+#  Office 2 Splines:
+#    parentContainerName: Office 2
+#  Office 2 Leaves:
+#    parentContainerName: Office 2
