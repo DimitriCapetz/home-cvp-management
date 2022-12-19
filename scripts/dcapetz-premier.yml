@@ -1,0 +1,105 @@
+---
+all:
+  children:
+    VEOS:
+      hosts:
+        Boyden-CR1:
+          ansible_host: 10.255.63.195
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Doon-CR1:
+          ansible_host: 10.255.55.159
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        George-CR1:
+          ansible_host: 10.255.116.213
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Hospers-CR1:
+          ansible_host: 10.255.35.51
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Hospers-CR2:
+          ansible_host: 10.255.46.84
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Hospers-ER1:
+          ansible_host: 10.255.85.233
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Hull-CR1:
+          ansible_host: 10.255.27.171
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Hull-CR2:
+          ansible_host: 10.255.30.227
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Ireton-CR1:
+          ansible_host: 10.255.80.221
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        LeMars-CR1:
+          ansible_host: 10.255.100.32
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        LeMars-CR2:
+          ansible_host: 10.255.32.232
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        LittleRock-CR1:
+          ansible_host: 10.255.12.96
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        OrangeCity-CR1:
+          ansible_host: 10.255.90.1
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        OrangeCity-CR2:
+          ansible_host: 10.255.79.26
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        RockRapids-CR1:
+          ansible_host: 10.255.48.106
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        RockRapids-CR2:
+          ansible_host: 10.255.41.218
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        RockValley-CR1:
+          ansible_host: 10.255.82.57
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        RockValley-CR2:
+          ansible_host: 10.255.50.61
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Sheldon-CR1:
+          ansible_host: 10.255.35.129
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Sheldon-CR2:
+          ansible_host: 10.255.18.32
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Sibley-CR1:
+          ansible_host: 10.255.0.161
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        Sibley-CR2:
+          ansible_host: 10.255.106.37
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        SiouxCenter-CR1:
+          ansible_host: 10.255.107.68
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        SiouxCenter-CR2:
+          ansible_host: 10.255.51.224
+          ansible_user: arista
+          ansible_ssh_pass: arista
+        SiouxCenter-ER1:
+          ansible_host: 10.255.76.31
+          ansible_user: arista
+          ansible_ssh_pass: arista
