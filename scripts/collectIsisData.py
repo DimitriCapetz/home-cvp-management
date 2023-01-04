@@ -37,14 +37,20 @@ for ip in ips:
     configResponse = switch.runCmds(version=1, cmds=["enable",
                                                      "show running-config", 
                                                      "show isis segment-routing prefix-segments", 
-                                                     "show isis ti-lfa path detail"], format="text")
+                                                     "show isis ti-lfa path detail", 
+                                                     "show isis segment-routing tunnel", 
+                                                     "show isis ti-lfa tunnel"], format="text")
     runningConfig = configResponse[1]['output']
     prefixSids = configResponse[2]['output']
     tilfaPath = configResponse[3]['output']
+    tunnels = configResponse[4]['output']
+    tilfaTunnels = configResponse[5]['output']
     # Getting TI-LFA Path and PQ distance
     isisResponse = switch.runCmds(1, ["enable",
                                       "show isis ti-lfa path",
-                                      "show isis segment-routing prefix-segments"])
+                                      "show isis segment-routing prefix-segments", 
+                                      "show isis segment-routing tunnel", 
+                                      "show isis ti-lfa tunnel"])
     output = ""
     maxNodeCount = 0
     try:
@@ -62,10 +68,10 @@ for ip in ips:
                     output = output + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!POTENTIAL TI-LFA PATH ISSUE:!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
                 nodeStr = str(len(path[1]["sysIds"])) + " Node(s)"
                 output = output + destinationNode + " - " + protection + " = " + nodeStr + "\n\n"
-        output = output + "\n\n!!!!!!!!!\nISIS Data\n!!!!!!!!!\n\n" + pprint.pformat(isisResponse[1]) + "\n\n" + pprint.pformat(isisResponse[2])
+        output = output + "\n\n!!!!!!!!!\nISIS Data\n!!!!!!!!!\n\n" + pprint.pformat(isisResponse[1]) + "\n\n" + pprint.pformat(isisResponse[2]) + "\n\n" + pprint.pformat(isisResponse[3]) + "\n\n" + pprint.pformat(isisResponse[4])
     except KeyError:
         output = "ISIS Disabled"
-    output = output + "\n\n!!!!!!\nCONFIG\n!!!!!!\n\n" + runningConfig + prefixSids + tilfaPath
+    output = output + "\n\n!!!!!!\nCONFIG\n!!!!!!\n\n" + runningConfig + prefixSids + tilfaPath + tunnels + tilfaTunnels
     hostname = switch.runCmds(1,["show hostname"])
     if "ISIS Disabled" in output:
         with open(hostname[0]['hostname'] + '-DISABLED.txt', 'w') as f:
