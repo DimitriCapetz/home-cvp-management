@@ -31,15 +31,6 @@ ips = ['10.255.63.195',
  '10.255.51.224',
  '10.255.76.31']
 
-# When reading device IPs from YAML file (from ACT) - Set ips to empty list
-#import yaml
-#
-#with open(r'dcapetz-premier.yml') as file:
-#    devices = yaml.load(file, Loader=yaml.FullLoader)
-#
-#for device in devices['all']['children']['VEOS']['hosts'].items():
-#   ips.append(device[1]['ansible_host'])
-
 for ip in ips:
     switch = Server("https://arista:arista@" + ip + "/command-api")
     # Getting Text version of Config and Show Command Outputs
@@ -82,5 +73,3 @@ for ip in ips:
     else:
         with open(hostname[0]['hostname'] + '-' + str(maxNodeCount) + '.txt', 'w') as f:
             f.write(output)
-    # Add Lines of Config to all devices
-    #response = switch.runCmds(1, ["enable", "configure", "router isis 100", "address-family ipv4 unicast", "fast-reroute ti-lfa srlg strict"])
