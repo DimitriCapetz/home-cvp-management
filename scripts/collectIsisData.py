@@ -1,9 +1,12 @@
+from __future__ import print_function
 # Allow self-signed certs
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 from jsonrpclib import Server
 import pprint
+
+print("Modules imported for main execution.")
 
 ips = ['10.255.63.195',
  '10.255.55.159',
@@ -33,6 +36,7 @@ ips = ['10.255.63.195',
 
 for ip in ips:
     switch = Server("https://arista:arista@" + ip + "/command-api")
+    print("Attempting to grab ISIS Outputs from " + ip)
     # Getting Text version of Config and Show Command Outputs
     configResponse = switch.runCmds(version=1, cmds=["enable",
                                                      "show running-config", 
@@ -45,6 +49,7 @@ for ip in ips:
     tilfaPath = configResponse[3]['output']
     tunnels = configResponse[4]['output']
     tilfaTunnels = configResponse[5]['output']
+    print("Text outputs obtained for " + ip)
     # Getting TI-LFA Path and PQ distance
     isisResponse = switch.runCmds(1, ["enable",
                                       "show isis ti-lfa path",
@@ -53,6 +58,7 @@ for ip in ips:
                                       "show isis ti-lfa tunnel"])
     output = ""
     maxNodeCount = 0
+    print("JSON outputs obtained for " + ip)
     try:
         for node in isisResponse[1]["vrfs"]["default"]["v4Info"]["topologies"]["2"]["destinations"].items():
             destinationNode = node[1]["hostname"]
@@ -76,6 +82,8 @@ for ip in ips:
     if "ISIS Disabled" in output:
         with open(hostname[0]['hostname'] + '-DISABLED.txt', 'w') as f:
             f.write(output)
+            print("File saved for " + ip)
     else:
         with open(hostname[0]['hostname'] + '-' + str(maxNodeCount) + '.txt', 'w') as f:
             f.write(output)
+            print("File saved for " + ip)
