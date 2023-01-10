@@ -71,7 +71,7 @@ for ip in ips:
                 if nodeCount > maxNodeCount:
                     maxNodeCount = nodeCount
                 if nodeCount > 4:
-                    output = output + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!POTENTIAL TI-LFA PATH ISSUE:!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
+                    output = output + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!POTENTIAL TI-LFA PATH ISSUE!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
                 nodeStr = str(len(path[1]["sysIds"])) + " Node(s)"
                 output = output + destinationNode + " - " + protection + " = " + nodeStr + "\n\n"
         output = output + "\n\n!!!!!!!!!\nISIS Data\n!!!!!!!!!\n\n" + pprint.pformat(isisResponse[1]) + "\n\n" + pprint.pformat(isisResponse[2]) + "\n\n" + pprint.pformat(isisResponse[3]) + "\n\n" + pprint.pformat(isisResponse[4])
