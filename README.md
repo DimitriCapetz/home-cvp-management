@@ -2,6 +2,9 @@
 
 This repo focuses on the basic interactions between CVP and Ansible using the Arista AVD/CVP Collections.  It allows the user flexibility in managing device configurations with CVP and Ansible.  Configlets make up a device's full configuration.  You can manage the configlets inside of CVP or generate them dynamically with Ansible and merge them inside of CVP.
 
+It also serves as a dumping ground for any of my home lab and demo setups, random scripts and other nonsense.  Not the cleanest thing in the 
+world, but hey!, it works :)
+
 ![CVP Ansible Image](images/CVP-Ansible%20Integration.png)
 ## Requirements
 
