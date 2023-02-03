@@ -42,6 +42,9 @@ ips = ['10.255.63.195',
  '10.255.51.224',
  '10.255.76.31']
 
+# Add the IPs of the Edge Routers here.
+erIps = ['10.255.85.233', '10.255.0.161']
+
 for ip in ips:
     switch = Server("https://arista:arista@" + ip + "/command-api")
     print("Attempting to grab ISIS Outputs from " + ip)
@@ -65,8 +68,11 @@ for ip in ips:
         unprogrammed = configResponse[7]['output']
         sand = configResponse[8]['output']
         if vrf:
-            vrfResponse = switch.runCmds(version=1, cmds=["enable", "show ip route vrf " + vrf], format="text")
-            routes = vrfResponse[1]['output']
+            if ip in erIps:
+                print("Skipping Route Table Output for Edge Router...")
+            else:
+              vrfResponse = switch.runCmds(version=1, cmds=["enable", "show ip route vrf " + vrf], format="text")
+              routes = vrfResponse[1]['output']
         print("Text outputs obtained for " + ip)
     except:
         print("Error grabbing text outputs for " + ip + ". Device may be unreachable.")
@@ -79,7 +85,10 @@ for ip in ips:
                                           "show isis ti-lfa tunnel",
                                           "show mpls route"])
         if vrf:
-            routeResponse = switch.runCmds(1, ["enable", "show ip route vrf " + vrf])
+            if ip in erIps:
+                print("Skipping Route Table Output for Edge Router...")
+            else:
+                routeResponse = switch.runCmds(1, ["enable", "show ip route vrf " + vrf])
         output = ""
         maxNodeCount = 0
         print("JSON outputs obtained for " + ip)
@@ -100,12 +109,14 @@ for ip in ips:
                     output = output + destinationNode + " - " + protection + " = " + nodeStr + "\n\n"
             output = output + "\n\n!!!!!!!!!\nISIS Data\n!!!!!!!!!\n\n" + pprint.pformat(isisResponse[1]) + "\n\n" + pprint.pformat(isisResponse[2]) + "\n\n" + pprint.pformat(isisResponse[3]) + "\n\n" + pprint.pformat(isisResponse[4]) + "\n\n" + pprint.pformat(isisResponse[5])
             if vrf:
-                output = output + "\n\n" + pprint.pformat(routeResponse[1])
+                if ip not in erIps:
+                    output = output + "\n\n" + pprint.pformat(routeResponse[1])
         except KeyError:
             output = "ISIS Disabled"
         output = output + "\n\n!!!!!!\nCONFIG\n!!!!!!\n\n" + runningConfig + prefixSids + tilfaPath + tunnels + tilfaTunnels + mrib + unprogrammed + sand
         if vrf:
-            output = output + routes
+            if ip not in erIps:
+                output = output + routes
         hostname = switch.runCmds(1,["show hostname"])
     except:
         print("Error grabbing JSON outputs for " + ip + ". Device may be unreachable.")
