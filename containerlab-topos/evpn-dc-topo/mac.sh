@@ -10,13 +10,13 @@ sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:02:g0/' clab-evpn-dc-topo/DC-BORDER
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:03:00/' clab-evpn-dc-topo/DC-BORDER2/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:03:10/' clab-evpn-dc-topo/WAN1/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:03:20/' clab-evpn-dc-topo/WAN2/flash/system_mac_address
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-SPINE1/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-SPINE2/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-LEAF1/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-LEAF2/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-LEAF3/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-LEAF4/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-LEAF5/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-LEAF6/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-BORDER1/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token-prd clab-evpn-dc-topo/DC-BORDER2/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-SPINE1/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-SPINE2/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-LEAF1/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-LEAF2/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-LEAF3/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-LEAF4/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-LEAF5/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-LEAF6/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-BORDER1/flash/cv-onboarding-token
+sudo cat ../cv-onboarding-token-prd > clab-evpn-dc-topo/DC-BORDER2/flash/cv-onboarding-token
