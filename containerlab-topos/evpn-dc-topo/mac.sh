@@ -19,9 +19,9 @@ sudo mv system_mac_address clab-evpn-dc-topo/DC-BORDER1/flash/
 echo 00:1c:73:dc:03:00 > system_mac_address 
 sudo mv system_mac_address clab-evpn-dc-topo/DC-BORDER2/flash/
 echo 00:1c:73:dc:03:10 > system_mac_address 
-sudo mv system_mac_address clab-evpn-dc-topo/DC-WAN1/flash/
+sudo mv system_mac_address clab-evpn-dc-topo/WAN1/flash/
 echo 00:1c:73:dc:03:20 > system_mac_address 
-sudo mv system_mac_address clab-evpn-dc-topo/DC-WAN2/flash/
+sudo mv system_mac_address clab-evpn-dc-topo/WAN2/flash/
 more ../cv-onboarding-token-prd > cv-onboarding-token 
 sudo cp cv-onboarding-token clab-evpn-dc-topo/DC-SPINE1/flash/
 sudo cp cv-onboarding-token clab-evpn-dc-topo/DC-SPINE2/flash/
