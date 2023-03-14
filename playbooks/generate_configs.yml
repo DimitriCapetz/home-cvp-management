@@ -37,7 +37,7 @@
 #    loop_control:
 #      loop_var: switch
 
-  - name: Create MGMT Config for each device in YAML File
+  - name: Create Base MGMT Configlet for each device in YAML File
     tags: [ mgmt ]
     template: src=../templates/ceos-mgmt-cfg-yml.j2 dest=../cvp_configlets/{{ item.key }}-MGMT.txt
     loop: "{{ SWITCHES | dict2items }}"

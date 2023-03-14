@@ -2,60 +2,60 @@ CVP_DEVICES:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-  - fqdn: DC-SPINE1
-    parentContainerName: DC Spines
-    configlets:
-      - dcapetz - lab_DC-SPINE1-BASE
-#      - dcapetz - lab_DC-SPINE-MLAG-SIDE-A
-#      - dcapetz - lab_DC-SPINE1-CONFIG
-  - fqdn: DC-SPINE2
-    parentContainerName: DC Spines
-    configlets:
-      - dcapetz - lab_DC-SPINE2-BASE
-#      - dcapetz - lab_DC-SPINE-MLAG-SIDE-B
-#      - dcapetz - lab_DC-SPINE2-CONFIG
-  - fqdn: DC-BORDER1
-    parentContainerName: DC Border Leaves
-    configlets:
-      - dcapetz - lab_DC-BORDER1-BASE
-#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
-#      - dcapetz - lab_DC-BORDER1-CONFIG
-  - fqdn: DC-BORDER2
-    parentContainerName: DC Border Leaves
-    configlets:
-      - dcapetz - lab_DC-BORDER2-BASE
-#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
-#      - dcapetz - lab_DC-BORDER2-CONFIG
-  - fqdn: DC-LEAF1
-    parentContainerName: DC Compute Pod 1
-    configlets:
-      - dcapetz - lab_DC-LEAF1-BASE
-#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
-  - fqdn: DC-LEAF2
-    parentContainerName: DC Compute Pod 1
-    configlets:
-      - dcapetz - lab_DC-LEAF2-BASE
-#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
-  - fqdn: DC-LEAF3
-    parentContainerName: DC Compute Pod 2
-    configlets:
-      - dcapetz - lab_DC-LEAF3-BASE
-#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
-  - fqdn: DC-LEAF4
-    parentContainerName: DC Compute Pod 2
-    configlets:
-      - dcapetz - lab_DC-LEAF4-BASE
-#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
-  - fqdn: DC-LEAF5
-    parentContainerName: DC Compute Pod 3
-    configlets:
-      - dcapetz - lab_DC-LEAF5-BASE
-#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
-  - fqdn: DC-LEAF6
-    parentContainerName: DC Compute Pod 3
-    configlets:
-      - dcapetz - lab_DC-LEAF6-BASE
-#      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+#  - fqdn: DC-SPINE1
+#    parentContainerName: DC Spines
+#    configlets:
+#      - dcapetz - lab_DC-SPINE1-BASE
+##      - dcapetz - lab_DC-SPINE-MLAG-SIDE-A
+##      - dcapetz - lab_DC-SPINE1-CONFIG
+#  - fqdn: DC-SPINE2
+#    parentContainerName: DC Spines
+#    configlets:
+#      - dcapetz - lab_DC-SPINE2-BASE
+##      - dcapetz - lab_DC-SPINE-MLAG-SIDE-B
+##      - dcapetz - lab_DC-SPINE2-CONFIG
+#  - fqdn: DC-BORDER1
+#    parentContainerName: DC Border Leaves
+#    configlets:
+#      - dcapetz - lab_DC-BORDER1-BASE
+##      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+##      - dcapetz - lab_DC-BORDER1-CONFIG
+#  - fqdn: DC-BORDER2
+#    parentContainerName: DC Border Leaves
+#    configlets:
+#      - dcapetz - lab_DC-BORDER2-BASE
+##      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+##      - dcapetz - lab_DC-BORDER2-CONFIG
+#  - fqdn: DC-LEAF1
+#    parentContainerName: DC Compute Pod 1
+#    configlets:
+#      - dcapetz - lab_DC-LEAF1-BASE
+##      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+#  - fqdn: DC-LEAF2
+#    parentContainerName: DC Compute Pod 1
+#    configlets:
+#      - dcapetz - lab_DC-LEAF2-BASE
+##      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+#  - fqdn: DC-LEAF3
+#    parentContainerName: DC Compute Pod 2
+#    configlets:
+#      - dcapetz - lab_DC-LEAF3-BASE
+##      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+#  - fqdn: DC-LEAF4
+#    parentContainerName: DC Compute Pod 2
+#    configlets:
+#      - dcapetz - lab_DC-LEAF4-BASE
+##      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+#  - fqdn: DC-LEAF5
+#    parentContainerName: DC Compute Pod 3
+#    configlets:
+#      - dcapetz - lab_DC-LEAF5-BASE
+##      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+#  - fqdn: DC-LEAF6
+#    parentContainerName: DC Compute Pod 3
+#    configlets:
+#      - dcapetz - lab_DC-LEAF6-BASE
+##      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
 ###################
 # Campus Topology #
 ###################
@@ -504,311 +504,6 @@ CVP_DEVICES:
 #    parentContainerName: Floor 3 Closet 2 Leaves
 #    configlets:
 #      - dcapetz - lab_RC-CAMPUS-FL3-C2-LEAF2-MGMT
-#######################
-# Prime Core Topology #
-#######################
-#  - fqdn: PRIME-DC1-CORE1
-#    parentContainerName: DC1 Core Routers
-#    configlets:
-#      - dcapetz - lab_PRIME-DC1-CORE1-MGMT
-#      - dcapetz - lab_PRIME-CORE-MLAG-SIDE-A
-#      - dcapetz - lab_PRIME-DC1-CORE1-L3
-#  - fqdn: PRIME-DC1-CORE2
-#    parentContainerName: DC1 Core Routers
-#    configlets:
-#      - dcapetz - lab_PRIME-DC1-CORE2-MGMT
-#      - dcapetz - lab_PRIME-CORE-MLAG-SIDE-B
-#      - dcapetz - lab_PRIME-DC1-CORE2-L3
-#  - fqdn: PRIME-DC2-CORE1
-#    parentContainerName: DC2 Core Routers
-#    configlets:
-#      - dcapetz - lab_PRIME-DC2-CORE1-MGMT
-#      - dcapetz - lab_PRIME-CORE-MLAG-SIDE-A
-#      - dcapetz - lab_PRIME-DC2-CORE1-L3
-#  - fqdn: PRIME-DC2-CORE2
-#    parentContainerName: DC2 Core Routers
-#    configlets:
-#      - dcapetz - lab_PRIME-DC2-CORE2-MGMT
-#      - dcapetz - lab_PRIME-CORE-MLAG-SIDE-B
-#      - dcapetz - lab_PRIME-DC2-CORE2-L3
-#  - fqdn: PRIME-DC3-CORE1
-#    parentContainerName: DC3 Core Routers
-#    configlets:
-#      - dcapetz - lab_PRIME-DC3-CORE1-MGMT
-#      - dcapetz - lab_PRIME-CORE-MLAG-SIDE-A
-#      - dcapetz - lab_PRIME-DC3-CORE1-L3
-#  - fqdn: PRIME-DC3-CORE2
-#    parentContainerName: DC3 Core Routers
-#    configlets:
-#      - dcapetz - lab_PRIME-DC3-CORE2-MGMT
-#      - dcapetz - lab_PRIME-CORE-MLAG-SIDE-B
-#      - dcapetz - lab_PRIME-DC3-CORE2-L3
-#  - fqdn: PRIME-DC1-ACCESS1
-#    parentContainerName: DC1 Access Switches
-#    configlets:
-#      - dcapetz - lab_PRIME-DC1-ACCESS1-MGMT
-#      - dcapetz - lab_PRIME-ACCESS-MLAG-SIDE-A
-#  - fqdn: PRIME-DC1-ACCESS2
-#    parentContainerName: DC1 Access Switches
-#    configlets:
-#      - dcapetz - lab_PRIME-DC1-ACCESS2-MGMT
-#      - dcapetz - lab_PRIME-ACCESS-MLAG-SIDE-B
-#  - fqdn: PRIME-DC2-ACCESS1
-#    parentContainerName: DC2 Access Switches
-#    configlets:
-#      - dcapetz - lab_PRIME-DC2-ACCESS1-MGMT
-#      - dcapetz - lab_PRIME-ACCESS-MLAG-SIDE-A
-#  - fqdn: PRIME-DC2-ACCESS2
-#    parentContainerName: DC2 Access Switches
-#    configlets:
-#      - dcapetz - lab_PRIME-DC2-ACCESS2-MGMT
-#      - dcapetz - lab_PRIME-ACCESS-MLAG-SIDE-B
-#  - fqdn: PRIME-DC3-ACCESS1
-#    parentContainerName: DC3 Access Switches
-#    configlets:
-#      - dcapetz - lab_PRIME-DC3-ACCESS1-MGMT
-#      - dcapetz - lab_PRIME-ACCESS-MLAG-SIDE-A
-#  - fqdn: PRIME-DC3-ACCESS2
-#    parentContainerName: DC3 Access Switches
-#    configlets:
-#      - dcapetz - lab_PRIME-DC3-ACCESS2-MGMT
-#      - dcapetz - lab_PRIME-ACCESS-MLAG-SIDE-B
-#############################
-# Software Upgrade Topology #
-#############################
-#  - fqdn: SU-SPINE1
-#    parentContainerName: SU Spines
-#    configlets:
-#      - dcapetz - lab_SU-SPINE1-BASE
-#      - dcapetz - lab_SU-SPINE-MLAG-SIDE-A
-#      - dcapetz - lab_SU-SPINE1-CONFIG
-#  - fqdn: SU-SPINE2
-#    parentContainerName: SU Spines
-#    configlets:
-#      - dcapetz - lab_SU-SPINE2-BASE
-#      - dcapetz - lab_SU-SPINE-MLAG-SIDE-B
-#      - dcapetz - lab_SU-SPINE2-CONFIG
-#  - fqdn: SU-LEAF1
-#    parentContainerName: SU Rack 1
-#    configlets:
-#      - dcapetz - lab_SU-LEAF1-BASE
-#      - dcapetz - lab_SU-LEAF-MLAG-SIDE-A
-#  - fqdn: SU-LEAF2
-#    parentContainerName: SU Rack 1
-#    configlets:
-#      - dcapetz - lab_SU-LEAF2-BASE
-#      - dcapetz - lab_SU-LEAF-MLAG-SIDE-B
-#  - fqdn: SU-LEAF3
-#    parentContainerName: SU Rack 2
-#    configlets:
-#      - dcapetz - lab_SU-LEAF3-BASE
-#      - dcapetz - lab_SU-LEAF-MLAG-SIDE-A
-#  - fqdn: SU-LEAF4
-#    parentContainerName: SU Rack 2
-#    configlets:
-#      - dcapetz - lab_SU-LEAF4-BASE
-#      - dcapetz - lab_SU-LEAF-MLAG-SIDE-B
-###########################
-# Valley Telecom Topology #
-###########################
-#  - fqdn: DE-SMET-1
-#    parentContainerName: De Smet
-#    configlets:
-#      - dcapetz - lab_VT DE-SMET-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT DE-SMET-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR
-#  - fqdn: DE-SMET-2
-#    parentContainerName: De Smet
-#    configlets:
-#      - dcapetz - lab_VT DE-SMET-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT DE-SMET-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: VOLGA-1
-#    parentContainerName: Volga
-#    configlets:
-#      - dcapetz - lab_VT VOLGA-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT VOLGA-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: VOLGA-2
-#    parentContainerName: Volga
-#    configlets:
-#      - dcapetz - lab_VT VOLGA-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT VOLGA-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: FLANDREAU-1
-#    parentContainerName: Flandreau
-#    configlets:
-#      - dcapetz - lab_VT FLANDREAU-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT FLANDREAU-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#      - dcapetz - lab_VT FLANDREAU-1 Tower Config
-#  - fqdn: FLANDREAU-2
-#    parentContainerName: Flandreau
-#    configlets:
-#      - dcapetz - lab_VT FLANDREAU-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT FLANDREAU-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: HOSMER-1
-#    parentContainerName: Hosmer
-#    configlets:
-#      - dcapetz - lab_VT HOSMER-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT HOSMER-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: HOSMER-2
-#    parentContainerName: Hosmer
-#    configlets:
-#      - dcapetz - lab_VT HOSMER-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT HOSMER-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: IPSWITCH-1
-#    parentContainerName: Ipswitch
-#    configlets:
-#      - dcapetz - lab_VT IPSWITCH-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT IPSWITCH-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: IPSWITCH-2
-#    parentContainerName: Ipswitch
-#    configlets:
-#      - dcapetz - lab_VT IPSWITCH-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT IPSWITCH-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: MOUND-CITY-1
-#    parentContainerName: Mound City
-#    configlets:
-#      - dcapetz - lab_VT MOUND-CITY-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT MOUND-CITY-1-TRANSPORT
-#      - dcapetz - lab_VT SDN Transport Config
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: MOUND-CITY-2
-#    parentContainerName: Mound City
-#    configlets:
-#      - dcapetz - lab_VT MOUND-CITY-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT MOUND-CITY-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: LEOLA-1
-#    parentContainerName: Leola
-#    configlets:
-#      - dcapetz - lab_VT LEOLA-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT LEOLA-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: LEOLA-2
-#    parentContainerName: Leola
-#    configlets:
-#      - dcapetz - lab_VT LEOLA-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT LEOLA-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: GLENHAM-1
-#    parentContainerName: Glenham
-#    configlets:
-#      - dcapetz - lab_VT GLENHAM-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT GLENHAM-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: GLENHAM-2
-#    parentContainerName: Glenham
-#    configlets:
-#      - dcapetz - lab_VT GLENHAM-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT GLENHAM-2-TRANSPORT
-#      - dcapetz - lab_VT SDN Transport Config
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: LONG-LAKE-1
-#    parentContainerName: Long Lake
-#    configlets:
-#      - dcapetz - lab_VT LONG-LAKE-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT LONG-LAKE-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: LONG-LAKE-2
-#    parentContainerName: Long Lake
-#    configlets:
-#      - dcapetz - lab_VT LONG-LAKE-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT LONG-LAKE-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#      - dcapetz - lab_VT LONG-LAKE-2 Tower Config
-#  - fqdn: POLLOCK-1
-#    parentContainerName: Pollock
-#    configlets:
-#      - dcapetz - lab_VT POLLOCK-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT POLLOCK-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: POLLOCK-2
-#    parentContainerName: Pollock
-#    configlets:
-#      - dcapetz - lab_VT POLLOCK-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT POLLOCK-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: EUREKA-1
-#    parentContainerName: Eureka
-#    configlets:
-#      - dcapetz - lab_VT EUREKA-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT EUREKA-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: EUREKA-2
-#    parentContainerName: Eureka
-#    configlets:
-#      - dcapetz - lab_VT EUREKA-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT EUREKA-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: HERREID-1
-#    parentContainerName: Herreid
-#    configlets:
-#      - dcapetz - lab_VT HERREID-1-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-A
-#      - dcapetz - lab_VT HERREID-1-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR-CLIENT
-#  - fqdn: HERREID-2
-#    parentContainerName: Herreid
-#    configlets:
-#      - dcapetz - lab_VT HERREID-2-MGMT
-#      - dcapetz - lab_VT SP-TRANSPORT-MLAG-SIDE-B
-#      - dcapetz - lab_VT HERREID-2-TRANSPORT
-#      - dcapetz - lab_VT EVPN-RR
-################
-# SMU Topology #
-################
-#  - fqdn: SMU-CORE1
-#    parentContainerName: L3 Core
-#    configlets:
-#      - dcapetz - lab_SMU-CORE1-MGMT
-#      - dcapetz - lab_SMU-MLAG-SIDE-A
-#      - dcapetz - lab_SMU-CORE1-L3
-#  - fqdn: SMU-CORE2
-#    parentContainerName: L3 Core
-#    configlets:
-#      - dcapetz - lab_SMU-CORE2-MGMT
-#      - dcapetz - lab_SMU-MLAG-SIDE-B
-#      - dcapetz - lab_SMU-CORE2-L3
-#  - fqdn: SMU-AGG1
-#    parentContainerName: L2 Aggregation
-#    configlets:
-#      - dcapetz - lab_SMU-AGG1-MGMT
-#      - dcapetz - lab_SMU-MLAG-SIDE-A
-#      - dcapetz - lab_SMU-AGG1-PORTS
-#  - fqdn: SMU-AGG2
-#    parentContainerName: L2 Aggregation
-#    configlets:
-#      - dcapetz - lab_SMU-AGG2-MGMT
-#      - dcapetz - lab_SMU-MLAG-SIDE-B
 #####################################################
 # Dual Small Office Topology - For use with Studios #
 #####################################################
@@ -848,3 +543,46 @@ CVP_DEVICES:
 #    parentContainerName: Office 2 Splines
 #    configlets:
 #      - dcapetz - lab_OFFICE-2-SPLINE2-MGMT
+###########################
+# Single DC L3LS Topology #
+###########################
+  - fqdn: DC-SPINE1
+    parentContainerName: DC Spines
+    configlets:
+      - dcapetz - lab_DC-SPINE1-MGMT
+  - fqdn: DC-SPINE2
+    parentContainerName: DC Spines
+    configlets:
+      - dcapetz - lab_DC-SPINE2-MGMT
+  - fqdn: DC-BORDER1
+    parentContainerName: DC Border Leaves
+    configlets:
+      - dcapetz - lab_DC-BORDER1-MGMT
+  - fqdn: DC-BORDER2
+    parentContainerName: DC Border Leaves
+    configlets:
+      - dcapetz - lab_DC-BORDER2-MGMT
+  - fqdn: DC-LEAF1
+    parentContainerName: DC Compute Pod 1
+    configlets:
+      - dcapetz - lab_DC-LEAF1-MGMT
+  - fqdn: DC-LEAF2
+    parentContainerName: DC Compute Pod 1
+    configlets:
+      - dcapetz - lab_DC-LEAF2-MGMT
+  - fqdn: DC-LEAF3
+    parentContainerName: DC Compute Pod 2
+    configlets:
+      - dcapetz - lab_DC-LEAF3-MGMT
+  - fqdn: DC-LEAF4
+    parentContainerName: DC Compute Pod 2
+    configlets:
+      - dcapetz - lab_DC-LEAF4-MGMT
+  - fqdn: DC-LEAF5
+    parentContainerName: DC Compute Pod 3
+    configlets:
+      - dcapetz - lab_DC-LEAF5-MGMT
+  - fqdn: DC-LEAF6
+    parentContainerName: DC Compute Pod 3
+    configlets:
+      - dcapetz - lab_DC-LEAF6-MGMT

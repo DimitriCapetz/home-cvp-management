@@ -4,6 +4,6 @@ all:
       hosts:
         cvaas:
           # Staging CVaaS
-          ansible_host: www.cv-staging.corp.arista.io
+          #ansible_host: www.cv-staging.corp.arista.io
           # Prod CVaaS
-          #ansible_host: www.arista.io
+          ansible_host: www.arista.io

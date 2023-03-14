@@ -1,227 +1,92 @@
 ---
 SWITCHES:
-  SiouxCenter-ER1:
+  DC-SPINE1:
     mgmt_ip: 10.99.99.178
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
-    rr: 'yes'
+    rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  Hospers-ER1:
+    cvp: 'yes'
+  DC-SPINE2:
     mgmt_ip: 10.99.99.179
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    octet: '02'
-    rr: 'yes'
+    octet: '01'
+    rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  SiouxCenter-CR1:
+    cvp: 'yes'
+  DC-LEAF1:
     mgmt_ip: 10.99.99.180
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    octet: '03'
+    octet: '01'
     rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  SiouxCenter-CR2:
+    cvp: 'yes'
+  DC-LEAF2:
     mgmt_ip: 10.99.99.181
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    octet: '04'
+    octet: '01'
     rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  Hospers-CR1:
+    cvp: 'yes'
+  DC-LEAF3:
     mgmt_ip: 10.99.99.182
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    octet: '05'
+    octet: '01'
     rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  Hospers-CR2:
+    cvp: 'yes'
+  DC-LEAF4:
     mgmt_ip: 10.99.99.183
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    octet: '06'
+    octet: '01'
     rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  OrangeCity-CR1:
+    cvp: 'yes'
+  DC-LEAF5:
     mgmt_ip: 10.99.99.184
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    octet: '07'
+    octet: '01'
     rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  OrangeCity-CR2:
+    cvp: 'yes'
+  DC-LEAF6:
     mgmt_ip: 10.99.99.185
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    octet: '08'
+    octet: '01'
     rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  LeMars-CR1:
+    cvp: 'yes'
+  DC-BORDER1:
     mgmt_ip: 10.99.99.186
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    octet: '09'
+    octet: '01'
     rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  LeMars-CR2:
+    cvp: 'yes'
+  DC-BORDER2:
     mgmt_ip: 10.99.99.187
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
-    octet: '10'
+    octet: '01'
     rr: 'no'
     bgp_asn: 12345
     compute: 'no'
-    cvp: 'no'
-  Ireton-CR1:
-    mgmt_ip: 10.99.99.188
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '11'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  Hull-CR1:
-    mgmt_ip: 10.99.99.189
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '12'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  Hull-CR2:
-    mgmt_ip: 10.99.99.190
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '13'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  Sheldon-CR1:
-    mgmt_ip: 10.99.99.191
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '14'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  Sheldon-CR2:
-    mgmt_ip: 10.99.99.192
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '15'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  Boyden-CR1:
-    mgmt_ip: 10.99.99.193
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '16'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  RockValley-CR1:
-    mgmt_ip: 10.99.99.194
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '17'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  RockValley-CR2:
-    mgmt_ip: 10.99.99.195
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '18'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  Sibley-CR1:
-    mgmt_ip: 10.99.99.196
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '19'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  Sibley-CR2:
-    mgmt_ip: 10.99.99.197
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '20'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  George-CR1:
-    mgmt_ip: 10.99.99.198
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '21'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  RockRapids-CR1:
-    mgmt_ip: 10.99.99.199
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '22'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  RockRapids-CR2:
-    mgmt_ip: 10.99.99.200
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '23'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  LittleRock-CR1:
-    mgmt_ip: 10.99.99.201
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '24'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
-  Doon-CR1:
-    mgmt_ip: 10.99.99.202
-    mgmt_mask: 24
-    mgmt_gateway: 10.99.99.1
-    octet: '25'
-    rr: 'no'
-    bgp_asn: 12345
-    compute: 'no'
-    cvp: 'no'
+    cvp: 'yes'

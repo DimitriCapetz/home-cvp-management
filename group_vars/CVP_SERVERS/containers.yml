@@ -2,36 +2,36 @@ CVP_CONTAINERS:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-  DC Data Center:
-    parentContainerName: Dimitri's Virtual Lab
-#    configlets:
-#      - dcapetz - lab_DC-VLANs
-  DC Spines:
-    parentContainerName: DC Data Center
-#    configlets:
-#      - dcapetz - lab_DC-SPINE-SHARED
-  DC Leaves:
-    parentContainerName: DC Data Center
-  DC Border Leaves:
-    parentContainerName: DC Leaves
-#    configlets:
-#      - dcapetz - lab_DC-BORDER-SHARED
-  DC Compute Leaves:
-    parentContainerName: DC Leaves
-#    configlets:
-#      - dcapetz - lab_DC-LEAVES-SHARED
-  DC Compute Pod 1:
-    parentContainerName: DC Compute Leaves
-#    configlets:
-#      - dcapetz - lab_DC-POD1-SHARED
-  DC Compute Pod 2:
-    parentContainerName: DC Compute Leaves
-#    configlets:
-#      - dcapetz - lab_DC-POD2-SHARED
-  DC Compute Pod 3:
-    parentContainerName: DC Compute Leaves
-#    configlets:
-#      - dcapetz - lab_DC-POD3-SHARED
+#  DC Data Center:
+#    parentContainerName: Dimitri's Virtual Lab
+##    configlets:
+##      - dcapetz - lab_DC-VLANs
+#  DC Spines:
+#    parentContainerName: DC Data Center
+##    configlets:
+##      - dcapetz - lab_DC-SPINE-SHARED
+#  DC Leaves:
+#    parentContainerName: DC Data Center
+#  DC Border Leaves:
+#    parentContainerName: DC Leaves
+##    configlets:
+##      - dcapetz - lab_DC-BORDER-SHARED
+#  DC Compute Leaves:
+#    parentContainerName: DC Leaves
+##    configlets:
+##      - dcapetz - lab_DC-LEAVES-SHARED
+#  DC Compute Pod 1:
+#    parentContainerName: DC Compute Leaves
+##    configlets:
+##      - dcapetz - lab_DC-POD1-SHARED
+#  DC Compute Pod 2:
+#    parentContainerName: DC Compute Leaves
+##    configlets:
+##      - dcapetz - lab_DC-POD2-SHARED
+#  DC Compute Pod 3:
+#    parentContainerName: DC Compute Leaves
+##    configlets:
+##      - dcapetz - lab_DC-POD3-SHARED
 ###################
 # Campus Topology #
 ###################
@@ -220,123 +220,6 @@ CVP_CONTAINERS:
 #    parentContainerName: Floor 3 Closet 2
 #    configlets:
 #      - dcapetz - lab_RC-CAMPUS-LEAF-SHARED
-#######################
-# Prime Core Topology #
-#######################
-#  Prime Therapeutics Core:
-#    parentContainerName: Home
-#  DC1:
-#    parentContainerName: Prime Therapeutics Core
-#  DC2:
-#    parentContainerName: Prime Therapeutics Core
-#  DC3:
-#    parentContainerName: Prime Therapeutics Core
-#  DC1 Core Routers:
-#    parentContainerName: DC1
-#    configlets:
-#      - dcapetz - lab_PRIME-DC1-CORE-SHARED
-#  DC2 Core Routers:
-#    parentContainerName: DC2
-#    configlets:
-#      - dcapetz - lab_PRIME-DC2-CORE-SHARED
-#  DC3 Core Routers:
-#    parentContainerName: DC3
-#    configlets:
-#      - dcapetz - lab_PRIME-DC3-CORE-SHARED
-#  DC1 Access Switches:
-#    parentContainerName: DC1
-#    configlets:
-#      - dcapetz - lab_PRIME-DC1-ACCESS-SHARED
-#  DC2 Access Switches:
-#    parentContainerName: DC2
-#    configlets:
-#      - dcapetz - lab_PRIME-DC2-ACCESS-SHARED
-#  DC3 Access Switches:
-#    parentContainerName: DC3
-#    configlets:
-#      - dcapetz - lab_PRIME-DC3-ACCESS-SHARED
-#############################
-# Software Upgrade Topology #
-#############################
-#  SU Data Center:
-#    parentContainerName: Dimitri's Virtual Lab
-#    configlets:
-#      - dcapetz - lab_SU-VLANs
-#  SU Spines:
-#    parentContainerName: DC Data Center
-#    configlets:
-#      - dcapetz - lab_SU-SPINE-SHARED
-#  SU Leaves:
-#    parentContainerName: DC Data Center
-#    configlets:
-#      - dcapetz - lab_SU-LEAVES-SHARED
-#  SU Rack 1:
-#    parentContainerName: DC Leaves
-#    configlets:
-#      - dcapetz - lab_SU-POD1-SHARED
-#  SU Rack 2:
-#    parentContainerName: DC Leaves
-#    configlets:
-#      - dcapetz - lab_SU-POD2-SHARED
-###########################
-# Valley Telecom Topology #
-###########################
-#  Valley Telecom Transport Network:
-#    parentContainerName: Dimitri's Virtual Lab
-#    configlets:
-#      - dcapetz - lab_VT Shared Transport Config
-#  CLEC Exchanges:
-#    parentContainerName: Valley Telecom Transport Network
-#  ILEC Exchanges:
-#    parentContainerName: Valley Telecom Transport Network
-#  De Smet:
-#    parentContainerName: CLEC Exchanges
-#    configlets:
-#      - dcapetz - lab_VT De Smet Access Config
-#  Volga:
-#    parentContainerName: CLEC Exchanges
-#  Flandreau:
-#    parentContainerName: CLEC Exchanges
-#  Hosmer:
-#    parentContainerName: ILEC Exchanges
-#  Ipswitch:
-#    parentContainerName: ILEC Exchanges
-#    configlets:
-#      - dcapetz - lab_VT Ipswitch Access Config
-#  Mound City:
-#    parentContainerName: ILEC Exchanges
-#  Leola:
-#    parentContainerName: ILEC Exchanges
-#  Glenham:
-#    parentContainerName: ILEC Exchanges
-#  Long Lake:
-#    parentContainerName: ILEC Exchanges
-#  Pollock:
-#    parentContainerName: ILEC Exchanges
-#  Eureka:
-#    parentContainerName: ILEC Exchanges
-#    configlets:
-#      - dcapetz - lab_VT Eureka Access Config
-#  Herreid:
-#    parentContainerName: ILEC Exchanges
-#    configlets:
-#      - dcapetz - lab_VT HERREID Core Config
-################
-# SMU Topology #
-################
-#  SMU Core Network:
-#    parentContainerName: Dimitri's Virtual Lab
-#    configlets:
-#      - dcapetz - lab_SMU-VLANs
-#  L2 Aggregation:
-#    parentContainerName: SMU Core Network
-#    configlets:
-#      - dcapetz - lab_SMU-AGG-INFRA
-#  L3 Core:
-#    parentContainerName: SMU Core Network
-#    configlets:
-#      - dcapetz - lab_SMU-CORE-INFRA
-#      - dcapetz - lab_SMU-CORE-SHARED
 #####################################################
 # Dual Small Office Topology - For use with Studios #
 #####################################################
@@ -354,3 +237,25 @@ CVP_CONTAINERS:
 #    parentContainerName: Office 2
 #  Office 2 Leaves:
 #    parentContainerName: Office 2
+###########################
+# Single DC L2LS Topology #
+###########################
+  DC Data Center:
+    parentContainerName: Arista Central SE
+    configlets:
+      - dcapetz - lab_DC-SWITCH-DEFAULTS
+      - dcapetz - lab_DC-SWITCH-AAA
+  DC Spines:
+    parentContainerName: DC Data Center
+  DC Leaves:
+    parentContainerName: DC Data Center
+  DC Border Leaves:
+    parentContainerName: DC Leaves
+  DC Compute Leaves:
+    parentContainerName: DC Leaves
+  DC Compute Pod 1:
+    parentContainerName: DC Compute Leaves
+  DC Compute Pod 2:
+    parentContainerName: DC Compute Leaves
+  DC Compute Pod 3:
+    parentContainerName: DC Compute Leaves
