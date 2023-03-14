@@ -6,7 +6,7 @@ sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:02:c0/' clab-evpn-dc-topo/DC-LEAF3/
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:02:d0/' clab-evpn-dc-topo/DC-LEAF4/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:02:e0/' clab-evpn-dc-topo/DC-LEAF5/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:02:f0/' clab-evpn-dc-topo/DC-LEAF6/flash/system_mac_address
-sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:02:g0/' clab-evpn-dc-topo/DC-BORDER1/flash/system_mac_address
+sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:03:30/' clab-evpn-dc-topo/DC-BORDER1/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:03:00/' clab-evpn-dc-topo/DC-BORDER2/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:03:10/' clab-evpn-dc-topo/WAN1/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:03:20/' clab-evpn-dc-topo/WAN2/flash/system_mac_address
