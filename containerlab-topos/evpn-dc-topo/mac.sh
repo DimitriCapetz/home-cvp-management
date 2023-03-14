@@ -33,3 +33,4 @@ sudo cp cv-onboarding-token clab-evpn-dc-topo/DC-LEAF5/flash/
 sudo cp cv-onboarding-token clab-evpn-dc-topo/DC-LEAF6/flash/
 sudo cp cv-onboarding-token clab-evpn-dc-topo/DC-BORDER1/flash/
 sudo cp cv-onboarding-token clab-evpn-dc-topo/DC-BORDER2/flash/
+rm cv-onboarding-token
