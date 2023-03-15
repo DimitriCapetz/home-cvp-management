@@ -242,11 +242,6 @@ topology:
     - endpoints: ["DC-SPINE2:eth6", "DC-LEAF6:eth4"]
     - endpoints: ["DC-SPINE2:eth7", "DC-BORDER1:eth4"]
     - endpoints: ["DC-SPINE2:eth8", "DC-BORDER2:eth4"]
-##########################
-# DC-SPINE1 to DC-SPINE2 #
-##########################
-    - endpoints: ["DC-SPINE1:eth9", "DC-SPINE2:eth9"]
-    - endpoints: ["DC-SPINE1:eth10", "DC-SPINE2:eth10"]
 ########################
 # DC-LEAF1 to DC-LEAF2 #
 ########################
