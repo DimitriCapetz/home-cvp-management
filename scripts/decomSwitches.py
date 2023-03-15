@@ -13,6 +13,11 @@ elif topo == "CAMPUS":
         "Campus Pod 2 Leaves", "Campus Pod 3 Splines", "Campus Pod 3 Leaves", 
         "Campus Pod 1", "Campus Pod 2", "Campus Pod 3", "Closets", "Spines", "Campus"
         ]
+elif topo == "EVPN":
+    containerList = [
+        "DC Compute Pod 1", "DC Compute Pod 2", "DC Compute Pod 3", "DC Compute Leaves", 
+        "DC Border Leaves", "DC Leaves", "DC Spines", "DC Data Center"
+        ]
 elif topo == "ENT":
     containerList = [
         "DC1 Compute Pod 1", "DC1 Compute Pod 2", "DC1 Compute Pod 3", "DC1 Compute Leaves", 
@@ -57,10 +62,16 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Connect to CVP and get Device Inventory
-clnt = CvpClient()
-clnt.connect(nodes=['www.cv-staging.corp.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjY2NTg0MiwiZHNuIjoiZGNhcGV0eiIsImRzdCI6ImFjY291bnQiLCJleHAiOjE2NzM4MTI5MTIsImlhdCI6MTY1NzkxMTcxNSwic2lkIjoiOTVlZGYwOWRjMjMyNjI2YTY1OTEzZWI5MjBiNzRkNjdmNTM2YzFiMThkZmRjYTFmNmY2NmYwM2RiZWRlNWE0MS1DNVF2V3lFZFdBVGM5SW1EWjJnOTRjMS03LWFFdC12eklhRFJjNnUwIn0.i5Tuw-uU5-0tmnzHlE-GAC1EcGnG7_g4zVLVM8u6d-yceDTf8Jtn5gkAKTd37u1uAbqa29A-8-v6FWcOC0fnIg')
-devices = clnt.api.get_inventory()
-devicesToDecom = []
+if topo == "EVPN":
+    clnt = CvpClient()
+    clnt.connect(nodes=['www.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjEzNzI3LCJkc24iOiJBbnNpYmxlIFNlcnZpY2UgQWNjb3VudCAtIERpbWl0cmkiLCJkc3QiOiJhY2NvdW50IiwiZXhwIjoxNjk2MDg2Nzk0LCJpYXQiOjE2Nzg4MDY3OTgsIm9naSI6MTAxNjEsIm9nbiI6ImFyaXN0YS1zZS1jZW50cmFsZGVtbyIsInNpZCI6IjUwYzBiMDcxNThiMmNiMDMxNGQ2M2ExOTk0OWQyNzRhMzRlODA0YzNkMTQ1MjQ1NTkzNmRhZTNhOGMxYzUwMDMtZzBpVVUyXzdjMG9TeGFHR1dfTkFsdkstamVCUjZSMm1PdWZHU2p2OSJ9.rqK-WKdd3GH4PYIEUzNS6ofrUSuX6mBeQh77i4a8ujEdCfc22ceL03j8voC8ymWymqiQXJ7MFDf_nl4scD6rvQ')
+    devices = clnt.api.get_inventory()
+    devicesToDecom = []
+else:
+    clnt = CvpClient()
+    clnt.connect(nodes=['www.cv-staging.corp.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjY2NTg0MiwiZHNuIjoiZGNhcGV0eiIsImRzdCI6ImFjY291bnQiLCJleHAiOjE2NzM4MTI5MTIsImlhdCI6MTY1NzkxMTcxNSwic2lkIjoiOTVlZGYwOWRjMjMyNjI2YTY1OTEzZWI5MjBiNzRkNjdmNTM2YzFiMThkZmRjYTFmNmY2NmYwM2RiZWRlNWE0MS1DNVF2V3lFZFdBVGM5SW1EWjJnOTRjMS03LWFFdC12eklhRFJjNnUwIn0.i5Tuw-uU5-0tmnzHlE-GAC1EcGnG7_g4zVLVM8u6d-yceDTf8Jtn5gkAKTd37u1uAbqa29A-8-v6FWcOC0fnIg')
+    devices = clnt.api.get_inventory()
+    devicesToDecom = []
 
 # Parse out all provisioned devices and remove from Provisioning Inventory
 if devices:
