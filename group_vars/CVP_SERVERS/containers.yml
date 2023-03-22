@@ -243,8 +243,8 @@ CVP_CONTAINERS:
   DC Data Center:
     parentContainerName: Arista Central SE
     configlets:
-      - dcapetz - lab_DC-SWITCH-DEFAULTS
-      - dcapetz - lab_DC-SWITCH-AAA
+      - dcapetz - lab_EVPN-DC-SWITCH-DEFAULTS
+      - dcapetz - lab_EVPN-DC-SWITCH-AAA
   DC Spines:
     parentContainerName: DC Data Center
   DC Leaves:
