@@ -18,6 +18,11 @@ elif topo == "EVPN":
         "DC Compute Pod 1", "DC Compute Pod 2", "DC Compute Pod 3", "DC Compute Leaves", 
         "DC Border Leaves", "DC Leaves", "DC Spines", "DC Data Center"
         ]
+elif topo == "AVD":
+    containerList = [
+        "DC_COMPUTE_POD1", "DC_COMPUTE_POD2", "DC_COMPUTE_LEAVES", 
+        "DC_BORDER_LEAVES", "DC_LEAVES", "DC_SPINES", "DC_FABRIC"
+        ]
 elif topo == "ENT":
     containerList = [
         "DC1 Compute Pod 1", "DC1 Compute Pod 2", "DC1 Compute Pod 3", "DC1 Compute Leaves", 
@@ -62,7 +67,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Connect to CVP and get Device Inventory
-if topo == "EVPN":
+if topo == "EVPN" or "AVD":
     clnt = CvpClient()
     clnt.connect(nodes=['www.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjEzNzI3LCJkc24iOiJBbnNpYmxlIFNlcnZpY2UgQWNjb3VudCAtIERpbWl0cmkiLCJkc3QiOiJhY2NvdW50IiwiZXhwIjoxNjk2MDg2Nzk0LCJpYXQiOjE2Nzg4MDY3OTgsIm9naSI6MTAxNjEsIm9nbiI6ImFyaXN0YS1zZS1jZW50cmFsZGVtbyIsInNpZCI6IjUwYzBiMDcxNThiMmNiMDMxNGQ2M2ExOTk0OWQyNzRhMzRlODA0YzNkMTQ1MjQ1NTkzNmRhZTNhOGMxYzUwMDMtZzBpVVUyXzdjMG9TeGFHR1dfTkFsdkstamVCUjZSMm1PdWZHU2p2OSJ9.rqK-WKdd3GH4PYIEUzNS6ofrUSuX6mBeQh77i4a8ujEdCfc22ceL03j8voC8ymWymqiQXJ7MFDf_nl4scD6rvQ')
     devices = clnt.api.get_inventory()
