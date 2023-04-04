@@ -224,7 +224,7 @@ CVP_CONTAINERS:
 # Dual Small Office Topology - For use with Studios #
 #####################################################
 #  Offices:
-#    parentContainerName: Arista Central SE
+#    parentContainerName: Tenant
 #  Office 1:
 #    parentContainerName: Offices
 #  Office 2:
@@ -241,7 +241,7 @@ CVP_CONTAINERS:
 # Single DC L2LS Topology #
 ###########################
   DC Data Center:
-    parentContainerName: Arista Central SE
+    parentContainerName: Tenant
     configlets:
       - dcapetz - lab_EVPN-DC-SWITCH-DEFAULTS
       - dcapetz - lab_EVPN-DC-SWITCH-AAA
