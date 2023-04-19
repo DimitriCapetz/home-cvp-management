@@ -608,22 +608,22 @@ CVP_DEVICES:
       - dcapetz - lab_DC1-BORDER2-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-B
   - fqdn: DC1-LEAF1
-    parentContainerName: DC1 Compute Pod 1
+    parentContainerName: DC1 Leaf Domain 1
     configlets:
       - dcapetz - lab_DC1-LEAF1-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-A
   - fqdn: DC1-LEAF2
-    parentContainerName: DC1 Compute Pod 1
+    parentContainerName: DC1 Leaf Domain 1
     configlets:
       - dcapetz - lab_DC1-LEAF2-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-B
   - fqdn: DC1-LEAF3
-    parentContainerName: DC1 Compute Pod 2
+    parentContainerName: DC1 Leaf Domain 2
     configlets:
       - dcapetz - lab_DC1-LEAF3-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-A
   - fqdn: DC1-LEAF4
-    parentContainerName: DC1 Compute Pod 2
+    parentContainerName: DC1 Leaf Domain 2
     configlets:
       - dcapetz - lab_DC1-LEAF4-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-B
