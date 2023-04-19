@@ -466,7 +466,7 @@ topology:
     - endpoints: ["DC1-HOST1:eth1", "DC1-LEAF1:eth1"]
     - endpoints: ["DC1-HOST1:eth2", "DC1-LEAF2:eth1"]
     - endpoints: ["DC1-HOST2:eth1", "DC1-LEAF3:eth1"]
-    - endpoints: ["DC2-HOST2:eth2", "DC2-LEAF4:eth1"]
+    - endpoints: ["DC1-HOST2:eth2", "DC1-LEAF4:eth1"]
 ######################
 # DC2 SPINE1 to LEAF #
 ######################
