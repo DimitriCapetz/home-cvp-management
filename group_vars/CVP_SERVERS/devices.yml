@@ -593,37 +593,45 @@ CVP_DEVICES:
     parentContainerName: DC1 Spines
     configlets:
       - dcapetz - lab_DC1-SPINE1-MGMT
+      - dcapetz - lab_DC1-SPINE1-L3
   - fqdn: DC1-SPINE2
     parentContainerName: DC1 Spines
     configlets:
       - dcapetz - lab_DC1-SPINE2-MGMT
+      - dcapetz - lab_DC1-SPINE1-L3
   - fqdn: DC1-BORDER1
     parentContainerName: DC1 Border Leaves
     configlets:
       - dcapetz - lab_DC1-BORDER1-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-A
+      - dcapetz - lab_DC1-BORDER1-L3
   - fqdn: DC1-BORDER2
     parentContainerName: DC1 Border Leaves
     configlets:
       - dcapetz - lab_DC1-BORDER2-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-B
+      - dcapetz - lab_DC1-BORDER2-L3
   - fqdn: DC1-LEAF1
     parentContainerName: DC1 Leaf Domain 1
     configlets:
       - dcapetz - lab_DC1-LEAF1-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-A
+      - dcapetz - lab_DC1-LEAF1-L3
   - fqdn: DC1-LEAF2
     parentContainerName: DC1 Leaf Domain 1
     configlets:
       - dcapetz - lab_DC1-LEAF2-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-B
+      - dcapetz - lab_DC1-LEAF2-L3
   - fqdn: DC1-LEAF3
     parentContainerName: DC1 Leaf Domain 2
     configlets:
       - dcapetz - lab_DC1-LEAF3-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-A
+      - dcapetz - lab_DC1-LEAF3-L3
   - fqdn: DC1-LEAF4
     parentContainerName: DC1 Leaf Domain 2
     configlets:
       - dcapetz - lab_DC1-LEAF4-MGMT
       - dcapetz - lab_DC1-MLAG-SIDE-B
+      - dcapetz - lab_DC1-LEAF4-L3

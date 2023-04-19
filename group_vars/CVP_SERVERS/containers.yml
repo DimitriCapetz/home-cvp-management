@@ -268,11 +268,11 @@ CVP_CONTAINERS:
       - dcapetz - lab_DC1-SWITCH-DEFAULTS
       - dcapetz - lab_DC1-SWITCH-AAA
   DC1 Spines:
-    parentContainerName: DC1 Data Center
+    parentContainerName: DC1
     configlets:
       - dcapetz - lab_DC1-SPINE-SHARED-L3
   DC1 Leaves:
-    parentContainerName: DC1 Data Center
+    parentContainerName: DC1
     configlets:
       - dcapetz - lab_DC1-CORP-SERVICES
   DC1 Border Leaves:

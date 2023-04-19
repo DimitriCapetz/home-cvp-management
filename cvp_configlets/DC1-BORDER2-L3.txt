@@ -1,7 +1,7 @@
 interface Ethernet1
    description L3 Connection to WAN2
    no switchport
-   vrf TENANT
+   vrf CORP
    ip address 11.11.11.6/30
    sflow enable
 !

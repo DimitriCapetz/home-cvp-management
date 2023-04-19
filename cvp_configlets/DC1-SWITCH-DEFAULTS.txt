@@ -46,7 +46,7 @@ ntp server vrf management 0.pool.ntp.org iburst
 !
 spanning-tree mode mstp
 !
-clock timezone US/CST6CDT
+clock timezone CST6CDT
 !
 mac address-table aging-time 1200
 !

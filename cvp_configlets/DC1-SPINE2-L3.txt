@@ -1,0 +1,42 @@
+interface Ethernet1/1
+   description L3 Connection to DC1-LEAF1
+   no switchport
+   ip address 10.1.0.2/31
+   sflow enable
+!
+interface Ethernet2/1
+   description L3 Connection to DC1-LEAF2
+   no switchport
+   ip address 10.1.0.6/31
+   sflow enable
+!
+interface Ethernet3/1
+   description L3 Connection to DC1-LEAF3
+   no switchport
+   ip address 10.1.0.10/31
+   sflow enable
+!
+interface Ethernet4/1
+   description L3 Connection to DC1-LEAF4
+   no switchport
+   ip address 10.1.0.14/31
+   sflow enable
+!
+interface Ethernet7/1
+   description L3 Connection to DC1-BORDER1
+   no switchport
+   ip address 10.1.0.18/31
+   sflow enable
+!
+interface Ethernet8/1
+   description L3 Connection to DC1-BORDER2
+   no switchport
+   ip address 10.1.0.22/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.1.100.2/32
+!
+router general
+   router-id ipv4 10.1.100.2

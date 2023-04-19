@@ -27,6 +27,7 @@
         configlet_directory: 'cvp_configlets'
         file_extension: 'txt'
         configlets_cvp_prefix: 'dcapetz - lab'
+        configlets_notes: ''
         execute_tasks: false
         cv_collection: v3
 
