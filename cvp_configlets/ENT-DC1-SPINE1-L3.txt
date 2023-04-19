@@ -1,0 +1,60 @@
+interface Ethernet1/1
+   description L3 Connection to ENT-DC1-LEAF1
+   no switchport
+   ip address 10.0.11.0/31
+   sflow enable
+!
+interface Ethernet2/1
+   description L3 Connection to ENT-DC1-LEAF2
+   no switchport
+   ip address 10.0.11.2/31
+   sflow enable
+!
+interface Ethernet3/1
+   description L3 Connection to ENT-DC1-LEAF3
+   no switchport
+   ip address 10.0.11.4/31
+   sflow enable
+!
+interface Ethernet4/1
+   description L3 Connection to ENT-DC1-LEAF4
+   no switchport
+   ip address 10.0.11.6/31
+   sflow enable
+!
+interface Ethernet5/1
+   description L3 Connection to ENT-DC1-LEAF5
+   no switchport
+   ip address 10.0.11.8/31
+   sflow enable
+!
+interface Ethernet6/1
+   description L3 Connection to ENT-DC1-LEAF6
+   no switchport
+   ip address 10.0.11.10/31
+   sflow enable
+!
+interface Ethernet7/1
+   description L3 Connection to ENT-DC1-BORDER1
+   no switchport
+   ip address 10.0.11.252/31
+   sflow enable
+!
+interface Ethernet8/1
+   description L3 Connection to ENT-DC1-BORDER2
+   no switchport
+   ip address 10.0.11.254/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.1.1.1/32
+!
+ip route 10.0.11.0/24 null0
+!
+router bgp 65100
+   bgp listen range 10.0.11.0/24 peer-group LEAVES-IPv4 peer-filter LEAVES
+   network 10.0.11.0/24
+!
+router general
+   router-id ipv4 10.1.1.1

@@ -1,0 +1,37 @@
+interface Ethernet1
+   description L3 Connection to WAN2
+   no switchport
+   vrf TENANT
+   ip address 11.11.11.6/30
+   sflow enable
+!
+interface Ethernet49/1
+   description L3 Connection to DC1-SPINE1
+   no switchport
+   ip address 10.1.0.21/31
+   sflow enable
+!
+interface Ethernet50/1
+   description L3 Connection to DC1-SPINE2
+   no switchport
+   ip address 10.1.0.23/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.1.101.17/32
+!
+router bgp 65116
+   neighbor 10.1.0.20 peer group SPINES-IPv4
+   neighbor 10.1.0.22 peer group SPINES-IPv4
+   neighbor 10.255.255.254 peer group LEAF-PEER
+   !
+   vrf CORP
+      neighbor 11.11.11.5 peer group WAN
+      neighbor 11.11.11.5 remote-as 22222
+      !
+      address-family ipv4
+         neighbor WAN activate
+!
+router general
+   router-id ipv4 10.1.101.17

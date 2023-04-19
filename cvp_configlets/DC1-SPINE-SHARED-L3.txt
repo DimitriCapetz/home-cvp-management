@@ -1,0 +1,24 @@
+peer-filter DC1-LEAVES
+   10 match as-range 65101-65199 result accept
+!
+router bgp 65001
+   maximum-paths 2
+   no bgp default ipv4-unicast
+   bgp listen range 10.1.0.0/20 peer-group LEAVES-IPv4 peer-filter DC1-LEAVES
+   bgp listen range 10.1.101.0/24 peer-group LEAVES-EVPN peer-filter DC1-LEAVES
+   neighbor LEAVES-IPv4 peer group
+   neighbor LEAVES-IPv4 send-community standard extended
+   neighbor LEAVES-IPv4 maximum-routes 100000 warning-only
+   neighbor LEAVES-EVPN peer group
+   neighbor LEAVES-EVPN update-source Loopback0
+   neighbor LEAVES-EVPN ebgp-multihop 3
+   neighbor LEAVES-EVPN send-community standard extended
+   neighbor LEAVES-EVPN maximum-routes 100000 warning-only
+   redistribute connected route-map DC1-ROUTES
+   !
+   address-family evpn
+      bgp next-hop-unchanged
+      neighbor LEAVES-EVPN activate
+   !
+   address-family ipv4
+      neighbor LEAVES-IPv4 activate

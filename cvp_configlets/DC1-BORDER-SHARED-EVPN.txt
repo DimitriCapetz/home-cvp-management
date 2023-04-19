@@ -1,0 +1,16 @@
+router bgp 65116
+   !
+   vlan 10
+      rd auto
+      route-target both 10:10
+      redistribute learned
+   !
+   vlan 20
+      rd auto
+      route-target both 20:20
+      redistribute learned
+   !
+   vrf CORP
+      route-target import evpn 5001:5001
+      route-target export evpn 5001:5001
+      redistribute connected

@@ -1,0 +1,8 @@
+interface Port-Channel101
+   description VLAN 20 to DC1-HOST2
+   switchport access vlan 20
+   mlag 101
+!
+interface Ethernet1
+   description Po101 to DC1-HOST2
+   channel-group 101 mode active

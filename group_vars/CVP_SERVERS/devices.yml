@@ -546,43 +546,84 @@ CVP_DEVICES:
 ###########################
 # Single DC L3LS Topology #
 ###########################
-  - fqdn: DC-SPINE1
-    parentContainerName: DC Spines
+#  - fqdn: DC-SPINE1
+#    parentContainerName: DC Spines
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-SPINE1-MGMT
+#  - fqdn: DC-SPINE2
+#    parentContainerName: DC Spines
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-SPINE2-MGMT
+#  - fqdn: DC-BORDER1
+#    parentContainerName: DC Border Leaves
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-BORDER1-MGMT
+#  - fqdn: DC-BORDER2
+#    parentContainerName: DC Border Leaves
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-BORDER2-MGMT
+#  - fqdn: DC-LEAF1
+#    parentContainerName: DC Compute Pod 1
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-LEAF1-MGMT
+#  - fqdn: DC-LEAF2
+#    parentContainerName: DC Compute Pod 1
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-LEAF2-MGMT
+#  - fqdn: DC-LEAF3
+#    parentContainerName: DC Compute Pod 2
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-LEAF3-MGMT
+#  - fqdn: DC-LEAF4
+#    parentContainerName: DC Compute Pod 2
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-LEAF4-MGMT
+#  - fqdn: DC-LEAF5
+#    parentContainerName: DC Compute Pod 3
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-LEAF5-MGMT
+#  - fqdn: DC-LEAF6
+#    parentContainerName: DC Compute Pod 3
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-LEAF6-MGMT
+###############################
+# Tri-Config DC L3LS Topology #
+###############################
+  - fqdn: DC1-SPINE1
+    parentContainerName: DC1 Spines
     configlets:
-      - dcapetz - lab_EVPN-DC-SPINE1-MGMT
-  - fqdn: DC-SPINE2
-    parentContainerName: DC Spines
+      - dcapetz - lab_DC1-SPINE1-MGMT
+  - fqdn: DC1-SPINE2
+    parentContainerName: DC1 Spines
     configlets:
-      - dcapetz - lab_EVPN-DC-SPINE2-MGMT
-  - fqdn: DC-BORDER1
-    parentContainerName: DC Border Leaves
+      - dcapetz - lab_DC1-SPINE2-MGMT
+  - fqdn: DC1-BORDER1
+    parentContainerName: DC1 Border Leaves
     configlets:
-      - dcapetz - lab_EVPN-DC-BORDER1-MGMT
-  - fqdn: DC-BORDER2
-    parentContainerName: DC Border Leaves
+      - dcapetz - lab_DC1-BORDER1-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-A
+  - fqdn: DC1-BORDER2
+    parentContainerName: DC1 Border Leaves
     configlets:
-      - dcapetz - lab_EVPN-DC-BORDER2-MGMT
-  - fqdn: DC-LEAF1
-    parentContainerName: DC Compute Pod 1
+      - dcapetz - lab_DC1-BORDER2-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-B
+  - fqdn: DC1-LEAF1
+    parentContainerName: DC1 Compute Pod 1
     configlets:
-      - dcapetz - lab_EVPN-DC-LEAF1-MGMT
-  - fqdn: DC-LEAF2
-    parentContainerName: DC Compute Pod 1
+      - dcapetz - lab_DC1-LEAF1-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-A
+  - fqdn: DC1-LEAF2
+    parentContainerName: DC1 Compute Pod 1
     configlets:
-      - dcapetz - lab_EVPN-DC-LEAF2-MGMT
-  - fqdn: DC-LEAF3
-    parentContainerName: DC Compute Pod 2
+      - dcapetz - lab_DC1-LEAF2-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-B
+  - fqdn: DC1-LEAF3
+    parentContainerName: DC1 Compute Pod 2
     configlets:
-      - dcapetz - lab_EVPN-DC-LEAF3-MGMT
-  - fqdn: DC-LEAF4
-    parentContainerName: DC Compute Pod 2
+      - dcapetz - lab_DC1-LEAF3-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-A
+  - fqdn: DC1-LEAF4
+    parentContainerName: DC1 Compute Pod 2
     configlets:
-      - dcapetz - lab_EVPN-DC-LEAF4-MGMT
-  - fqdn: DC-LEAF5
-    parentContainerName: DC Compute Pod 3
-    configlets:
-      - dcapetz - lab_EVPN-DC-LEAF5-MGMT
-  - fqdn: DC-LEAF6
-    parentContainerName: DC Compute Pod 3
-    configlets:
-      - dcapetz - lab_EVPN-DC-LEAF6-MGMT
+      - dcapetz - lab_DC1-LEAF4-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-B

@@ -240,22 +240,55 @@ CVP_CONTAINERS:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-  DC Data Center:
-    parentContainerName: Tenant
+#  DC Data Center:
+#    parentContainerName: Tenant
+#    configlets:
+#      - dcapetz - lab_EVPN-DC-SWITCH-DEFAULTS
+#      - dcapetz - lab_EVPN-DC-SWITCH-AAA
+#  DC Spines:
+#    parentContainerName: DC Data Center
+#  DC Leaves:
+#    parentContainerName: DC Data Center
+#  DC Border Leaves:
+#    parentContainerName: DC Leaves
+#  DC Compute Leaves:
+#    parentContainerName: DC Leaves
+#  DC Compute Pod 1:
+#    parentContainerName: DC Compute Leaves
+#  DC Compute Pod 2:
+#    parentContainerName: DC Compute Leaves
+#  DC Compute Pod 3:
+#    parentContainerName: DC Compute Leaves
+###############################
+# Tri-Config DC L3LS Topology #
+###############################
+  DC1:
+    parentContainerName: dcapetz
     configlets:
-      - dcapetz - lab_EVPN-DC-SWITCH-DEFAULTS
-      - dcapetz - lab_EVPN-DC-SWITCH-AAA
-  DC Spines:
-    parentContainerName: DC Data Center
-  DC Leaves:
-    parentContainerName: DC Data Center
-  DC Border Leaves:
-    parentContainerName: DC Leaves
-  DC Compute Leaves:
-    parentContainerName: DC Leaves
-  DC Compute Pod 1:
-    parentContainerName: DC Compute Leaves
-  DC Compute Pod 2:
-    parentContainerName: DC Compute Leaves
-  DC Compute Pod 3:
-    parentContainerName: DC Compute Leaves
+      - dcapetz - lab_DC1-SWITCH-DEFAULTS
+      - dcapetz - lab_DC1-SWITCH-AAA
+  DC1 Spines:
+    parentContainerName: DC1 Data Center
+    configlets:
+      - dcapetz - lab_DC1-SPINE-SHARED-L3
+  DC1 Leaves:
+    parentContainerName: DC1 Data Center
+    configlets:
+      - dcapetz - lab_DC1-CORP-SERVICES
+  DC1 Border Leaves:
+    parentContainerName: DC1 Leaves
+    configlets:
+      - dcapetz - lab_DC1-BORDER-SHARED-L3
+      - dcapetz - lab_DC1-BORDER-SHARED-EVPN
+  DC1 Leaf Domain 1:
+    parentContainerName: DC1 Leaves
+    configlets:
+      - dcapetz - lab_DC1-LEAF-DOMAIN-1-SHARED-L3
+      - dcapetz - lab_DC1-LEAF-DOMAIN-1-SHARED-EVPN
+      - dcapetz - lab_DC1-LEAF-DOMAIN-1-SHARED-INTERFACES
+  DC1 Leaf Domain 2:
+    parentContainerName: DC1 Leaves
+    configlets:
+      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-L3
+      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-EVPN
+      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-INTERFACES

@@ -15,7 +15,7 @@
     # Gathering CVP Facts
     - name: "Refreshing facts from CVP {{ inventory_hostname }}"
       tags: [facts]
-      cv_facts:
+      cv_facts_v3:
       register: cvp_facts
 
     # Upload configlets from a directory

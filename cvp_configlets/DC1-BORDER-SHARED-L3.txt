@@ -1,0 +1,41 @@
+interface Loopback1
+   description VTEP
+   ip address 10.1.111.16/32
+!
+interface Vxlan1
+   vxlan source-interface Loopback1
+   vxlan virtual-router encapsulation mac-address mlag-system-id
+   vxlan udp-port 4789
+!
+router bgp 65116
+   maximum-paths 2
+   no bgp default ipv4-unicast
+   rd auto
+   neighbor LEAF-PEER peer group
+   neighbor LEAF-PEER remote-as 65116
+   neighbor LEAF-PEER next-hop-self
+   neighbor LEAF-PEER maximum-routes 100000 warning-only
+   neighbor SPINES-IPv4 peer group
+   neighbor SPINES-IPv4 remote-as 65001
+   neighbor SPINES-IPv4 send-community standard extended
+   neighbor SPINES-IPv4 maximum-routes 100000 warning-only
+   neighbor SPINES-EVPN peer group
+   neighbor SPINES-EVPN remote-as 65001
+   neighbor SPINES-EVPN update-source Loopback0
+   neighbor SPINES-EVPN ebgp-multihop 3
+   neighbor SPINES-EVPN send-community standard extended
+   neighbor SPINES-EVPN maximum-routes 100000 warning-only
+   neighbor WAN peer group
+   neighbor WAN send-community standard extended
+   neighbor WAN route-map WAN-OUT out
+   neighbor WAN maximum-routes 100000 warning-only
+   neighbor 10.1.100.1 peer group SPINES-EVPN
+   neighbor 10.1.100.2 peer group SPINES-EVPN
+   redistribute connected route-map DC1-ROUTES
+   !
+   address-family evpn
+      neighbor SPINES-EVPN activate
+   !
+   address-family ipv4
+      neighbor LEAF-PEER activate
+      neighbor SPINES-IPv4 activate
