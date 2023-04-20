@@ -18,6 +18,13 @@ elif topo == "EVPN":
         "DC Compute Pod 1", "DC Compute Pod 2", "DC Compute Pod 3", "DC Compute Leaves", 
         "DC Border Leaves", "DC Leaves", "DC Spines", "DC Data Center"
         ]
+elif topo == "TRI":
+    containerList = [
+        "DC3_LEAF_DOMAIN_1", "DC3_LEAF_DOMAIN_2",
+        "DC3_BORDER_LEAVES", "DC3_LEAVES", "DC3_SPINES", "DC3_FABRIC", "DC3",
+        "DC1 Border Leaves", "DC1 Leaf Domain 1", "DC1 Leaf Domain 2", "DC1 Spines",
+        "DC1 Leaves", "DC1"
+        ]
 elif topo == "AVD":
     containerList = [
         "DC_COMPUTE_POD1", "DC_COMPUTE_POD2", "DC_COMPUTE_LEAVES", 
@@ -67,16 +74,10 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Connect to CVP and get Device Inventory
-if topo == "EVPN" or "AVD":
-    clnt = CvpClient()
-    clnt.connect(nodes=['www.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjEzNzI3LCJkc24iOiJBbnNpYmxlIFNlcnZpY2UgQWNjb3VudCAtIERpbWl0cmkiLCJkc3QiOiJhY2NvdW50IiwiZXhwIjoxNjk2MDg2Nzk0LCJpYXQiOjE2Nzg4MDY3OTgsIm9naSI6MTAxNjEsIm9nbiI6ImFyaXN0YS1zZS1jZW50cmFsZGVtbyIsInNpZCI6IjUwYzBiMDcxNThiMmNiMDMxNGQ2M2ExOTk0OWQyNzRhMzRlODA0YzNkMTQ1MjQ1NTkzNmRhZTNhOGMxYzUwMDMtZzBpVVUyXzdjMG9TeGFHR1dfTkFsdkstamVCUjZSMm1PdWZHU2p2OSJ9.rqK-WKdd3GH4PYIEUzNS6ofrUSuX6mBeQh77i4a8ujEdCfc22ceL03j8voC8ymWymqiQXJ7MFDf_nl4scD6rvQ')
-    devices = clnt.api.get_inventory()
-    devicesToDecom = []
-else:
-    clnt = CvpClient()
-    clnt.connect(nodes=['www.cv-staging.corp.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjY2NTg0MiwiZHNuIjoiZGNhcGV0eiIsImRzdCI6ImFjY291bnQiLCJleHAiOjE2NzM4MTI5MTIsImlhdCI6MTY1NzkxMTcxNSwic2lkIjoiOTVlZGYwOWRjMjMyNjI2YTY1OTEzZWI5MjBiNzRkNjdmNTM2YzFiMThkZmRjYTFmNmY2NmYwM2RiZWRlNWE0MS1DNVF2V3lFZFdBVGM5SW1EWjJnOTRjMS03LWFFdC12eklhRFJjNnUwIn0.i5Tuw-uU5-0tmnzHlE-GAC1EcGnG7_g4zVLVM8u6d-yceDTf8Jtn5gkAKTd37u1uAbqa29A-8-v6FWcOC0fnIg')
-    devices = clnt.api.get_inventory()
-    devicesToDecom = []
+clnt = CvpClient()
+clnt.connect(nodes=['www.cv-prod-na-northeast1-b.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjcxMDcwOTA2MjE4ODU1ODc3MzMsImRzbiI6ImRjYXBldHogQW5zaWJsZSBBY2NvdW50IiwiZHN0IjoiYWNjb3VudCIsImV4cCI6MTcwNDA0Nzk3OCwiaWF0IjoxNjgxOTI1OTgyLCJvZ2kiOjcxMDcwOTA2MjE4ODU1ODcyMjksIm9nbiI6Im5vcnRoLWNlbnRyYWwtY2UiLCJzaWQiOiJkYjRjNDZiZDBhZTNkNzZiMWI4ZWU4MWY3MGZjNjE4N2ExNjk2YzQxNGFhNTY0ZmI2MDRjYzNjNmVlZDE4MjlmLXEzMHVKOUNQTDE1TklLSlFoZG5pZ3RuSVRQQ3B6TUo4el9NQ2I2TTAifQ.3KxECy4V5BdXoKasn7euVfIv39nf3m78xfURK8ky2VpNxfPw0W6DWiSt4uIm9GUsqjslOSFSxi095WObSfxleg')
+devices = clnt.api.get_inventory()
+devicesToDecom = []
 
 # Parse out all provisioned devices and remove from Provisioning Inventory
 if devices:
