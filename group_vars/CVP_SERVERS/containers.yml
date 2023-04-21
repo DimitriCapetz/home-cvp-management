@@ -294,4 +294,4 @@ CVP_CONTAINERS:
     configlets:
 #      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-L3
 #      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-EVPN
-      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-INTERFACES
+#      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-INTERFACES
