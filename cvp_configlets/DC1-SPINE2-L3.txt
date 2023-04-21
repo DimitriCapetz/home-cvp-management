@@ -8,7 +8,7 @@ router general
 ! WAN Peering Network
 !
 interface Vlan112
-   description WAN1 Peering Network
+   description WAN2 Peering Network
    vrf CORP
    ip address 11.11.11.6/30
 !
