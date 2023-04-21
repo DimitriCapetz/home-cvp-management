@@ -271,7 +271,7 @@ CVP_CONTAINERS:
   DC1_SPINES:
     parentContainerName: DC1_FABRIC
     configlets:
-      - dcapetz - lab_DC1-WAN-VLANS
+      - dcapetz - lab_DC1-WAN-VLANs
       - dcapetz - lab_DC1-SPINE-DOWNLINKS
       - dcapetz - lab_DC1-SPINE-SHARED-L3
   DC1_LEAVES:
@@ -281,7 +281,7 @@ CVP_CONTAINERS:
   DC1_BORDER_LEAVES:
     parentContainerName: DC1_LEAVES
     configlets:
-      - dcapetz - lab_DC1-WAN-VLANS
+      - dcapetz - lab_DC1-WAN-VLANs
 #      - dcapetz - lab_DC1-BORDER-SHARED-EVPN
   DC1_LEAF_DOMAIN_1:
     parentContainerName: DC1_LEAVES

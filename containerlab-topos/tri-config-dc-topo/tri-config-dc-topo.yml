@@ -544,3 +544,8 @@ topology:
     - endpoints: ["WAN2:eth2", "DC2-BORDER2:eth1"]
     - endpoints: ["WAN1:eth3", "DC3-BORDER1:eth1"]
     - endpoints: ["WAN2:eth3", "DC3-BORDER2:eth1"]
+#################################################
+# DC1 SPINE Peer Links - FOR USE WITH L2LS ONLY #
+#################################################
+    - endpoints: ["DC1-SPINE1:eth9", "DC1-SPINE2:eth9"]
+    - endpoints: ["DC1-SPINE1:eth10", "DC1-SPINE2:eth10"]
