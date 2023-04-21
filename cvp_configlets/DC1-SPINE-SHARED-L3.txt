@@ -1,0 +1,38 @@
+ip virtual-router mac-address 00:1c:73:00:00:99
+!
+router bgp 65001
+   maximum-paths 2
+   no bgp default ipv4-unicast
+   rd auto
+   neighbor WAN peer group
+   neighbor WAN send-community standard extended
+   neighbor WAN route-map WAN-OUT out
+   neighbor WAN maximum-routes 100000 warning-only
+   redistribute connected route-map DC1-ROUTES
+   !
+   address-family evpn
+      bgp next-hop-unchanged
+      neighbor LEAVES-EVPN activate
+   !
+   address-family ipv4
+      neighbor LEAVES-IPv4 activate
+!
+! CORP VRF Definition
+!
+vrf instance CORP
+!
+ip routing vrf CORP
+!
+! CORP VLAN Interfaces
+!
+interface Vlan10
+   description CORP_GLOBAL
+   mtu 9000
+   vrf CORP
+   ip virtual-router address 10.10.10.1
+!
+interface Vlan20
+   description CORP_DC1
+   mtu 9000
+   vrf CORP
+   ip virtual-router address 10.20.20.1

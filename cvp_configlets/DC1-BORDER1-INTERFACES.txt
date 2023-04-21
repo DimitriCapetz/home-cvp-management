@@ -1,0 +1,3 @@
+interface Ethernet1
+   description Uplink to WAN1
+   switchport access vlan 111

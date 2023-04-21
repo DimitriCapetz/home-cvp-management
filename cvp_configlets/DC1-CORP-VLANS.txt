@@ -1,0 +1,10 @@
+!
+! VLAN 10 for Extended DC Services
+!
+vlan 10
+   name CORP_GLOBAL
+!
+! VLAN 20 for DC1 Local Services
+!
+vlan 20
+   name CORP_DC1

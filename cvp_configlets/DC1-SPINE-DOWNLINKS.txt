@@ -1,0 +1,38 @@
+interface Port-Channel1
+   description MLAG Downlink to Leaf Domain 1
+   switchport mode trunk
+   mlag 1
+!
+interface Port-Channel2
+   description MLAG Downlink to Leaf Domain 2
+   switchport mode trunk
+   mlag 2
+!
+interface Port-Channel3
+   description MLAG Downlink to Border Leaves
+   switchport mode trunk
+   mlag 3
+!
+interface Ethernet1/1
+   description Po1 to DC1-LEAF1
+   channel-group 1 mode active
+!
+interface Ethernet2/1
+   description Po1 to DC1-LEAF2
+   channel-group 1 mode active
+!
+interface Ethernet3/1
+   description Po2 to DC1-LEAF3
+   channel-group 2 mode active
+!
+interface Ethernet4/1
+   description Po2 to DC1-LEAF4
+   channel-group 2 mode active
+!
+interface Ethernet7/1
+   description Po3 to DC1-BORDER1
+   channel-group 3 mode active
+!
+interface Ethernet8/1
+   description Po3 to DC1-BORDER2
+   channel-group 3 mode active

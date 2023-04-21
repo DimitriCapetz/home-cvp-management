@@ -1,0 +1,5 @@
+vlan 111
+   name WAN1_Peering_Network
+!
+vlan 112
+   name WAN2_Peering_Network
