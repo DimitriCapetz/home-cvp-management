@@ -20,10 +20,10 @@ elif topo == "EVPN":
         ]
 elif topo == "TRI":
     containerList = [
-        "DC3_LEAF_DOMAIN_1", "DC3_LEAF_DOMAIN_2",
-        "DC3_BORDER_LEAVES", "DC3_LEAVES", "DC3_SPINES", "DC3_FABRIC", "DC3",
-        "DC1 Border Leaves", "DC1 Leaf Domain 1", "DC1 Leaf Domain 2", "DC1 Spines",
-        "DC1 Leaves", "DC1"
+        "DC2_FABRIC","DC3_LEAF_DOMAIN_1", "DC3_LEAF_DOMAIN_2",
+        "DC3_BORDER_LEAFS", "DC3_LEAVES", "DC3_SPINES", "DC3_FABRIC",
+        "DC1_LEAF_DOMAIN_1", "DC1_LEAF_DOMAIN_2",
+        "DC1_BORDER_LEAVES", "DC1_LEAVES", "DC1_SPINES", "DC1_FABRIC"
         ]
 elif topo == "AVD":
     containerList = [
