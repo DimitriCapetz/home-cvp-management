@@ -39,6 +39,7 @@ peer-filter DC1-LEAVES
 !
 router bgp 65200
    maximum-paths 4
+   distance bgp 20 200 200
    no bgp default ipv4-unicast
    timers bgp 5 15
    bgp listen range 10.0.12.0/24 peer-group LEAVES-IPv4 peer-filter LEAVES

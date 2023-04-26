@@ -25,6 +25,7 @@ interface Loopback99
 !
 router bgp 65101
    maximum-paths 4
+   distance bgp 20 200 200
    no bgp default ipv4-unicast
    timers bgp 5 15
    rd auto
