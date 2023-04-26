@@ -34,26 +34,22 @@ interface Loopback0
 !
 ip route 10.0.11.0/24 null0
 !
-ip prefix-list LOOPBACKS seq 100 permit 10.1.1.0/24 eq 32
-ip prefix-list LOOPBACKS seq 100 permit 10.1.2.0/24 eq 32
-!
-route-map LOOPBACKS permit 100
-   match ip address prefix-list LOOPBACKS
-!
 peer-filter DC1-LEAVES
    10 match as-range 65101-65199 result accept
 !
 router bgp 65100
-   maximum-paths 2
+   maximum-paths 4
    no bgp default ipv4-unicast
    bgp listen range 10.0.11.0/24 peer-group LEAVES-IPv4 peer-filter LEAVES
    bgp listen range 10.1.1.0/24 peer-group LEAVES-EVPN peer-filter DC1-LEAVES
    neighbor LEAVES-IPv4 peer group
    neighbor LEAVES-IPv4 send-community standard extended
+   neighbor LEAVES-IPv4 maximum-routes 100000 warning-only
    neighbor LEAVES-EVPN peer group
    neighbor LEAVES-EVPN update-source Loopback0
    neighbor LEAVES-EVPN ebgp-multihop 3
    neighbor LEAVES-EVPN send-community standard extended
+   neighbor LEAVES-EVPN maximum-routes 100000 warning-only
    redistribute connected route-map LOOPBACKS
    network 10.0.11.0/24
    !

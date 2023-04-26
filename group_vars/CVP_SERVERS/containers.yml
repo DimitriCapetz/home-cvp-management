@@ -307,10 +307,15 @@ CVP_CONTAINERS:
     parentContainerName: DCI Simulation
   DCI DC1 Border:
     parentContainerName: DCI DC1
+    configlets:
+      - dcapetz - lab_DCI-DC1-DCI-SHARED
+      - dcapetz - lab_DCI-DC1-FABRIC-SHARED
   DCI DC1 Legacy:
     parentContainerName: DCI DC1
   DCI DC1 Fabric:
     parentContainerName: DCI DC1
+    configlets:
+      - dcapetz - lab_DCI-DC1-FABRIC-SHARED
   DCI DC2:
     parentContainerName: DCI Simulation
   DCI DC2 Border:
@@ -327,5 +332,8 @@ CVP_CONTAINERS:
     parentContainerName: DCI Simulation
   DCI DC3 Border:
     parentContainerName: DCI DC3
+    configlets:
+      - dcapetz - lab_DCI-DC3-DCI-SHARED
+      - dcapetz - lab_DCI-DC1-FABRIC-SHARED
   DCI DC3 Legacy:
     parentContainerName: DCI DC3

@@ -1,0 +1,5 @@
+ip prefix-list LOOPBACKS seq 100 permit 10.1.1.0/24 eq 32
+ip prefix-list LOOPBACKS seq 110 permit 10.1.2.0/24 eq 32
+!
+route-map LOOPBACKS permit 100
+   match ip address prefix-list LOOPBACKS

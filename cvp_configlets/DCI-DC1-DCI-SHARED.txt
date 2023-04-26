@@ -1,0 +1,67 @@
+vlan 4093
+   name CORP_ROUTING
+!
+vrf instance CORP
+!
+ip routing vrf CORP
+!
+interface Loopback1
+   description VTEP
+   ip address 10.1.2.198/32
+!
+interface Vxlan1
+   vxlan virtual-router encapsulation mac-address mlag-system-id
+!
+router bgp 65198
+   maximum-paths 4
+   no bgp default ipv4-unicast
+   rd auto
+   neighbor PEER peer group
+   neighbor PEER remote-as 65198
+   neighbor PEER next-hop-self
+   neighbor PEER send-community standard extended
+   neighbor PEER maximum-routes 100000 warning-only
+   neighbor SPINE-IPv4 peer group
+   neighbor SPINE-IPv4 remote-as 65100
+   neighbor SPINE-IPv4 send-community standard extended
+   neighbor SPINE-IPv4 maximum-routes 100000 warning-only
+   neighbor SPINE-EVPN peer group
+   neighbor SPINE-EVPN remote-as 65100
+   neighbor SPINE-EVPN update-source Loopback0
+   neighbor SPINE-EVPN ebgp-multihop 3
+   neighbor SPINE-EVPN send-community standard extended
+   neighbor SPINE-EVPN maximum-routes 100000 warning-only
+   neighbor 10.1.1.1 peer group SPINE-EVPN
+   redistribute connected route-map LOOPBACKS
+   !
+   vlan 111
+      rd auto
+      route-target both 111:111
+      redistribute learned
+   !
+   vlan 112
+      rd auto
+      route-target both 112:112
+      redistribute learned
+   !
+   vlan 113
+      rd auto
+      route-target both 113:113
+      redistribute learned
+   !
+   vlan 114
+      rd auto
+      route-target both 114:114
+      redistribute learned
+   !
+   address-family evpn
+      neighbor SPINE-EVPN activate
+   !
+   address-family ipv4
+      neighbor PEER activate
+      neighbor SPINE-IPv4 activate
+   !
+   vrf CORP
+      route-target import evpn 5001:5001
+      route-target export evpn 5001:5001
+      redistribute connected

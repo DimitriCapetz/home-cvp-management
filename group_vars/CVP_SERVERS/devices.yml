@@ -641,11 +641,13 @@ CVP_DEVICES:
     configlets:
       - dcapetz - lab_DCI-DC1-DCI1-MGMT
       - dcapetz - lab_DCI-MLAG-SIDE-A
+      - dcapetz - lab_DCI-DC1-DCI1-L3
   - fqdn: DC1-DCI2
     parentContainerName: DCI DC1 Border
     configlets:
       - dcapetz - lab_DCI-DC1-DCI2-MGMT
       - dcapetz - lab_DCI-MLAG-SIDE-B
+      - dcapetz - lab_DCI-DC1-DCI2-L3
   - fqdn: DC2-DCI1
     parentContainerName: DCI DC2 Border A
     configlets:
@@ -671,20 +673,25 @@ CVP_DEVICES:
     configlets:
       - dcapetz - lab_DCI-DC3-DCI1-MGMT
       - dcapetz - lab_DCI-MLAG-SIDE-A
+      - dcapetz - lab_DCI-DC3-DCI1-L3
   - fqdn: DC3-DCI2
     parentContainerName: DCI DC3 Border
     configlets:
       - dcapetz - lab_DCI-DC3-DCI2-MGMT
       - dcapetz - lab_DCI-MLAG-SIDE-B
+      - dcapetz - lab_DCI-DC3-DCI2-L3
 # Fabric Simulation
   - fqdn: DC1-SPINE1
     parentContainerName: DCI DC1 Fabric
     configlets:
       - dcapetz - lab_DCI-DC1-SPINE1-MGMT
+      - dcapetz - lab_DCI-DC1-SPINE1-L3
   - fqdn: DC1-LEAF1
     parentContainerName: DCI DC1 Fabric
     configlets:
       - dcapetz - lab_DCI-DC1-LEAF1-MGMT
+      - dcapetz - lab_DCI-DC1-VLANs
+      - dcapetz - lab_DCI-DC1-LEAF1-L3
   - fqdn: DC2-SPINE1
     parentContainerName: DCI DC2 Fabric
     configlets:

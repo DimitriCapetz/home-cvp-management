@@ -1,0 +1,43 @@
+vlan 111
+   name DC1_VLAN1
+!
+vlan 112
+   name DC1_VLAN2
+!
+vlan 113
+   name DC1_VLAN3
+!
+vlan 114
+   name DC1_VLAN4
+!
+vrf instance CORP
+!
+ip routing vrf CORP
+!
+interface Vlan111
+   vrf CORP
+   ip address virtual 10.111.111.1/24
+!
+interface Vlan112
+   vrf CORP
+   ip address virtual 10.112.112.1/24
+   shutdown
+!
+interface Vlan113
+   vrf CORP
+   ip address virtual 10.113.113.1/24
+   shutdown
+!
+interface Vlan114
+   vrf CORP
+   ip address virtual 10.114.114.1/24
+   shutdown
+!
+interface Vxlan1
+   vxlan source-interface Loopback1
+   vxlan udp-port 4789
+   vxlan vlan 111 vni 111
+   vxlan vlan 112 vni 112
+   vxlan vlan 113 vni 113
+   vxlan vlan 114 vni 114
+   vxlan vrf CORP vni 5001
