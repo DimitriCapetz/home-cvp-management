@@ -47,27 +47,6 @@ elif topo == "RC":
         "Floor 3 Closet 2", "Floor 3 Closet 1", "Floor 2 Closet 2", 
         "Floor 2 Closet 1", "Floor 1 Closet 2", "Floor 1 Closet 1", "Closets", "Rocket Central Campus"
         ]
-elif topo == "PRIME":
-    containerList = [
-        "DC1 Core Routers", "DC2 Core Routers", "DC3 Core Routers", 
-        "DC1 Access Switches", "DC2 Access Switches", "DC3 Access Switches", 
-        "DC3", "DC2", "DC1", "Prime Therapeutics Core"
-        ]
-elif topo == "SU":
-    containerList = [
-        "SU Rack 1", "SU Rack 2", "SU Leaves", 
-        "SU Spines", "SU Data Center"
-        ]
-elif topo == "VALLEY":
-    containerList = [
-        "Ipswitch", "Hosmer", "Mound City", "Glenham", "De Smet",
-        "Leola", "Long Lake", "Pollock", "Volga", "Flandreau",
-        "Eureka", "Herreid", "ILEC Exchanges", "CLEC Exchanges", "VT Transport Network"
-        ]
-elif topo == "SMU":
-    containerList = [
-        "L3 Core", "L2 Aggregation", "SMU Core Network"
-        ]
 
 # Disable Cert Warnings for Test Environment
 import urllib3

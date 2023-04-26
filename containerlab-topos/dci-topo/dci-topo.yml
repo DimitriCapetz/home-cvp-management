@@ -1,0 +1,356 @@
+---
+# -------------------------------------------------------------------
+# Complex DCI Topo (from RC)
+# 2 sites with 4 DCI leaves
+# Connected to Legacy Network Simulated with OSPF
+# -------------------------------------------------------------------
+
+name: dci-topo
+
+mgmt:
+  network: clab_mgmt
+  bridge: br0
+  ipv4_subnet: 10.99.99.0/24
+  ipv4-gw: 10.99.99.1
+
+topology:
+
+  kinds:
+    ceos:
+      image: ceos:4.30.0F
+    linux:
+      image: mitchv85/ohv-host
+
+  nodes: 
+
+###########################################
+# Graphite Node                           #
+# Provides Topology Graphing and the      #
+# ability to connect to nodes in the      #
+# topology via a web/ssh session          #
+###########################################
+
+    graphite:
+      kind: linux
+      image: netreplica/graphite
+      mgmt_ipv4: 10.99.99.87
+      env:
+        GRAPHITE_DEFAULT_TYPE: clab
+        GRAPHITE_DEFAULT_TOPO: dci-topo
+        # CLAB_SSH_CONNECTION: ${SSH_CONNECTION}
+      binds:
+        # - .:/var/www/localhost/htdocs/clab   <----  This is the old path in docker image netreplica/graphite:webssh2
+        - .:/htdocs/clab    # New path required for latest version
+      ports:
+        - 80:80
+      exec:
+        # - sh -c 'generate_offline_graph.sh'   # used to generate offline graphs
+        - sh -c 'graphite_motd.sh 80'
+      labels:
+        graph-hide: yes
+#########################
+# DC1                   #
+#########################
+
+#########################
+# DCI Leaves            #
+#########################
+
+    DC1-DCI1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.193
+      startup-config: ./configs/DC1-DCI1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+    DC1-DCI2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.194
+      startup-config: ./configs/DC1-DCI2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+    DC3-DCI1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.195
+      startup-config: ./configs/DC3-DCI1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    DC3-DCI2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.196
+      startup-config: ./configs/DC3-DCI2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+#########################
+# SPINE Simulation      #
+#########################
+
+    DC1-SPINE1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.197
+      startup-config: ./configs/DC1-SPINE1.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+#########################
+# LEAF Simulation       #
+#########################
+
+    DC1-LEAF1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.198
+      startup-config: ./configs/DC1-LEAF1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+#########################
+# Legacy Core           #
+#########################
+
+    DC1-LEGACY1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.199
+      startup-config: ./configs/DC1-LEGACY1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
+
+    DC1-LEGACY2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.200
+      startup-config: ./configs/DC1-LEGACY2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
+
+    DC3-LEGACY1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.201
+      startup-config: ./configs/DC3-LEGACY1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
+
+    DC3-LEGACY2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.202
+      startup-config: ./configs/DC3-LEGACY2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
+
+#########################
+# DC2                   #
+#########################
+
+#########################
+# DCI Leaves            #
+#########################
+
+    DC2-DCI1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.203
+      startup-config: ./configs/DC2-DCI1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    DC2-DCI2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.204
+      startup-config: ./configs/DC2-DCI2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    DC2-DCI3:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.205
+      startup-config: ./configs/DC2-DCI3.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+    DC2-DCI4:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.206
+      startup-config: ./configs/DC2-DCI4.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+##########################
+# SPINE Simulation       #
+##########################
+
+    DC2-SPINE1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.207
+      startup-config: ./configs/DC2-SPINE1.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+############################
+# LEAF Simulation          #
+############################
+
+    DC2-LEAG1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.208
+      startup-config: ./configs/DC2-LEAG1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+#########################
+# Legacy Core           #
+#########################
+
+    DC2-LEGACY1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.209
+      startup-config: ./configs/DC2-LEGACY1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
+
+    DC2-LEGACY2:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.210
+      startup-config: ./configs/DC2-LEGACY2.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
+
+  links:
+##############################
+# DCI Peer-links             #
+##############################
+    - endpoints: ["DC1-DCI1:eth9", "DC1-DCI2:eth9"]
+    - endpoints: ["DC1-DCI1:eth10", "DC1-DCI2:eth10"]
+    - endpoints: ["DC3-DCI1:eth9", "DC3-DCI2:eth9"]
+    - endpoints: ["DC3-DCI1:eth10", "DC3-DCI2:eth10"]
+    - endpoints: ["DC2-DCI1:eth9", "DC2-DCI2:eth9"]
+    - endpoints: ["DC2-DCI1:eth10", "DC2-DCI2:eth10"]
+    - endpoints: ["DC2-DCI3:eth9", "DC2-DCI4:eth9"]
+    - endpoints: ["DC2-DCI3:eth10", "DC2-DCI4:eth10"]
+##############################
+# Legacy Core Peer-links     #
+##############################
+    - endpoints: ["DC1-LEGACY1:eth9", "DC1-LEGACY2:eth9"]
+    - endpoints: ["DC1-LEGACY1:eth10", "DC1-LEGACY2:eth10"]
+    - endpoints: ["DC3-LEGACY1:eth9", "DC3-LEGACY2:eth9"]
+    - endpoints: ["DC3-LEGACY1:eth10", "DC3-LEGACY2:eth10"]
+    - endpoints: ["DC2-LEGACY1:eth9", "DC2-LEGACY2:eth9"]
+    - endpoints: ["DC2-LEGACY1:eth10", "DC2-LEGACY2:eth10"]
+##############################
+# DCI to Spine Sim           #
+##############################
+    - endpoints: ["DC1-DCI1:eth3", "DC1-SPINE1:eth1"]
+    - endpoints: ["DC1-DCI2:eth3", "DC1-SPINE1:eth2"]
+    - endpoints: ["DC3-DCI1:eth3", "DC1-SPINE1:eth3"]
+    - endpoints: ["DC3-DCI2:eth3", "DC1-SPINE1:eth4"]
+    - endpoints: ["DC2-DCI1:eth3", "DC2-SPINE1:eth1"]
+    - endpoints: ["DC2-DCI2:eth3", "DC2-SPINE1:eth2"]
+    - endpoints: ["DC2-DCI3:eth3", "DC2-SPINE1:eth3"]
+    - endpoints: ["DC2-DCI4:eth3", "DC2-SPINE1:eth4"]
+##############################
+# Leaf Sim to Spine Sim      #
+##############################
+    - endpoints: ["DC1-LEAF1:eth3", "DC1-SPINE1:eth5"]
+    - endpoints: ["DC2-LEAF1:eth3", "DC2-SPINE1:eth5"]
+##############################
+# Legacy DCI Connections     #
+##############################
+    - endpoints: ["DC1-LEGACY1:eth1", "DC2-LEGACY1:eth1"]
+    - endpoints: ["DC1-LEGACY1:eth2", "DC2-LEGACY2:eth1"]
+    - endpoints: ["DC1-LEGACY2:eth1", "DC2-LEGACY1:eth2"]
+    - endpoints: ["DC1-LEGACY2:eth2", "DC2-LEGACY2:eth2"]
+    - endpoints: ["DC1-LEGACY1:eth1", "DC3-LEGACY1:eth1"]
+    - endpoints: ["DC1-LEGACY1:eth2", "DC3-LEGACY2:eth1"]
+    - endpoints: ["DC1-LEGACY2:eth1", "DC3-LEGACY1:eth2"]
+    - endpoints: ["DC1-LEGACY2:eth2", "DC3-LEGACY2:eth2"]
+    - endpoints: ["DC2-LEGACY1:eth11", "DC3-LEGACY1:eth11"]
+    - endpoints: ["DC2-LEGACY1:eth12", "DC3-LEGACY2:eth11"]
+    - endpoints: ["DC2-LEGACY2:eth11", "DC3-LEGACY1:eth12"]
+    - endpoints: ["DC2-LEGACY2:eth12", "DC3-LEGACY2:eth12"]
+##############################
+# New DCI Connections        #
+##############################
+    - endpoints: ["DC1-DCI1:eth7", "DC2-DCI1:eth7"]
+    - endpoints: ["DC1-DCI1:eth8", "DC2-DCI2:eth7"]
+    - endpoints: ["DC1-DCI2:eth7", "DC2-DCI1:eth8"]
+    - endpoints: ["DC1-DCI2:eth8", "DC2-DCI2:eth8"]
+    - endpoints: ["DC3-DCI1:eth7", "DC2-DCI3:eth7"]
+    - endpoints: ["DC3-DCI1:eth8", "DC2-DCI4:eth7"]
+    - endpoints: ["DC3-DCI2:eth7", "DC2-DCI3:eth8"]
+    - endpoints: ["DC3-DCI2:eth8", "DC2-DCI4:eth8"]
+##############################
+# Legacy to New DCI         #
+##############################
+    - endpoints: ["DC1-DCI1:eth5", "DC1-LEGACY1:eth5"]
+    - endpoints: ["DC1-DCI1:eth6", "DC1-LEGACY2:eth5"]
+    - endpoints: ["DC1-DCI2:eth5", "DC1-LEGACY1:eth6"]
+    - endpoints: ["DC1-DCI2:eth6", "DC1-LEGACY2:eth6"]
+    - endpoints: ["DC3-DCI1:eth5", "DC1-LEGACY1:eth7"]
+    - endpoints: ["DC3-DCI1:eth6", "DC1-LEGACY2:eth7"]
+    - endpoints: ["DC3-DCI2:eth5", "DC1-LEGACY1:eth8"]
+    - endpoints: ["DC3-DCI2:eth6", "DC1-LEGACY2:eth8"]
+    - endpoints: ["DC2-DCI1:eth5", "DC2-LEGACY1:eth5"]
+    - endpoints: ["DC2-DCI1:eth6", "DC2-LEGACY2:eth5"]
+    - endpoints: ["DC2-DCI2:eth5", "DC2-LEGACY1:eth6"]
+    - endpoints: ["DC2-DCI2:eth6", "DC2-LEGACY2:eth6"]
+    - endpoints: ["DC2-DCI3:eth5", "DC3-LEGACY1:eth5"]
+    - endpoints: ["DC2-DCI3:eth6", "DC3-LEGACY2:eth5"]
+    - endpoints: ["DC2-DCI4:eth5", "DC3-LEGACY1:eth6"]
+    - endpoints: ["DC2-DCI4:eth6", "DC3-LEGACY2:eth6"]
+    - endpoints: ["DC3-DCI1:eth1", "DC3-LEGACY1:eth7"]
+    - endpoints: ["DC3-DCI1:eth2", "DC3-LEGACY2:eth7"]
+    - endpoints: ["DC3-DCI2:eth1", "DC3-LEGACY1:eth8"]
+    - endpoints: ["DC3-DCI2:eth2", "DC3-LEGACY2:eth8"]

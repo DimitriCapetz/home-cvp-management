@@ -1,0 +1,29 @@
+alias 1min show log last 1 minute
+alias tail bash sudo tail -f /var/log/messages
+!
+event-monitor
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -cvaddr=apiserver.arista.io:443 -cvcompression=gzip -cvvrf=management -taillogs -cvauth=token-secure,/mnt/flash/cv-onboarding-token -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+   no shutdown
+!
+ip domain lookup vrf management source-interface Management1
+ip name-server vrf management 1.1.1.1
+dns domain dime-a-tron.com
+!
+ntp local-interface vrf management Management1
+ntp server vrf management 0.pool.ntp.org iburst
+!
+spanning-tree mode mstp
+!
+clock timezone CST6CDT
+!
+mac address-table aging-time 1200
+!
+ip routing
+!
+arp aging timeout default 900

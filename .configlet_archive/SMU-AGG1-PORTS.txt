@@ -1,6 +1,0 @@
-!
-! Port Config for SMU-AGG1
-!
-interface Ethernet1
-   description SMU-HOST1
-   switchport access vlan 20

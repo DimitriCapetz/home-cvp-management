@@ -1,0 +1,23 @@
+!
+! Base Config for DC1-DCI1
+!
+hostname DC1-DCI1
+!
+vrf instance management
+!
+interface Management1
+   description OOB Management Interface
+   vrf management
+   ip address 10.99.99.193/24
+   no lldp transmit
+   no lldp receive
+!
+ip route vrf management 0.0.0.0/0 10.99.99.1
+!
+ip routing vrf management
+!
+management api http-commands
+   no shutdown
+   !
+   vrf management
+      no shutdown
