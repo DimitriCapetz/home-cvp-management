@@ -334,6 +334,8 @@ CVP_CONTAINERS:
       - dcapetz - lab_DCI-DC2-FABRIC-SHARED
   DCI DC2 Legacy:
     parentContainerName: DCI DC2
+    configlets:
+      - dcapetz - lab_DCI-DC2-LEGACY-SHARED
   DCI DC2 Fabric:
     parentContainerName: DCI DC2
     configlets:
@@ -347,3 +349,5 @@ CVP_CONTAINERS:
       - dcapetz - lab_DCI-DC1-FABRIC-SHARED
   DCI DC3 Legacy:
     parentContainerName: DCI DC3
+    configlets:
+      - dcapetz - lab_DCI-DC3-LEGACY-SHARED

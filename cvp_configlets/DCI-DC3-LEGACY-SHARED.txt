@@ -1,34 +1,34 @@
 no spanning-tree vlan-id 4093
 !
-vlan 112
-   name DC1_VLAN2
+vlan 312
+   name DC3_VLAN2
 !
-vlan 113
-   name DC1_VLAN3
+vlan 313
+   name DC3_VLAN3
 !
-vlan 114
-   name DC1_VLAN4
+vlan 314
+   name DC3_VLAN4
 !
 vlan 4093
    name ROUTING
    trunk group PEER
 !
-interface Vlan112
-   description DC1 VLAN2 - Legacy
-   vrrp 112 peer authentication text VRRP112
-   vrrp 112 ipv4 10.11.2.1
+interface Vlan312
+   description DC3 VLAN2 - Legacy
+   vrrp 32 peer authentication text VRRP32
+   vrrp 32 ipv4 10.31.2.1
    ip ospf area 0.0.0.0
 !
-interface Vlan113
-   description DC1 VLAN3 - Legacy
-   vrrp 113 peer authentication text VRRP113
-   vrrp 113 ipv4 10.11.3.1
+interface Vlan313
+   description DC3 VLAN3 - Legacy
+   vrrp 33 peer authentication text VRRP33
+   vrrp 33 ipv4 10.31.3.1
    ip ospf area 0.0.0.0
 !
-interface Vlan114
-   description DC1 VLAN4 - Legacy
-   vrrp 114 peer authentication text VRRP114
-   vrrp 114 ipv4 10.11.4.1
+interface Vlan314
+   description DC3 VLAN4 - Legacy
+   vrrp 34 peer authentication text VRRP34
+   vrrp 34 ipv4 10.31.4.1
    ip ospf area 0.0.0.0
 !
 router ospf 100

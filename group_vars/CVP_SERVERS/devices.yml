@@ -712,25 +712,35 @@ CVP_DEVICES:
     parentContainerName: DCI DC1 Legacy
     configlets:
       - dcapetz - lab_DCI-DC1-LEGACY1-MGMT
+      - dcapetz - lab_DCI-MLAG-SIDE-A
       - dcapetz - lab_DCI-DC1-LEGACY1-L3
   - fqdn: DC1-LEGACY2
     parentContainerName: DCI DC1 Legacy
     configlets:
       - dcapetz - lab_DCI-DC1-LEGACY2-MGMT
+      - dcapetz - lab_DCI-MLAG-SIDE-B
       - dcapetz - lab_DCI-DC1-LEGACY2-L3
   - fqdn: DC2-LEGACY1
     parentContainerName: DCI DC2 Legacy
     configlets:
       - dcapetz - lab_DCI-DC2-LEGACY1-MGMT
+      - dcapetz - lab_DCI-MLAG-SIDE-A
+      - dcapetz - lab_DCI-DC2-LEGACY1-L3
   - fqdn: DC2-LEGACY2
     parentContainerName: DCI DC2 Legacy
     configlets:
       - dcapetz - lab_DCI-DC2-LEGACY2-MGMT
+      - dcapetz - lab_DCI-MLAG-SIDE-B
+      - dcapetz - lab_DCI-DC2-LEGACY2-L3
   - fqdn: DC3-LEGACY1
     parentContainerName: DCI DC3 Legacy
     configlets:
       - dcapetz - lab_DCI-DC3-LEGACY1-MGMT
+      - dcapetz - lab_DCI-MLAG-SIDE-A
+      - dcapetz - lab_DCI-DC3-LEGACY1-L3
   - fqdn: DC3-LEGACY2
     parentContainerName: DCI DC3 Legacy
     configlets:
       - dcapetz - lab_DCI-DC3-LEGACY2-MGMT
+      - dcapetz - lab_DCI-MLAG-SIDE-B
+      - dcapetz - lab_DCI-DC3-LEGACY2-L3

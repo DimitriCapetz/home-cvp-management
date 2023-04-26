@@ -1,0 +1,43 @@
+no spanning-tree vlan-id 4093
+!
+vlan 212
+   name DC2_VLAN2
+!
+vlan 213
+   name DC2_VLAN3
+!
+vlan 214
+   name DC2_VLAN4
+!
+vlan 4093
+   name ROUTING
+   trunk group PEER
+!
+interface Vlan212
+   description DC2 VLAN2 - Legacy
+   vrrp 212 peer authentication text VRRP212
+   vrrp 212 ipv4 10.21.2.1
+   ip ospf area 0.0.0.0
+!
+interface Vlan213
+   description DC2 VLAN3 - Legacy
+   vrrp 213 peer authentication text VRRP213
+   vrrp 213 ipv4 10.21.3.1
+   ip ospf area 0.0.0.0
+!
+interface Vlan214
+   description DC2 VLAN4 - Legacy
+   vrrp 214 peer authentication text VRRP214
+   vrrp 214 ipv4 10.21.4.1
+   ip ospf area 0.0.0.0
+!
+router ospf 100
+   passive-interface default
+   no passive-interface Ethernet1
+   no passive-interface Ethernet2
+   no passive-interface Ethernet3
+   no passive-interface Ethernet4
+   no passive-interface Ethernet51/1.99
+   no passive-interface Ethernet52/1.99
+   no passive-interface Vlan4093
+   max-lsa 12000

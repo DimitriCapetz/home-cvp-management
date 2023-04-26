@@ -1,0 +1,75 @@
+interface Ethernet1
+   description L3 Connection to DC1-LEGACY1
+   no switchport
+   ip address 10.251.252.1/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Ethernet2
+   description L3 Connection to DC1-LEGACY2
+   no switchport
+   ip address 10.251.252.5/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Ethernet3
+   description L3 Connection to DC3-LEGACY1
+   no switchport
+   ip address 10.252.253.0/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Ethernet4
+   description L3 Connection to DC3-LEGACY2
+   no switchport
+   ip address 10.252.253.2/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Ethernet51/1
+   description L3 Connection to DC2-DCI1 (Parent Interface)
+   no switchport
+!
+interface Ethernet51/1.99
+   description L3 Connection to DC2-DCI1 for CORP VRF
+   encapsulation dot1q vlan 99
+   ip address 10.252.102.0/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Ethernet52/1
+   description L3 Connection to DC2-DCI2 (Parent Interface)
+   no switchport
+!
+interface Ethernet52/1.99
+   description L3 Connection to DC2-DCI2 for CORP VRF
+   encapsulation dot1q vlan 99
+   ip address 10.252.102.2/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.252.252.101/32
+   ip ospf area 0.0.0.0
+!
+interface Vlan212
+   ip address 10.21.2.2/24
+   vrrp 212 priority-level 110
+!
+interface Vlan213
+   ip address 10.21.3.2/24
+   vrrp 213 priority-level 90
+!
+interface Vlan214
+   ip address 10.21.4.2/24
+   vrrp 214 priority-level 110
+!
+interface Vlan4093
+   description Routing VLAN
+   ip address 10.252.252.254/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+router general
+   router-id ipv4 10.252.252.101
