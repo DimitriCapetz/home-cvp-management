@@ -26,5 +26,7 @@ mlag configuration
    local-interface Vlan4094
    peer-address 10.255.255.255
    peer-link Port-Channel2000
+   reload-delay mlag 30
+   reload-delay non-mlag 30
 !
 ip virtual-router mac-address 00:1c:73:00:00:99

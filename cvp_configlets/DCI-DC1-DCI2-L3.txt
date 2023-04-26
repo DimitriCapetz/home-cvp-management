@@ -4,6 +4,14 @@ interface Ethernet49/1
    ip address 10.0.11.3/31
    sflow enable
 !
+interface Ethernet51/1
+   description L3 Connection to DC1-LEGACY1
+   no switchport
+!
+interface Ethernet52/1
+   description L3 Connection to DC1-LEGACY2
+   no switchport
+!
 interface Ethernet53/1
    description L3 Connection to DC2-DCI1
    no switchport
