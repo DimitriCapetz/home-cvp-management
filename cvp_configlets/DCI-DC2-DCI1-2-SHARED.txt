@@ -25,7 +25,7 @@ interface Vlan4093
    ip ospf network point-to-point
    ip ospf area 0.0.0.0
 !
-router ospf 101 vrf CORP
+router ospf 100 vrf CORP
    passive-interface default
    no passive-interface Vlan4093
    max-lsa 12000

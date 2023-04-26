@@ -1,0 +1,58 @@
+no spanning-tree vlan-id 4093
+!
+vlan 112
+   name DC1_VLAN2
+!
+vlan 113
+   name DC1_VLAN3
+!
+vlan 114
+   name DC1_VLAN4
+!
+vlan 4093
+   name ROUTING
+   trunk group PEER
+!
+interface Port-Channel2000
+   description Peer-link
+   switchport mode trunk
+   switchport trunk group PEER
+!
+interface Ethernet55/1
+   description Po2000 to Peer Et55/1
+   channel-group 2000 mode active
+!
+interface Ethernet56/1
+   description Po2000 to Peer Et56/1
+   channel-group 2000 mode active
+!
+interface Vlan112
+   description DC1 VLAN2 - Legacy
+   vrrp 112 peer authentication text VRRP112
+   vrrp 112 ipv4 10.11.2.1
+   ip ospf area 0.0.0.0
+!
+interface Vlan113
+   description DC1 VLAN3 - Legacy
+   vrrp 113 peer authentication text VRRP113
+   vrrp 113 ipv4 10.11.3.1
+   ip ospf area 0.0.0.0
+!
+interface Vlan114
+   description DC1 VLAN4 - Legacy
+   vrrp 114 peer authentication text VRRP114
+   vrrp 114 ipv4 10.11.4.1
+   ip ospf area 0.0.0.0
+!
+router ospf 100
+   passive-interface default
+   no passive-interface Ethernet1
+   no passive-interface Ethernet2
+   no passive-interface Ethernet3
+   no passive-interface Ethernet4
+   no passive-interface Ethernet51/1.99
+   no passive-interface Ethernet52/1.99
+   no passive-interface Ethernet53/1.99
+   no passive-interface Ethernet54/1.99
+   no passive-interface Vlan4093
+   max-lsa 12000

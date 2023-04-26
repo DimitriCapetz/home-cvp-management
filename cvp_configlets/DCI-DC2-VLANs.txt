@@ -16,21 +16,21 @@ ip routing vrf CORP
 !
 interface Vlan211
    vrf CORP
-   ip address virtual 10.211.211.1/24
+   ip address virtual 10.21.1.1/24
 !
 interface Vlan212
    vrf CORP
-   ip address virtual 10.212.212.1/24
+   ip address virtual 10.21.2.1/24
    shutdown
 !
 interface Vlan213
    vrf CORP
-   ip address virtual 10.213.213.1/24
+   ip address virtual 10.21.3.1/24
    shutdown
 !
 interface Vlan214
    vrf CORP
-   ip address virtual 10.214.214.1/24
+   ip address virtual 10.21.4.1/24
    shutdown
 !
 interface Vxlan1

@@ -62,6 +62,26 @@ router bgp 65101
       route-target both 114:114
       redistribute learned
    !
+   vlan 311
+      rd auto
+      route-target both 311:311
+      redistribute learned
+   !
+   vlan 312
+      rd auto
+      route-target both 312:312
+      redistribute learned
+   !
+   vlan 313
+      rd auto
+      route-target both 313:313
+      redistribute learned
+   !
+   vlan 314
+      rd auto
+      route-target both 314:314
+      redistribute learned
+   !
    address-family evpn
       neighbor SPINE-EVPN activate
    !

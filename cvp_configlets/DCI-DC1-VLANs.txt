@@ -10,27 +10,58 @@ vlan 113
 vlan 114
    name DC1_VLAN4
 !
+vlan 311
+   name DC3_VLAN1
+!
+vlan 312
+   name DC3_VLAN2
+!
+vlan 313
+   name DC3_VLAN3
+!
+vlan 314
+   name DC3_VLAN4
+!
 vrf instance CORP
 !
 ip routing vrf CORP
 !
 interface Vlan111
    vrf CORP
-   ip address virtual 10.111.111.1/24
+   ip address virtual 10.11.1.1/24
 !
 interface Vlan112
    vrf CORP
-   ip address virtual 10.112.112.1/24
+   ip address virtual 10.11.2.1/24
    shutdown
 !
 interface Vlan113
    vrf CORP
-   ip address virtual 10.113.113.1/24
+   ip address virtual 10.11.3.1/24
    shutdown
 !
 interface Vlan114
    vrf CORP
-   ip address virtual 10.114.114.1/24
+   ip address virtual 10.11.4.1/24
+   shutdown
+!
+interface Vlan311
+   vrf CORP
+   ip address virtual 10.31.1.1/24
+!
+interface Vlan312
+   vrf CORP
+   ip address virtual 10.31.2.1/24
+   shutdown
+!
+interface Vlan313
+   vrf CORP
+   ip address virtual 10.31.3.1/24
+   shutdown
+!
+interface Vlan314
+   vrf CORP
+   ip address virtual 10.31.4.1/24
    shutdown
 !
 interface Vxlan1
@@ -41,6 +72,10 @@ interface Vxlan1
    vxlan vlan 112 vni 112
    vxlan vlan 113 vni 113
    vxlan vlan 114 vni 114
+   vxlan vlan 311 vni 311
+   vxlan vlan 312 vni 312
+   vxlan vlan 313 vni 313
+   vxlan vlan 314 vni 314
    vxlan vrf CORP vni 5001
 !
 ip virtual-router mac-address 00:1c:73:00:00:99
