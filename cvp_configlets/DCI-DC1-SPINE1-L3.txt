@@ -1,0 +1,68 @@
+interface Ethernet1/1
+   description L3 Connection to DC1-DCI1
+   no switchport
+   ip address 10.0.11.0/31
+   sflow enable
+!
+interface Ethernet2/1
+   description L3 Connection to DC1-DCI2
+   no switchport
+   ip address 10.0.11.2/31
+   sflow enable
+!
+interface Ethernet3/1
+   description L3 Connection to DC1-DCI3
+   no switchport
+   ip address 10.0.11.4/31
+   sflow enable
+!
+interface Ethernet4/1
+   description L3 Connection to DC1-DCI4
+   no switchport
+   ip address 10.0.11.6/31
+   sflow enable
+!
+interface Ethernet5/1
+   description L3 Connection to DC1-LEAF1
+   no switchport
+   ip address 10.0.11.8/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.1.1.1/32
+!
+ip route 10.0.11.0/24 null0
+!
+ip prefix-list LOOPBACKS seq 100 permit 10.1.1.0/24 eq 32
+ip prefix-list LOOPBACKS seq 100 permit 10.1.2.0/24 eq 32
+!
+route-map LOOPBACKS permit 100
+   match ip address prefix-list LOOPBACKS
+!
+peer-filter DC1-LEAVES
+   10 match as-range 65101-65199 result accept
+!
+router bgp 65100
+   maximum-paths 2
+   no bgp default ipv4-unicast
+   bgp listen range 10.0.11.0/24 peer-group LEAVES-IPv4 peer-filter LEAVES
+   bgp listen range 10.1.1.0/24 peer-group LEAVES-EVPN peer-filter DC1-LEAVES
+   neighbor LEAVES-IPv4 peer group
+   neighbor LEAVES-IPv4 send-community standard extended
+   neighbor LEAVES-EVPN peer group
+   neighbor LEAVES-EVPN update-source Loopback0
+   neighbor LEAVES-EVPN ebgp-multihop 3
+   neighbor LEAVES-EVPN send-community standard extended
+   redistribute connected route-map LOOPBACKS
+   network 10.0.11.0/24
+   !
+   address-family evpn
+      bgp next-hop-unchanged
+      neighbor LEAVES-EVPN activate
+   !
+   address-family ipv4
+      neighbor LEAVES-IPv4 activate
+!
+router general
+   router-id ipv4 10.1.1.1

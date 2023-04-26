@@ -234,10 +234,10 @@ topology:
 # LEAF Simulation          #
 ############################
 
-    DC2-LEAG1:
+    DC2-LEAF1:
       kind: ceos
       mgmt_ipv4: 10.99.99.208
-      startup-config: ./configs/DC2-LEAG1.cfg
+      startup-config: ./configs/DC2-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
