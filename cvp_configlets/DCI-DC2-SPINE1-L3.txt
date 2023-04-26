@@ -40,6 +40,7 @@ peer-filter DC1-LEAVES
 router bgp 65200
    maximum-paths 4
    no bgp default ipv4-unicast
+   timers bgp 5 15
    bgp listen range 10.0.12.0/24 peer-group LEAVES-IPv4 peer-filter LEAVES
    bgp listen range 10.2.1.0/24 peer-group LEAVES-EVPN peer-filter DC1-LEAVES
    neighbor LEAVES-IPv4 peer group
@@ -54,6 +55,7 @@ router bgp 65200
    network 10.0.12.0/24
    !
    address-family evpn
+      bgp additional-paths send ecmp
       bgp next-hop-unchanged
       neighbor LEAVES-EVPN activate
    !

@@ -33,6 +33,7 @@ router ospf 101 vrf CORP
 router bgp 65199
    maximum-paths 4
    no bgp default ipv4-unicast
+   timers bgp 5 15
    rd auto
    neighbor DC2-DCI-IPv4 peer group
    neighbor DC2-DCI-IPv4 remote-as 65299
