@@ -41,6 +41,8 @@ ip community-list DC1-COMMUNITY-LIST permit 65100:11111
 ip community-list DC2-COMMUNITY-LIST permit 65200:22222
 ip community-list DC3-COMMUNITY-LIST permit 65300:33333
 !
+! Prevent Redistribution Loop by blocking set communities
+!
 route-map DC1-BGP-TO-OSPF deny 10
    match community DC1-COMMUNITY-LIST
 !
@@ -50,7 +52,11 @@ route-map DC1-BGP-TO-OSPF deny 20
 route-map DC1-BGP-TO-OSPF deny 30
    match community DC3-COMMUNITY-LIST
 !
+! Allow all other routes from New Fabric to be advertised to Legacy
+!
 route-map DC1-BGP-TO-OSPF permit 999
+!
+! Set Standard Community Value based on Legacy DC of Origin
 !
 route-map DC1-OSPF-TO-BGP permit 110
    match ip address prefix-list DC1-LEGACY-NETWORKS
@@ -63,6 +69,17 @@ route-map DC1-OSPF-TO-BGP permit 120
 route-map DC1-OSPF-TO-BGP permit 130
    match ip address prefix-list DC3-LEGACY-NETWORKS
    set community community-list DC3-COMMUNITY-LIST
+!
+! Increase Admin Distance on EVPN Type 5 Routes for DC1 Prefixes
+! This will prevent looping in the fabric and prefer local OSPF Routes
+!
+route-map DC1-LEGACY-LOCAL-EGRESS permit 100
+   match community DC1-COMMUNITY-LIST
+   set distance 240
+!
+! Allow all other incoming EVPN Routes
+!
+route-map DC1-LEGACY-LOCAL-EGRESS permit 999   
 !
 router ospf 100 vrf CORP
    passive-interface default
@@ -110,8 +127,10 @@ router bgp 65198
    !
    address-family evpn
       neighbor DC2-DCI-EVPN activate
+      neighbor DC2-DCI-EVPN route-map DC1-LEGACY-LOCAL-EGRESS in
       neighbor DC2-DCI-EVPN domain remote
       neighbor SPINE-EVPN activate
+      neighbor SPINE-EVPN route-map DC1-LEGACY-LOCAL-EGRESS in
       neighbor default next-hop-self received-evpn-routes route-type ip-prefix inter-domain
    !
    address-family ipv4

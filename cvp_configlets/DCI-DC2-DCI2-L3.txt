@@ -7,10 +7,18 @@ interface Ethernet49/1
 interface Ethernet51/1
    description L3 Connection to DC2-LEGACY1
    no switchport
+   vrf CORP
+   ip address 10.252.102.3/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
 !
 interface Ethernet52/1
    description L3 Connection to DC2-LEGACY2
    no switchport
+   vrf CORP
+   ip address 10.252.102.7/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
 !
 interface Ethernet53/1
    description L3 Connection to DC1-DCI1
