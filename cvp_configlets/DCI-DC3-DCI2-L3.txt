@@ -4,6 +4,18 @@ interface Ethernet49/1
    ip address 10.0.11.7/31
    sflow enable
 !
+interface Ethernet53/1
+   description L3 Connection to DC2-DCI3
+   no switchport
+   ip address 10.102.103.3/31
+   sflow enable
+!
+interface Ethernet54/1
+   description L3 Connection to DC2-DCI4
+   no switchport
+   ip address 10.102.103.7/31
+   sflow enable
+!
 interface Loopback0
    description Router-ID
    ip address 10.1.1.199/32
@@ -16,6 +28,8 @@ interface Loopback99
 !
 router bgp 65199
    neighbor 10.0.11.6 peer group SPINE-IPv4
+   neighbor 10.102.103.2 peer group DC2-DCI-IPv4
+   neighbor 10.102.103.6 peer group DC2-DCI-IPv4
    neighbor 10.255.255.254 peer group PEER
 !
 router general
