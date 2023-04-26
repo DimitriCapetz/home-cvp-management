@@ -42,3 +42,5 @@ interface Vxlan1
    vxlan vlan 113 vni 113
    vxlan vlan 114 vni 114
    vxlan vrf CORP vni 5001
+!
+ip virtual-router mac-address 00:1c:73:00:00:99

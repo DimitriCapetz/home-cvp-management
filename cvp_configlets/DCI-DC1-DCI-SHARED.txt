@@ -52,26 +52,6 @@ router bgp 65198
    neighbor 10.1.1.1 peer group SPINE-EVPN
    redistribute connected route-map LOOPBACKS
    !
-   vlan 111
-      rd auto
-      route-target both 111:111
-      redistribute learned
-   !
-   vlan 112
-      rd auto
-      route-target both 112:112
-      redistribute learned
-   !
-   vlan 113
-      rd auto
-      route-target both 113:113
-      redistribute learned
-   !
-   vlan 114
-      rd auto
-      route-target both 114:114
-      redistribute learned
-   !
    address-family evpn
       neighbor SPINE-EVPN activate
    !

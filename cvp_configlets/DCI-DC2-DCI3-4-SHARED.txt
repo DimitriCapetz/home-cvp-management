@@ -10,7 +10,7 @@ ip routing vrf CORP
 !
 interface Loopback1
    description VTEP
-   ip address 10.1.2.199/32
+   ip address 10.2.2.199/32
 !
 interface Vxlan1
    vxlan source-interface Loopback1
@@ -30,26 +30,26 @@ router ospf 101 vrf CORP
    no passive-interface Vlan4093
    max-lsa 12000
 !
-router bgp 65199
+router bgp 65299
    maximum-paths 4
    no bgp default ipv4-unicast
    rd auto
    neighbor PEER peer group
-   neighbor PEER remote-as 65199
+   neighbor PEER remote-as 65299
    neighbor PEER next-hop-self
    neighbor PEER send-community standard extended
    neighbor PEER maximum-routes 100000 warning-only
    neighbor SPINE-IPv4 peer group
-   neighbor SPINE-IPv4 remote-as 65100
+   neighbor SPINE-IPv4 remote-as 65200
    neighbor SPINE-IPv4 send-community standard extended
    neighbor SPINE-IPv4 maximum-routes 100000 warning-only
    neighbor SPINE-EVPN peer group
-   neighbor SPINE-EVPN remote-as 65100
+   neighbor SPINE-EVPN remote-as 65200
    neighbor SPINE-EVPN update-source Loopback0
    neighbor SPINE-EVPN ebgp-multihop 3
    neighbor SPINE-EVPN send-community standard extended
    neighbor SPINE-EVPN maximum-routes 100000 warning-only
-   neighbor 10.1.1.1 peer group SPINE-EVPN
+   neighbor 10.2.1.1 peer group SPINE-EVPN
    redistribute connected route-map LOOPBACKS
    !
    address-family evpn

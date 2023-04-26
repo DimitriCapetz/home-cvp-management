@@ -1,0 +1,22 @@
+interface Ethernet49/1
+   description L3 Connection to DC2-SPINE1
+   no switchport
+   ip address 10.0.12.5/31
+   sflow enable
+!
+interface Loopback0
+   description Router-ID
+   ip address 10.2.1.198/32
+!
+interface Loopback99
+   description CORP L3 Interface
+   vrf CORP
+   ip address 10.99.99.203/32
+   ip ospf area 0.0.0.0
+!
+router bgp 65299
+   neighbor 10.0.12.4 peer group SPINE-IPv4
+   neighbor 10.255.255.255 peer group PEER
+!
+router general
+   router-id ipv4 10.2.1.198

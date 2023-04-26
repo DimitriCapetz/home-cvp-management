@@ -322,12 +322,20 @@ CVP_CONTAINERS:
     parentContainerName: DCI DC2
   DCI DC2 Border A:
     parentContainerName: DCI DC2 Border
+    configlets:
+      - dcapetz - lab_DCI-DC2-DCI1-2-SHARED
+      - dcapetz - lab_DCI-DC2-FABRIC-SHARED
   DCI DC2 Border B:
     parentContainerName: DCI DC2 Border
+    configlets:
+      - dcapetz - lab_DCI-DC2-DCI3-4-SHARED
+      - dcapetz - lab_DCI-DC2-FABRIC-SHARED
   DCI DC2 Legacy:
     parentContainerName: DCI DC2
   DCI DC2 Fabric:
     parentContainerName: DCI DC2
+    configlets:
+      - dcapetz - lab_DCI-DC2-FABRIC-SHARED
   DCI DC3:
     parentContainerName: DCI Simulation
   DCI DC3 Border:

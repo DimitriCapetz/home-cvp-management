@@ -653,21 +653,25 @@ CVP_DEVICES:
     configlets:
       - dcapetz - lab_DCI-DC2-DCI1-MGMT
       - dcapetz - lab_DCI-MLAG-SIDE-A
+      - dcapetz - lab_DCI-DC2-DCI1-L3
   - fqdn: DC2-DCI2
     parentContainerName: DCI DC2 Border A
     configlets:
       - dcapetz - lab_DCI-DC2-DCI2-MGMT
       - dcapetz - lab_DCI-MLAG-SIDE-B
+      - dcapetz - lab_DCI-DC2-DCI2-L3
   - fqdn: DC2-DCI3
     parentContainerName: DCI DC2 Border B
     configlets:
       - dcapetz - lab_DCI-DC2-DCI3-MGMT
       - dcapetz - lab_DCI-MLAG-SIDE-A
+      - dcapetz - lab_DCI-DC2-DCI3-L3
   - fqdn: DC2-DCI4
     parentContainerName: DCI DC2 Border B
     configlets:
       - dcapetz - lab_DCI-DC2-DCI4-MGMT
       - dcapetz - lab_DCI-MLAG-SIDE-B
+      - dcapetz - lab_DCI-DC2-DCI4-L3
   - fqdn: DC3-DCI1
     parentContainerName: DCI DC3 Border
     configlets:
@@ -696,10 +700,13 @@ CVP_DEVICES:
     parentContainerName: DCI DC2 Fabric
     configlets:
       - dcapetz - lab_DCI-DC2-SPINE1-MGMT
+      - dcapetz - lab_DCI-DC2-SPINE1-L3
   - fqdn: DC2-LEAF1
     parentContainerName: DCI DC2 Fabric
     configlets:
       - dcapetz - lab_DCI-DC2-LEAF1-MGMT
+      - dcapetz - lab_DCI-DC2-VLANs
+      - dcapetz - lab_DCI-DC2-LEAF1-L3
 # Legacy Core Devices
   - fqdn: DC1-LEGACY1
     parentContainerName: DCI DC1 Legacy

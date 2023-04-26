@@ -1,0 +1,46 @@
+vlan 211
+   name DC2_VLAN1
+!
+vlan 212
+   name DC2_VLAN2
+!
+vlan 213
+   name DC2_VLAN3
+!
+vlan 214
+   name DC2_VLAN4
+!
+vrf instance CORP
+!
+ip routing vrf CORP
+!
+interface Vlan211
+   vrf CORP
+   ip address virtual 10.211.211.1/24
+!
+interface Vlan212
+   vrf CORP
+   ip address virtual 10.212.212.1/24
+   shutdown
+!
+interface Vlan213
+   vrf CORP
+   ip address virtual 10.213.213.1/24
+   shutdown
+!
+interface Vlan214
+   vrf CORP
+   ip address virtual 10.214.214.1/24
+   shutdown
+!
+interface Vxlan1
+   vxlan source-interface Loopback1
+!   vxlan virtual-router encapsulation mac-address mlag-system-id
+   vxlan udp-port 4789
+   vxlan vlan 211 vni 211
+   vxlan vlan 212 vni 212
+   vxlan vlan 213 vni 213
+   vxlan vlan 214 vni 214
+   vxlan vrf CORP vni 5001
+!
+ip virtual-router mac-address 00:1c:73:00:00:99
