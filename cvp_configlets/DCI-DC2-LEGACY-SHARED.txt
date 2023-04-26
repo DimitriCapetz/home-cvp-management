@@ -37,7 +37,7 @@ router ospf 100
    no passive-interface Ethernet2
    no passive-interface Ethernet3
    no passive-interface Ethernet4
-   no passive-interface Ethernet51/1.99
-   no passive-interface Ethernet52/1.99
+   no passive-interface Ethernet51/1
+   no passive-interface Ethernet52/1
    no passive-interface Vlan4093
    max-lsa 12000
