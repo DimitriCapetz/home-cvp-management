@@ -301,8 +301,8 @@ CVP_CONTAINERS:
   DCI Simulation:
     parentContainerName: dcapetz
     configlets:
-      - dcapetz - lab_DCI_SWITCH-DEFAULTS.txt
-      - dcapetz - lab_DCI_SWITCH-AAA.txt
+      - dcapetz - lab_DCI-SWITCH-DEFAULTS
+      - dcapetz - lab_DCI-SWITCH-AAA
   DCI DC1:
     parentContainerName: DCI Simulation
   DCI DC1 Border:
