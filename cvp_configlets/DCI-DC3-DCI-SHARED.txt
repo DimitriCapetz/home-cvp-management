@@ -43,6 +43,7 @@ ip community-list DC1-COMMUNITY-LIST permit 65100:11111
 ip community-list DC2-COMMUNITY-LIST permit 65200:22222
 ip community-list DC3-COMMUNITY-LIST permit 65300:33333
 ip community-list DC1-FABRIC-COMMUNITY permit 11111:11111
+ip community-list DC2-FABRIC-COMMUNITY permit 22222:22222
 !
 ! Prevent Redistribution Loop by blocking set communities
 !
@@ -58,19 +59,26 @@ route-map DC3-BGP-TO-OSPF deny 30
 ! With Symmetric IRB, /32s will be generated.  If not desired, 
 ! they can be blocked by prefix length.
 !
-!route-map DC1-BGP-TO-OSPF permit 40
+!route-map DC3-BGP-TO-OSPF permit 40
 !   match ip address prefix-list CORP-LOOPBACKS
 !
-!route-map DC1-BGP-TO-OSPF deny 50
+!route-map DC3-BGP-TO-OSPF deny 50
 !   match ip address prefix-list BLOCK-32s
 !
 ! Need a policy to prefer local DC when connected to common Core
 ! Works without, but suboptimal
+! Set a higher metric for non-local routes, lower for local
 ! Could use Prefix-List or BGP Community Originated From Leaves (as shown)
 !
 route-map DC3-BGP-TO-OSPF permit 100
+   match community DC2-FABRIC-COMMUNITY
+   set metric-type type-1
+   set metric 100
+!
+route-map DC3-BGP-TO-OSPF permit 110
    match community DC1-FABRIC-COMMUNITY
    set metric-type type-1
+   set metric 91
 !
 ! Allow all other routes from New Fabric to be advertised to Legacy
 !
