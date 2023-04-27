@@ -25,9 +25,88 @@ interface Vlan4093
    ip ospf network point-to-point
    ip ospf area 0.0.0.0
 !
+ip prefix-list BLOCK-32s seq 100 permit 0.0.0.0/0 eq 32
+ip prefix-list DC1-LEGACY-NETWORKS seq 100 permit 10.11.2.0/24
+ip prefix-list DC1-LEGACY-NETWORKS seq 110 permit 10.11.3.0/24
+ip prefix-list DC1-LEGACY-NETWORKS seq 120 permit 10.11.4.0/24
+ip prefix-list DC1-LEGACY-NETWORKS seq 130 permit 10.251.0.0/16 le 32
+ip prefix-list DC2-CORP-LOOPBACKS seq 100 permit 10.99.2.0/24 eq 32
+ip prefix-list DC2-LEGACY-NETWORKS seq 100 permit 10.21.2.0/24
+ip prefix-list DC2-LEGACY-NETWORKS seq 110 permit 10.21.3.0/24
+ip prefix-list DC2-LEGACY-NETWORKS seq 120 permit 10.21.4.0/24
+ip prefix-list DC2-LEGACY-NETWORKS seq 130 permit 10.252.0.0/16 le 32
+ip prefix-list DC3-LEGACY-NETWORKS seq 100 permit 10.31.2.0/24
+ip prefix-list DC3-LEGACY-NETWORKS seq 110 permit 10.31.3.0/24
+ip prefix-list DC3-LEGACY-NETWORKS seq 120 permit 10.31.4.0/24
+ip prefix-list DC3-LEGACY-NETWORKS seq 130 permit 10.253.0.0/16 le 32
+ip community-list DC1-COMMUNITY-LIST permit 65100:11111
+ip community-list DC2-COMMUNITY-LIST permit 65200:22222
+ip community-list DC3-COMMUNITY-LIST permit 65300:33333
+ip community-list DC2-FABRIC-COMMUNITY permit 22222:22222
+!
+! Prevent Redistribution Loop by blocking set communities
+!
+route-map DC2-BGP-TO-OSPF deny 10
+   match community DC1-COMMUNITY-LIST
+!
+route-map DC2-BGP-TO-OSPF deny 20
+   match community DC2-COMMUNITY-LIST
+!
+route-map DC2-BGP-TO-OSPF deny 30
+   match community DC3-COMMUNITY-LIST
+!
+! With Symmetric IRB, /32s will be generated.  If not desired, 
+! they can be blocked by prefix length.
+!
+!route-map DC2-BGP-TO-OSPF permit 40
+!   match ip address prefix-list DC2-CORP-LOOPBACKS
+!
+!route-map DC2-BGP-TO-OSPF deny 50
+!   match ip address prefix-list BLOCK-32s
+!
+! Need a policy to prefer local DC when connected to common Core
+! Works without, but suboptimal pathing occurs
+! Could use Prefix-List or BGP Community Originated From Leaves (as shown)
+!
+route-map DC2-BGP-TO-OSPF permit 100
+   match community DC2-FABRIC-COMMUNITY
+   set metric-type type-1
+!
+! Allow all other routes from New Fabric to be advertised to Legacy
+!
+route-map DC2-BGP-TO-OSPF permit 999
+!
+! Set Standard Community Value based on Legacy DC of Origin
+!
+route-map DC2-OSPF-TO-BGP permit 110
+   match ip address prefix-list DC1-LEGACY-NETWORKS
+   set community community-list DC1-COMMUNITY-LIST
+!
+route-map DC2-OSPF-TO-BGP permit 120
+   match ip address prefix-list DC2-LEGACY-NETWORKS
+   set community community-list DC2-COMMUNITY-LIST
+!
+route-map DC2-OSPF-TO-BGP permit 130
+   match ip address prefix-list DC3-LEGACY-NETWORKS
+   set community community-list DC3-COMMUNITY-LIST
+!
+! Increase Admin Distance on EVPN Type 5 Routes for DC1 Prefixes
+! This will prevent looping in the fabric and prefer local OSPF Routes
+!
+route-map DC2-LEGACY-LOCAL-EGRESS permit 100
+   match community DC3-COMMUNITY-LIST
+   set distance 240
+!
+! Allow all other incoming EVPN Routes
+!
+route-map DC2-LEGACY-LOCAL-EGRESS permit 999
+!
 router ospf 100 vrf CORP
    passive-interface default
+   no passive-interface Ethernet51/1
+   no passive-interface Ethernet52/1
    no passive-interface Vlan4093
+   redistribute bgp route-map DC2-BGP-TO-OSPF
    max-lsa 12000
 !
 router bgp 65299
@@ -68,8 +147,10 @@ router bgp 65299
    !
    address-family evpn
       neighbor DC3-DCI-EVPN activate
+      neighbor DC3-DCI-EVPN route-map DC2-LEGACY-LOCAL-EGRESS in
       neighbor DC3-DCI-EVPN domain remote
       neighbor SPINE-EVPN activate
+      neighbor SPINE-EVPN route-map DC2-LEGACY-LOCAL-EGRESS in
       neighbor default next-hop-self received-evpn-routes route-type ip-prefix inter-domain
    !
    address-family ipv4
@@ -81,3 +162,4 @@ router bgp 65299
       route-target import evpn 5001:5001
       route-target export evpn 5001:5001
       redistribute connected
+      redistribute ospf route-map DC2-OSPF-TO-BGP

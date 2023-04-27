@@ -39,7 +39,7 @@ interface Loopback0
 interface Loopback99
    description CORP L3 Interface
    vrf CORP
-   ip address 10.99.99.202/32
+   ip address 10.99.2.197/32
    ip ospf area 0.0.0.0
 !
 router bgp 65298

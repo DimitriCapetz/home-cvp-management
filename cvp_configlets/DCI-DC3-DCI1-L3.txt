@@ -1,10 +1,18 @@
 interface Ethernet1
    description L3 Connection to DC3-LEGACY1
    no switchport
+   vrf CORP
+   ip address 10.253.103.1/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
 !
 interface Ethernet2
    description L3 Connection to DC3-LEGACY2
    no switchport
+   vrf CORP
+   ip address 10.253.103.5/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
 !
 interface Ethernet49/1
    description L3 Connection to DC1-SPINE1
@@ -15,10 +23,18 @@ interface Ethernet49/1
 interface Ethernet51/1
    description L3 Connection to DC1-LEGACY1
    no switchport
+   vrf CORP
+   ip address 10.251.103.1/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
 !
 interface Ethernet52/1
    description L3 Connection to DC1-LEGACY2
    no switchport
+   vrf CORP
+   ip address 10.251.103.5/31
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
 !
 interface Ethernet53/1
    description L3 Connection to DC2-DCI3
@@ -39,7 +55,7 @@ interface Loopback0
 interface Loopback99
    description CORP L3 Interface
    vrf CORP
-   ip address 10.99.99.198/32
+   ip address 10.99.1.198/32
    ip ospf area 0.0.0.0
 !
 router bgp 65199

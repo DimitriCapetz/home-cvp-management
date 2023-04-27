@@ -20,8 +20,15 @@ interface Loopback1
 interface Loopback99
    description CORP L3 Interface
    vrf CORP
-   ip address 10.99.99.205/32
+   ip address 10.99.2.200/32
    ip ospf area 0.0.0.0
+!
+! Policy to Set Community for DCI Egress to Legacy
+!
+ip community-list DC2-FABRIC-COMMUNITY permit 22222:22222
+!
+route-map DC2-BGP-COMMUNITY permit 100
+   set community community-list DC2-FABRIC-COMMUNITY additive
 !
 router bgp 65201
    maximum-paths 4
@@ -65,6 +72,7 @@ router bgp 65201
    !
    address-family evpn
       neighbor SPINE-EVPN activate
+      neighbor SPINE-EVPN route-map DC2-BGP-COMMUNITY out
    !
    address-family ipv4
       neighbor SPINE-IPv4 activate
