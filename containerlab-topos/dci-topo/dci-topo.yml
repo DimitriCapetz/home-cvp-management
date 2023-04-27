@@ -272,7 +272,7 @@ topology:
 # Host Simulation       #
 #########################
 
-    DC1-HOST11:
+    DC1-HOST1:
       kind: ceos
       mgmt_ipv4: 10.99.99.211
       startup-config: ./configs/DC1-HOST1.cfg
