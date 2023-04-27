@@ -59,11 +59,13 @@ route-map DC2-BGP-TO-OSPF deny 30
 ! With Symmetric IRB, /32s will be generated.  If not desired, 
 ! they can be blocked by prefix length.
 !
-!route-map DC2-BGP-TO-OSPF permit 40
-!   match ip address prefix-list DC2-CORP-LOOPBACKS
+route-map DC2-BGP-TO-OSPF permit 40
+   match ip address prefix-list DC2-CORP-LOOPBACKS
+   set metric-type type-1
+   set metric 91
 !
-!route-map DC2-BGP-TO-OSPF deny 50
-!   match ip address prefix-list BLOCK-32s
+route-map DC2-BGP-TO-OSPF deny 50
+   match ip address prefix-list BLOCK-32s
 !
 ! Need a policy to prefer local DC when connected to common Core
 ! Works without, but suboptimal pathing occurs
