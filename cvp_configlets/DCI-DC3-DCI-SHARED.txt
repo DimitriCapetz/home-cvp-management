@@ -115,6 +115,12 @@ route-map DC3-LEGACY-LOCAL-EGRESS permit 110
 !
 route-map DC3-LEGACY-LOCAL-EGRESS permit 999
 !
+! Local Networks to OSPF with Metric Set
+!
+route-map LOCAL-TO-OSPF permit 100
+   set metric-type type-1
+   set metric 100
+!
 router ospf 100 vrf CORP
    passive-interface default
    no passive-interface Ethernet1
@@ -123,6 +129,7 @@ router ospf 100 vrf CORP
    no passive-interface Ethernet52/1
    no passive-interface Vlan4093
    redistribute bgp route-map DC3-BGP-TO-OSPF
+   redistribute connected route-map LOCAL-TO-OSPF 
    max-lsa 12000
 !
 router bgp 65199
@@ -179,3 +186,62 @@ router bgp 65199
       route-target export evpn 5001:5001
       redistribute connected
       redistribute ospf route-map DC3-OSPF-TO-BGP
+!
+! If doing Type-2/3 Gateway between DCs
+!
+   !
+   vlan 111
+      route-target import export evpn domain all 111:111
+      redistribute learned
+   !
+   vlan 112
+      route-target import export evpn domain all 112:112
+      redistribute learned
+   !
+   vlan 113
+      route-target import export evpn domain all 113:113
+      redistribute learned
+   !
+   vlan 114
+      route-target import export evpn domain all 114:114
+      redistribute learned
+   !
+   vlan 311
+      route-target import export evpn domain all 311:311
+      redistribute learned
+   !
+   vlan 312
+      route-target import export evpn domain all 312:312
+      redistribute learned
+   !
+   vlan 313
+      route-target import export evpn domain all 313:313
+      redistribute learned
+   !
+   vlan 314
+      route-target import export evpn domain all 314:314
+      redistribute learned
+!
+!interface Vlan111
+!   ip ospf area 0.0.0.0
+!!
+!interface Vlan112
+!   ip ospf area 0.0.0.0
+!!
+!interface Vlan113
+!   ip ospf area 0.0.0.0
+!!
+!interface Vlan114
+!   ip ospf area 0.0.0.0
+!!
+!interface Vlan311
+!   ip ospf area 0.0.0.0
+!!
+!interface Vlan312
+!   ip ospf area 0.0.0.0
+!!
+!interface Vlan313
+!   ip ospf area 0.0.0.0
+!!
+!interface Vlan314
+!   ip ospf area 0.0.0.0

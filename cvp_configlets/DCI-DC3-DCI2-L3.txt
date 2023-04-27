@@ -64,5 +64,32 @@ router bgp 65199
    neighbor 10.102.103.6 peer group DC2-DCI-IPv4
    neighbor 10.255.255.254 peer group PEER
 !
+! If doing Type-2/3 Gateway between DCs
+!
+   !
+   vlan 111
+      rd evpn domain all 10.1.1.199:111
+   !
+   vlan 112
+      rd evpn domain all 10.1.1.199:112
+   !
+   vlan 113
+      rd evpn domain all 10.1.1.199:113
+   !
+   vlan 114
+      rd evpn domain all 10.1.1.199:114
+   !
+   vlan 311
+      rd evpn domain all 10.1.1.199:311
+   !
+   vlan 312
+      rd evpn domain all 10.1.1.199:312
+   !
+   vlan 313
+      rd evpn domain all 10.1.1.199:313
+   !
+   vlan 314
+      rd evpn domain all 10.1.1.199:314
+!
 router general
    router-id ipv4 10.1.1.199

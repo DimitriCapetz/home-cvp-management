@@ -310,6 +310,8 @@ CVP_CONTAINERS:
     configlets:
       - dcapetz - lab_DCI-DC1-DCI-SHARED
       - dcapetz - lab_DCI-DC1-FABRIC-SHARED
+      # If doing Type2/3 EVPN Gateway Function
+      - dcapetz - lab_DCI-DC1-VLANs
   DCI DC1 Legacy:
     parentContainerName: DCI DC1
     configlets:
@@ -322,6 +324,9 @@ CVP_CONTAINERS:
     parentContainerName: DCI Simulation
   DCI DC2 Border:
     parentContainerName: DCI DC2
+    configlets:
+      # If doing Type2/3 EVPN Gateway Function
+      - dcapetz - lab_DCI-DC2-VLANs
   DCI DC2 Border A:
     parentContainerName: DCI DC2 Border
     configlets:
@@ -347,6 +352,8 @@ CVP_CONTAINERS:
     configlets:
       - dcapetz - lab_DCI-DC3-DCI-SHARED
       - dcapetz - lab_DCI-DC1-FABRIC-SHARED
+      # If doing Type2/3 EVPN Gateway Function
+      - dcapetz - lab_DCI-DC1-VLANs
   DCI DC3 Legacy:
     parentContainerName: DCI DC3
     configlets:
