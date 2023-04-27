@@ -1,0 +1,47 @@
+vrf instance 211
+!
+ip routing vrf 211
+!
+ip route vrf 211 0.0.0.0/0 10.21.1.1
+!
+vrf instance 212
+!
+ip routing vrf 212
+!
+ip route vrf 212 0.0.0.0/0 10.21.2.1
+!
+vrf instance 213
+!
+ip routing vrf 213
+!
+ip route vrf 213 0.0.0.0/0 10.21.3.1
+!
+vrf instance 214
+!
+ip routing vrf 214
+!
+ip route vrf 214 0.0.0.0/0 10.21.4.1
+!
+interface Ethernet1
+   description Uplink to DC2-LEAF1 for VRF 211
+   no switchport
+   vrf 211
+   ip address 10.21.1.102/24
+!
+interface Ethernet2
+   description Uplink to DC2-LEAF1 for VRF 212
+   no switchport
+   vrf 212
+   ip address 10.21.2.102/24
+!
+interface Ethernet3
+   description Uplink to DC2-LEAF1 for VRF 213
+   no switchport
+   vrf 213
+   ip address 10.21.3.102/24
+!
+interface Ethernet4
+   description Uplink to DC2-LEAF1 for VRF 214
+   no switchport
+   vrf 214
+   ip address 10.21.4.102/24

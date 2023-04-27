@@ -1,7 +1,22 @@
-!interface Ethernet1
-!   description Host Simulation
-!   switchport trunk allowed vlan 111-114
-!   switchport mode trunk
+interface Ethernet1
+   description Host Simulation
+   switchport access vlan 111
+   spanning-tree portfast
+!
+interface Ethernet2
+   description Host Simulation
+   switchport access vlan 112
+   spanning-tree portfast
+!
+interface Ethernet3
+   description Host Simulation
+   switchport access vlan 311
+   spanning-tree portfast
+!
+interface Ethernet4
+   description Host Simulation
+   switchport access vlan 312
+   spanning-tree portfast
 !
 interface Ethernet49/1
    description L3 Connection to DC1-SPINE1

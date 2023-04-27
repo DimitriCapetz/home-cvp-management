@@ -16,6 +16,8 @@ sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:05:e0/' clab-dci-topo/DC2-SPINE1/fl
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:05:f0/' clab-dci-topo/DC2-LEAF1/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:06:00/' clab-dci-topo/DC2-LEGACY1/flash/system_mac_address
 sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:06:10/' clab-dci-topo/DC2-LEGACY2/flash/system_mac_address
+sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:06:20/' clab-dci-topo/DC1-HOST1/flash/system_mac_address
+sudo sed -i 's/..:..:..:..:..:../00:1c:73:dc:06:30/' clab-dci-topo/DC2-HOST1/flash/system_mac_address
 sudo cp ../cv-onboarding-token clab-dci-topo/DC1-DCI1/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-dci-topo/DC1-DCI2/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-dci-topo/DC3-DCI1/flash/cv-onboarding-token
@@ -34,3 +36,5 @@ sudo cp ../cv-onboarding-token clab-dci-topo/DC2-SPINE1/flash/cv-onboarding-toke
 sudo cp ../cv-onboarding-token clab-dci-topo/DC2-LEAF1/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-dci-topo/DC2-LEGACY1/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-dci-topo/DC2-LEGACY2/flash/cv-onboarding-token
+sudo cp ../cv-onboarding-token clab-dci-topo/DC1-HOST1/flash/cv-onboarding-token
+sudo cp ../cv-onboarding-token clab-dci-topo/DC2-HOST1/flash/cv-onboarding-token

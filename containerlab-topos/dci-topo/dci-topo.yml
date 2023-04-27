@@ -268,6 +268,30 @@ topology:
         graph-level: 4
         graph-icon: switch
 
+#########################
+# Host Simulation       #
+#########################
+
+    DC1-HOST11:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.211
+      startup-config: ./configs/DC1-HOST1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: switch
+
+    DC2-HOST1:
+      kind: ceos
+      mgmt_ipv4: 10.99.99.212
+      startup-config: ./configs/DC2-HOST1.cfg
+      binds:
+        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: switch
+
   links:
 ##############################
 # DCI Peer-links             #
@@ -354,3 +378,14 @@ topology:
     - endpoints: ["DC3-DCI1:eth2", "DC3-LEGACY2:eth7"]
     - endpoints: ["DC3-DCI2:eth1", "DC3-LEGACY1:eth8"]
     - endpoints: ["DC3-DCI2:eth2", "DC3-LEGACY2:eth8"]
+##############################
+# Host Sim                   #
+##############################
+    - endpoints: ["DC1-LEAF1:eth1", "DC1-HOST1:eth1"]
+    - endpoints: ["DC1-LEAF1:eth2", "DC1-HOST1:eth2"]
+    - endpoints: ["DC1-LEAF1:eth11", "DC1-HOST1:eth11"]
+    - endpoints: ["DC1-LEAF1:eth12", "DC1-HOST1:eth12"]
+    - endpoints: ["DC2-LEAF1:eth1", "DC2-HOST1:eth1"]
+    - endpoints: ["DC2-LEAF1:eth2", "DC2-HOST1:eth2"]
+    - endpoints: ["DC2-LEAF1:eth11", "DC2-HOST1:eth11"]
+    - endpoints: ["DC2-LEAF1:eth12", "DC2-HOST1:eth12"]
