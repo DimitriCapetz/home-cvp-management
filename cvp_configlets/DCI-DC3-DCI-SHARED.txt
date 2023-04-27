@@ -115,11 +115,16 @@ route-map DC3-LEGACY-LOCAL-EGRESS permit 110
 !
 route-map DC3-LEGACY-LOCAL-EGRESS permit 999
 !
+! Policy to Set Community for DCI Egress to Legacy
+!
+route-map DC1-BGP-COMMUNITY permit 100
+   set community community-list DC1-FABRIC-COMMUNITY additive
+!
 ! Local Networks to OSPF with Metric Set
 !
 route-map LOCAL-TO-OSPF permit 100
    set metric-type type-1
-   set metric 100
+   set metric 91
 !
 router ospf 100 vrf CORP
    passive-interface default
@@ -184,7 +189,7 @@ router bgp 65199
    vrf CORP
       route-target import evpn 5001:5001
       route-target export evpn 5001:5001
-      redistribute connected
+      redistribute connected route-map DC1-BGP-COMMUNITY
       redistribute ospf route-map DC3-OSPF-TO-BGP
 !
 ! If doing Type-2/3 Gateway between DCs
@@ -221,27 +226,3 @@ router bgp 65199
    vlan 314
       route-target import export evpn domain all 314:314
       redistribute learned
-!
-!interface Vlan111
-!   ip ospf area 0.0.0.0
-!!
-!interface Vlan112
-!   ip ospf area 0.0.0.0
-!!
-!interface Vlan113
-!   ip ospf area 0.0.0.0
-!!
-!interface Vlan114
-!   ip ospf area 0.0.0.0
-!!
-!interface Vlan311
-!   ip ospf area 0.0.0.0
-!!
-!interface Vlan312
-!   ip ospf area 0.0.0.0
-!!
-!interface Vlan313
-!   ip ospf area 0.0.0.0
-!!
-!interface Vlan314
-!   ip ospf area 0.0.0.0
