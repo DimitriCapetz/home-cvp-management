@@ -31,6 +31,7 @@ ip prefix-list DC1-LEGACY-NETWORKS seq 100 permit 10.11.2.0/24
 ip prefix-list DC1-LEGACY-NETWORKS seq 110 permit 10.11.3.0/24
 ip prefix-list DC1-LEGACY-NETWORKS seq 120 permit 10.11.4.0/24
 ip prefix-list DC1-LEGACY-NETWORKS seq 130 permit 10.251.0.0/16 le 32
+ip prefix-list DC1-LEGACY-NETWORKS seq 999 permit 0.0.0.0/0
 ip prefix-list DC2-LEGACY-NETWORKS seq 100 permit 10.21.2.0/24
 ip prefix-list DC2-LEGACY-NETWORKS seq 110 permit 10.21.3.0/24
 ip prefix-list DC2-LEGACY-NETWORKS seq 120 permit 10.21.4.0/24
@@ -191,6 +192,7 @@ router bgp 65199
       route-target export evpn 5001:5001
       redistribute connected route-map DC1-BGP-COMMUNITY
       redistribute ospf route-map DC3-OSPF-TO-BGP
+      redistribute ospf match external route-map DC3-OSPF-TO-BGP
 !
 ! If doing Type-2/3 Gateway between DCs
 !

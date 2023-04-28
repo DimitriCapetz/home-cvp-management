@@ -14,6 +14,7 @@ vlan 4093
    trunk group PEER
 !
 interface Vlan112
+   shutdown
    description DC1 VLAN2 - Legacy
    vrrp 112 peer authentication text VRRP112
    vrrp 112 ipv4 10.11.2.1
@@ -42,4 +43,5 @@ router ospf 100
    no passive-interface Ethernet53/1
    no passive-interface Ethernet54/1
    no passive-interface Vlan4093
+   default-information originate always
    max-lsa 12000
