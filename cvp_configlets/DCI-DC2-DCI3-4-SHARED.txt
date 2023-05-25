@@ -48,6 +48,8 @@ ip community-list DC2-FABRIC-COMMUNITY permit 22222:22222
 !
 ! Prevent Redistribution Loop by blocking set communities
 !
+! Remove NON-LOCALLY connected sites when Legacy DCI Is Deactivated
+!
 route-map DC2-BGP-TO-OSPF deny 10
    match community DC1-COMMUNITY-LIST
 !

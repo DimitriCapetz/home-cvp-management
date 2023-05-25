@@ -41,3 +41,8 @@ router ospf 100
    no passive-interface Ethernet52/1
    no passive-interface Vlan4093
    max-lsa 12000
+!
+! Shutdown Legacy DCI Circuits
+!
+!interface Et1-4
+!   shutdown

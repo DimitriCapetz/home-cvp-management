@@ -45,3 +45,8 @@ router ospf 100
    no passive-interface Vlan4093
    default-information originate always
    max-lsa 12000
+!
+! Shutdown Legacy DCI Circuits
+!
+!interface Et1-4
+!   shutdown
