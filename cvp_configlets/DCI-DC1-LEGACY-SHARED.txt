@@ -48,5 +48,5 @@ router ospf 100
 !
 ! Shutdown Legacy DCI Circuits
 !
-!interface Et1-4
-!   shutdown
+interface Et1-4
+   shutdown

@@ -50,14 +50,14 @@ ip community-list DC2-FABRIC-COMMUNITY permit 22222:22222
 !
 ! Remove NON-LOCALLY connected sites when Legacy DCI Is Deactivated
 !
-route-map DC2-BGP-TO-OSPF deny 10
-   match community DC1-COMMUNITY-LIST
+!route-map DC2-BGP-TO-OSPF deny 10
+!   match community DC1-COMMUNITY-LIST
 !
 route-map DC2-BGP-TO-OSPF deny 20
    match community DC2-COMMUNITY-LIST
 !
-route-map DC2-BGP-TO-OSPF deny 30
-∂   match community DC3-COMMUNITY-LIST
+!route-map DC2-BGP-TO-OSPF deny 30
+!   match community DC3-COMMUNITY-LIST
 !
 ! With Symmetric IRB, /32s will be generated.  If not desired, 
 ! they can be blocked by prefix length.
