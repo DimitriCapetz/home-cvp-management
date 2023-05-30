@@ -26,7 +26,7 @@ topology:
     CAMPUS-SPINE1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.17
+      mgmt-ipv4: 10.99.99.17
       startup-config: ./configs/CAMPUS-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -34,7 +34,7 @@ topology:
     CAMPUS-SPINE2:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.18
+      mgmt-ipv4: 10.99.99.18
       startup-config: ./configs/CAMPUS-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -46,7 +46,7 @@ topology:
     CAMPUS-C1-SPLINE1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.19
+      mgmt-ipv4: 10.99.99.19
       startup-config: ./configs/CAMPUS-C1-SPLINE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -54,7 +54,7 @@ topology:
     CAMPUS-C1-SPLINE2:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.20
+      mgmt-ipv4: 10.99.99.20
       startup-config: ./configs/CAMPUS-C1-SPLINE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -62,7 +62,7 @@ topology:
     CAMPUS-C2-SPLINE1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.21
+      mgmt-ipv4: 10.99.99.21
       startup-config: ./configs/CAMPUS-C2-SPLINE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -70,7 +70,7 @@ topology:
     CAMPUS-C2-SPLINE2:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.22
+      mgmt-ipv4: 10.99.99.22
       startup-config: ./configs/CAMPUS-C2-SPLINE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -78,7 +78,7 @@ topology:
     CAMPUS-C3-SPLINE1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.23
+      mgmt-ipv4: 10.99.99.23
       startup-config: ./configs/CAMPUS-C3-SPLINE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -86,7 +86,7 @@ topology:
     CAMPUS-C3-SPLINE2:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.24
+      mgmt-ipv4: 10.99.99.24
       startup-config: ./configs/CAMPUS-C3-SPLINE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -98,7 +98,7 @@ topology:
     CAMPUS-C1-LEAF1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.25
+      mgmt-ipv4: 10.99.99.25
       startup-config: ./configs/CAMPUS-C1-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -106,7 +106,7 @@ topology:
     CAMPUS-C1-LEAF2:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.26
+      mgmt-ipv4: 10.99.99.26
       startup-config: ./configs/CAMPUS-C1-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -114,7 +114,7 @@ topology:
     CAMPUS-C1-LEAF3:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.27
+      mgmt-ipv4: 10.99.99.27
       startup-config: ./configs/CAMPUS-C1-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -122,7 +122,7 @@ topology:
     CAMPUS-C2-LEAF1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.28
+      mgmt-ipv4: 10.99.99.28
       startup-config: ./configs/CAMPUS-C2-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -130,7 +130,7 @@ topology:
     CAMPUS-C2-LEAF2:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.29
+      mgmt-ipv4: 10.99.99.29
       startup-config: ./configs/CAMPUS-C2-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -138,7 +138,7 @@ topology:
     CAMPUS-C2-LEAF3:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.30
+      mgmt-ipv4: 10.99.99.30
       startup-config: ./configs/CAMPUS-C2-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -146,7 +146,7 @@ topology:
     CAMPUS-C3-LEAF1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.31
+      mgmt-ipv4: 10.99.99.31
       startup-config: ./configs/CAMPUS-C3-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -154,7 +154,7 @@ topology:
     CAMPUS-C3-LEAF2:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.32
+      mgmt-ipv4: 10.99.99.32
       startup-config: ./configs/CAMPUS-C3-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -162,7 +162,7 @@ topology:
     CAMPUS-C3-LEAF3:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.33
+      mgmt-ipv4: 10.99.99.33
       startup-config: ./configs/CAMPUS-C3-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -174,7 +174,7 @@ topology:
     CAMPUS-C1-HOST1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.34
+      mgmt-ipv4: 10.99.99.34
       startup-config: ./configs/CAMPUS-C1-HOST1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -182,7 +182,7 @@ topology:
     CAMPUS-C2-HOST2:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.35
+      mgmt-ipv4: 10.99.99.35
       startup-config: ./configs/CAMPUS-C2-HOST2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -190,7 +190,7 @@ topology:
     CAMPUS-C3-AP1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.36
+      mgmt-ipv4: 10.99.99.36
       startup-config: ./configs/CAMPUS-C3-AP1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -202,7 +202,7 @@ topology:
     CAMPUS-WAN1:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.37
+      mgmt-ipv4: 10.99.99.37
       startup-config: ./configs/CAMPUS-WAN1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -210,7 +210,7 @@ topology:
     CAMPUS-WAN2:
       kind: ceos
       image: ceos:4.28.0F
-      mgmt_ipv4: 10.99.99.38
+      mgmt-ipv4: 10.99.99.38
       startup-config: ./configs/CAMPUS-WAN2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro

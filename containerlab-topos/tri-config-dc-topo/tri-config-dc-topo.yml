@@ -33,7 +33,7 @@ topology:
     graphite:
       kind: linux
       image: netreplica/graphite
-      mgmt_ipv4: 10.99.99.87
+      mgmt-ipv4: 10.99.99.87
       env:
         GRAPHITE_DEFAULT_TYPE: clab
         GRAPHITE_DEFAULT_TOPO: tri-config-dc-topo
@@ -58,7 +58,7 @@ topology:
 
     DC1-SPINE1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.193
+      mgmt-ipv4: 10.99.99.193
       startup-config: ./configs/DC1-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -68,7 +68,7 @@ topology:
 
     DC1-SPINE2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.194
+      mgmt-ipv4: 10.99.99.194
       startup-config: ./configs/DC1-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -82,7 +82,7 @@ topology:
 
     DC1-LEAF1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.195
+      mgmt-ipv4: 10.99.99.195
       startup-config: ./configs/DC1-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -92,7 +92,7 @@ topology:
 
     DC1-LEAF2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.196
+      mgmt-ipv4: 10.99.99.196
       startup-config: ./configs/DC1-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -102,7 +102,7 @@ topology:
 
     DC1-LEAF3:
       kind: ceos
-      mgmt_ipv4: 10.99.99.197
+      mgmt-ipv4: 10.99.99.197
       startup-config: ./configs/DC1-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -112,7 +112,7 @@ topology:
 
     DC1-LEAF4:
       kind: ceos
-      mgmt_ipv4: 10.99.99.198
+      mgmt-ipv4: 10.99.99.198
       startup-config: ./configs/DC1-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -126,7 +126,7 @@ topology:
 
     DC1-BORDER1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.199
+      mgmt-ipv4: 10.99.99.199
       startup-config: ./configs/DC1-BORDER1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -136,7 +136,7 @@ topology:
 
     DC1-BORDER2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.200
+      mgmt-ipv4: 10.99.99.200
       startup-config: ./configs/DC1-BORDER2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -151,7 +151,7 @@ topology:
     DC1-HOST1:
       kind: linux
       image: mitchv85/ohv-host
-      mgmt_ipv4: 10.99.99.201
+      mgmt-ipv4: 10.99.99.201
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.10.10.111/24 -g 10.10.10.1
       labels:
@@ -161,7 +161,7 @@ topology:
     DC1-HOST2:
       kind: linux
       image: mitchv85/ohv-host
-      mgmt_ipv4: 10.99.99.202
+      mgmt-ipv4: 10.99.99.202
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.20.20.112/24 -g 10.20.20.1
       labels:
@@ -178,7 +178,7 @@ topology:
 
     DC2-SPINE1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.203
+      mgmt-ipv4: 10.99.99.203
       startup-config: ./configs/DC2-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -188,7 +188,7 @@ topology:
 
     DC2-SPINE2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.204
+      mgmt-ipv4: 10.99.99.204
       startup-config: ./configs/DC2-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -202,7 +202,7 @@ topology:
 
     DC2-LEAF1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.205
+      mgmt-ipv4: 10.99.99.205
       startup-config: ./configs/DC2-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -212,7 +212,7 @@ topology:
 
     DC2-LEAF2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.206
+      mgmt-ipv4: 10.99.99.206
       startup-config: ./configs/DC2-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -222,7 +222,7 @@ topology:
 
     DC2-LEAF3:
       kind: ceos
-      mgmt_ipv4: 10.99.99.207
+      mgmt-ipv4: 10.99.99.207
       startup-config: ./configs/DC2-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -232,7 +232,7 @@ topology:
 
     DC2-LEAF4:
       kind: ceos
-      mgmt_ipv4: 10.99.99.208
+      mgmt-ipv4: 10.99.99.208
       startup-config: ./configs/DC2-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -246,7 +246,7 @@ topology:
 
     DC2-BORDER1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.209
+      mgmt-ipv4: 10.99.99.209
       startup-config: ./configs/DC2-BORDER1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -256,7 +256,7 @@ topology:
 
     DC2-BORDER2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.210
+      mgmt-ipv4: 10.99.99.210
       startup-config: ./configs/DC2-BORDER2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -271,7 +271,7 @@ topology:
     DC2-HOST1:
       kind: linux
       image: mitchv85/ohv-host
-      mgmt_ipv4: 10.99.99.211
+      mgmt-ipv4: 10.99.99.211
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.10.10.121/24 -g 10.10.10.1
       labels:
@@ -281,7 +281,7 @@ topology:
     DC2-HOST2:
       kind: linux
       image: mitchv85/ohv-host
-      mgmt_ipv4: 10.99.99.212
+      mgmt-ipv4: 10.99.99.212
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.30.30.122/24 -g 10.30.30.1
       labels:
@@ -298,7 +298,7 @@ topology:
 
     DC3-SPINE1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.213
+      mgmt-ipv4: 10.99.99.213
       startup-config: ./configs/DC3-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -308,7 +308,7 @@ topology:
 
     DC3-SPINE2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.214
+      mgmt-ipv4: 10.99.99.214
       startup-config: ./configs/DC3-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -322,7 +322,7 @@ topology:
 
     DC3-LEAF1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.215
+      mgmt-ipv4: 10.99.99.215
       startup-config: ./configs/DC3-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -332,7 +332,7 @@ topology:
 
     DC3-LEAF2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.216
+      mgmt-ipv4: 10.99.99.216
       startup-config: ./configs/DC3-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -342,7 +342,7 @@ topology:
 
     DC3-LEAF3:
       kind: ceos
-      mgmt_ipv4: 10.99.99.217
+      mgmt-ipv4: 10.99.99.217
       startup-config: ./configs/DC3-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -352,7 +352,7 @@ topology:
 
     DC3-LEAF4:
       kind: ceos
-      mgmt_ipv4: 10.99.99.218
+      mgmt-ipv4: 10.99.99.218
       startup-config: ./configs/DC3-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -366,7 +366,7 @@ topology:
 
     DC3-BORDER1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.219
+      mgmt-ipv4: 10.99.99.219
       startup-config: ./configs/DC3-BORDER1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -376,7 +376,7 @@ topology:
 
     DC3-BORDER2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.220
+      mgmt-ipv4: 10.99.99.220
       startup-config: ./configs/DC3-BORDER2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -391,7 +391,7 @@ topology:
     DC3-HOST1:
       kind: linux
       image: mitchv85/ohv-host
-      mgmt_ipv4: 10.99.99.221
+      mgmt-ipv4: 10.99.99.221
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.10.10.131/24 -g 10.10.10.1
       labels:
@@ -401,7 +401,7 @@ topology:
     DC3-HOST2:
       kind: linux
       image: mitchv85/ohv-host
-      mgmt_ipv4: 10.99.99.222
+      mgmt-ipv4: 10.99.99.222
       exec:
         - bash /usr/local/bin/hostnetconfig.sh -i 10.40.40.132/24 -g 10.40.40.1
       labels:
@@ -414,7 +414,7 @@ topology:
 
     WAN1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.223
+      mgmt-ipv4: 10.99.99.223
       startup-config: ./configs/WAN1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -424,7 +424,7 @@ topology:
 
     WAN2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.224
+      mgmt-ipv4: 10.99.99.224
       startup-config: ./configs/WAN2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro

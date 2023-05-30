@@ -33,7 +33,7 @@ topology:
     graphite:
       kind: linux
       image: netreplica/graphite
-      mgmt_ipv4: 10.99.99.87
+      mgmt-ipv4: 10.99.99.87
       env:
         GRAPHITE_DEFAULT_TYPE: clab
         GRAPHITE_DEFAULT_TOPO: dual-dc-topo
@@ -55,7 +55,7 @@ topology:
 
     ENT-DC1-SPINE1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.39
+      mgmt-ipv4: 10.99.99.39
       startup-config: ./configs/ENT-DC1-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -65,7 +65,7 @@ topology:
 
     ENT-DC1-SPINE2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.40
+      mgmt-ipv4: 10.99.99.40
       startup-config: ./configs/ENT-DC1-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -75,7 +75,7 @@ topology:
 
     ENT-DC2-SPINE1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.41
+      mgmt-ipv4: 10.99.99.41
       startup-config: ./configs/ENT-DC2-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -85,7 +85,7 @@ topology:
 
     ENT-DC2-SPINE2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.42
+      mgmt-ipv4: 10.99.99.42
       startup-config: ./configs/ENT-DC2-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -99,7 +99,7 @@ topology:
 
     ENT-DC1-LEAF1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.43
+      mgmt-ipv4: 10.99.99.43
       startup-config: ./configs/ENT-DC1-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -109,7 +109,7 @@ topology:
 
     ENT-DC1-LEAF2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.44
+      mgmt-ipv4: 10.99.99.44
       startup-config: ./configs/ENT-DC1-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -119,7 +119,7 @@ topology:
 
     ENT-DC1-LEAF3:
       kind: ceos
-      mgmt_ipv4: 10.99.99.45
+      mgmt-ipv4: 10.99.99.45
       startup-config: ./configs/ENT-DC1-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -129,7 +129,7 @@ topology:
 
     ENT-DC1-LEAF4:
       kind: ceos
-      mgmt_ipv4: 10.99.99.46
+      mgmt-ipv4: 10.99.99.46
       startup-config: ./configs/ENT-DC1-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -139,7 +139,7 @@ topology:
 
     ENT-DC1-LEAF5:
       kind: ceos
-      mgmt_ipv4: 10.99.99.47
+      mgmt-ipv4: 10.99.99.47
       startup-config: ./configs/ENT-DC1-LEAF5.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -149,7 +149,7 @@ topology:
 
     ENT-DC1-LEAF6:
       kind: ceos
-      mgmt_ipv4: 10.99.99.48
+      mgmt-ipv4: 10.99.99.48
       startup-config: ./configs/ENT-DC1-LEAF6.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -159,7 +159,7 @@ topology:
 
     ENT-DC2-LEAF1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.49
+      mgmt-ipv4: 10.99.99.49
       startup-config: ./configs/ENT-DC2-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -169,7 +169,7 @@ topology:
 
     ENT-DC2-LEAF2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.50
+      mgmt-ipv4: 10.99.99.50
       startup-config: ./configs/ENT-DC2-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -179,7 +179,7 @@ topology:
 
     ENT-DC2-LEAF3:
       kind: ceos
-      mgmt_ipv4: 10.99.99.51
+      mgmt-ipv4: 10.99.99.51
       startup-config: ./configs/ENT-DC2-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -189,7 +189,7 @@ topology:
 
     ENT-DC2-LEAF4:
       kind: ceos
-      mgmt_ipv4: 10.99.99.52
+      mgmt-ipv4: 10.99.99.52
       startup-config: ./configs/ENT-DC2-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -199,7 +199,7 @@ topology:
 
     ENT-DC2-LEAF5:
       kind: ceos
-      mgmt_ipv4: 10.99.99.53
+      mgmt-ipv4: 10.99.99.53
       startup-config: ./configs/ENT-DC2-LEAF5.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -209,7 +209,7 @@ topology:
 
     ENT-DC2-LEAF6:
       kind: ceos
-      mgmt_ipv4: 10.99.99.54
+      mgmt-ipv4: 10.99.99.54
       startup-config: ./configs/ENT-DC2-LEAF6.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -223,7 +223,7 @@ topology:
 
     ENT-DC1-BORDER1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.55
+      mgmt-ipv4: 10.99.99.55
       startup-config: ./configs/ENT-DC1-BORDER1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -233,7 +233,7 @@ topology:
 
     ENT-DC1-BORDER2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.56
+      mgmt-ipv4: 10.99.99.56
       startup-config: ./configs/ENT-DC1-BORDER2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -243,7 +243,7 @@ topology:
 
     ENT-DC2-BORDER1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.57
+      mgmt-ipv4: 10.99.99.57
       startup-config: ./configs/ENT-DC2-BORDER1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -253,7 +253,7 @@ topology:
 
     ENT-DC2-BORDER2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.58
+      mgmt-ipv4: 10.99.99.58
       startup-config: ./configs/ENT-DC2-BORDER2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -267,7 +267,7 @@ topology:
 
     ENT-DC1-CORE1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.59
+      mgmt-ipv4: 10.99.99.59
       startup-config: ./configs/ENT-DC1-CORE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -277,7 +277,7 @@ topology:
 
     ENT-DC1-CORE2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.60
+      mgmt-ipv4: 10.99.99.60
       startup-config: ./configs/ENT-DC1-CORE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -287,7 +287,7 @@ topology:
 
     ENT-DC2-CORE1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.61
+      mgmt-ipv4: 10.99.99.61
       startup-config: ./configs/ENT-DC2-CORE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -297,7 +297,7 @@ topology:
 
     ENT-DC2-CORE2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.62
+      mgmt-ipv4: 10.99.99.62
       startup-config: ./configs/ENT-DC2-CORE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -311,7 +311,7 @@ topology:
 
     ENT-DC1-HOST1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.63
+      mgmt-ipv4: 10.99.99.63
       startup-config: ./configs/ENT-DC1-HOST1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -321,7 +321,7 @@ topology:
 
     ENT-DC1-HOST2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.64
+      mgmt-ipv4: 10.99.99.64
       startup-config: ./configs/ENT-DC1-HOST2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -331,7 +331,7 @@ topology:
 
     ENT-DC1-HOST3:
       kind: ceos
-      mgmt_ipv4: 10.99.99.65
+      mgmt-ipv4: 10.99.99.65
       startup-config: ./configs/ENT-DC1-HOST3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -341,7 +341,7 @@ topology:
 
     ENT-DC2-HOST1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.66
+      mgmt-ipv4: 10.99.99.66
       startup-config: ./configs/ENT-DC2-HOST1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -351,7 +351,7 @@ topology:
 
     ENT-DC2-HOST2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.67
+      mgmt-ipv4: 10.99.99.67
       startup-config: ./configs/ENT-DC2-HOST2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -361,7 +361,7 @@ topology:
 
     ENT-DC2-HOST3:
       kind: ceos
-      mgmt_ipv4: 10.99.99.68
+      mgmt-ipv4: 10.99.99.68
       startup-config: ./configs/ENT-DC2-HOST3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -375,7 +375,7 @@ topology:
 
     ENT-DC1-WAN1:
       kind: ceos
-      mgmt_ipv4: 10.99.99.69
+      mgmt-ipv4: 10.99.99.69
       startup-config: ./configs/ENT-DC1-WAN1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -385,7 +385,7 @@ topology:
 
     ENT-DC2-WAN2:
       kind: ceos
-      mgmt_ipv4: 10.99.99.70
+      mgmt-ipv4: 10.99.99.70
       startup-config: ./configs/ENT-DC2-WAN2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -395,7 +395,7 @@ topology:
 
     ENT-CORE-WAN3:
       kind: ceos
-      mgmt_ipv4: 10.99.99.71
+      mgmt-ipv4: 10.99.99.71
       startup-config: ./configs/ENT-CORE-WAN3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
