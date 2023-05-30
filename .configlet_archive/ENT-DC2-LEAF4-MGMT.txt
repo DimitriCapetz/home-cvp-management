@@ -2,7 +2,7 @@
 ! Base Config for ENT-DC2-LEAF4
 !
 daemon TerminAttr
-   exec /usr/bin/TerminAttr -cvaddr=apiserver.cv-staging.corp.arista.io:443 -cvcompression=gzip -cvvrf=management -taillogs -cvauth=token-secure,/mnt/flash/cv-onboarding-token -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+   exec /usr/bin/TerminAttr -cvaddr=apiserver.arista.io:443 -cvcompression=gzip -cvvrf=management -taillogs -cvauth=token-secure,/mnt/flash/cv-onboarding-token -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
    no shutdown
 !
 hostname ENT-DC2-LEAF4
