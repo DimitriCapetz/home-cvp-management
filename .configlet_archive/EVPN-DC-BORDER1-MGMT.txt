@@ -1,7 +1,7 @@
 !
 ! Base Config for DC-BORDER1
 !
-hostname DC-BORDER1
+hostname dcapetz-DC-BORDER1
 !
 vrf instance management
 !

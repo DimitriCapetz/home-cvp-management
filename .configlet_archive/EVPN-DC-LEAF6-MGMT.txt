@@ -1,7 +1,7 @@
 !
 ! Base Config for DC-LEAF6
 !
-hostname DC-LEAF6
+hostname dcapetz-DC-LEAF6
 !
 vrf instance management
 !

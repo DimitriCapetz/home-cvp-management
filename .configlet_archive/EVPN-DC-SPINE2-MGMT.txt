@@ -1,7 +1,7 @@
 !
 ! Base Config for DC-SPINE2
 !
-hostname DC-SPINE2
+hostname dcapetz-DC-SPINE2
 !
 vrf instance management
 !

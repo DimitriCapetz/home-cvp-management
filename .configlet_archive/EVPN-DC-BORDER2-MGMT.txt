@@ -1,7 +1,7 @@
 !
 ! Base Config for DC-BORDER2
 !
-hostname DC-BORDER2
+hostname dcapetz-DC-BORDER2
 !
 vrf instance management
 !

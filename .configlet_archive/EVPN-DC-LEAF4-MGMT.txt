@@ -1,7 +1,7 @@
 !
 ! Base Config for DC-LEAF4
 !
-hostname DC-LEAF4
+hostname dcapetz-DC-LEAF4
 !
 vrf instance management
 !
