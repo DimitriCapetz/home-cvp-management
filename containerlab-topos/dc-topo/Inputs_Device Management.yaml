@@ -1,0 +1,148 @@
+path: []
+inputs:
+  deviceSettings:
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-720xp-REBORN
+          inBandInterfaceSettings:
+            inBandInterface: Loopback0
+            inBandIpAndMask: 10.100.100.1/32
+          managementConnectivity: true
+          outOfBandInterface: []
+      tags:
+        query: device:JPE19303249
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-BORDER1
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.10/24
+              tags:
+                query: interface:Management1@515920AFE053923595EBF4457834C78D
+      tags:
+        query: device:515920AFE053923595EBF4457834C78D
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-BORDER2
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.11/24
+              tags:
+                query: interface:Management1@712648BD4AE90D260B32B3BDC83EAFE7
+      tags:
+        query: device:712648BD4AE90D260B32B3BDC83EAFE7
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-LEAF1
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.4/24
+              tags:
+                query: interface:Management1@7FE13495A8204479DD3A3D527B6EA274
+      tags:
+        query: device:7FE13495A8204479DD3A3D527B6EA274
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-LEAF2
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.5/24
+              tags:
+                query: interface:Management1@2651A0F2EB485811F3CFFB46AAA9FCFB
+      tags:
+        query: device:2651A0F2EB485811F3CFFB46AAA9FCFB
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-LEAF3
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.6/24
+              tags:
+                query: interface:Management1@A9FC8877D99EFBB837B26C52D38715DF
+      tags:
+        query: device:A9FC8877D99EFBB837B26C52D38715DF
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-LEAF4
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.7/24
+              tags:
+                query: interface:Management1@E35D4224B7AFBE4D2ED8A622099A0249
+      tags:
+        query: device:E35D4224B7AFBE4D2ED8A622099A0249
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-LEAF5
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.8/24
+              tags:
+                query: interface:Management1@70496401CF450E5FFC2BC1F171B22FF3
+      tags:
+        query: device:70496401CF450E5FFC2BC1F171B22FF3
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-LEAF6
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.9/24
+              tags:
+                query: interface:Management1@910A7C698886F934ED79C51631383CB3
+      tags:
+        query: device:910A7C698886F934ED79C51631383CB3
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-SPINE1
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.2/24
+              tags:
+                query: interface:Management1@B4AEE970F3081476B699327215BEE6F8
+      tags:
+        query: device:B4AEE970F3081476B699327215BEE6F8
+    - inputs:
+        managementSettings:
+          deviceHostname: dcapetz-DC-SPINE2
+          inBandInterfaceSettings: {}
+          managementConnectivity: false
+          outOfBandInterface:
+            - inputs:
+                oobIpAndMask: 10.99.99.3/24
+              tags:
+                query: interface:Management1@747B0EDD4AC30DAB1D35291986F95D6E
+      tags:
+        query: device:747B0EDD4AC30DAB1D35291986F95D6E
+  vrfAssignment:
+    - inputs:
+        vrfSettings:
+          defaultGateway: 192.168.0.1
+          disableRouting: false
+          vrf: default
+      tags:
+        query: 'deviceLocation:"Dimitri Home Lab" AND deviceType:Physical '
+    - inputs:
+        vrfSettings:
+          defaultGateway: 10.99.99.1
+          disableRouting: true
+          vrf: management
+      tags:
+        query: 'deviceLocation:"Dimitri Home Lab" AND deviceType:Virtual '
