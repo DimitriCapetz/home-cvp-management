@@ -2,36 +2,38 @@ CVP_CONTAINERS:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-#  DC Data Center:
-#    parentContainerName: Dimitri's Virtual Lab
-##    configlets:
-##      - dcapetz - lab_DC-VLANs
-#  DC Spines:
-#    parentContainerName: DC Data Center
-##    configlets:
-##      - dcapetz - lab_DC-SPINE-SHARED
-#  DC Leaves:
-#    parentContainerName: DC Data Center
-#  DC Border Leaves:
-#    parentContainerName: DC Leaves
-##    configlets:
-##      - dcapetz - lab_DC-BORDER-SHARED
-#  DC Compute Leaves:
-#    parentContainerName: DC Leaves
-##    configlets:
-##      - dcapetz - lab_DC-LEAVES-SHARED
-#  DC Compute Pod 1:
-#    parentContainerName: DC Compute Leaves
-##    configlets:
-##      - dcapetz - lab_DC-POD1-SHARED
-#  DC Compute Pod 2:
-#    parentContainerName: DC Compute Leaves
-##    configlets:
-##      - dcapetz - lab_DC-POD2-SHARED
-#  DC Compute Pod 3:
-#    parentContainerName: DC Compute Leaves
-##    configlets:
-##      - dcapetz - lab_DC-POD3-SHARED
+  DC Data Center:
+    parentContainerName: dcapetz
+    configlets:
+      - dcapetz - lab_DC-SWITCH-DEFAULTS
+      - dcapetz - lab_DC-SWITCH-AAA
+      - dcapetz - lab_DC-VLANs
+  DC Spines:
+    parentContainerName: DC Data Center
+    configlets:
+      - dcapetz - lab_DC-SPINE-SHARED
+  DC Leaves:
+    parentContainerName: DC Data Center
+  DC Border Leaves:
+    parentContainerName: DC Leaves
+    configlets:
+      - dcapetz - lab_DC-BORDER-SHARED
+  DC Compute Leaves:
+    parentContainerName: DC Leaves
+    configlets:
+      - dcapetz - lab_DC-LEAVES-SHARED
+  DC Compute Pod 1:
+    parentContainerName: DC Compute Leaves
+    configlets:
+      - dcapetz - lab_DC-POD1-SHARED
+  DC Compute Pod 2:
+    parentContainerName: DC Compute Leaves
+    configlets:
+      - dcapetz - lab_DC-POD2-SHARED
+  DC Compute Pod 3:
+    parentContainerName: DC Compute Leaves
+    configlets:
+      - dcapetz - lab_DC-POD3-SHARED
 ###################
 # Campus Topology #
 ###################
@@ -298,63 +300,63 @@ CVP_CONTAINERS:
 ###############################
 # DCI Topology                #
 ###############################
-  DCI Simulation:
-    parentContainerName: dcapetz
-    configlets:
-      - dcapetz - lab_DCI-SWITCH-DEFAULTS
-      - dcapetz - lab_DCI-SWITCH-AAA
-  DCI DC1:
-    parentContainerName: DCI Simulation
-  DCI DC1 Border:
-    parentContainerName: DCI DC1
-    configlets:
-      - dcapetz - lab_DCI-DC1-DCI-SHARED
-      - dcapetz - lab_DCI-DC1-FABRIC-SHARED
-      # If doing Type2/3 EVPN Gateway Function
-      - dcapetz - lab_DCI-DC1-VLANs
-  DCI DC1 Legacy:
-    parentContainerName: DCI DC1
-    configlets:
-      - dcapetz - lab_DCI-DC1-LEGACY-SHARED
-  DCI DC1 Fabric:
-    parentContainerName: DCI DC1
-    configlets:
-      - dcapetz - lab_DCI-DC1-FABRIC-SHARED
-  DCI DC2:
-    parentContainerName: DCI Simulation
-  DCI DC2 Border:
-    parentContainerName: DCI DC2
-    configlets:
-      # If doing Type2/3 EVPN Gateway Function
-      - dcapetz - lab_DCI-DC2-VLANs
-  DCI DC2 Border A:
-    parentContainerName: DCI DC2 Border
-    configlets:
-      - dcapetz - lab_DCI-DC2-DCI1-2-SHARED
-      - dcapetz - lab_DCI-DC2-FABRIC-SHARED
-  DCI DC2 Border B:
-    parentContainerName: DCI DC2 Border
-    configlets:
-      - dcapetz - lab_DCI-DC2-DCI3-4-SHARED
-      - dcapetz - lab_DCI-DC2-FABRIC-SHARED
-  DCI DC2 Legacy:
-    parentContainerName: DCI DC2
-    configlets:
-      - dcapetz - lab_DCI-DC2-LEGACY-SHARED
-  DCI DC2 Fabric:
-    parentContainerName: DCI DC2
-    configlets:
-      - dcapetz - lab_DCI-DC2-FABRIC-SHARED
-  DCI DC3:
-    parentContainerName: DCI Simulation
-  DCI DC3 Border:
-    parentContainerName: DCI DC3
-    configlets:
-      - dcapetz - lab_DCI-DC3-DCI-SHARED
-      - dcapetz - lab_DCI-DC1-FABRIC-SHARED
-      # If doing Type2/3 EVPN Gateway Function
-      - dcapetz - lab_DCI-DC1-VLANs
-  DCI DC3 Legacy:
-    parentContainerName: DCI DC3
-    configlets:
-      - dcapetz - lab_DCI-DC3-LEGACY-SHARED
+#  DCI Simulation:
+#    parentContainerName: dcapetz
+#    configlets:
+#      - dcapetz - lab_DCI-SWITCH-DEFAULTS
+#      - dcapetz - lab_DCI-SWITCH-AAA
+#  DCI DC1:
+#    parentContainerName: DCI Simulation
+#  DCI DC1 Border:
+#    parentContainerName: DCI DC1
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-DCI-SHARED
+#      - dcapetz - lab_DCI-DC1-FABRIC-SHARED
+#      # If doing Type2/3 EVPN Gateway Function
+#      - dcapetz - lab_DCI-DC1-VLANs
+#  DCI DC1 Legacy:
+#    parentContainerName: DCI DC1
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-LEGACY-SHARED
+#  DCI DC1 Fabric:
+#    parentContainerName: DCI DC1
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-FABRIC-SHARED
+#  DCI DC2:
+#    parentContainerName: DCI Simulation
+#  DCI DC2 Border:
+#    parentContainerName: DCI DC2
+#    configlets:
+#      # If doing Type2/3 EVPN Gateway Function
+#      - dcapetz - lab_DCI-DC2-VLANs
+#  DCI DC2 Border A:
+#    parentContainerName: DCI DC2 Border
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-DCI1-2-SHARED
+#      - dcapetz - lab_DCI-DC2-FABRIC-SHARED
+#  DCI DC2 Border B:
+#    parentContainerName: DCI DC2 Border
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-DCI3-4-SHARED
+#      - dcapetz - lab_DCI-DC2-FABRIC-SHARED
+#  DCI DC2 Legacy:
+#    parentContainerName: DCI DC2
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-LEGACY-SHARED
+#  DCI DC2 Fabric:
+#    parentContainerName: DCI DC2
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-FABRIC-SHARED
+#  DCI DC3:
+#    parentContainerName: DCI Simulation
+#  DCI DC3 Border:
+#    parentContainerName: DCI DC3
+#    configlets:
+#      - dcapetz - lab_DCI-DC3-DCI-SHARED
+#      - dcapetz - lab_DCI-DC1-FABRIC-SHARED
+#      # If doing Type2/3 EVPN Gateway Function
+#      - dcapetz - lab_DCI-DC1-VLANs
+#  DCI DC3 Legacy:
+#    parentContainerName: DCI DC3
+#    configlets:
+#      - dcapetz - lab_DCI-DC3-LEGACY-SHARED

@@ -2,60 +2,60 @@ CVP_DEVICES:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-#  - fqdn: DC-SPINE1
-#    parentContainerName: DC Spines
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-SPINE1-BASE
-##      - dcapetz - lab_EVPN-DC-SPINE-MLAG-SIDE-A
-##      - dcapetz - lab_EVPN-DC-SPINE1-CONFIG
-#  - fqdn: DC-SPINE2
-#    parentContainerName: DC Spines
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-SPINE2-BASE
-##      - dcapetz - lab_EVPN-DC-SPINE-MLAG-SIDE-B
-##      - dcapetz - lab_EVPN-DC-SPINE2-CONFIG
-#  - fqdn: DC-BORDER1
-#    parentContainerName: DC Border Leaves
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-BORDER1-BASE
-##      - dcapetz - lab_EVPN-DC-LEAF-MLAG-SIDE-A
-##      - dcapetz - lab_EVPN-DC-BORDER1-CONFIG
-#  - fqdn: DC-BORDER2
-#    parentContainerName: DC Border Leaves
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-BORDER2-BASE
-##      - dcapetz - lab_EVPN-DC-LEAF-MLAG-SIDE-B
-##      - dcapetz - lab_EVPN-DC-BORDER2-CONFIG
-#  - fqdn: DC-LEAF1
-#    parentContainerName: DC Compute Pod 1
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-LEAF1-BASE
-##      - dcapetz - lab_EVPN-DC-LEAF-MLAG-SIDE-A
-#  - fqdn: DC-LEAF2
-#    parentContainerName: DC Compute Pod 1
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-LEAF2-BASE
-##      - dcapetz - lab_EVPN-DC-LEAF-MLAG-SIDE-B
-#  - fqdn: DC-LEAF3
-#    parentContainerName: DC Compute Pod 2
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-LEAF3-BASE
-##      - dcapetz - lab_EVPN-DC-LEAF-MLAG-SIDE-A
-#  - fqdn: DC-LEAF4
-#    parentContainerName: DC Compute Pod 2
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-LEAF4-BASE
-##      - dcapetz - lab_EVPN-DC-LEAF-MLAG-SIDE-B
-#  - fqdn: DC-LEAF5
-#    parentContainerName: DC Compute Pod 3
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-LEAF5-BASE
-##      - dcapetz - lab_EVPN-DC-LEAF-MLAG-SIDE-A
-#  - fqdn: DC-LEAF6
-#    parentContainerName: DC Compute Pod 3
-#    configlets:
-#      - dcapetz - lab_EVPN-DC-LEAF6-BASE
-##      - dcapetz - lab_EVPN-DC-LEAF-MLAG-SIDE-B
+  - fqdn: DC-SPINE1
+    parentContainerName: DC Spines
+    configlets:
+      - dcapetz - lab_DC-SPINE1-BASE
+      - dcapetz - lab_DC-SPINE-MLAG-SIDE-A
+      - dcapetz - lab_DC-SPINE1-CONFIG
+  - fqdn: DC-SPINE2
+    parentContainerName: DC Spines
+    configlets:
+      - dcapetz - lab_DC-SPINE2-BASE
+      - dcapetz - lab_DC-SPINE-MLAG-SIDE-B
+      - dcapetz - lab_DC-SPINE2-CONFIG
+  - fqdn: DC-BORDER1
+    parentContainerName: DC Border Leaves
+    configlets:
+      - dcapetz - lab_DC-BORDER1-BASE
+      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+      - dcapetz - lab_DC-BORDER1-CONFIG
+  - fqdn: DC-BORDER2
+    parentContainerName: DC Border Leaves
+    configlets:
+      - dcapetz - lab_DC-BORDER2-BASE
+      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+      - dcapetz - lab_DC-BORDER2-CONFIG
+  - fqdn: DC-LEAF1
+    parentContainerName: DC Compute Pod 1
+    configlets:
+      - dcapetz - lab_DC-LEAF1-BASE
+      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+  - fqdn: DC-LEAF2
+    parentContainerName: DC Compute Pod 1
+    configlets:
+      - dcapetz - lab_DC-LEAF2-BASE
+      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+  - fqdn: DC-LEAF3
+    parentContainerName: DC Compute Pod 2
+    configlets:
+      - dcapetz - lab_DC-LEAF3-BASE
+      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+  - fqdn: DC-LEAF4
+    parentContainerName: DC Compute Pod 2
+    configlets:
+      - dcapetz - lab_DC-LEAF4-BASE
+      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
+  - fqdn: DC-LEAF5
+    parentContainerName: DC Compute Pod 3
+    configlets:
+      - dcapetz - lab_DC-LEAF5-BASE
+      - dcapetz - lab_DC-LEAF-MLAG-SIDE-A
+  - fqdn: DC-LEAF6
+    parentContainerName: DC Compute Pod 3
+    configlets:
+      - dcapetz - lab_DC-LEAF6-BASE
+      - dcapetz - lab_DC-LEAF-MLAG-SIDE-B
 ###################
 # Campus Topology #
 ###################
@@ -636,122 +636,122 @@ CVP_DEVICES:
 ###############################
 # DCI Topology                #
 ###############################
-  - fqdn: DC1-DCI1
-    parentContainerName: DCI DC1 Border
-    configlets:
-      - dcapetz - lab_DCI-DC1-DCI1-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-A
-      - dcapetz - lab_DCI-DC1-DCI1-L3
-  - fqdn: DC1-DCI2
-    parentContainerName: DCI DC1 Border
-    configlets:
-      - dcapetz - lab_DCI-DC1-DCI2-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-B
-      - dcapetz - lab_DCI-DC1-DCI2-L3
-  - fqdn: DC2-DCI1
-    parentContainerName: DCI DC2 Border A
-    configlets:
-      - dcapetz - lab_DCI-DC2-DCI1-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-A
-      - dcapetz - lab_DCI-DC2-DCI1-L3
-  - fqdn: DC2-DCI2
-    parentContainerName: DCI DC2 Border A
-    configlets:
-      - dcapetz - lab_DCI-DC2-DCI2-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-B
-      - dcapetz - lab_DCI-DC2-DCI2-L3
-  - fqdn: DC2-DCI3
-    parentContainerName: DCI DC2 Border B
-    configlets:
-      - dcapetz - lab_DCI-DC2-DCI3-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-A
-      - dcapetz - lab_DCI-DC2-DCI3-L3
-  - fqdn: DC2-DCI4
-    parentContainerName: DCI DC2 Border B
-    configlets:
-      - dcapetz - lab_DCI-DC2-DCI4-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-B
-      - dcapetz - lab_DCI-DC2-DCI4-L3
-  - fqdn: DC3-DCI1
-    parentContainerName: DCI DC3 Border
-    configlets:
-      - dcapetz - lab_DCI-DC3-DCI1-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-A
-      - dcapetz - lab_DCI-DC3-DCI1-L3
-  - fqdn: DC3-DCI2
-    parentContainerName: DCI DC3 Border
-    configlets:
-      - dcapetz - lab_DCI-DC3-DCI2-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-B
-      - dcapetz - lab_DCI-DC3-DCI2-L3
-# Fabric Simulation
-  - fqdn: DC1-SPINE1
-    parentContainerName: DCI DC1 Fabric
-    configlets:
-      - dcapetz - lab_DCI-DC1-SPINE1-MGMT
-      - dcapetz - lab_DCI-DC1-SPINE1-L3
-  - fqdn: DC1-LEAF1
-    parentContainerName: DCI DC1 Fabric
-    configlets:
-      - dcapetz - lab_DCI-DC1-LEAF1-MGMT
-      - dcapetz - lab_DCI-DC1-VLANs
-      - dcapetz - lab_DCI-DC1-LEAF1-L3
-  - fqdn: DC2-SPINE1
-    parentContainerName: DCI DC2 Fabric
-    configlets:
-      - dcapetz - lab_DCI-DC2-SPINE1-MGMT
-      - dcapetz - lab_DCI-DC2-SPINE1-L3
-  - fqdn: DC2-LEAF1
-    parentContainerName: DCI DC2 Fabric
-    configlets:
-      - dcapetz - lab_DCI-DC2-LEAF1-MGMT
-      - dcapetz - lab_DCI-DC2-VLANs
-      - dcapetz - lab_DCI-DC2-LEAF1-L3
-# Legacy Core Devices
-  - fqdn: DC1-LEGACY1
-    parentContainerName: DCI DC1 Legacy
-    configlets:
-      - dcapetz - lab_DCI-DC1-LEGACY1-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-A
-      - dcapetz - lab_DCI-DC1-LEGACY1-L3
-  - fqdn: DC1-LEGACY2
-    parentContainerName: DCI DC1 Legacy
-    configlets:
-      - dcapetz - lab_DCI-DC1-LEGACY2-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-B
-      - dcapetz - lab_DCI-DC1-LEGACY2-L3
-  - fqdn: DC2-LEGACY1
-    parentContainerName: DCI DC2 Legacy
-    configlets:
-      - dcapetz - lab_DCI-DC2-LEGACY1-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-A
-      - dcapetz - lab_DCI-DC2-LEGACY1-L3
-  - fqdn: DC2-LEGACY2
-    parentContainerName: DCI DC2 Legacy
-    configlets:
-      - dcapetz - lab_DCI-DC2-LEGACY2-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-B
-      - dcapetz - lab_DCI-DC2-LEGACY2-L3
-  - fqdn: DC3-LEGACY1
-    parentContainerName: DCI DC3 Legacy
-    configlets:
-      - dcapetz - lab_DCI-DC3-LEGACY1-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-A
-      - dcapetz - lab_DCI-DC3-LEGACY1-L3
-  - fqdn: DC3-LEGACY2
-    parentContainerName: DCI DC3 Legacy
-    configlets:
-      - dcapetz - lab_DCI-DC3-LEGACY2-MGMT
-      - dcapetz - lab_DCI-MLAG-SIDE-B
-      - dcapetz - lab_DCI-DC3-LEGACY2-L3
-# Host Sim
-  - fqdn: DC1-HOST1
-    parentContainerName: DCI DC1 Fabric
-    configlets:
-      - dcapetz - lab_DCI-DC1-HOST1-MGMT
-      - dcapetz - lab_DCI-DC1-HOST1-L3
-  - fqdn: DC2-HOST1
-    parentContainerName: DCI DC2 Fabric
-    configlets:
-      - dcapetz - lab_DCI-DC2-HOST1-MGMT
-      - dcapetz - lab_DCI-DC2-HOST1-L3
+#  - fqdn: DC1-DCI1
+#    parentContainerName: DCI DC1 Border
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-DCI1-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-A
+#      - dcapetz - lab_DCI-DC1-DCI1-L3
+#  - fqdn: DC1-DCI2
+#    parentContainerName: DCI DC1 Border
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-DCI2-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-B
+#      - dcapetz - lab_DCI-DC1-DCI2-L3
+#  - fqdn: DC2-DCI1
+#    parentContainerName: DCI DC2 Border A
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-DCI1-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-A
+#      - dcapetz - lab_DCI-DC2-DCI1-L3
+#  - fqdn: DC2-DCI2
+#    parentContainerName: DCI DC2 Border A
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-DCI2-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-B
+#      - dcapetz - lab_DCI-DC2-DCI2-L3
+#  - fqdn: DC2-DCI3
+#    parentContainerName: DCI DC2 Border B
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-DCI3-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-A
+#      - dcapetz - lab_DCI-DC2-DCI3-L3
+#  - fqdn: DC2-DCI4
+#    parentContainerName: DCI DC2 Border B
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-DCI4-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-B
+#      - dcapetz - lab_DCI-DC2-DCI4-L3
+#  - fqdn: DC3-DCI1
+#    parentContainerName: DCI DC3 Border
+#    configlets:
+#      - dcapetz - lab_DCI-DC3-DCI1-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-A
+#      - dcapetz - lab_DCI-DC3-DCI1-L3
+#  - fqdn: DC3-DCI2
+#    parentContainerName: DCI DC3 Border
+#    configlets:
+#      - dcapetz - lab_DCI-DC3-DCI2-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-B
+#      - dcapetz - lab_DCI-DC3-DCI2-L3
+## Fabric Simulation
+#  - fqdn: DC1-SPINE1
+#    parentContainerName: DCI DC1 Fabric
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-SPINE1-MGMT
+#      - dcapetz - lab_DCI-DC1-SPINE1-L3
+#  - fqdn: DC1-LEAF1
+#    parentContainerName: DCI DC1 Fabric
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-LEAF1-MGMT
+#      - dcapetz - lab_DCI-DC1-VLANs
+#      - dcapetz - lab_DCI-DC1-LEAF1-L3
+#  - fqdn: DC2-SPINE1
+#    parentContainerName: DCI DC2 Fabric
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-SPINE1-MGMT
+#      - dcapetz - lab_DCI-DC2-SPINE1-L3
+#  - fqdn: DC2-LEAF1
+#    parentContainerName: DCI DC2 Fabric
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-LEAF1-MGMT
+#      - dcapetz - lab_DCI-DC2-VLANs
+#      - dcapetz - lab_DCI-DC2-LEAF1-L3
+## Legacy Core Devices
+#  - fqdn: DC1-LEGACY1
+#    parentContainerName: DCI DC1 Legacy
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-LEGACY1-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-A
+#      - dcapetz - lab_DCI-DC1-LEGACY1-L3
+#  - fqdn: DC1-LEGACY2
+#    parentContainerName: DCI DC1 Legacy
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-LEGACY2-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-B
+#      - dcapetz - lab_DCI-DC1-LEGACY2-L3
+#  - fqdn: DC2-LEGACY1
+#    parentContainerName: DCI DC2 Legacy
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-LEGACY1-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-A
+#      - dcapetz - lab_DCI-DC2-LEGACY1-L3
+#  - fqdn: DC2-LEGACY2
+#    parentContainerName: DCI DC2 Legacy
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-LEGACY2-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-B
+#      - dcapetz - lab_DCI-DC2-LEGACY2-L3
+#  - fqdn: DC3-LEGACY1
+#    parentContainerName: DCI DC3 Legacy
+#    configlets:
+#      - dcapetz - lab_DCI-DC3-LEGACY1-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-A
+#      - dcapetz - lab_DCI-DC3-LEGACY1-L3
+#  - fqdn: DC3-LEGACY2
+#    parentContainerName: DCI DC3 Legacy
+#    configlets:
+#      - dcapetz - lab_DCI-DC3-LEGACY2-MGMT
+#      - dcapetz - lab_DCI-MLAG-SIDE-B
+#      - dcapetz - lab_DCI-DC3-LEGACY2-L3
+## Host Sim
+#  - fqdn: DC1-HOST1
+#    parentContainerName: DCI DC1 Fabric
+#    configlets:
+#      - dcapetz - lab_DCI-DC1-HOST1-MGMT
+#      - dcapetz - lab_DCI-DC1-HOST1-L3
+#  - fqdn: DC2-HOST1
+#    parentContainerName: DCI DC2 Fabric
+#    configlets:
+#      - dcapetz - lab_DCI-DC2-HOST1-MGMT
+#      - dcapetz - lab_DCI-DC2-HOST1-L3
