@@ -10,7 +10,7 @@ name: dc-topo
 mgmt:
   network: clab_mgmt
   bridge: br0
-  ipv4_subnet: 10.99.99.0/24
+  ipv4-subnet: 10.99.99.0/24
   ipv4-gw: 10.99.99.1
 
 topology:
