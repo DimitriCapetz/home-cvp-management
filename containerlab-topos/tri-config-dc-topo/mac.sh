@@ -48,3 +48,6 @@ sudo cp ../cv-onboarding-token clab-tri-config-dc-topo/DC3-LEAF3/flash/cv-onboar
 sudo cp ../cv-onboarding-token clab-tri-config-dc-topo/DC3-LEAF4/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-tri-config-dc-topo/DC3-BORDER1/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-tri-config-dc-topo/DC3-BORDER2/flash/cv-onboarding-token
+
+
+#ceos-config file in flash for SYSTEMMACADDR=<MAC from above> and SERIALNUMBER=<SN of choice>
