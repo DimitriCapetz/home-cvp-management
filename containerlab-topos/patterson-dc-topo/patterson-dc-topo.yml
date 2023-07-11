@@ -132,7 +132,7 @@ topology:
       image: mitchv85/ohv-host
       mgmt-ipv4: 10.99.99.201
       exec:
-        - bash /usr/local/bin/hostnetconfig.sh -b -i 10.10.10.101/24 -g 10.10.10.1 -m 10.4.4.0/24
+        - bash /usr/local/bin/hostnetconfig.sh -b -i 10.10.10.101/24 -g 10.10.10.1
       labels:
         graph-level: 3
         graph-icon: host
@@ -142,7 +142,7 @@ topology:
       image: mitchv85/ohv-host
       mgmt-ipv4: 10.99.99.202
       exec:
-        - bash /usr/local/bin/hostnetconfig.sh -b -i 10.20.20.101/24 -g 10.20.20.1 -m 10.4.4.0/24
+        - bash /usr/local/bin/hostnetconfig.sh -b -i 10.20.20.101/24 -g 10.20.20.1
       labels:
         graph-level: 3
         graph-icon: host
@@ -252,7 +252,7 @@ topology:
       image: mitchv85/ohv-host
       mgmt-ipv4: 10.99.99.211
       exec:
-        - bash /usr/local/bin/hostnetconfig.sh -b -i 10.10.10.102/24 -g 10.10.10.1 -m 10.4.4.0/24
+        - bash /usr/local/bin/hostnetconfig.sh -b -i 10.10.10.102/24 -g 10.10.10.1
       labels:
         graph-level: 3
         graph-icon: host
@@ -262,7 +262,7 @@ topology:
       image: mitchv85/ohv-host
       mgmt-ipv4: 10.99.99.212
       exec:
-        - bash /usr/local/bin/hostnetconfig.sh -b -i 10.20.20.102/24 -g 10.20.20.1 -m 10.4.4.0/24
+        - bash /usr/local/bin/hostnetconfig.sh -b -i 10.20.20.102/24 -g 10.20.20.1
       labels:
         graph-level: 3
         graph-icon: host
@@ -354,6 +354,13 @@ topology:
     - endpoints: ["DC2-HOST1:eth2", "DC2-LEAF2:eth1"]
     - endpoints: ["DC2-HOST2:eth1", "DC2-LEAF3:eth1"]
     - endpoints: ["DC2-HOST2:eth2", "DC2-LEAF4:eth1"]
+########################
+# DC1 CORE to DC2 CORE #
+########################
+    - endpoints: ["DC1-CORE1:eth3", "DC2-CORE1:eth3"]
+    - endpoints: ["DC1-CORE1:eth4", "DC2-CORE2:eth3"]
+    - endpoints: ["DC1-CORE2:eth3", "DC2-CORE1:eth4"]
+    - endpoints: ["DC1-CORE2:eth4", "DC2-CORE2:eth4"]
 ###########
 # WAN Sim #
 ###########
