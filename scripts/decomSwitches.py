@@ -53,6 +53,10 @@ elif topo == "DCI":
         "DCI DC2 Border B", "DCI DC2 Border", "DCI DC1 Legacy", "DCI DC1 Fabric", "DCI DC1 Border",
         "DCI DC3", "DCI DC2", "DCI DC1", "DCI Simulation"
         ]
+elif topo == "Patterson":
+    containerList = [
+        "dcapetz Virtual Lab"
+        ]
 
 # Disable Cert Warnings for Test Environment
 import urllib3
