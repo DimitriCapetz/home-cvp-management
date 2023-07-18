@@ -1,7 +1,7 @@
 ---
 SWITCHES:
-  DC1-DCI1:
-    mgmt_ip: 10.99.99.193
+  ENT-DC1-SPINE1:
+    mgmt_ip: 10.99.99.39
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -9,8 +9,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC1-DCI2:
-    mgmt_ip: 10.99.99.194
+  ENT-DC1-SPINE2:
+    mgmt_ip: 10.99.99.40
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -18,8 +18,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC3-DCI1:
-    mgmt_ip: 10.99.99.195
+  ENT-DC2-SPINE1:
+    mgmt_ip: 10.99.99.41
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -27,8 +27,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC3-DCI2:
-    mgmt_ip: 10.99.99.196
+  ENT-DC2-SPINE2:
+    mgmt_ip: 10.99.99.42
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -36,8 +36,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC1-SPINE1:
-    mgmt_ip: 10.99.99.197
+  ENT-DC1-LEAF1:
+    mgmt_ip: 10.99.99.43
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -45,8 +45,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC1-LEAF1:
-    mgmt_ip: 10.99.99.198
+  ENT-DC1-LEAF2:
+    mgmt_ip: 10.99.99.44
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -54,8 +54,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC1-LEGACY1:
-    mgmt_ip: 10.99.99.199
+  ENT-DC1-LEAF3:
+    mgmt_ip: 10.99.99.45
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -63,8 +63,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC1-LEGACY2:
-    mgmt_ip: 10.99.99.200
+  ENT-DC1-LEAF4:
+    mgmt_ip: 10.99.99.46
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -72,8 +72,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC3-LEGACY1:
-    mgmt_ip: 10.99.99.201
+  ENT-DC1-LEAF5:
+    mgmt_ip: 10.99.99.47
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -81,8 +81,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC3-LEGACY2:
-    mgmt_ip: 10.99.99.202
+  ENT-DC1-LEAF6:
+    mgmt_ip: 10.99.99.48
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -90,8 +90,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC2-DCI1:
-    mgmt_ip: 10.99.99.203
+  ENT-DC2-LEAF1:
+    mgmt_ip: 10.99.99.49
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -99,8 +99,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC2-DCI2:
-    mgmt_ip: 10.99.99.204
+  ENT-DC2-LEAF2:
+    mgmt_ip: 10.99.99.50
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -108,8 +108,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC2-DCI3:
-    mgmt_ip: 10.99.99.205
+  ENT-DC2-LEAF3:
+    mgmt_ip: 10.99.99.51
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -117,8 +117,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC2-DCI4:
-    mgmt_ip: 10.99.99.206
+  ENT-DC2-LEAF4:
+    mgmt_ip: 10.99.99.52
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -126,8 +126,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC2-SPINE1:
-    mgmt_ip: 10.99.99.207
+  ENT-DC2-LEAF5:
+    mgmt_ip: 10.99.99.53
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -135,8 +135,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC2-LEAF1:
-    mgmt_ip: 10.99.99.208
+  ENT-DC2-LEAF6:
+    mgmt_ip: 10.99.99.54
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -144,8 +144,8 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC2-LEGACY1:
-    mgmt_ip: 10.99.99.209
+  ENT-DC1-BORDER1:
+    mgmt_ip: 10.99.99.55
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
@@ -153,8 +153,62 @@ SWITCHES:
     bgp_asn: 12345
     compute: 'no'
     cvp: 'yes'
-  DC2-LEGACY2:
-    mgmt_ip: 10.99.99.210
+  ENT-DC1-BORDER2:
+    mgmt_ip: 10.99.99.56
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    octet: '01'
+    rr: 'no'
+    bgp_asn: 12345
+    compute: 'no'
+    cvp: 'yes'
+  ENT-DC2-BORDER1:
+    mgmt_ip: 10.99.99.57
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    octet: '01'
+    rr: 'no'
+    bgp_asn: 12345
+    compute: 'no'
+    cvp: 'yes'
+  ENT-DC2-BORDER2:
+    mgmt_ip: 10.99.99.58
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    octet: '01'
+    rr: 'no'
+    bgp_asn: 12345
+    compute: 'no'
+    cvp: 'yes'
+  ENT-DC1-CORE1:
+    mgmt_ip: 10.99.99.59
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    octet: '01'
+    rr: 'no'
+    bgp_asn: 12345
+    compute: 'no'
+    cvp: 'yes'
+  ENT-DC1-CORE2:
+    mgmt_ip: 10.99.99.60
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    octet: '01'
+    rr: 'no'
+    bgp_asn: 12345
+    compute: 'no'
+    cvp: 'yes'
+  ENT-DC2-CORE1:
+    mgmt_ip: 10.99.99.61
+    mgmt_mask: 24
+    mgmt_gateway: 10.99.99.1
+    octet: '01'
+    rr: 'no'
+    bgp_asn: 12345
+    compute: 'no'
+    cvp: 'yes'
+  ENT-DC2-CORE2:
+    mgmt_ip: 10.99.99.62
     mgmt_mask: 24
     mgmt_gateway: 10.99.99.1
     octet: '01'
