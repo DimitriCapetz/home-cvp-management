@@ -62,22 +62,6 @@ sudo rm clab-patterson-dc-topo/DC2-CORE1/flash/system_mac_address
 sudo rm clab-patterson-dc-topo/DC2-CORE2/flash/system_mac_address
 sudo rm clab-patterson-dc-topo/DC1-WAN/flash/system_mac_address
 sudo rm clab-patterson-dc-topo/DC2-WAN/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:00/' clab-patterson-dc-topo/DC1-SPINE1/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:10/' clab-patterson-dc-topo/DC1-SPINE2/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:20/' clab-patterson-dc-topo/DC1-LEAF1/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:30/' clab-patterson-dc-topo/DC1-LEAF2/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:40/' clab-patterson-dc-topo/DC1-CORE1/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:50/' clab-patterson-dc-topo/DC1-CORE2/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:60/' clab-patterson-dc-topo/DC2-SPINE1/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:70/' clab-patterson-dc-topo/DC2-SPINE2/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:80/' clab-patterson-dc-topo/DC2-LEAF1/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:90/' clab-patterson-dc-topo/DC2-LEAF2/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:a0/' clab-patterson-dc-topo/DC2-LEAF3/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:b0/' clab-patterson-dc-topo/DC2-LEAF4/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:c0/' clab-patterson-dc-topo/DC2-CORE1/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:d0/' clab-patterson-dc-topo/DC2-CORE2/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:e0/' clab-patterson-dc-topo/DC1-WAN/flash/system_mac_address
-#sudo sed -i 's/..:..:..:..:..:../00:1c:73:dd:00:f0/' clab-patterson-dc-topo/DC2-WAN/flash/system_mac_address
 sudo cp ../cv-onboarding-token clab-patterson-dc-topo/DC1-SPINE1/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-patterson-dc-topo/DC1-SPINE2/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-patterson-dc-topo/DC1-LEAF1/flash/cv-onboarding-token

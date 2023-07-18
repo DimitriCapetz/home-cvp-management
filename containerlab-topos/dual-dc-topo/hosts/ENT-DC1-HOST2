@@ -1,0 +1,23 @@
+auto eth1
+    iface eth1 inet manual
+    bond-master bond0
+    mtu 9000
+auto eth2
+    iface eth2 inet manual
+    bond-master bond0
+    mtu 9000
+auto bond0
+    iface bond0 inet manual
+    bond-mode balance-xor
+    bond-miimon 100
+    bond-slaves none
+    mtu 9000
+auto bond0.20
+    iface bond0.20 inet static
+    vlan-raw-device bond0
+    address 10.20.20.102
+    netmask 255.255.255.0
+    network 10.20.20.0
+    broadcast 10.20.20.255
+    gateway 10.20.20.1
+    mtu 9000

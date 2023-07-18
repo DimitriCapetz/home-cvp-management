@@ -17,9 +17,9 @@ topology:
 
   kinds:
     ceos:
-      image: ceos:4.28.1F
+      image: ceos:4.30.1F
     linux:
-      image: mitchv85/ohv-host
+      image: networkop/host:ifreload
 
   nodes: 
 
@@ -310,61 +310,55 @@ topology:
 ###########################################
 
     ENT-DC1-HOST1:
-      kind: ceos
+      kind: linux
       mgmt-ipv4: 10.99.99.63
-      startup-config: ./configs/ENT-DC1-HOST1.cfg
       binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - hosts/ENT-DC1-HOST1:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
 
     ENT-DC1-HOST2:
-      kind: ceos
+      kind: linux
       mgmt-ipv4: 10.99.99.64
-      startup-config: ./configs/ENT-DC1-HOST2.cfg
       binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - hosts/ENT-DC1-HOST2:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
 
     ENT-DC1-HOST3:
-      kind: ceos
+      kind: linux
       mgmt-ipv4: 10.99.99.65
-      startup-config: ./configs/ENT-DC1-HOST3.cfg
       binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - hosts/ENT-DC1-HOST3:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
 
     ENT-DC2-HOST1:
-      kind: ceos
+      kind: linux
       mgmt-ipv4: 10.99.99.66
-      startup-config: ./configs/ENT-DC2-HOST1.cfg
       binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - hosts/ENT-DC2-HOST1:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
 
     ENT-DC2-HOST2:
-      kind: ceos
+      kind: linux
       mgmt-ipv4: 10.99.99.67
-      startup-config: ./configs/ENT-DC2-HOST2.cfg
       binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - hosts/ENT-DC2-HOST2:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
 
     ENT-DC2-HOST3:
-      kind: ceos
+      kind: linux
       mgmt-ipv4: 10.99.99.68
-      startup-config: ./configs/ENT-DC2-HOST3.cfg
       binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+        - hosts/ENT-DC2-HOST3:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
