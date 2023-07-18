@@ -19,7 +19,7 @@ topology:
     ceos:
       image: ceos:4.30.1F
     linux:
-      image: networkop/host:ifreload
+      image: fedora:36
 
   nodes: 
 
@@ -312,8 +312,11 @@ topology:
     ENT-DC1-HOST1:
       kind: linux
       mgmt-ipv4: 10.99.99.63
-      binds:
-        - hosts/ENT-DC1-HOST1:/etc/network/interfaces
+      exec:
+        - dnf update -y
+        - dnf install -y net-tools iperf3 vim
+        - ifconfig et1 10.10.10.101 netmask 255.255.255.0
+        - ip route add 10.0.0.0/8 via 10.10.10.1
       labels:
         graph-level: 5
         graph-icon: host
@@ -321,8 +324,6 @@ topology:
     ENT-DC1-HOST2:
       kind: linux
       mgmt-ipv4: 10.99.99.64
-      binds:
-        - hosts/ENT-DC1-HOST2:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
@@ -330,8 +331,6 @@ topology:
     ENT-DC1-HOST3:
       kind: linux
       mgmt-ipv4: 10.99.99.65
-      binds:
-        - hosts/ENT-DC1-HOST3:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
@@ -339,8 +338,6 @@ topology:
     ENT-DC2-HOST1:
       kind: linux
       mgmt-ipv4: 10.99.99.66
-      binds:
-        - hosts/ENT-DC2-HOST1:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
@@ -348,8 +345,6 @@ topology:
     ENT-DC2-HOST2:
       kind: linux
       mgmt-ipv4: 10.99.99.67
-      binds:
-        - hosts/ENT-DC2-HOST2:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
@@ -357,8 +352,8 @@ topology:
     ENT-DC2-HOST3:
       kind: linux
       mgmt-ipv4: 10.99.99.68
-      binds:
-        - hosts/ENT-DC2-HOST3:/etc/network/interfaces
+      #binds:
+      #  - hosts/ENT-DC2-HOST3:/etc/network/interfaces
       labels:
         graph-level: 5
         graph-icon: host
