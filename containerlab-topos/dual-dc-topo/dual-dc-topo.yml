@@ -318,7 +318,7 @@ topology:
         graph-icon: host
 
     ENT-DC1-HOST2:
-      kind: linux
+      kind: ceos
       mgmt-ipv4: 10.99.99.64
       startup-config: ./configs/ENT-DC1-HOST2.cfg
       binds:
@@ -328,7 +328,7 @@ topology:
         graph-icon: host
 
     ENT-DC1-HOST3:
-      kind: linux
+      kind: ceos
       mgmt-ipv4: 10.99.99.65
       startup-config: ./configs/ENT-DC1-HOST3.cfg
       binds:
@@ -338,7 +338,7 @@ topology:
         graph-icon: host
 
     ENT-DC2-HOST1:
-      kind: linux
+      kind: ceos
       mgmt-ipv4: 10.99.99.66
       startup-config: ./configs/ENT-DC2-HOST1.cfg
       binds:
@@ -348,7 +348,7 @@ topology:
         graph-icon: host
 
     ENT-DC2-HOST2:
-      kind: linux
+      kind: ceos
       mgmt-ipv4: 10.99.99.67
       startup-config: ./configs/ENT-DC2-HOST2.cfg
       binds:
@@ -358,7 +358,7 @@ topology:
         graph-icon: host
 
     ENT-DC2-HOST3:
-      kind: linux
+      kind: ceos
       mgmt-ipv4: 10.99.99.68
       startup-config: ./configs/ENT-DC2-HOST3.cfg
       binds:
