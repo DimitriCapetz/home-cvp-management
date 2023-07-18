@@ -8,7 +8,7 @@ auto eth2
     mtu 9000
 auto bond0
     iface bond0 inet manual
-    bond-mode balance-xor
+    bond-mode 802.3ad
     bond-miimon 100
     bond-slaves none
     mtu 9000
