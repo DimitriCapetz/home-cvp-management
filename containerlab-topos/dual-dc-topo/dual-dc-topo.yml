@@ -19,7 +19,7 @@ topology:
     ceos:
       image: ceos:4.30.1F
     linux:
-      image: fedora:36
+      image: ghcr.io/hellt/network-multitool:latest
 
   nodes: 
 
@@ -313,9 +313,7 @@ topology:
       kind: linux
       mgmt-ipv4: 10.99.99.63
       exec:
-        - dnf update -y
-        - dnf install -y net-tools iperf3 vim
-        - ifconfig et1 10.10.10.101 netmask 255.255.255.0
+        - ifconfig eth1 10.10.10.101 netmask 255.255.255.0
         - ip route add 10.0.0.0/8 via 10.10.10.1
       labels:
         graph-level: 5
