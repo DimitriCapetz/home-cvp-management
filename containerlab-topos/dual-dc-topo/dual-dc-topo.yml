@@ -315,6 +315,8 @@ topology:
       exec:
         - ifconfig eth1 10.10.10.101 netmask 255.255.255.0
         - ip route add 10.0.0.0/8 via 10.10.10.1
+      ports:
+        - '22001:22'
       labels:
         graph-level: 5
         graph-icon: host
