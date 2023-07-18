@@ -57,6 +57,13 @@ elif topo == "Patterson":
     containerList = [
         "dcapetz Virtual Lab"
         ]
+elif topo == "DUAL":
+    containerList = [
+        "ENT-DC2-BORDER-LEAVES", "ENT-DC2-LEAF-DOMAIN-3", "ENT-DC2-LEAF-DOMAIN-2", "ENT-DC2-LEAF-DOMAIN-1",
+        "ENT-DC1-BORDER-LEAVES", "ENT-DC1-LEAF-DOMAIN-3", "ENT-DC1-LEAF-DOMAIN-2", "ENT-DC1-LEAF-DOMAIN-1",
+        "ENT-DC1-LEAVES", "ENT-DC2-LEAVES", "ENT-DC1-SPINES", "ENT-DC2-SPINES", "ENT-DC1", "ENT-DC2",
+        "ENTERPRISE-DC"
+        ]
 
 # Disable Cert Warnings for Test Environment
 import urllib3
