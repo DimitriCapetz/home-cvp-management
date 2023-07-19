@@ -59,10 +59,11 @@ elif topo == "Patterson":
         ]
 elif topo == "DUAL":
     containerList = [
-        "ENT-DC2-BORDER-LEAVES", "ENT-DC2-LEAF-DOMAIN-3", "ENT-DC2-LEAF-DOMAIN-2", "ENT-DC2-LEAF-DOMAIN-1",
-        "ENT-DC1-BORDER-LEAVES", "ENT-DC1-LEAF-DOMAIN-3", "ENT-DC1-LEAF-DOMAIN-2", "ENT-DC1-LEAF-DOMAIN-1",
-        "ENT-DC1-LEAVES", "ENT-DC2-LEAVES", "ENT-DC1-SPINES", "ENT-DC2-SPINES", "ENT-DC1", "ENT-DC2",
-        "ENTERPRISE-DC"
+        "EnterpriseDC2EdgeLeaves", "EnterpriseDC2LeafDomain3", "EnterpriseDC2LeafDomain2", 
+        "EnterpriseDC2LeafDomain1", "EnterpriseDC1EdgeLeaves", "EnterpriseDC1LeafDomain3", 
+        "EnterpriseDC1LeafDomain2", "EnterpriseDC1LeafDomain1","EnterpriseDC1Leaves", 
+        "EnterpriseDC2Leaves", "EnterpriseDC1Spines", "EnterpriseDC2Spines", "EnterpriseDC1", 
+        "EnterpriseDC2", "EnterpriseDC"
         ]
 
 # Disable Cert Warnings for Test Environment
