@@ -62,8 +62,8 @@ elif topo == "DUAL":
         "EnterpriseDC2EdgeLeaves", "EnterpriseDC2LeafDomain3", "EnterpriseDC2LeafDomain2", 
         "EnterpriseDC2LeafDomain1", "EnterpriseDC1EdgeLeaves", "EnterpriseDC1LeafDomain3", 
         "EnterpriseDC1LeafDomain2", "EnterpriseDC1LeafDomain1","EnterpriseDC1Leaves", 
-        "EnterpriseDC2Leaves", "EnterpriseDC1Spines", "EnterpriseDC2Spines", "EnterpriseDC1", 
-        "EnterpriseDC2", "EnterpriseDC"
+        "EnterpriseDC2Leaves", "EnterpriseDC1Spines", "EnterpriseDC2Spines", "EnterpriseDC2Core", 
+        "EnterpriseDC2Core", "EnterpriseDC1", "EnterpriseDC2", "EnterpriseDC"
         ]
 
 # Disable Cert Warnings for Test Environment
