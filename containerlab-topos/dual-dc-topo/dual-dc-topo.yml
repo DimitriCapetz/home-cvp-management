@@ -216,43 +216,43 @@ topology:
         graph-icon: switch
 
 #########################
-# BORDER GATEWAYS       #
+# EDGE GATEWAYS       #
 #########################
 
-    ENT-DC1-BORDER1:
+    ENT-DC1-EDGE1:
       kind: ceos
       mgmt-ipv4: 10.99.99.55
-      startup-config: ./configs/ENT-DC1-BORDER1.cfg
+      startup-config: ./configs/ENT-DC1-EDGE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 2
         graph-icon: switch
 
-    ENT-DC1-BORDER2:
+    ENT-DC1-EDGE2:
       kind: ceos
       mgmt-ipv4: 10.99.99.56
-      startup-config: ./configs/ENT-DC1-BORDER2.cfg
+      startup-config: ./configs/ENT-DC1-EDGE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 2
         graph-icon: switch
 
-    ENT-DC2-BORDER1:
+    ENT-DC2-EDGE1:
       kind: ceos
       mgmt-ipv4: 10.99.99.57
-      startup-config: ./configs/ENT-DC2-BORDER1.cfg
+      startup-config: ./configs/ENT-DC2-EDGE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 2
         graph-icon: switch
 
-    ENT-DC2-BORDER2:
+    ENT-DC2-EDGE2:
       kind: ceos
       mgmt-ipv4: 10.99.99.58
-      startup-config: ./configs/ENT-DC2-BORDER2.cfg
+      startup-config: ./configs/ENT-DC2-EDGE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
@@ -411,8 +411,8 @@ topology:
     - endpoints: ["ENT-DC1-SPINE1:eth4", "ENT-DC1-LEAF4:eth3"]
     - endpoints: ["ENT-DC1-SPINE1:eth5", "ENT-DC1-LEAF5:eth3"]
     - endpoints: ["ENT-DC1-SPINE1:eth6", "ENT-DC1-LEAF6:eth3"]
-    - endpoints: ["ENT-DC1-SPINE1:eth7", "ENT-DC1-BORDER1:eth3"]
-    - endpoints: ["ENT-DC1-SPINE1:eth8", "ENT-DC1-BORDER2:eth3"]
+    - endpoints: ["ENT-DC1-SPINE1:eth7", "ENT-DC1-EDGE1:eth3"]
+    - endpoints: ["ENT-DC1-SPINE1:eth8", "ENT-DC1-EDGE2:eth3"]
 ######################
 # DC1 SPINE2 to LEAF #
 ######################
@@ -422,15 +422,15 @@ topology:
     - endpoints: ["ENT-DC1-SPINE2:eth4", "ENT-DC1-LEAF4:eth4"]
     - endpoints: ["ENT-DC1-SPINE2:eth5", "ENT-DC1-LEAF5:eth4"]
     - endpoints: ["ENT-DC1-SPINE2:eth6", "ENT-DC1-LEAF6:eth4"]
-    - endpoints: ["ENT-DC1-SPINE2:eth7", "ENT-DC1-BORDER1:eth4"]
-    - endpoints: ["ENT-DC1-SPINE2:eth8", "ENT-DC1-BORDER2:eth4"]
+    - endpoints: ["ENT-DC1-SPINE2:eth7", "ENT-DC1-EDGE1:eth4"]
+    - endpoints: ["ENT-DC1-SPINE2:eth8", "ENT-DC1-EDGE2:eth4"]
 ######################
-# DC1 BORDER to CORE #
+# DC1 EDGE to CORE #
 ######################
-    - endpoints: ["ENT-DC1-BORDER1:eth5", "ENT-DC1-CORE1:eth5"]
-    - endpoints: ["ENT-DC1-BORDER2:eth5", "ENT-DC1-CORE1:eth6"]
-    - endpoints: ["ENT-DC1-BORDER1:eth6", "ENT-DC1-CORE2:eth5"]
-    - endpoints: ["ENT-DC1-BORDER2:eth6", "ENT-DC1-CORE2:eth6"]
+    - endpoints: ["ENT-DC1-EDGE1:eth5", "ENT-DC1-CORE1:eth5"]
+    - endpoints: ["ENT-DC1-EDGE2:eth5", "ENT-DC1-CORE1:eth6"]
+    - endpoints: ["ENT-DC1-EDGE1:eth6", "ENT-DC1-CORE2:eth5"]
+    - endpoints: ["ENT-DC1-EDGE2:eth6", "ENT-DC1-CORE2:eth6"]
 ######################
 # DC1 LEAF1 to LEAF2 #
 ######################
@@ -447,10 +447,10 @@ topology:
     - endpoints: ["ENT-DC1-LEAF5:eth9", "ENT-DC1-LEAF6:eth9"]
     - endpoints: ["ENT-DC1-LEAF5:eth10", "ENT-DC1-LEAF6:eth10"]
 ##########################
-# DC1 BORDER1 to BORDER2 #
+# DC1 EDGE1 to EDGE2 #
 ##########################
-    - endpoints: ["ENT-DC1-BORDER1:eth9", "ENT-DC1-BORDER2:eth9"]
-    - endpoints: ["ENT-DC1-BORDER1:eth10", "ENT-DC1-BORDER2:eth10"]
+    - endpoints: ["ENT-DC1-EDGE1:eth9", "ENT-DC1-EDGE2:eth9"]
+    - endpoints: ["ENT-DC1-EDGE1:eth10", "ENT-DC1-EDGE2:eth10"]
 ####################
 # DC1 HOSTS        #
 ####################
@@ -469,8 +469,8 @@ topology:
     - endpoints: ["ENT-DC2-SPINE1:eth4", "ENT-DC2-LEAF4:eth3"]
     - endpoints: ["ENT-DC2-SPINE1:eth5", "ENT-DC2-LEAF5:eth3"]
     - endpoints: ["ENT-DC2-SPINE1:eth6", "ENT-DC2-LEAF6:eth3"]
-    - endpoints: ["ENT-DC2-SPINE1:eth7", "ENT-DC2-BORDER1:eth3"]
-    - endpoints: ["ENT-DC2-SPINE1:eth8", "ENT-DC2-BORDER2:eth3"]
+    - endpoints: ["ENT-DC2-SPINE1:eth7", "ENT-DC2-EDGE1:eth3"]
+    - endpoints: ["ENT-DC2-SPINE1:eth8", "ENT-DC2-EDGE2:eth3"]
 ######################
 # DC2 SPINE2 to LEAF #
 ######################
@@ -480,15 +480,15 @@ topology:
     - endpoints: ["ENT-DC2-SPINE2:eth4", "ENT-DC2-LEAF4:eth4"]
     - endpoints: ["ENT-DC2-SPINE2:eth5", "ENT-DC2-LEAF5:eth4"]
     - endpoints: ["ENT-DC2-SPINE2:eth6", "ENT-DC2-LEAF6:eth4"]
-    - endpoints: ["ENT-DC2-SPINE2:eth7", "ENT-DC2-BORDER1:eth4"]
-    - endpoints: ["ENT-DC2-SPINE2:eth8", "ENT-DC2-BORDER2:eth4"]
+    - endpoints: ["ENT-DC2-SPINE2:eth7", "ENT-DC2-EDGE1:eth4"]
+    - endpoints: ["ENT-DC2-SPINE2:eth8", "ENT-DC2-EDGE2:eth4"]
 ######################
-# DC2 BORDER to CORE #
+# DC2 EDGE to CORE #
 ######################
-    - endpoints: ["ENT-DC2-BORDER1:eth5", "ENT-DC2-CORE1:eth5"]
-    - endpoints: ["ENT-DC2-BORDER2:eth5", "ENT-DC2-CORE1:eth6"]
-    - endpoints: ["ENT-DC2-BORDER1:eth6", "ENT-DC2-CORE2:eth5"]
-    - endpoints: ["ENT-DC2-BORDER2:eth6", "ENT-DC2-CORE2:eth6"]
+    - endpoints: ["ENT-DC2-EDGE1:eth5", "ENT-DC2-CORE1:eth5"]
+    - endpoints: ["ENT-DC2-EDGE2:eth5", "ENT-DC2-CORE1:eth6"]
+    - endpoints: ["ENT-DC2-EDGE1:eth6", "ENT-DC2-CORE2:eth5"]
+    - endpoints: ["ENT-DC2-EDGE2:eth6", "ENT-DC2-CORE2:eth6"]
 ######################
 # DC2 LEAF1 to LEAF2 #
 ######################
@@ -505,10 +505,10 @@ topology:
     - endpoints: ["ENT-DC2-LEAF5:eth9", "ENT-DC2-LEAF6:eth9"]
     - endpoints: ["ENT-DC2-LEAF5:eth10", "ENT-DC2-LEAF6:eth10"]
 ##########################
-# DC2 BORDER1 to BORDER2 #
+# DC2 EDGE1 to EDGE2 #
 ##########################
-    - endpoints: ["ENT-DC2-BORDER1:eth9", "ENT-DC2-BORDER2:eth9"]
-    - endpoints: ["ENT-DC2-BORDER1:eth10", "ENT-DC2-BORDER2:eth10"]
+    - endpoints: ["ENT-DC2-EDGE1:eth9", "ENT-DC2-EDGE2:eth9"]
+    - endpoints: ["ENT-DC2-EDGE1:eth10", "ENT-DC2-EDGE2:eth10"]
 ####################
 # DC2 HOSTS        #
 ####################
@@ -526,7 +526,7 @@ topology:
 ######################
 # WAN Sim            #
 ######################
-    - endpoints: ["ENT-DC1-WAN1:eth1", "ENT-DC1-BORDER1:eth1"]
-    - endpoints: ["ENT-DC2-WAN2:eth1", "ENT-DC2-BORDER2:eth1"]
+    - endpoints: ["ENT-DC1-WAN1:eth1", "ENT-DC1-EDGE1:eth1"]
+    - endpoints: ["ENT-DC2-WAN2:eth1", "ENT-DC2-EDGE2:eth1"]
     - endpoints: ["ENT-CORE-WAN3:eth1", "ENT-DC1-CORE1:eth1"]
     - endpoints: ["ENT-CORE-WAN3:eth2", "ENT-DC2-CORE1:eth1"]
