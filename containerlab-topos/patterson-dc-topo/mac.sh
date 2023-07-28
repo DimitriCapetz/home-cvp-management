@@ -18,6 +18,7 @@ sudo touch clab-patterson-dc-topo/PATTERSON-DC1-HOST1/flash/ceos-config
 sudo touch clab-patterson-dc-topo/PATTERSON-DC1-HOST2/flash/ceos-config
 sudo touch clab-patterson-dc-topo/PATTERSON-DC2-HOST1/flash/ceos-config
 sudo touch clab-patterson-dc-topo/PATTERSON-DC2-HOST2/flash/ceos-config
+sudo touch clab-patterson-dc-topo/PATTERSON-CORE/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:1c:73:dd:00:00" >> clab-patterson-dc-topo/PATTERSON-DC1-SPINE1/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:1c:73:dd:00:10" >> clab-patterson-dc-topo/PATTERSON-DC1-SPINE2/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:1c:73:dd:00:20" >> clab-patterson-dc-topo/PATTERSON-DC1-LEAF1/flash/ceos-config
@@ -38,6 +39,7 @@ sudo echo "SYSTEMMACADDR=00:1c:73:dd:01:00" >> clab-patterson-dc-topo/PATTERSON-
 sudo echo "SYSTEMMACADDR=00:1c:73:dd:01:20" >> clab-patterson-dc-topo/PATTERSON-DC1-HOST2/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:1c:73:dd:01:30" >> clab-patterson-dc-topo/PATTERSON-DC2-HOST1/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:1c:73:dd:01:40" >> clab-patterson-dc-topo/PATTERSON-DC2-HOST2/flash/ceos-config
+sudo echo "SYSTEMMACADDR=00:1c:73:dd:01:50" >> clab-patterson-dc-topo/PATTERSON-CORE/flash/ceos-config
 sudo echo "SERIALNUMBER=PATTERSON-DC1-SPINE1" >> clab-patterson-dc-topo/PATTERSON-DC1-SPINE1/flash/ceos-config
 sudo echo "SERIALNUMBER=PATTERSON-DC1-SPINE2" >> clab-patterson-dc-topo/PATTERSON-DC1-SPINE2/flash/ceos-config
 sudo echo "SERIALNUMBER=PATTERSON-DC1-LEAF1" >> clab-patterson-dc-topo/PATTERSON-DC1-LEAF1/flash/ceos-config
@@ -58,6 +60,7 @@ sudo echo "SERIALNUMBER=PATTERSON-DC1-HOST1" >> clab-patterson-dc-topo/PATTERSON
 sudo echo "SERIALNUMBER=PATTERSON-DC1-HOST2" >> clab-patterson-dc-topo/PATTERSON-DC1-HOST2/flash/ceos-config
 sudo echo "SERIALNUMBER=PATTERSON-DC2-HOST1" >> clab-patterson-dc-topo/PATTERSON-DC2-HOST1/flash/ceos-config
 sudo echo "SERIALNUMBER=PATTERSON-DC2-HOST2" >> clab-patterson-dc-topo/PATTERSON-DC2-HOST2/flash/ceos-config
+sudo echo "SERIALNUMBER=PATTERSON-CORE" >> clab-patterson-dc-topo/PATTERSON-CORE/flash/ceos-config
 sudo rm clab-patterson-dc-topo/PATTERSON-DC1-SPINE1/flash/system_mac_address
 sudo rm clab-patterson-dc-topo/PATTERSON-DC1-SPINE2/flash/system_mac_address
 sudo rm clab-patterson-dc-topo/PATTERSON-DC1-LEAF1/flash/system_mac_address
@@ -78,6 +81,7 @@ sudo rm clab-patterson-dc-topo/PATTERSON-DC1-HOST1/flash/system_mac_address
 sudo rm clab-patterson-dc-topo/PATTERSON-DC1-HOST2/flash/system_mac_address
 sudo rm clab-patterson-dc-topo/PATTERSON-DC2-HOST1/flash/system_mac_address
 sudo rm clab-patterson-dc-topo/PATTERSON-DC2-HOST2/flash/system_mac_address
+sudo rm clab-patterson-dc-topo/PATTERSON-CORE/flash/system_mac_address
 sudo cp ../cv-onboarding-token clab-patterson-dc-topo/PATTERSON-DC1-SPINE1/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-patterson-dc-topo/PATTERSON-DC1-SPINE2/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-patterson-dc-topo/PATTERSON-DC1-LEAF1/flash/cv-onboarding-token

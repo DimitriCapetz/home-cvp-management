@@ -289,6 +289,16 @@ topology:
         graph-level: 3
         graph-icon: switch
 
+    PATTERSON-CORE:
+      kind: ceos
+      mgmt-ipv4: 10.99.99.225
+      startup-config: ./configs/PATTERSON-CORE.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
   links:
 #####################
 # PATTERSON-DC1 SPINE to LEAF #
@@ -353,10 +363,9 @@ topology:
 ########################
 # PATTERSON-DC1 CORE to PATTERSON-DC2 CORE #
 ########################
-    - endpoints: ["PATTERSON-DC1-CORE1:eth5", "PATTERSON-DC2-CORE1:eth5"]
-    - endpoints: ["PATTERSON-DC1-CORE1:eth6", "PATTERSON-DC2-CORE2:eth6"]
-    - endpoints: ["PATTERSON-DC1-CORE2:eth5", "PATTERSON-DC2-CORE1:eth5"]
-    - endpoints: ["PATTERSON-DC1-CORE2:eth6", "PATTERSON-DC2-CORE2:eth6"]
+    - endpoints: ["PATTERSON-DC1-CORE1:eth5", "PATTERSON-CORE:eth1"]
+    - endpoints: ["PATTERSON-DC2-CORE1:eth5", "PATTERSON-CORE:eth2"]
+    - endpoints: ["PATTERSON-DC1-CORE2:eth5", "PATTERSON-CORE:eth3"]
 ###########
 # WAN Sim #
 ###########
