@@ -365,11 +365,10 @@ topology:
 ########################
     - endpoints: ["PATTERSON-DC1-CORE1:eth5", "PATTERSON-CORE:eth1"]
     - endpoints: ["PATTERSON-DC2-CORE1:eth5", "PATTERSON-CORE:eth2"]
-    - endpoints: ["PATTERSON-DC1-CORE2:eth5", "PATTERSON-CORE:eth3"]
+    - endpoints: ["PATTERSON-DC2-CORE2:eth5", "PATTERSON-CORE:eth3"]
 ###########
 # WAN Sim #
 ###########
     - endpoints: ["PATTERSON-DC1-WAN:eth1", "PATTERSON-DC1-CORE1:eth1"]
-    - endpoints: ["PATTERSON-DC1-WAN:eth2", "PATTERSON-DC1-CORE2:eth1"]
     - endpoints: ["PATTERSON-DC2-WAN:eth1", "PATTERSON-DC2-CORE1:eth1"]
     - endpoints: ["PATTERSON-DC2-WAN:eth2", "PATTERSON-DC2-CORE2:eth1"]
