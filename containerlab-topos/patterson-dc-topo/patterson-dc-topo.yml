@@ -45,105 +45,105 @@ topology:
         - sh -c 'graphite_motd.sh 80'
       labels:
         graph-hide: yes
-#########################
-# PATTERSON-DC1 - Physical        #
-#########################
-
-#########################
-# SPINE                 #
-#########################
-
-    PATTERSON-DC1-SPINE1:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.193
-      startup-config: ./configs/PATTERSON-DC1-SPINE1.cfg
-      binds:
-        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 1
-        graph-icon: switch
-
-    PATTERSON-DC1-SPINE2:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.194
-      startup-config: ./configs/PATTERSON-DC1-SPINE2.cfg
-      binds:
-        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 1
-        graph-icon: switch
-
-#########################
-# LEAF                  #
-#########################
-
-    PATTERSON-DC1-LEAF1:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.195
-      startup-config: ./configs/PATTERSON-DC1-LEAF1.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 2
-        graph-icon: switch
-
-    PATTERSON-DC1-LEAF2:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.196
-      startup-config: ./configs/PATTERSON-DC1-LEAF2.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 2
-        graph-icon: switch
-
-    PATTERSON-DC1-LEAF3:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.200
-      startup-config: ./configs/PATTERSON-DC1-LEAF3.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 2
-        graph-icon: switch
-
-#########################
-# CORE                  #
-#########################
-
-    PATTERSON-DC1-CORE1:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.199
-      startup-config: ./configs/PATTERSON-DC1-CORE1.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 2
-        graph-icon: switch
-
-########
-# HOST #
-########
-
-    PATTERSON-DC1-HOST1:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.201
-      startup-config: ./configs/PATTERSON-DC1-HOST1.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 3
-        graph-icon: host
-
-    PATTERSON-DC1-HOST2:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.202
-      startup-config: ./configs/PATTERSON-DC1-HOST2.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 3
-        graph-icon: host
+##########################
+## PATTERSON-DC1 - Physical        #
+##########################
+#
+##########################
+## SPINE                 #
+##########################
+#
+#    PATTERSON-DC1-SPINE1:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.193
+#      startup-config: ./configs/PATTERSON-DC1-SPINE1.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 1
+#        graph-icon: switch
+#
+#    PATTERSON-DC1-SPINE2:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.194
+#      startup-config: ./configs/PATTERSON-DC1-SPINE2.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 1
+#        graph-icon: switch
+#
+##########################
+## LEAF                  #
+##########################
+#
+#    PATTERSON-DC1-LEAF1:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.195
+#      startup-config: ./configs/PATTERSON-DC1-LEAF1.cfg
+#      binds:
+#        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 2
+#        graph-icon: switch
+#
+#    PATTERSON-DC1-LEAF2:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.196
+#      startup-config: ./configs/PATTERSON-DC1-LEAF2.cfg
+#      binds:
+#        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 2
+#        graph-icon: switch
+#
+#    PATTERSON-DC1-LEAF3:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.200
+#      startup-config: ./configs/PATTERSON-DC1-LEAF3.cfg
+#      binds:
+#        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 2
+#        graph-icon: switch
+#
+##########################
+## CORE                  #
+##########################
+#
+#    PATTERSON-DC1-CORE1:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.199
+#      startup-config: ./configs/PATTERSON-DC1-CORE1.cfg
+#      binds:
+#        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 2
+#        graph-icon: switch
+#
+#########
+## HOST #
+#########
+#
+#    PATTERSON-DC1-HOST1:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.201
+#      startup-config: ./configs/PATTERSON-DC1-HOST1.cfg
+#      binds:
+#        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 3
+#        graph-icon: host
+#
+#    PATTERSON-DC1-HOST2:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.202
+#      startup-config: ./configs/PATTERSON-DC1-HOST2.cfg
+#      binds:
+#        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 3
+#        graph-icon: host
 
 #########################
 # PATTERSON-DC2                   #
@@ -267,65 +267,65 @@ topology:
 
 ##################
 # WAN Simulation #
-##################
-
-    PATTERSON-DC1-WAN:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.223
-      startup-config: ./configs/PATTERSON-DC1-WAN.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 3
-        graph-icon: switch
-
-    PATTERSON-DC2-WAN:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.224
-      startup-config: ./configs/PATTERSON-DC2-WAN.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 3
-        graph-icon: switch
-
-    PATTERSON-CORE:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.225
-      startup-config: ./configs/PATTERSON-CORE.cfg
-      binds:
-        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 3
-        graph-icon: switch
+###################
+#
+#    PATTERSON-DC1-WAN:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.223
+#      startup-config: ./configs/PATTERSON-DC1-WAN.cfg
+#      binds:
+#        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 3
+#        graph-icon: switch
+#
+#    PATTERSON-DC2-WAN:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.224
+#      startup-config: ./configs/PATTERSON-DC2-WAN.cfg
+#      binds:
+#        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 3
+#        graph-icon: switch
+#
+#    PATTERSON-CORE:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.225
+#      startup-config: ./configs/PATTERSON-CORE.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 3
+#        graph-icon: switch
 
   links:
+######################
+## PATTERSON-DC1 SPINE to LEAF #
+######################
+#    - endpoints: ["PATTERSON-DC1-SPINE1:eth1", "PATTERSON-DC1-LEAF1:eth3"]
+#    - endpoints: ["PATTERSON-DC1-SPINE1:eth2", "PATTERSON-DC1-LEAF2:eth3"]
+#    - endpoints: ["PATTERSON-DC1-SPINE1:eth3", "PATTERSON-DC1-LEAF3:eth3"]
+#    - endpoints: ["PATTERSON-DC1-SPINE2:eth1", "PATTERSON-DC1-LEAF1:eth4"]
+#    - endpoints: ["PATTERSON-DC1-SPINE2:eth2", "PATTERSON-DC1-LEAF2:eth4"]
+#    - endpoints: ["PATTERSON-DC1-SPINE2:eth3", "PATTERSON-DC1-LEAF3:eth4"]
 #####################
-# PATTERSON-DC1 SPINE to LEAF #
+## PATTERSON-DC1 LEAF to LEAF #
 #####################
-    - endpoints: ["PATTERSON-DC1-SPINE1:eth1", "PATTERSON-DC1-LEAF1:eth3"]
-    - endpoints: ["PATTERSON-DC1-SPINE1:eth2", "PATTERSON-DC1-LEAF2:eth3"]
-    - endpoints: ["PATTERSON-DC1-SPINE1:eth3", "PATTERSON-DC1-LEAF3:eth3"]
-    - endpoints: ["PATTERSON-DC1-SPINE2:eth1", "PATTERSON-DC1-LEAF1:eth4"]
-    - endpoints: ["PATTERSON-DC1-SPINE2:eth2", "PATTERSON-DC1-LEAF2:eth4"]
-    - endpoints: ["PATTERSON-DC1-SPINE2:eth3", "PATTERSON-DC1-LEAF3:eth4"]
-####################
-# PATTERSON-DC1 LEAF to LEAF #
-####################
-    - endpoints: ["PATTERSON-DC1-LEAF1:eth9", "PATTERSON-DC1-LEAF2:eth9"]
-    - endpoints: ["PATTERSON-DC1-LEAF1:eth10", "PATTERSON-DC1-LEAF2:eth10"]
-#####################
-# PATTERSON-DC1 CORE to SPINE #
-#####################
-    - endpoints: ["PATTERSON-DC1-CORE1:eth3", "PATTERSON-DC1-SPINE1:eth4"]
-    - endpoints: ["PATTERSON-DC1-CORE1:eth4", "PATTERSON-DC1-SPINE2:eth4"]
-#############
-# PATTERSON-DC1 HOSTS #
-#############
-    - endpoints: ["PATTERSON-DC1-HOST1:eth1", "PATTERSON-DC1-LEAF1:eth1"]
-    - endpoints: ["PATTERSON-DC1-HOST1:eth2", "PATTERSON-DC1-LEAF2:eth1"]
-    - endpoints: ["PATTERSON-DC1-HOST2:eth1", "PATTERSON-DC1-LEAF3:eth1"]
-    - endpoints: ["PATTERSON-DC1-HOST2:eth2", "PATTERSON-DC1-LEAF3:eth2"]
+#    - endpoints: ["PATTERSON-DC1-LEAF1:eth9", "PATTERSON-DC1-LEAF2:eth9"]
+#    - endpoints: ["PATTERSON-DC1-LEAF1:eth10", "PATTERSON-DC1-LEAF2:eth10"]
+######################
+## PATTERSON-DC1 CORE to SPINE #
+######################
+#    - endpoints: ["PATTERSON-DC1-CORE1:eth3", "PATTERSON-DC1-SPINE1:eth4"]
+#    - endpoints: ["PATTERSON-DC1-CORE1:eth4", "PATTERSON-DC1-SPINE2:eth4"]
+##############
+## PATTERSON-DC1 HOSTS #
+##############
+#    - endpoints: ["PATTERSON-DC1-HOST1:eth1", "PATTERSON-DC1-LEAF1:eth1"]
+#    - endpoints: ["PATTERSON-DC1-HOST1:eth2", "PATTERSON-DC1-LEAF2:eth1"]
+#    - endpoints: ["PATTERSON-DC1-HOST2:eth1", "PATTERSON-DC1-LEAF3:eth1"]
+#    - endpoints: ["PATTERSON-DC1-HOST2:eth2", "PATTERSON-DC1-LEAF3:eth2"]
 #####################
 # PATTERSON-DC2 SPINE to LEAF #
 #####################
@@ -360,15 +360,15 @@ topology:
     - endpoints: ["PATTERSON-DC2-HOST1:eth2", "PATTERSON-DC2-LEAF2:eth1"]
     - endpoints: ["PATTERSON-DC2-HOST2:eth1", "PATTERSON-DC2-LEAF3:eth1"]
     - endpoints: ["PATTERSON-DC2-HOST2:eth2", "PATTERSON-DC2-LEAF4:eth1"]
-########################
-# PATTERSON-DC1 CORE to PATTERSON-DC2 CORE #
-########################
-    - endpoints: ["PATTERSON-DC1-CORE1:eth5", "PATTERSON-CORE:eth1"]
-    - endpoints: ["PATTERSON-DC2-CORE1:eth5", "PATTERSON-CORE:eth2"]
-    - endpoints: ["PATTERSON-DC2-CORE2:eth5", "PATTERSON-CORE:eth3"]
-###########
-# WAN Sim #
-###########
-    - endpoints: ["PATTERSON-DC1-WAN:eth1", "PATTERSON-DC1-CORE1:eth1"]
-    - endpoints: ["PATTERSON-DC2-WAN:eth1", "PATTERSON-DC2-CORE1:eth1"]
-    - endpoints: ["PATTERSON-DC2-WAN:eth2", "PATTERSON-DC2-CORE2:eth1"]
+#########################
+## PATTERSON-DC1 CORE to PATTERSON-DC2 CORE #
+#########################
+#    - endpoints: ["PATTERSON-DC1-CORE1:eth5", "PATTERSON-CORE:eth1"]
+#    - endpoints: ["PATTERSON-DC2-CORE1:eth5", "PATTERSON-CORE:eth2"]
+#    - endpoints: ["PATTERSON-DC2-CORE2:eth5", "PATTERSON-CORE:eth3"]
+############
+## WAN Sim #
+############
+#    - endpoints: ["PATTERSON-DC1-WAN:eth1", "PATTERSON-DC1-CORE1:eth1"]
+#    - endpoints: ["PATTERSON-DC2-WAN:eth1", "PATTERSON-DC2-CORE1:eth1"]
+#    - endpoints: ["PATTERSON-DC2-WAN:eth2", "PATTERSON-DC2-CORE2:eth1"]
