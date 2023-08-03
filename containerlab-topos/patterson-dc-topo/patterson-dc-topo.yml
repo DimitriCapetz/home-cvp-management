@@ -9,8 +9,8 @@ name: patterson-dc-topo
 mgmt:
   network: clab_mgmt
   bridge: br0
-  ipv4-subnet: 172.31.207.0/24
-  ipv4-gw: 172.31.207.1
+  ipv4-subnet: 172.16.169.32/27
+  ipv4-gw: 172.16.169.33
 
 topology:
 
@@ -30,7 +30,7 @@ topology:
     graphite:
       kind: linux
       image: netreplica/graphite
-      mgmt-ipv4: 172.31.207.100
+      mgmt-ipv4: 172.16.169.34
       env:
         GRAPHITE_DEFAULT_TYPE: clab
         GRAPHITE_DEFAULT_TOPO: patterson-dc-topo
@@ -55,7 +55,7 @@ topology:
 #
 #    PATTERSON-DC1-SPINE1:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.193
+#      mgmt-ipv4: 172.16.169.193
 #      startup-config: ./configs/PATTERSON-DC1-SPINE1.cfg
 #      binds:
 #        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -65,7 +65,7 @@ topology:
 #
 #    PATTERSON-DC1-SPINE2:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.194
+#      mgmt-ipv4: 172.16.169.194
 #      startup-config: ./configs/PATTERSON-DC1-SPINE2.cfg
 #      binds:
 #        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -79,7 +79,7 @@ topology:
 #
 #    PATTERSON-DC1-LEAF1:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.195
+#      mgmt-ipv4: 172.16.169.195
 #      startup-config: ./configs/PATTERSON-DC1-LEAF1.cfg
 #      binds:
 #        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -89,7 +89,7 @@ topology:
 #
 #    PATTERSON-DC1-LEAF2:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.196
+#      mgmt-ipv4: 172.16.169.196
 #      startup-config: ./configs/PATTERSON-DC1-LEAF2.cfg
 #      binds:
 #        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -99,7 +99,7 @@ topology:
 #
 #    PATTERSON-DC1-LEAF3:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.200
+#      mgmt-ipv4: 172.16.169.200
 #      startup-config: ./configs/PATTERSON-DC1-LEAF3.cfg
 #      binds:
 #        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -113,7 +113,7 @@ topology:
 #
 #    PATTERSON-DC1-CORE1:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.199
+#      mgmt-ipv4: 172.16.169.199
 #      startup-config: ./configs/PATTERSON-DC1-CORE1.cfg
 #      binds:
 #        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -127,7 +127,7 @@ topology:
 #
 #    PATTERSON-DC1-HOST1:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.201
+#      mgmt-ipv4: 172.16.169.201
 #      startup-config: ./configs/PATTERSON-DC1-HOST1.cfg
 #      binds:
 #        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -137,7 +137,7 @@ topology:
 #
 #    PATTERSON-DC1-HOST2:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.202
+#      mgmt-ipv4: 172.16.169.202
 #      startup-config: ./configs/PATTERSON-DC1-HOST2.cfg
 #      binds:
 #        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -155,7 +155,7 @@ topology:
 
     PATTERSON-DC2-SPINE1:
       kind: ceos
-      mgmt-ipv4: 172.31.207.101
+      mgmt-ipv4: 172.16.169.35
       startup-config: ./configs/PATTERSON-DC2-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -165,7 +165,7 @@ topology:
 
     PATTERSON-DC2-SPINE2:
       kind: ceos
-      mgmt-ipv4: 172.31.207.102
+      mgmt-ipv4: 172.16.169.36
       startup-config: ./configs/PATTERSON-DC2-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -179,7 +179,7 @@ topology:
 
     PATTERSON-DC2-LEAF1:
       kind: ceos
-      mgmt-ipv4: 172.31.207.103
+      mgmt-ipv4: 172.16.169.37
       startup-config: ./configs/PATTERSON-DC2-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -189,7 +189,7 @@ topology:
 
     PATTERSON-DC2-LEAF2:
       kind: ceos
-      mgmt-ipv4: 172.31.207.104
+      mgmt-ipv4: 172.16.169.38
       startup-config: ./configs/PATTERSON-DC2-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -199,7 +199,7 @@ topology:
 
     PATTERSON-DC2-LEAF3:
       kind: ceos
-      mgmt-ipv4: 172.31.207.105
+      mgmt-ipv4: 172.16.169.39
       startup-config: ./configs/PATTERSON-DC2-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -209,7 +209,7 @@ topology:
 
     PATTERSON-DC2-LEAF4:
       kind: ceos
-      mgmt-ipv4: 172.31.207.106
+      mgmt-ipv4: 172.16.169.40
       startup-config: ./configs/PATTERSON-DC2-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -223,7 +223,7 @@ topology:
 
     PATTERSON-DC2-CORE1:
       kind: ceos
-      mgmt-ipv4: 172.31.207.107
+      mgmt-ipv4: 172.16.169.41
       startup-config: ./configs/PATTERSON-DC2-CORE1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -233,7 +233,7 @@ topology:
 
     PATTERSON-DC2-CORE2:
       kind: ceos
-      mgmt-ipv4: 172.31.207.108
+      mgmt-ipv4: 172.16.169.42
       startup-config: ./configs/PATTERSON-DC2-CORE2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -247,7 +247,7 @@ topology:
 
     PATTERSON-DC2-HOST1:
       kind: ceos
-      mgmt-ipv4: 172.31.207.109
+      mgmt-ipv4: 172.16.169.43
       startup-config: ./configs/PATTERSON-DC2-HOST1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -257,7 +257,7 @@ topology:
 
     PATTERSON-DC2-HOST2:
       kind: ceos
-      mgmt-ipv4: 172.31.207.110
+      mgmt-ipv4: 172.16.169.44
       startup-config: ./configs/PATTERSON-DC2-HOST2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -271,7 +271,7 @@ topology:
 #
 #    PATTERSON-DC1-WAN:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.223
+#      mgmt-ipv4: 172.16.169.223
 #      startup-config: ./configs/PATTERSON-DC1-WAN.cfg
 #      binds:
 #        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -281,7 +281,7 @@ topology:
 #
 #    PATTERSON-DC2-WAN:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.224
+#      mgmt-ipv4: 172.16.169.224
 #      startup-config: ./configs/PATTERSON-DC2-WAN.cfg
 #      binds:
 #        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -291,7 +291,7 @@ topology:
 #
 #    PATTERSON-CORE:
 #      kind: ceos
-#      mgmt-ipv4: 172.31.207.225
+#      mgmt-ipv4: 172.16.169.225
 #      startup-config: ./configs/PATTERSON-CORE.cfg
 #      binds:
 #        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
@@ -364,7 +364,7 @@ topology:
 # PATTERSON-DC2 CORE to External #
 #####################
     - endpoints: ["PATTERSON-DC2-CORE1:eth1", "macvlan:ens224"]
-    - endpoints: ["PATTERSON-DC2-CORE2:eth2", "macvlan:ens256"]
+    - endpoints: ["PATTERSON-DC2-CORE2:eth1", "macvlan:ens256"]
 #########################
 ## PATTERSON-DC1 CORE to PATTERSON-DC2 CORE #
 #########################
