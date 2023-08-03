@@ -360,6 +360,11 @@ topology:
     - endpoints: ["PATTERSON-DC2-HOST1:eth2", "PATTERSON-DC2-LEAF2:eth1"]
     - endpoints: ["PATTERSON-DC2-HOST2:eth1", "PATTERSON-DC2-LEAF3:eth1"]
     - endpoints: ["PATTERSON-DC2-HOST2:eth2", "PATTERSON-DC2-LEAF4:eth1"]
+#####################
+# PATTERSON-DC2 CORE to External #
+#####################
+    - endpoints: ["PATTERSON-DC2-CORE1:eth1", "macvlan:ens224"]
+    - endpoints: ["PATTERSON-DC2-CORE2:eth2", "macvlan:ens256"]
 #########################
 ## PATTERSON-DC1 CORE to PATTERSON-DC2 CORE #
 #########################
