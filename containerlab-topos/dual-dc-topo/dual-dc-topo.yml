@@ -391,16 +391,6 @@ topology:
         graph-level: 2
         graph-icon: router
 
-    ENT-CORE-WAN3:
-      kind: ceos
-      mgmt-ipv4: 10.99.99.71
-      startup-config: ./configs/ENT-CORE-WAN3.cfg
-      binds:
-        - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
-      labels:
-        graph-level: 2
-        graph-icon: router
-
   links:
 ######################
 # DC1 SPINE1 to LEAF #
@@ -528,5 +518,3 @@ topology:
 ######################
     - endpoints: ["ENT-DC1-WAN1:eth1", "ENT-DC1-EDGE1:eth1"]
     - endpoints: ["ENT-DC2-WAN2:eth1", "ENT-DC2-EDGE2:eth1"]
-    - endpoints: ["ENT-CORE-WAN3:eth1", "ENT-DC1-CORE1:eth1"]
-    - endpoints: ["ENT-CORE-WAN3:eth2", "ENT-DC2-CORE1:eth1"]

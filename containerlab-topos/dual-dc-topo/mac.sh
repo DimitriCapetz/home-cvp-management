@@ -24,7 +24,6 @@ sudo touch clab-dual-dc-topo/ENT-DC2-CORE1/flash/ceos-config
 sudo touch clab-dual-dc-topo/ENT-DC2-CORE2/flash/ceos-config
 sudo touch clab-dual-dc-topo/ENT-DC1-WAN1/flash/ceos-config
 sudo touch clab-dual-dc-topo/ENT-DC2-WAN2/flash/ceos-config
-sudo touch clab-dual-dc-topo/ENT-CORE-WAN3/flash/ceos-config
 sudo touch clab-dual-dc-topo/ENT-DC1-HOST1/flash/ceos-config
 sudo touch clab-dual-dc-topo/ENT-DC1-HOST2/flash/ceos-config
 sudo touch clab-dual-dc-topo/ENT-DC1-HOST3/flash/ceos-config
@@ -57,7 +56,6 @@ sudo echo "SYSTEMMACADDR=00:dc:73:58:00:00" >> clab-dual-dc-topo/ENT-DC2-CORE1/f
 sudo echo "SYSTEMMACADDR=00:dc:73:59:00:00" >> clab-dual-dc-topo/ENT-DC2-CORE2/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:dc:73:60:00:00" >> clab-dual-dc-topo/ENT-DC1-WAN1/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:dc:73:61:00:00" >> clab-dual-dc-topo/ENT-DC2-WAN2/flash/ceos-config
-sudo echo "SYSTEMMACADDR=00:dc:73:62:00:00" >> clab-dual-dc-topo/ENT-CORE-WAN3/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:dc:73:63:00:00" >> clab-dual-dc-topo/ENT-DC1-HOST1/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:dc:73:64:00:00" >> clab-dual-dc-topo/ENT-DC1-HOST2/flash/ceos-config
 sudo echo "SYSTEMMACADDR=00:dc:73:65:00:00" >> clab-dual-dc-topo/ENT-DC1-HOST3/flash/ceos-config
@@ -90,7 +88,6 @@ sudo echo "SERIALNUMBER=ENT-DC2-CORE1" >> clab-dual-dc-topo/ENT-DC2-CORE1/flash/
 sudo echo "SERIALNUMBER=ENT-DC2-CORE2" >> clab-dual-dc-topo/ENT-DC2-CORE2/flash/ceos-config
 sudo echo "SERIALNUMBER=ENT-DC1-WAN1" >> clab-dual-dc-topo/ENT-DC1-WAN1/flash/ceos-config
 sudo echo "SERIALNUMBER=ENT-DC2-WAN2" >> clab-dual-dc-topo/ENT-DC2-WAN2/flash/ceos-config
-sudo echo "SERIALNUMBER=ENT-CORE-WAN3" >> clab-dual-dc-topo/ENT-CORE-WAN3/flash/ceos-config
 sudo echo "SERIALNUMBER=ENT-DC1-HOST1" >> clab-dual-dc-topo/ENT-DC1-HOST1/flash/ceos-config
 sudo echo "SERIALNUMBER=ENT-DC1-HOST2" >> clab-dual-dc-topo/ENT-DC1-HOST2/flash/ceos-config
 sudo echo "SERIALNUMBER=ENT-DC1-HOST3" >> clab-dual-dc-topo/ENT-DC1-HOST3/flash/ceos-config
@@ -123,7 +120,6 @@ sudo rm clab-dual-dc-topo/ENT-DC2-CORE1/flash/system_mac_address
 sudo rm clab-dual-dc-topo/ENT-DC2-CORE2/flash/system_mac_address
 sudo rm clab-dual-dc-topo/ENT-DC1-WAN1/flash/system_mac_address
 sudo rm clab-dual-dc-topo/ENT-DC2-WAN2/flash/system_mac_address
-sudo rm clab-dual-dc-topo/ENT-CORE-WAN3/flash/system_mac_address
 sudo rm clab-dual-dc-topo/ENT-DC1-HOST1/flash/system_mac_address
 sudo rm clab-dual-dc-topo/ENT-DC1-HOST2/flash/system_mac_address
 sudo rm clab-dual-dc-topo/ENT-DC1-HOST3/flash/system_mac_address
@@ -156,4 +152,3 @@ sudo cp ../cv-onboarding-token clab-dual-dc-topo/ENT-DC2-CORE1/flash/cv-onboardi
 sudo cp ../cv-onboarding-token clab-dual-dc-topo/ENT-DC2-CORE2/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-dual-dc-topo/ENT-DC1-WAN1/flash/cv-onboarding-token
 sudo cp ../cv-onboarding-token clab-dual-dc-topo/ENT-DC2-WAN2/flash/cv-onboarding-token
-sudo cp ../cv-onboarding-token clab-dual-dc-topo/ENT-CORE-WAN3/flash/cv-onboarding-token
