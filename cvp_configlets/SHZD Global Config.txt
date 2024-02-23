@@ -10,7 +10,9 @@ transceiver qsfp default-mode 4x10G
 !
 service routing protocols model multi-agent
 !
-queue-monitor length
+! Command not supported on virtual EOS
+!
+!queue-monitor length
 !
 logging buffered 100000 notifications
 logging host 10.176.172.19
@@ -19,9 +21,14 @@ logging format timestamp high-resolution
 logging facility local6
 logging source-interface Loopback0
 !
-ip domain lookup source-interface Loopback0
-ip name-server vrf default 10.4.148.103
-ip name-server vrf default 10.90.40.105
+! Need to use local DNS for Dimitri's Lab
+!
+!ip domain lookup source-interface Loopback0
+!ip name-server vrf default 10.4.148.103
+!ip name-server vrf default 10.90.40.105
+ip domain lookup vrf management source-interface Management1
+ip name-server vrf management 1.1.1.1
+!
 dns domain uhc.com
 !
 sflow polling-interval 180
@@ -52,8 +59,10 @@ system l1
    unsupported speed action error
    unsupported error-correction action error
 !
-queue-monitor streaming
-   no shutdown
+! Command not supported on virtual EOS
+!
+!queue-monitor streaming
+!   no shutdown
 !
 banner motd
 *********************************************************************
@@ -155,9 +164,11 @@ ip prefix-list DEFAULT-ONLY seq 5 permit 0.0.0.0/0
 !
 arp aging timeout default 900
 !
-ntp local-interface Loopback0
-ntp server 10.7.136.103
-ntp server 10.90.40.105
+! Need to use local DNS for Dimitri's Lab
+!
+!ntp local-interface Loopback0
+!ntp server 10.7.136.103
+!ntp server 10.90.40.105
 !
 router multicast
    ipv4
