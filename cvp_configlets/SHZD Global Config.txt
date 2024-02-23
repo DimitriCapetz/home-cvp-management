@@ -1,0 +1,181 @@
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -cvaddr=apiserver.arista.io:443 -cvcompression=gzip -cvvrf=management -taillogs -cvauth=token-secure,/mnt/flash/cv-onboarding-token -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+   no shutdown
+!
+switchport default mode routed
+!
+event-monitor
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+queue-monitor length
+!
+logging buffered 100000 notifications
+logging host 10.176.172.19
+logging host 10.176.172.33
+logging format timestamp high-resolution
+logging facility local6
+logging source-interface Loopback0
+!
+ip domain lookup source-interface Loopback0
+ip name-server vrf default 10.4.148.103
+ip name-server vrf default 10.90.40.105
+dns domain uhc.com
+!
+sflow polling-interval 180
+sflow destination 10.87.20.21 9995
+sflow destination 127.0.0.1
+sflow source-interface Loopback0
+sflow interface disable default
+sflow run
+!
+snmp-server contact UHT Help Desk, 1-888-UHT-DESK
+snmp-server local-interface Loopback0
+snmp-server community ozQMeeuN ro snmp59
+snmp-server community public ro
+snmp-server host 10.122.92.47 version 1 public
+snmp-server host 10.123.233.129 version 1 public
+snmp-server host 10.123.233.18 version 1 public
+snmp-server host 10.177.40.144 version 1 public
+snmp-server host 10.177.8.142 version 1 public
+snmp-server host 10.28.199.57 version 1 public
+snmp-server host 10.29.208.235 version 1 public
+snmp-server host 10.86.186.96 version 1 public
+snmp-server host 10.87.57.127 version 1 public
+snmp-server enable traps
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+queue-monitor streaming
+   no shutdown
+!
+banner motd
+*********************************************************************
+This is a private computer system containing confidential
+information. Any unauthorized attempt to access or use this
+computer system or any information on it by employees or other
+persons may result in termination of employment, civil fines,
+and criminal penalties. This system must be used for authorized
+business purposes only.
+*********************************************************************
+
+  *****    *******   ******    ******     **
+  *           *      *    *    *     *    **
+  *           *      *    *    *     *    **
+  *****       *      *    *    ******     *
+      *       *      *    *    *          *
+      *       *      *    *    *
+  *****       *      ******    *          *
+
++-----------------------------------------------+
+|DO NOT CONFIGURE PORTS ON THIS SWITCH MANUALLY!|
++-----------------------------------------------+
+Port configuration is managed on this switch by
+a provisioning database with scripted configs.
+Manually making changes will result in mismatches
+between the provisioning database and Aperture.
+Please contact an NSDC engineer if changes are
+required to this switch.
+EOF
+!
+management api http-commands
+   protocol https ssl profile TLS12
+   no shutdown
+!
+management console
+   idle-timeout 15
+!
+management security
+   !
+   ssl profile TLS12
+      !! copy file:/persist/secure/capi.pem certificate:
+      !! copy file:/persist/secure/capikey.pem sslkey:
+      tls versions 1.2
+      fips restrictions
+      certificate capi.pem key capikey.pem
+      trust certificate ARISTA_ROOT_CA.crt
+      trust certificate ARISTA_SIGNING_CA.crt
+!
+monitor connectivity
+   no shutdown
+   !
+   host ISP
+      description
+      Upstream Century Link Router
+      ip 207.109.2.20
+   !
+   host arista.com
+      description
+      Arista Corporate Website
+      ip 151.101.194.132
+      url https://www.arista.com
+!
+mac address-table aging-time 1200
+!
+ip access-list snmp59
+   100 remark ELR
+   110 permit udp 10.176.0.0/14 any eq snmp
+   120 permit udp 10.106.0.0/15 any eq snmp
+   130 permit udp 10.119.0.0/16 any eq snmp
+   140 permit udp 10.86.0.0/15 any eq snmp
+   150 permit udp 10.173.0.0/16 any eq snmp
+   160 permit udp 10.28.0.0/16 any eq snmp
+   170 permit udp 10.48.0.0/14 any eq snmp
+   200 remark CTC
+   210 permit udp 10.204.0.0/15 any eq snmp
+   220 permit udp 10.122.0.0/15 any eq snmp
+   230 permit udp 10.124.0.0/15 any eq snmp
+   240 permit udp 10.90.0.0/16 any eq snmp
+   250 permit udp 10.223.54.0/23 any eq snmp
+   260 permit udp 10.29.0.0/16 any eq snmp
+   270 permit udp 10.200.0.0/14 any eq snmp
+   300 remark PLY
+   310 permit udp 10.112.0.0/16 any eq snmp
+   320 permit udp 10.114.0.0/15 any eq snmp
+   330 permit udp 10.117.0.0/16 any eq snmp
+   400 remark CT039
+   410 permit udp 10.5.156.0/24 any eq snmp
+   500 remark LAB
+   510 permit udp 10.11.160.0/19 any eq snmp
+   520 permit udp 10.11.192.0/19 any eq snmp
+   530 permit udp host 10.75.1.86 any eq snmp
+!
+ip access-list standard SSH-ACL
+   100 permit 10.0.0.0/8
+!
+ip routing
+!
+ip prefix-list DEFAULT-ONLY seq 5 permit 0.0.0.0/0
+!
+arp aging timeout default 900
+!
+ntp local-interface Loopback0
+ntp server 10.7.136.103
+ntp server 10.90.40.105
+!
+router multicast
+   ipv4
+      routing
+!
+router pim sparse-mode
+   ipv4
+      ssm range standard
+!
+ip tacacs source-interface Loopback0
+!
+management ssh
+   ip access-group SSH-ACL in
+   idle-timeout 120
+   cipher aes128-ctr aes256-ctr
+   key-exchange diffie-hellman-group14-sha1
+   mac hmac-sha1
+   hostkey server rsa
+   fips restrictions
+   hostkey client strict-checking
+   log-level verbose

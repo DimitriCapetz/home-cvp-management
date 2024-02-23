@@ -1,0 +1,301 @@
+!
+! Local SNMPv3 Configuration and Hash
+!
+snmp-server engineID local f5717ffcbd670ee79dFF
+snmp-server location *UHTNSDC*Access* CTC SR4 ZZ123
+snmp-server user T3ch1_y network-admin v3 localized f5717ffcbd670ee79dFF auth md5 2838a2842bb4248dfab17310571287f7 priv aes 2838a2842bb4248dfab17310571287f7
+snmp-server user admin network-admin v3 localized f5717ffcbd670ee79dFF auth md5 2838a2842bb4248dfab17310571287f7 priv aes 2838a2842bb4248dfab17310571287f7
+!
+! Routed Interface Configurations
+!
+interface Ethernet1/1
+   description Connection to mlsctc01dbr01 eth1/44
+   mtu 9214
+   no switchport
+   ip address 10.59.236.21/31
+   pim ipv4 sparse-mode
+!
+interface Ethernet2/1
+   description Connection to mlsctc01dbr02 eth1/44
+   mtu 9214
+   no switchport
+   ip address 10.59.236.23/31
+   pim ipv4 sparse-mode
+!
+interface Ethernet3/1
+   description connection to optumcore-ctc5hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.50/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet4/1
+   description connection to optumcore-ctc5hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.52/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet5/1
+   description connection to optumcore-ctc2hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.110/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet6/1
+   description connection to optumcore-ctc2hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.112/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet7/1
+   description connection to optumcore-ctc6hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.80/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet8/1
+   description connection to optumcore-ctc6hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.82/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet9/1
+   description connection to optumcore-ctc1hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.140/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet10/1
+   description connection to optumcore-ctc1hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.142/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet11/1
+   description connection to optumcore-ctc3hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.170/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet12/1
+   description connection to optumcore-ctc3hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.172/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet13/1
+   description connection to optumcore-ctc4hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.200/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet14/1
+   description connection to optumcore-ctc4hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.59.236.202/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet15/1
+   description connection to optumcore-ctc2hz2-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.99.145.0/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet16/1
+   description connection to optumcore-ctc2hz2-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.99.145.2/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet17/1
+   no switchport
+   shutdown
+!
+interface Ethernet18/1
+   no switchport
+   shutdown
+!
+interface Ethernet19/1
+   no switchport
+   shutdown
+!
+interface Ethernet20/1
+   no switchport
+   shutdown
+!
+interface Ethernet21/1
+   no switchport
+   shutdown
+!
+interface Ethernet22/1
+   no switchport
+   shutdown
+!
+interface Ethernet23/1
+   no switchport
+   shutdown
+!
+interface Ethernet24/1
+   no switchport
+   shutdown
+!
+interface Ethernet25/1
+   no switchport
+   shutdown
+!
+interface Ethernet26/1
+   no switchport
+   shutdown
+!
+interface Ethernet27/1
+   no switchport
+   shutdown
+!
+interface Ethernet28/1
+   no switchport
+   shutdown
+!
+interface Ethernet29/1
+   no switchport
+   shutdown
+!
+interface Ethernet30/1
+   no switchport
+   shutdown
+!
+interface Ethernet31/1
+   no switchport
+   shutdown
+!
+interface Ethernet32/1
+   no switchport
+   shutdown
+!
+interface Ethernet33/1
+   no switchport
+   shutdown
+!
+interface Ethernet34/1
+   no switchport
+   shutdown
+!
+interface Ethernet35/1
+   description Connection to mlsctc01dbr03 eth1/11
+   mtu 9214
+   no switchport
+   ip address 10.59.236.231/31
+   pim ipv4 sparse-mode
+!
+interface Ethernet36/1
+   description Connection to mlsctc01dbr04 eth1/11
+   mtu 9214
+   no switchport
+   ip address 10.59.236.233/31
+   pim ipv4 sparse-mode
+!
+! SHZD01 BGP Configuration
+!
+router bgp 64974.1000
+   bgp asn notation asdot
+   router-id 10.59.236.1
+   timers bgp 15 45
+   maximum-paths 4
+   neighbor DBR peer group
+   neighbor DBR remote-as 65001
+   neighbor DBR route-map DEFAULT-ONLY in
+   neighbor CTC1HZ1 peer group
+   neighbor CTC1HZ1 remote-as 64974.1013
+   neighbor CTC1HZ1 route-map ctc1hz1-summary-in in
+   neighbor CTC1HZ1 local-as 64974.1006 no-prepend replace-as
+   neighbor CTC2HZ1 peer group
+   neighbor CTC2HZ1 remote-as 64974.1012
+   neighbor CTC2HZ1 route-map ctc2hz1-summary-in in
+   neighbor CTC2HZ1 local-as 64974.1006 no-prepend replace-as
+   neighbor CTC2HZ2 peer group
+   neighbor CTC2HZ2 remote-as 64974.1020
+   neighbor CTC2HZ2 route-map ctc2hz2-summary-in in
+   neighbor CTC3HZ1 peer group
+   neighbor CTC3HZ1 remote-as 64974.1014
+   neighbor CTC3HZ1 route-map ctc3hz1-summary-in in
+   neighbor CTC3HZ1 local-as 64974.1006 no-prepend replace-as
+   neighbor CTC4HZ1 peer group
+   neighbor CTC4HZ1 remote-as 64974.1015
+   neighbor CTC4HZ1 route-map ctc4hz1-summary-in in
+   neighbor CTC4HZ1 local-as 64974.1006 no-prepend replace-as
+   neighbor CTC5HZ1 peer group
+   neighbor CTC5HZ1 remote-as 64997
+   neighbor CTC5HZ1 route-map ctc5hz1-summary-in in
+   neighbor CTC5HZ1 local-as 64974.1006 no-prepend replace-as
+   neighbor CTC6HZ1 peer group
+   neighbor CTC6HZ1 remote-as 64983
+   neighbor CTC6HZ1 route-map ctc6hz1-summary-in in
+   neighbor CTC6HZ1 local-as 64974.1006 no-prepend replace-as
+   neighbor 10.59.236.20 peer group DBR
+   neighbor 10.59.236.20 shutdown
+   neighbor 10.59.236.20 description mlsctc01shzd02-mlsctc01dbr01
+   neighbor 10.59.236.22 peer group DBR
+   neighbor 10.59.236.22 shutdown
+   neighbor 10.59.236.22 description mlsctc01shzd02-mlsctc01dbr02
+   neighbor 10.59.236.230 peer group DBR
+   neighbor 10.59.236.230 description mlsctc01shzd02-mlsctc01dbr03
+   neighbor 10.59.236.232 peer group DBR
+   neighbor 10.59.236.232 description mlsctc01shzd02-mlsctc01dbr04
+   neighbor 10.59.236.51 peer group CTC5HZ1
+   neighbor 10.59.236.51 description optumcore-ctc5hz1-00-sl03
+   neighbor 10.59.236.53 peer group CTC5HZ1
+   neighbor 10.59.236.53 description optumcore-ctc5hz1-00-sl04
+   neighbor 10.59.236.81 peer group CTC6HZ1
+   neighbor 10.59.236.81 description optumcore-ctc6hz1-00-sl03
+   neighbor 10.59.236.83 peer group CTC6HZ1
+   neighbor 10.59.236.83 description optumcore-ctc6hz1-00-sl04
+   neighbor 10.59.236.111 peer group CTC2HZ1
+   neighbor 10.59.236.111 description optumcore-ctc2hz1-00-sl03
+   neighbor 10.59.236.113 peer group CTC2HZ1
+   neighbor 10.59.236.113 description optumcore-ctc2hz1-00-sl04
+   neighbor 10.59.236.141 peer group CTC1HZ1
+   neighbor 10.59.236.141 description optumcore-ctc1hz1-00-sl03
+   neighbor 10.59.236.143 peer group CTC1HZ1
+   neighbor 10.59.236.143 description optumcore-ctc1hz1-00-sl04
+   neighbor 10.59.236.171 peer group CTC3HZ1
+   neighbor 10.59.236.171 description optumcore-ctc3hz1-00-sl03
+   neighbor 10.59.236.173 peer group CTC3HZ1
+   neighbor 10.59.236.173 description optumcore-ctc3hz1-00-sl04
+   neighbor 10.59.236.201 peer group CTC4HZ1
+   neighbor 10.59.236.201 description optumcore-ctc4hz1-00-sl03
+   neighbor 10.59.236.203 peer group CTC4HZ1
+   neighbor 10.59.236.203 description optumcore-ctc4hz1-00-sl04
+   neighbor 10.99.145.1 peer group CTC2HZ2
+   neighbor 10.99.145.1 description optumcore-ctc2hz2-00-sl03
+   neighbor 10.99.145.3 peer group CTC2HZ2
+   neighbor 10.99.145.3 description optumcore-ctc2hz2-00-sl04
+   network 10.38.0.0/16
+   !
+   address-family ipv4
+      redistribute connected route-map RM-CONNECTED-BGP-SHZD-V4

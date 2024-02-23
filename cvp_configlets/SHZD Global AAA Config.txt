@@ -1,0 +1,19 @@
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$bPaJ1oidKwlHE3Ov$NDLrjqH5qd/.mFJkROVfcH/7bqLnbmUO9XqeyPll/MfHseIW.NbHWEAEP5RSFg6H7S8tFjo0S9YrtQYx09Fh9.
+!
+tacacs-server host 10.50.48.9 key 7 024C4E11414C456B06044353
+tacacs-server host 10.203.36.9 key 7 07456B060443534F5D584146
+!
+aaa group server tacacs+ uhg_tacacs
+   server 10.50.48.9
+   server 10.203.36.9
+!
+!aaa authentication login default group uhg_tacacs
+!aaa authentication login console local
+!aaa authorization commands all default group uhg_tacacs local
+!aaa accounting commands all default start-stop group uhg_tacacs
+!
+aaa authorization exec default local
+!
+ip tacacs source-interface Loopback0

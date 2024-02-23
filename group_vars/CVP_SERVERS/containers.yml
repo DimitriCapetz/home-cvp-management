@@ -2,38 +2,38 @@ CVP_CONTAINERS:
 ###########################
 # Single DC L2LS Topology #
 ###########################
-  DC Data Center:
-    parentContainerName: dcapetz
-    configlets:
-      - dcapetz - lab_DC-SWITCH-DEFAULTS
-      - dcapetz - lab_DC-SWITCH-AAA
-      - dcapetz - lab_DC-VLANs
-  DC Spines:
-    parentContainerName: DC Data Center
-    configlets:
-      - dcapetz - lab_DC-SPINE-SHARED
-  DC Leaves:
-    parentContainerName: DC Data Center
-  DC Border Leaves:
-    parentContainerName: DC Leaves
-    configlets:
-      - dcapetz - lab_DC-BORDER-SHARED
-  DC Compute Leaves:
-    parentContainerName: DC Leaves
-    configlets:
-      - dcapetz - lab_DC-LEAVES-SHARED
-  DC Compute Pod 1:
-    parentContainerName: DC Compute Leaves
-    configlets:
-      - dcapetz - lab_DC-POD1-SHARED
-  DC Compute Pod 2:
-    parentContainerName: DC Compute Leaves
-    configlets:
-      - dcapetz - lab_DC-POD2-SHARED
-  DC Compute Pod 3:
-    parentContainerName: DC Compute Leaves
-    configlets:
-      - dcapetz - lab_DC-POD3-SHARED
+#  DC Data Center:
+#    parentContainerName: dcapetz
+#    configlets:
+#      - dcapetz - lab_DC-SWITCH-DEFAULTS
+#      - dcapetz - lab_DC-SWITCH-AAA
+#      - dcapetz - lab_DC-VLANs
+#  DC Spines:
+#    parentContainerName: DC Data Center
+#    configlets:
+#      - dcapetz - lab_DC-SPINE-SHARED
+#  DC Leaves:
+#    parentContainerName: DC Data Center
+#  DC Border Leaves:
+#    parentContainerName: DC Leaves
+#    configlets:
+#      - dcapetz - lab_DC-BORDER-SHARED
+#  DC Compute Leaves:
+#    parentContainerName: DC Leaves
+#    configlets:
+#      - dcapetz - lab_DC-LEAVES-SHARED
+#  DC Compute Pod 1:
+#    parentContainerName: DC Compute Leaves
+#    configlets:
+#      - dcapetz - lab_DC-POD1-SHARED
+#  DC Compute Pod 2:
+#    parentContainerName: DC Compute Leaves
+#    configlets:
+#      - dcapetz - lab_DC-POD2-SHARED
+#  DC Compute Pod 3:
+#    parentContainerName: DC Compute Leaves
+#    configlets:
+#      - dcapetz - lab_DC-POD3-SHARED
 ###################
 # Campus Topology #
 ###################
@@ -360,3 +360,19 @@ CVP_CONTAINERS:
 #    parentContainerName: DCI DC3
 #    configlets:
 #      - dcapetz - lab_DCI-DC3-LEGACY-SHARED
+###############################
+# SHZD Topology               #
+###############################
+  SHZD:
+    parentContainerName: dcapetz
+    configlets:
+      - dcapetz - lab_SHZD Global Config
+      - dcapetz - lab_SHZD Global AAA Config
+  CTC SHZD:
+    parentContainerName: SHZD
+    configlets:
+      - dcapetz - lab_CTC SHZD Routing Policies
+  ELR SHZD:
+    parentContainerName: SHZD
+    configlets:
+      - dcapetz - lab_ELR SHZD Routing Policies

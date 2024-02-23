@@ -1,0 +1,301 @@
+!
+! Local SNMPv3 Configuration and Hash
+!
+snmp-server engineID local f5717ffcbd670ee79dFF
+snmp-server location *UHTNSDC*Access* ELR SR4 ZZ123
+snmp-server user T3ch1_y network-admin v3 localized f5717ffcbd670ee79dFF auth md5 2838a2842bb4248dfab17310571287f7 priv aes 2838a2842bb4248dfab17310571287f7
+snmp-server user admin network-admin v3 localized f5717ffcbd670ee79dFF auth md5 2838a2842bb4248dfab17310571287f7 priv aes 2838a2842bb4248dfab17310571287f7
+!
+! Routed Interface Configurations
+!
+interface Ethernet1/1
+   description Connection to mlselr01dbr01 eth1/44
+   mtu 9214
+   no switchport
+   ip address 10.49.236.21/31
+   pim ipv4 sparse-mode
+!
+interface Ethernet2/1
+   description Connection to mlselr01dbr02 eth1/44
+   mtu 9214
+   no switchport
+   ip address 10.49.236.23/31
+   pim ipv4 sparse-mode
+!
+interface Ethernet3/1
+   description connection to optumcore-elr5hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.50/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet4/1
+   description connection to optumcore-elr5hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.52/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet5/1
+   description connection to optumcore-elr2hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.110/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet6/1
+   description connection to optumcore-elr2hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.112/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet7/1
+   description connection to optumcore-elr6hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.80/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet8/1
+   description connection to optumcore-elr6hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.82/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet9/1
+   description connection to optumcore-elr1hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.140/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet10/1
+   description connection to optumcore-elr1hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.142/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet11/1
+   description connection to optumcore-elr3hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.170/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet12/1
+   description connection to optumcore-elr3hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.172/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet13/1
+   description connection to optumcore-elr4hz1-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.200/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet14/1
+   description connection to optumcore-elr4hz1-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.49.236.202/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet15/1
+   description connection to optumcore-elr2hz2-00-sl03 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.89.145.0/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet16/1
+   description connection to optumcore-elr2hz2-00-sl04 e1/1
+   mtu 9214
+   no switchport
+   ip address 10.89.145.2/31
+   pim ipv4 sparse-mode
+   sflow enable
+!
+interface Ethernet17/1
+   no switchport
+   shutdown
+!
+interface Ethernet18/1
+   no switchport
+   shutdown
+!
+interface Ethernet19/1
+   no switchport
+   shutdown
+!
+interface Ethernet20/1
+   no switchport
+   shutdown
+!
+interface Ethernet21/1
+   no switchport
+   shutdown
+!
+interface Ethernet22/1
+   no switchport
+   shutdown
+!
+interface Ethernet23/1
+   no switchport
+   shutdown
+!
+interface Ethernet24/1
+   no switchport
+   shutdown
+!
+interface Ethernet25/1
+   no switchport
+   shutdown
+!
+interface Ethernet26/1
+   no switchport
+   shutdown
+!
+interface Ethernet27/1
+   no switchport
+   shutdown
+!
+interface Ethernet28/1
+   no switchport
+   shutdown
+!
+interface Ethernet29/1
+   no switchport
+   shutdown
+!
+interface Ethernet30/1
+   no switchport
+   shutdown
+!
+interface Ethernet31/1
+   no switchport
+   shutdown
+!
+interface Ethernet32/1
+   no switchport
+   shutdown
+!
+interface Ethernet33/1
+   no switchport
+   shutdown
+!
+interface Ethernet34/1
+   no switchport
+   shutdown
+!
+interface Ethernet35/1
+   description Connection to mlselr01dbr03 eth1/11
+   mtu 9214
+   no switchport
+   ip address 10.49.236.231/31
+   pim ipv4 sparse-mode
+!
+interface Ethernet36/1
+   description Connection to mlselr01dbr04 eth1/11
+   mtu 9214
+   no switchport
+   ip address 10.49.236.233/31
+   pim ipv4 sparse-mode
+!
+! SHZD01 BGP Configuration
+!
+router bgp 64973.1000
+   bgp asn notation asdot
+   router-id 10.49.236.1
+   timers bgp 15 45
+   maximum-paths 4
+   neighbor DBR peer group
+   neighbor DBR remote-as 65002
+   neighbor DBR route-map DEFAULT-ONLY in
+   neighbor ELR1HZ1 peer group
+   neighbor ELR1HZ1 remote-as 64973.1013
+   neighbor ELR1HZ1 route-map elr1hz1-summary-in in
+   neighbor ELR1HZ1 local-as 64973.1006 no-prepend replace-as
+   neighbor ELR2HZ1 peer group
+   neighbor ELR2HZ1 remote-as 64973.1012
+   neighbor ELR2HZ1 route-map elr2hz1-summary-in in
+   neighbor ELR2HZ1 local-as 64973.1006 no-prepend replace-as
+   neighbor ELR2HZ2 peer group
+   neighbor ELR2HZ2 remote-as 64973.1020
+   neighbor ELR2HZ2 route-map elr2hz2-summary-in in
+   neighbor ELR3HZ1 peer group
+   neighbor ELR3HZ1 remote-as 64973.1014
+   neighbor ELR3HZ1 route-map elr3hz1-summary-in in
+   neighbor ELR3HZ1 local-as 64973.1006 no-prepend replace-as
+   neighbor ELR4HZ1 peer group
+   neighbor ELR4HZ1 remote-as 64973.1015
+   neighbor ELR4HZ1 route-map elr4hz1-summary-in in
+   neighbor ELR4HZ1 local-as 64973.1006 no-prepend replace-as
+   neighbor ELR5HZ1 peer group
+   neighbor ELR5HZ1 remote-as 64997
+   neighbor ELR5HZ1 route-map elr5hz1-summary-in in
+   neighbor ELR5HZ1 local-as 64973.1006 no-prepend replace-as
+   neighbor ELR6HZ1 peer group
+   neighbor ELR6HZ1 remote-as 64983
+   neighbor ELR6HZ1 route-map elr6hz1-summary-in in
+   neighbor ELR6HZ1 local-as 64973.1006 no-prepend replace-as
+   neighbor 10.49.236.20 peer group DBR
+   neighbor 10.49.236.20 shutdown
+   neighbor 10.49.236.20 description mlselr01shzd02-mlselr01dbr01
+   neighbor 10.49.236.22 peer group DBR
+   neighbor 10.49.236.22 shutdown
+   neighbor 10.49.236.22 description mlselr01shzd02-mlselr01dbr02
+   neighbor 10.49.236.230 peer group DBR
+   neighbor 10.49.236.230 description mlselr01shzd02-mlselr01dbr03
+   neighbor 10.49.236.232 peer group DBR
+   neighbor 10.49.236.232 description mlselr01shzd02-mlselr01dbr04
+   neighbor 10.49.236.51 peer group ELR5HZ1
+   neighbor 10.49.236.51 description optumcore-elr5hz1-00-sl03
+   neighbor 10.49.236.53 peer group ELR5HZ1
+   neighbor 10.49.236.53 description optumcore-elr5hz1-00-sl04
+   neighbor 10.49.236.81 peer group ELR6HZ1
+   neighbor 10.49.236.81 description optumcore-elr6hz1-00-sl03
+   neighbor 10.49.236.83 peer group ELR6HZ1
+   neighbor 10.49.236.83 description optumcore-elr6hz1-00-sl04
+   neighbor 10.49.236.111 peer group ELR2HZ1
+   neighbor 10.49.236.111 description optumcore-elr2hz1-00-sl03
+   neighbor 10.49.236.113 peer group ELR2HZ1
+   neighbor 10.49.236.113 description optumcore-elr2hz1-00-sl04
+   neighbor 10.49.236.141 peer group ELR1HZ1
+   neighbor 10.49.236.141 description optumcore-elr1hz1-00-sl03
+   neighbor 10.49.236.143 peer group ELR1HZ1
+   neighbor 10.49.236.143 description optumcore-elr1hz1-00-sl04
+   neighbor 10.49.236.171 peer group ELR3HZ1
+   neighbor 10.49.236.171 description optumcore-elr3hz1-00-sl03
+   neighbor 10.49.236.173 peer group ELR3HZ1
+   neighbor 10.49.236.173 description optumcore-elr3hz1-00-sl04
+   neighbor 10.49.236.201 peer group ELR4HZ1
+   neighbor 10.49.236.201 description optumcore-elr4hz1-00-sl03
+   neighbor 10.49.236.203 peer group ELR4HZ1
+   neighbor 10.49.236.203 description optumcore-elr4hz1-00-sl04
+   neighbor 10.89.145.1 peer group ELR2HZ2
+   neighbor 10.89.145.1 description optumcore-elr2hz2-00-sl03
+   neighbor 10.89.145.3 peer group ELR2HZ2
+   neighbor 10.89.145.3 description optumcore-elr2hz2-00-sl04
+   network 10.28.0.0/16
+   !
+   address-family ipv4
+      redistribute connected route-map RM-CONNECTED-BGP-SHZD-V4
