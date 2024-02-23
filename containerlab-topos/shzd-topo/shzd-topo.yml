@@ -339,4 +339,4 @@ topology:
 #####################
 # Core to Core  #
 #####################
-    - endpoints: ["mlselr02dbr0X:eth25", "mlsctc01dbr0X:eth25"]
+    - endpoints: ["mlselr01dbr0X:eth25", "mlsctc01dbr0X:eth25"]
