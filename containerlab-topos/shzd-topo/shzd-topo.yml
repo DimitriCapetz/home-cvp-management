@@ -1,0 +1,342 @@
+---
+# -------------------------------------------------------------------
+# Dual DC Topology with external DBRs and Service Leaves
+# Single DBR, 6 SHZDs with Single Simulated "Service Leaf" for testing
+# -------------------------------------------------------------------
+
+name: shzd-topo
+
+mgmt:
+  network: clab_mgmt
+  bridge: br0
+  ipv4-subnet: 10.99.99.0/24
+  ipv4-gw: 10.99.99.1
+
+topology:
+
+  kinds:
+    ceos:
+      image: ceos:4.31.2F
+
+  nodes: 
+
+###########################################
+# Graphite Node                           #
+# Provides Topology Graphing and the      #
+# ability to connect to nodes in the      #
+# topology via a web/ssh session          #
+###########################################
+
+    graphite:
+      kind: linux
+      image: netreplica/graphite
+      mgmt-ipv4: 10.99.99.87
+      env:
+        GRAPHITE_DEFAULT_TYPE: clab
+        GRAPHITE_DEFAULT_TOPO: shzd-topo
+        # CLAB_SSH_CONNECTION: ${SSH_CONNECTION}
+      binds:
+        # - .:/var/www/localhost/htdocs/clab   <----  This is the old path in docker image netreplica/graphite:webssh2
+        - .:/htdocs/clab    # New path required for latest version
+      ports:
+        - 80:80
+      exec:
+        # - sh -c 'generate_offline_graph.sh'   # used to generate offline graphs
+        - sh -c 'graphite_motd.sh 80'
+      labels:
+        graph-hide: yes
+
+#########################
+# DC 1 SHZD             #
+#########################
+
+    mlsctc01shzd01:
+      kind: ceos
+      mgmt-ipv4: 10.99.99.11
+      startup-config: ./configs/mlsctc01shzd01.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: switch
+
+    mlsctc01shzd02:
+      kind: ceos
+      mgmt-ipv4: 10.99.99.12
+      startup-config: ./configs/mlsctc01shzd02.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 5
+        graph-icon: switch
+
+#    mlsctc01shzd03:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.13
+#      startup-config: ./configs/mlsctc01shzd03.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 5
+#        graph-icon: switch
+#
+#    mlsctc01shzd04:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.14
+#      startup-config: ./configs/mlsctc01shzd04.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 5
+#        graph-icon: switch
+#
+#    mlsctc01shzd05:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.15
+#      startup-config: ./configs/mlsctc01shzd05.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 5
+#        graph-icon: switch
+#
+#    mlsctc01shzd06:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.16
+#      startup-config: ./configs/mlsctc01shzd06.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 5
+#        graph-icon: switch
+
+#########################
+# DC 2 SHZD             #
+#########################
+
+    mlselr01shzd01:
+      kind: ceos
+      mgmt-ipv4: 10.99.99.21
+      startup-config: ./configs/mlselr01shzd01.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+    mlselr01shzd02:
+      kind: ceos
+      mgmt-ipv4: 10.99.99.22
+      startup-config: ./configs/mlselr01shzd02.cfg
+      binds:
+        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 2
+        graph-icon: switch
+
+#    mlselr01shzd03:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.23
+#      startup-config: ./configs/mlselr01shzd03.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 2
+#        graph-icon: switch
+#
+#    mlselr01shzd04:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.24
+#      startup-config: ./configs/mlselr01shzd04.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 2
+#        graph-icon: switch
+#
+#    mlselr01shzd05:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.25
+#      startup-config: ./configs/mlselr01shzd05.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 2
+#        graph-icon: switch
+#
+#    mlselr01shzd06:
+#      kind: ceos
+#      mgmt-ipv4: 10.99.99.26
+#      startup-config: ./configs/mlselr01shzd06.cfg
+#      binds:
+#        - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+#      labels:
+#        graph-level: 2
+#        graph-icon: switch
+
+#########################
+# Core Router Sim       #
+#########################
+
+    mlsctc01dbr0X:
+      kind: ceos
+      mgmt-ipv4: 10.99.99.17
+      startup-config: ./configs/mlsctc01dbr0X.cfg
+      binds:
+        - ./configs/sim-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 3
+        graph-icon: switch
+
+    mlselr01dbr0X:
+      kind: ceos
+      mgmt-ipv4: 10.99.99.27
+      startup-config: ./configs/mlselr01dbr0X.cfg
+      binds:
+        - ./configs/sim-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 4
+        graph-icon: switch
+
+#########################
+# Service Leaf Sim      #
+#########################
+
+    optumcore-ctcXhzX-00-sl00:
+      kind: ceos
+      mgmt-ipv4: 10.99.99.18
+      startup-config: ./configs/optumcore-ctcXhzX-00-sl00.cfg
+      binds:
+        - ./configs/sim-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 1
+        graph-icon: switch
+
+    optumcore-elrXhzX-00-sl00:
+      kind: ceos
+      mgmt-ipv4: 10.99.99.28
+      startup-config: ./configs/optumcore-elrXhzX-00-sl00.cfg
+      binds:
+        - ./configs/sim-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      labels:
+        graph-level: 6
+        graph-icon: switch
+
+  links:
+#####################
+# DC1 SHZD to SL    #
+#####################
+    - endpoints: ["mlsctc01shzd01:eth3", "optumcore-ctcXhzX-00-sl00:eth1"]
+    - endpoints: ["mlsctc01shzd01:eth4", "optumcore-ctcXhzX-00-sl00:eth2"]
+    - endpoints: ["mlsctc01shzd01:eth5", "optumcore-ctcXhzX-00-sl00:eth3"]
+    - endpoints: ["mlsctc01shzd01:eth6", "optumcore-ctcXhzX-00-sl00:eth4"]
+    - endpoints: ["mlsctc01shzd01:eth7", "optumcore-ctcXhzX-00-sl00:eth5"]
+    - endpoints: ["mlsctc01shzd01:eth8", "optumcore-ctcXhzX-00-sl00:eth6"]
+    - endpoints: ["mlsctc01shzd01:eth9", "optumcore-ctcXhzX-00-sl00:eth7"]
+    - endpoints: ["mlsctc01shzd01:eth10", "optumcore-ctcXhzX-00-sl00:eth8"]
+    - endpoints: ["mlsctc01shzd01:eth11", "optumcore-ctcXhzX-00-sl00:eth9"]
+    - endpoints: ["mlsctc01shzd01:eth12", "optumcore-ctcXhzX-00-sl00:eth10"]
+    - endpoints: ["mlsctc01shzd01:eth13", "optumcore-ctcXhzX-00-sl00:eth11"]
+    - endpoints: ["mlsctc01shzd01:eth14", "optumcore-ctcXhzX-00-sl00:eth12"]
+    - endpoints: ["mlsctc01shzd01:eth15", "optumcore-ctcXhzX-00-sl00:eth13"]
+    - endpoints: ["mlsctc01shzd01:eth16", "optumcore-ctcXhzX-00-sl00:eth14"]
+    - endpoints: ["mlsctc01shzd02:eth3", "optumcore-ctcXhzX-00-sl00:eth15"]
+    - endpoints: ["mlsctc01shzd02:eth4", "optumcore-ctcXhzX-00-sl00:eth16"]
+    - endpoints: ["mlsctc01shzd02:eth5", "optumcore-ctcXhzX-00-sl00:eth17"]
+    - endpoints: ["mlsctc01shzd02:eth6", "optumcore-ctcXhzX-00-sl00:eth18"]
+    - endpoints: ["mlsctc01shzd02:eth7", "optumcore-ctcXhzX-00-sl00:eth19"]
+    - endpoints: ["mlsctc01shzd02:eth8", "optumcore-ctcXhzX-00-sl00:eth20"]
+    - endpoints: ["mlsctc01shzd02:eth9", "optumcore-ctcXhzX-00-sl00:eth21"]
+    - endpoints: ["mlsctc01shzd02:eth10", "optumcore-ctcXhzX-00-sl00:eth22"]
+    - endpoints: ["mlsctc01shzd02:eth11", "optumcore-ctcXhzX-00-sl00:eth23"]
+    - endpoints: ["mlsctc01shzd02:eth12", "optumcore-ctcXhzX-00-sl00:eth24"]
+    - endpoints: ["mlsctc01shzd02:eth13", "optumcore-ctcXhzX-00-sl00:eth25"]
+    - endpoints: ["mlsctc01shzd02:eth14", "optumcore-ctcXhzX-00-sl00:eth26"]
+    - endpoints: ["mlsctc01shzd02:eth15", "optumcore-ctcXhzX-00-sl00:eth27"]
+    - endpoints: ["mlsctc01shzd02:eth16", "optumcore-ctcXhzX-00-sl00:eth28"]
+# For future sim if needed   
+#    - endpoints: ["mlsctc01shzd03:eth3", "optumcore-ctcXhzX-00-sl00:eth29"] 
+#    - endpoints: ["mlsctc01shzd03:eth4", "optumcore-ctcXhzX-00-sl00:eth30"]
+#    - endpoints: ["mlsctc01shzd03:eth5", "optumcore-ctcXhzX-00-sl00:eth31"]
+#    - endpoints: ["mlsctc01shzd03:eth6", "optumcore-ctcXhzX-00-sl00:eth32"]
+#    - endpoints: ["mlsctc01shzd03:eth7", "optumcore-ctcXhzX-00-sl00:eth33"]
+#    - endpoints: ["mlsctc01shzd03:eth8", "optumcore-ctcXhzX-00-sl00:eth34"]
+#    - endpoints: ["mlsctc01shzd03:eth9", "optumcore-ctcXhzX-00-sl00:eth35"]
+#    - endpoints: ["mlsctc01shzd03:eth10", "optumcore-ctcXhzX-00-sl00:eth36"]
+#    - endpoints: ["mlsctc01shzd03:eth11", "optumcore-ctcXhzX-00-sl00:eth37"]
+#    - endpoints: ["mlsctc01shzd03:eth12", "optumcore-ctcXhzX-00-sl00:eth38"]
+#    - endpoints: ["mlsctc01shzd03:eth13", "optumcore-ctcXhzX-00-sl00:eth39"]
+#    - endpoints: ["mlsctc01shzd03:eth14", "optumcore-ctcXhzX-00-sl00:eth40"]
+#    - endpoints: ["mlsctc01shzd03:eth15", "optumcore-ctcXhzX-00-sl00:eth41"]
+#    - endpoints: ["mlsctc01shzd03:eth16", "optumcore-ctcXhzX-00-sl00:eth42"]
+#    - endpoints: ["mlsctc01shzd04:eth3", "optumcore-ctcXhzX-00-sl00:eth43"]
+#    - endpoints: ["mlsctc01shzd04:eth4", "optumcore-ctcXhzX-00-sl00:eth16"]
+#    - endpoints: ["mlsctc01shzd04:eth5", "optumcore-ctcXhzX-00-sl00:eth17"]
+#    - endpoints: ["mlsctc01shzd04:eth6", "optumcore-ctcXhzX-00-sl00:eth18"]
+#    - endpoints: ["mlsctc01shzd04:eth7", "optumcore-ctcXhzX-00-sl00:eth19"]
+#    - endpoints: ["mlsctc01shzd04:eth8", "optumcore-ctcXhzX-00-sl00:eth20"]
+#    - endpoints: ["mlsctc01shzd04:eth9", "optumcore-ctcXhzX-00-sl00:eth21"]
+#    - endpoints: ["mlsctc01shzd04:eth10", "optumcore-ctcXhzX-00-sl00:eth22"]
+#    - endpoints: ["mlsctc01shzd04:eth11", "optumcore-ctcXhzX-00-sl00:eth23"]
+#    - endpoints: ["mlsctc01shzd04:eth12", "optumcore-ctcXhzX-00-sl00:eth24"]
+#    - endpoints: ["mlsctc01shzd04:eth13", "optumcore-ctcXhzX-00-sl00:eth25"]
+#    - endpoints: ["mlsctc01shzd04:eth14", "optumcore-ctcXhzX-00-sl00:eth26"]
+#    - endpoints: ["mlsctc01shzd04:eth15", "optumcore-ctcXhzX-00-sl00:eth27"]
+#    - endpoints: ["mlsctc01shzd04:eth16", "optumcore-ctcXhzX-00-sl00:eth28"]
+#####################
+# DC2 SHZD to SL    #
+#####################
+    - endpoints: ["mlselr01shzd01:eth3", "optumcore-elrXhzX-00-sl00:eth1"]
+    - endpoints: ["mlselr01shzd01:eth4", "optumcore-elrXhzX-00-sl00:eth2"]
+    - endpoints: ["mlselr01shzd01:eth5", "optumcore-elrXhzX-00-sl00:eth3"]
+    - endpoints: ["mlselr01shzd01:eth6", "optumcore-elrXhzX-00-sl00:eth4"]
+    - endpoints: ["mlselr01shzd01:eth7", "optumcore-elrXhzX-00-sl00:eth5"]
+    - endpoints: ["mlselr01shzd01:eth8", "optumcore-elrXhzX-00-sl00:eth6"]
+    - endpoints: ["mlselr01shzd01:eth9", "optumcore-elrXhzX-00-sl00:eth7"]
+    - endpoints: ["mlselr01shzd01:eth10", "optumcore-elrXhzX-00-sl00:eth8"]
+    - endpoints: ["mlselr01shzd01:eth11", "optumcore-elrXhzX-00-sl00:eth9"]
+    - endpoints: ["mlselr01shzd01:eth12", "optumcore-elrXhzX-00-sl00:eth10"]
+    - endpoints: ["mlselr01shzd01:eth13", "optumcore-elrXhzX-00-sl00:eth11"]
+    - endpoints: ["mlselr01shzd01:eth14", "optumcore-elrXhzX-00-sl00:eth12"]
+    - endpoints: ["mlselr01shzd01:eth15", "optumcore-elrXhzX-00-sl00:eth13"]
+    - endpoints: ["mlselr01shzd01:eth16", "optumcore-elrXhzX-00-sl00:eth14"]
+    - endpoints: ["mlselr01shzd02:eth3", "optumcore-elrXhzX-00-sl00:eth15"]
+    - endpoints: ["mlselr01shzd02:eth4", "optumcore-elrXhzX-00-sl00:eth16"]
+    - endpoints: ["mlselr01shzd02:eth5", "optumcore-elrXhzX-00-sl00:eth17"]
+    - endpoints: ["mlselr01shzd02:eth6", "optumcore-elrXhzX-00-sl00:eth18"]
+    - endpoints: ["mlselr01shzd02:eth7", "optumcore-elrXhzX-00-sl00:eth19"]
+    - endpoints: ["mlselr01shzd02:eth8", "optumcore-elrXhzX-00-sl00:eth20"]
+    - endpoints: ["mlselr01shzd02:eth9", "optumcore-elrXhzX-00-sl00:eth21"]
+    - endpoints: ["mlselr01shzd02:eth10", "optumcore-elrXhzX-00-sl00:eth22"]
+    - endpoints: ["mlselr01shzd02:eth11", "optumcore-elrXhzX-00-sl00:eth23"]
+    - endpoints: ["mlselr01shzd02:eth12", "optumcore-elrXhzX-00-sl00:eth24"]
+    - endpoints: ["mlselr01shzd02:eth13", "optumcore-elrXhzX-00-sl00:eth25"]
+    - endpoints: ["mlselr01shzd02:eth14", "optumcore-elrXhzX-00-sl00:eth26"]
+    - endpoints: ["mlselr01shzd02:eth15", "optumcore-elrXhzX-00-sl00:eth27"]
+    - endpoints: ["mlselr01shzd02:eth16", "optumcore-elrXhzX-00-sl00:eth28"]
+#####################
+# DC1 SHZD to Core  #
+#####################
+    - endpoints: ["mlsctc01shzd01:eth1", "mlsctc01dbr0X:eth1"]
+    - endpoints: ["mlsctc01shzd01:eth2", "mlsctc01dbr0X:eth2"]
+    - endpoints: ["mlsctc01shzd01:eth17", "mlsctc01dbr0X:eth3"]
+    - endpoints: ["mlsctc01shzd01:eth18", "mlsctc01dbr0X:eth4"]
+    - endpoints: ["mlsctc01shzd02:eth1", "mlsctc01dbr0X:eth5"]
+    - endpoints: ["mlsctc01shzd02:eth2", "mlsctc01dbr0X:eth6"]
+    - endpoints: ["mlsctc01shzd02:eth17", "mlsctc01dbr0X:eth7"]
+    - endpoints: ["mlsctc01shzd02:eth18", "mlsctc01dbr0X:eth8"]
+#####################
+# DC2 SHZD to Core  #
+#####################
+    - endpoints: ["mlselr01shzd01:eth1", "mlselr01dbr0X:eth1"]
+    - endpoints: ["mlselr01shzd01:eth2", "mlselr01dbr0X:eth2"]
+    - endpoints: ["mlselr01shzd01:eth17", "mlselr01dbr0X:eth3"]
+    - endpoints: ["mlselr01shzd01:eth18", "mlselr01dbr0X:eth4"]
+    - endpoints: ["mlselr01shzd02:eth1", "mlselr01dbr0X:eth5"]
+    - endpoints: ["mlselr01shzd02:eth2", "mlselr01dbr0X:eth6"]
+    - endpoints: ["mlselr01shzd02:eth17", "mlselr01dbr0X:eth7"]
+    - endpoints: ["mlselr01shzd02:eth18", "mlselr01dbr0X:eth8"]
+#####################
+# Core to Core  #
+#####################
+    - endpoints: ["mlselr02dbr0X:eth25", "mlsctc01dbr0X:eth25"]
