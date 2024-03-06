@@ -589,50 +589,50 @@ CVP_DEVICES:
 ###############################
 # Tri-Config DC L3LS Topology #
 ###############################
-#  - fqdn: DC1-SPINE1
-#    parentContainerName: DC1_SPINES
-#    configlets:
-#      - dcapetz - lab_DC1-SPINE1-MGMT
-#      - dcapetz - lab_DC1-MLAG-SPINE-A
-#      - dcapetz - lab_DC1-SPINE1-L3
-#  - fqdn: DC1-SPINE2
-#    parentContainerName: DC1_SPINES
-#    configlets:
-#      - dcapetz - lab_DC1-SPINE2-MGMT
-#      - dcapetz - lab_DC1-MLAG-SPINE-B
-#      - dcapetz - lab_DC1-SPINE2-L3
-#  - fqdn: DC1-BORDER1
-#    parentContainerName: DC1_BORDER_LEAVES
-#    configlets:
-#      - dcapetz - lab_DC1-BORDER1-MGMT
-#      - dcapetz - lab_DC1-MLAG-SIDE-A
-#      - dcapetz - lab_DC1-BORDER1-INTERFACES
-#  - fqdn: DC1-BORDER2
-#    parentContainerName: DC1_BORDER_LEAVES
-#    configlets:
-#      - dcapetz - lab_DC1-BORDER2-MGMT
-#      - dcapetz - lab_DC1-MLAG-SIDE-B
-#      - dcapetz - lab_DC1-BORDER2-INTERFACES
-#  - fqdn: DC1-LEAF1
-#    parentContainerName: DC1_LEAF_DOMAIN_1
-#    configlets:
-#      - dcapetz - lab_DC1-LEAF1-MGMT
-#      - dcapetz - lab_DC1-MLAG-SIDE-A
-#  - fqdn: DC1-LEAF2
-#    parentContainerName: DC1_LEAF_DOMAIN_1
-#    configlets:
-#      - dcapetz - lab_DC1-LEAF2-MGMT
-#      - dcapetz - lab_DC1-MLAG-SIDE-B
-#  - fqdn: DC1-LEAF3
-#    parentContainerName: DC1_LEAF_DOMAIN_2
-#    configlets:
-#      - dcapetz - lab_DC1-LEAF3-MGMT
-#      - dcapetz - lab_DC1-MLAG-SIDE-A
-#  - fqdn: DC1-LEAF4
-#    parentContainerName: DC1_LEAF_DOMAIN_2
-#    configlets:
-#      - dcapetz - lab_DC1-LEAF4-MGMT
-#      - dcapetz - lab_DC1-MLAG-SIDE-B
+  - fqdn: DC1-SPINE1
+    parentContainerName: DC1_SPINES
+    configlets:
+      - dcapetz - lab_DC1-SPINE1-MGMT
+      - dcapetz - lab_DC1-MLAG-SPINE-A
+      - dcapetz - lab_DC1-SPINE1-L3
+  - fqdn: DC1-SPINE2
+    parentContainerName: DC1_SPINES
+    configlets:
+      - dcapetz - lab_DC1-SPINE2-MGMT
+      - dcapetz - lab_DC1-MLAG-SPINE-B
+      - dcapetz - lab_DC1-SPINE2-L3
+  - fqdn: DC1-BORDER1
+    parentContainerName: DC1_BORDER_LEAVES
+    configlets:
+      - dcapetz - lab_DC1-BORDER1-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-A
+      - dcapetz - lab_DC1-BORDER1-INTERFACES
+  - fqdn: DC1-BORDER2
+    parentContainerName: DC1_BORDER_LEAVES
+    configlets:
+      - dcapetz - lab_DC1-BORDER2-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-B
+      - dcapetz - lab_DC1-BORDER2-INTERFACES
+  - fqdn: DC1-LEAF1
+    parentContainerName: DC1_LEAF_DOMAIN_1
+    configlets:
+      - dcapetz - lab_DC1-LEAF1-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-A
+  - fqdn: DC1-LEAF2
+    parentContainerName: DC1_LEAF_DOMAIN_1
+    configlets:
+      - dcapetz - lab_DC1-LEAF2-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-B
+  - fqdn: DC1-LEAF3
+    parentContainerName: DC1_LEAF_DOMAIN_2
+    configlets:
+      - dcapetz - lab_DC1-LEAF3-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-A
+  - fqdn: DC1-LEAF4
+    parentContainerName: DC1_LEAF_DOMAIN_2
+    configlets:
+      - dcapetz - lab_DC1-LEAF4-MGMT
+      - dcapetz - lab_DC1-MLAG-SIDE-B
 ###############################
 # DCI Topology                #
 ###############################
@@ -758,23 +758,23 @@ CVP_DEVICES:
 ###############################
 # SHZD Topology               #
 ###############################
-  - fqdn: mlsctc01shzd01
-    parentContainerName: CTC SHZD
-    configlets:
-      - dcapetz - lab_mlsctc01shzd01 Management
-      - dcapetz - lab_mlsctc01shzd01 Config
-  - fqdn: mlsctc01shzd02
-    parentContainerName: CTC SHZD
-    configlets:
-      - dcapetz - lab_mlsctc01shzd02 Management
-      - dcapetz - lab_mlsctc01shzd02 Config
-  - fqdn: mlselr01shzd01
-    parentContainerName: ELR SHZD
-    configlets:
-      - dcapetz - lab_mlselr01shzd01 Management
-      - dcapetz - lab_mlselr01shzd01 Config
-  - fqdn: mlselr01shzd02
-    parentContainerName: ELR SHZD
-    configlets:
-      - dcapetz - lab_mlselr01shzd02 Management
-      - dcapetz - lab_mlselr01shzd02 Config
+#  - fqdn: mlsctc01shzd01
+#    parentContainerName: CTC SHZD
+#    configlets:
+#      - dcapetz - lab_mlsctc01shzd01 Management
+#      - dcapetz - lab_mlsctc01shzd01 Config
+#  - fqdn: mlsctc01shzd02
+#    parentContainerName: CTC SHZD
+#    configlets:
+#      - dcapetz - lab_mlsctc01shzd02 Management
+#      - dcapetz - lab_mlsctc01shzd02 Config
+#  - fqdn: mlselr01shzd01
+#    parentContainerName: ELR SHZD
+#    configlets:
+#      - dcapetz - lab_mlselr01shzd01 Management
+#      - dcapetz - lab_mlselr01shzd01 Config
+#  - fqdn: mlselr01shzd02
+#    parentContainerName: ELR SHZD
+#    configlets:
+#      - dcapetz - lab_mlselr01shzd02 Management
+#      - dcapetz - lab_mlselr01shzd02 Config

@@ -264,39 +264,39 @@ CVP_CONTAINERS:
 ###############################
 # Tri-Config DC L3LS Topology #
 ###############################
-#  DC1_FABRIC:
-#    parentContainerName: Tenant
-#    configlets:
-#      - dcapetz - lab_DC1-SWITCH-DEFAULTS
-#      - dcapetz - lab_DC1-SWITCH-AAA
-#      - dcapetz - lab_DC1-CORP-VLANS
-#  DC1_SPINES:
-#    parentContainerName: DC1_FABRIC
-#    configlets:
-#      - dcapetz - lab_DC1-WAN-VLANs
-#      - dcapetz - lab_DC1-SPINE-DOWNLINKS
-#      - dcapetz - lab_DC1-SPINE-SHARED-L3
-#  DC1_LEAVES:
-#    parentContainerName: DC1_FABRIC
-#    configlets:
-#      - dcapetz - lab_DC1-LEAF-UPLINKS
-#  DC1_BORDER_LEAVES:
-#    parentContainerName: DC1_LEAVES
-#    configlets:
-#      - dcapetz - lab_DC1-WAN-VLANs
-##      - dcapetz - lab_DC1-BORDER-SHARED-EVPN
-#  DC1_LEAF_DOMAIN_1:
-#    parentContainerName: DC1_LEAVES
-#    configlets:
-##      - dcapetz - lab_DC1-LEAF-DOMAIN-1-SHARED-L3
-##      - dcapetz - lab_DC1-LEAF-DOMAIN-1-SHARED-EVPN
-#      - dcapetz - lab_DC1-LEAF-DOMAIN-1-SHARED-INTERFACES
-#  DC1_LEAF_DOMAIN_2:
-#    parentContainerName: DC1_LEAVES
-#    configlets:
-##      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-L3
-##      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-EVPN
-##      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-INTERFACES
+  DC1_FABRIC:
+    parentContainerName: Tenant
+    configlets:
+      - dcapetz - lab_DC1-SWITCH-DEFAULTS
+      - dcapetz - lab_DC1-SWITCH-AAA
+      - dcapetz - lab_DC1-CORP-VLANS
+  DC1_SPINES:
+    parentContainerName: DC1_FABRIC
+    configlets:
+      - dcapetz - lab_DC1-WAN-VLANs
+      - dcapetz - lab_DC1-SPINE-DOWNLINKS
+      - dcapetz - lab_DC1-SPINE-SHARED-L3
+  DC1_LEAVES:
+    parentContainerName: DC1_FABRIC
+    configlets:
+      - dcapetz - lab_DC1-LEAF-UPLINKS
+  DC1_BORDER_LEAVES:
+    parentContainerName: DC1_LEAVES
+    configlets:
+      - dcapetz - lab_DC1-WAN-VLANs
+#      - dcapetz - lab_DC1-BORDER-SHARED-EVPN
+  DC1_LEAF_DOMAIN_1:
+    parentContainerName: DC1_LEAVES
+    configlets:
+#      - dcapetz - lab_DC1-LEAF-DOMAIN-1-SHARED-L3
+#      - dcapetz - lab_DC1-LEAF-DOMAIN-1-SHARED-EVPN
+      - dcapetz - lab_DC1-LEAF-DOMAIN-1-SHARED-INTERFACES
+  DC1_LEAF_DOMAIN_2:
+    parentContainerName: DC1_LEAVES
+    configlets:
+#      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-L3
+#      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-EVPN
+#      - dcapetz - lab_DC1-LEAF-DOMAIN-2-SHARED-INTERFACES
 ###############################
 # DCI Topology                #
 ###############################
@@ -363,16 +363,16 @@ CVP_CONTAINERS:
 ###############################
 # SHZD Topology               #
 ###############################
-  SHZD:
-    parentContainerName: dcapetz
-    configlets:
-      - dcapetz - lab_SHZD Global Config
-      - dcapetz - lab_SHZD Global AAA Config
-  CTC SHZD:
-    parentContainerName: SHZD
-    configlets:
-      - dcapetz - lab_CTC SHZD Routing Policies
-  ELR SHZD:
-    parentContainerName: SHZD
-    configlets:
-      - dcapetz - lab_ELR SHZD Routing Policies
+#  SHZD:
+#    parentContainerName: dcapetz
+#    configlets:
+#      - dcapetz - lab_SHZD Global Config
+#      - dcapetz - lab_SHZD Global AAA Config
+#  CTC SHZD:
+#    parentContainerName: SHZD
+#    configlets:
+#      - dcapetz - lab_CTC SHZD Routing Policies
+#  ELR SHZD:
+#    parentContainerName: SHZD
+#    configlets:
+#      - dcapetz - lab_ELR SHZD Routing Policies
