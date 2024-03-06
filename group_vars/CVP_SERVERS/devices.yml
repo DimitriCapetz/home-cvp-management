@@ -592,47 +592,49 @@ CVP_DEVICES:
   - fqdn: DC1-SPINE1
     parentContainerName: DC1_SPINES
     configlets:
-      - dcapetz - lab_DC1-SPINE1-MGMT
-      - dcapetz - lab_DC1-MLAG-SPINE-A
-      - dcapetz - lab_DC1-SPINE1-L3
+      - dcapetz - lab_DC1-SPINE1 Management
+      - dcapetz - lab_DC1-SPINE1 Config
   - fqdn: DC1-SPINE2
     parentContainerName: DC1_SPINES
     configlets:
-      - dcapetz - lab_DC1-SPINE2-MGMT
-      - dcapetz - lab_DC1-MLAG-SPINE-B
-      - dcapetz - lab_DC1-SPINE2-L3
+      - dcapetz - lab_DC1-SPINE2 Management
+      - dcapetz - lab_DC1-SPINE2 Config
   - fqdn: DC1-BORDER1
-    parentContainerName: DC1_BORDER_LEAVES
+    parentContainerName: DC1_GATEWAYS
     configlets:
-      - dcapetz - lab_DC1-BORDER1-MGMT
-      - dcapetz - lab_DC1-MLAG-SIDE-A
-      - dcapetz - lab_DC1-BORDER1-INTERFACES
+      - dcapetz - lab_DC1-BORDER1 Management
+      - dcapetz - lab_DC1 MLAG Side A
+      - dcapetz - lab_DC1-BORDER1 Config
   - fqdn: DC1-BORDER2
-    parentContainerName: DC1_BORDER_LEAVES
+    parentContainerName: DC1_GATEWAYS
     configlets:
-      - dcapetz - lab_DC1-BORDER2-MGMT
-      - dcapetz - lab_DC1-MLAG-SIDE-B
-      - dcapetz - lab_DC1-BORDER2-INTERFACES
+      - dcapetz - lab_DC1-BORDER2 Management
+      - dcapetz - lab_DC1 MLAG Side B
+      - dcapetz - lab_DC1-BORDER2 Config
   - fqdn: DC1-LEAF1
     parentContainerName: DC1_LEAF_DOMAIN_1
     configlets:
-      - dcapetz - lab_DC1-LEAF1-MGMT
-      - dcapetz - lab_DC1-MLAG-SIDE-A
+      - dcapetz - lab_DC1-LEAF1 Management
+      - dcapetz - lab_DC1 MLAG Side A
+      - dcapetz - lab_DC1-LEAF1 Config
   - fqdn: DC1-LEAF2
     parentContainerName: DC1_LEAF_DOMAIN_1
     configlets:
-      - dcapetz - lab_DC1-LEAF2-MGMT
-      - dcapetz - lab_DC1-MLAG-SIDE-B
+      - dcapetz - lab_DC1-LEAF2 Management
+      - dcapetz - lab_DC1 MLAG Side B
+      - dcapetz - lab_DC1-LEAF2 Config
   - fqdn: DC1-LEAF3
     parentContainerName: DC1_LEAF_DOMAIN_2
     configlets:
-      - dcapetz - lab_DC1-LEAF3-MGMT
-      - dcapetz - lab_DC1-MLAG-SIDE-A
+      - dcapetz - lab_DC1-LEAF3 Management
+      - dcapetz - lab_DC1 MLAG Side A
+      - dcapetz - lab_DC1-LEAF3 Config
   - fqdn: DC1-LEAF4
     parentContainerName: DC1_LEAF_DOMAIN_2
     configlets:
-      - dcapetz - lab_DC1-LEAF4-MGMT
-      - dcapetz - lab_DC1-MLAG-SIDE-B
+      - dcapetz - lab_DC1-LEAF4 Management
+      - dcapetz - lab_DC1 MLAG Side B
+      - dcapetz - lab_DC1-LEAF4 Config
 ###############################
 # DCI Topology                #
 ###############################

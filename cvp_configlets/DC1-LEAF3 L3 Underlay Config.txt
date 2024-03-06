@@ -1,0 +1,27 @@
+interface Ethernet49/1
+   description P2P_LINK_TO_DC1-SPINE1_Ethernet3/1
+   no switchport
+   ip address 10.1.0.57/31
+!
+interface Ethernet50/1
+   description P2P_LINK_TO_DC1-SPINE2_Ethernet3/1
+   no switchport
+   ip address 10.1.0.59/31
+!
+interface Loopback0
+   description EVPN_Overlay_Peering
+   no shutdown
+   ip address 10.1.101.15/32
+!
+router general
+   router-id ipv4 10.1.101.15
+!
+router bgp 65102
+   neighbor 10.1.0.56 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.0.56 remote-as 65100
+   neighbor 10.1.0.56 description DC1-SPINE1_Ethernet3/1
+   neighbor 10.1.0.58 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.0.58 remote-as 65100
+   neighbor 10.1.0.58 description DC1-SPINE2_Ethernet3/1
+   neighbor 10.1.254.255 peer group MLAG-IPv4-UNDERLAY-PEER
+   neighbor 10.1.254.255 description DC1-LEAF4

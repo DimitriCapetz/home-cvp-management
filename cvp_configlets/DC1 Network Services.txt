@@ -1,0 +1,36 @@
+!
+! CORP Tenant Configurations
+!
+vlan 101
+   name CORP_Services_101
+!
+vrf instance CORP
+!
+interface Vlan101
+   description CORP_Services_101
+   vrf CORP
+   ip address virtual 10.101.101.1/24
+!
+interface Vxlan1
+   description DC1-BORDER2_VTEP
+   vxlan source-interface Loopback1
+   vxlan virtual-router encapsulation mac-address mlag-system-id
+   vxlan udp-port 4789
+   vxlan vlan 101 vni 10101
+   vxlan vrf CORP vni 5001
+!
+! PUBLIC Tenant Configurations
+!
+vlan 201
+   name PUBLIC_Services_201
+!
+vrf instance PUBLIC
+!
+interface Vlan201
+   description PUBLIC_Services_201
+   vrf PUBLIC
+   ip address virtual 10.201.201.1/24
+!
+interface Vxlan1
+   vxlan vlan 201 vni 10201
+   vxlan vrf PUBLIC vni 5002

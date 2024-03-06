@@ -1,0 +1,57 @@
+interface Ethernet1/1
+   description P2P_LINK_TO_DC1-LEAF1_Ethernet50/1
+   no switchport
+   ip address 10.1.0.50/31
+!
+interface Ethernet2/1
+   description P2P_LINK_TO_DC1-LEAF2_Ethernet50/1
+   no switchport
+   ip address 10.1.0.54/31
+!
+interface Ethernet3/1
+   description P2P_LINK_TO_DC1-LEAF3_Ethernet50/1
+   no switchport
+   ip address 10.1.0.58/31
+!
+interface Ethernet4/1
+   description P2P_LINK_TO_DC1-LEAF4_Ethernet50/1
+   no switchport
+   ip address 10.1.0.62/31
+!
+interface Ethernet7/1
+   description P2P_LINK_TO_DC1-BORDER1_Ethernet50/1
+   no switchport
+   ip address 10.1.0.42/31
+!
+interface Ethernet8/1
+   description P2P_LINK_TO_DC1-BORDER2_Ethernet50/1
+   no switchport
+   ip address 10.1.0.46/31
+!
+interface Loopback0
+   description EVPN_Overlay_Peering
+   no shutdown
+   ip address 10.1.100.2/32
+!
+router general
+   router-id ipv4 10.1.100.2
+!
+router bgp 65100
+   neighbor 10.1.0.43 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.0.43 remote-as 65116
+   neighbor 10.1.0.43 description DC1-BORDER1_Ethernet50/1
+   neighbor 10.1.0.47 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.0.47 remote-as 65116
+   neighbor 10.1.0.47 description DC1-BORDER2_Ethernet50/1
+   neighbor 10.1.0.51 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.0.51 remote-as 65101
+   neighbor 10.1.0.51 description DC1-LEAF1_Ethernet50/1
+   neighbor 10.1.0.55 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.0.55 remote-as 65101
+   neighbor 10.1.0.55 description DC1-LEAF2_Ethernet50/1
+   neighbor 10.1.0.59 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.0.59 remote-as 65102
+   neighbor 10.1.0.59 description DC1-LEAF3_Ethernet50/1
+   neighbor 10.1.0.63 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.0.63 remote-as 65102
+   neighbor 10.1.0.63 description DC1-LEAF4_Ethernet50/1
