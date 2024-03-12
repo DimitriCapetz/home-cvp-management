@@ -5,7 +5,7 @@ vrf instance management
 interface Management1
    description oob_management
    vrf management
-   ip address 10.99.99.216/24
+   ip address 10.99.99.196/24
 !
 no ip routing vrf management
 !
