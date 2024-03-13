@@ -20,10 +20,10 @@ elif topo == "EVPN":
         ]
 elif topo == "TRI":
     containerList = [
-        "DC2_FABRIC","DC3_LEAF_DOMAIN_1", "DC3_LEAF_DOMAIN_2",
-        "DC3_BORDER_LEAFS", "DC3_LEAVES", "DC3_SPINES", "DC3_FABRIC",
+        "DC2",
+        "DC3_GATEWAYS", "DC3_LEAFS", "DC3_SPINES", "DC3",
         "DC1_LEAF_DOMAIN_1", "DC1_LEAF_DOMAIN_2",
-        "DC1_BORDER_LEAVES", "DC1_LEAVES", "DC1_SPINES", "DC1_FABRIC"
+        "DC1_GATEWAYS", "DC1_LEAFS", "DC1_SPINES", "DC1"
         ]
 elif topo == "AVD":
     containerList = [
@@ -72,7 +72,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Connect to CVP and get Device Inventory
 clnt = CvpClient()
-clnt.connect(nodes=['www.cv-prod-na-northeast1-b.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjcxMDcwOTA2MjE4ODU1ODc3MzMsImRzbiI6ImRjYXBldHogQW5zaWJsZSBBY2NvdW50IiwiZHN0IjoiYWNjb3VudCIsImV4cCI6MTcwNDA0Nzk3OCwiaWF0IjoxNjgxOTI1OTgyLCJvZ2kiOjcxMDcwOTA2MjE4ODU1ODcyMjksIm9nbiI6Im5vcnRoLWNlbnRyYWwtY2UiLCJzaWQiOiJkYjRjNDZiZDBhZTNkNzZiMWI4ZWU4MWY3MGZjNjE4N2ExNjk2YzQxNGFhNTY0ZmI2MDRjYzNjNmVlZDE4MjlmLXEzMHVKOUNQTDE1TklLSlFoZG5pZ3RuSVRQQ3B6TUo4el9NQ2I2TTAifQ.3KxECy4V5BdXoKasn7euVfIv39nf3m78xfURK8ky2VpNxfPw0W6DWiSt4uIm9GUsqjslOSFSxi095WObSfxleg')
+clnt.connect(nodes=['www.cv-prod-na-northeast1-b.arista.io'], username='', password='', is_cvaas=True, api_token='eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjcxMDcwOTA2MjE4ODU1ODc3MzMsImRzbiI6ImRjYXBldHogQW5zaWJsZSBBY2NvdW50IiwiZHN0IjoiYWNjb3VudCIsImV4cCI6MTcyNTEzMTQ4MywiaWF0IjoxNzA4NzE5MDg3LCJvZ2kiOjcxMDcwOTA2MjE4ODU1ODcyMjksIm9nbiI6Im5vcnRoLWNlbnRyYWwtY2UiLCJzaWQiOiJmMTZkNjY0NGY0N2ZhNWM1ODBlMmI1ZTBkOGI0OGM2NzJjMGQ0ZjY4OGVmM2VkMzA3OWEwMDlkODRmMTEyODBkLUh4MTVPdmtZRnlweVlHbGZhV2Q1NzJidE4tRDBSeW5OM25kdkxJdEsifQ.tM7s4p1e3HmN_BKUs1_4lOL6XlRZnbGnDX6uQkklQA5tIWExY210KLhsk-j__usAn_xe6yL1iZwuVjsvNmCVZw')
 devices = clnt.api.get_inventory()
 devicesToDecom = []
 
