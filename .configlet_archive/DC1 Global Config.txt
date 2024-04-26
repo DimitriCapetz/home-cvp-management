@@ -1,7 +1,3 @@
-daemon TerminAttr
-   exec /usr/bin/TerminAttr -cvaddr=apiserver.arista.io:443 -cvauth=token-secure,/mnt/flash/cv-onboarding-token -cvvrf=management -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -taillogs
-   no shutdown
-!
 vlan internal order ascending range 1006 1199
 !
 transceiver qsfp default-mode 4x10G
@@ -15,9 +11,6 @@ ip domain lookup vrf management source-interface Management1
 ip name-server vrf management 1.1.1.1
 dns domain home.dime-a-tron.com
 !
-ntp local-interface vrf management Management1
-ntp server vrf management 0.pool.ntp.org iburst
-!
 aaa authorization exec default local
 !
 no enable password
@@ -25,11 +18,18 @@ no aaa root
 !
 username admin privilege 15 role network-admin secret sha512 $6$Nck9evzfm5e9C0Vg$bZ/XSXJ/.ZqJ6NQkPXV3s48IdFB7QS5vzSOYTbmwtenuUKQcFlWgP0lE.uWPPGVMJVA/2Yo8eiRax5mxh7Q0y1
 !
-clock timezone CST
+! Infrastructure / Underlay BGP Policies
 !
 ip routing
 !
-! Infrastructure / Underlay BGP Policies
+ntp local-interface vrf management Management1
+ntp server vrf management 0.pool.ntp.org iburst
+!
+clock timezone CST
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -cvaddr=apiserver.arista.io:443 -cvauth=token-secure,/mnt/flash/cv-onboarding-token -cvvrf=management -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -taillogs
+   no shutdown
 !
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 10.1.101.0/24 eq 32
