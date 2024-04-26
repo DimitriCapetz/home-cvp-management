@@ -210,7 +210,7 @@ topology:
 ####################
 # HOST2            #
 ####################
-    - endpoints: ["CAMPUS-C2-HOST2:eth1", "CAMPUS-C2-LEAF2:eth1"]
+    - endpoints: ["CAMPUS-C2-HOST2:eth1", "CAMPUS-C2-LEAF1:eth1"]
 ####################
 # AP1              #
 ####################
