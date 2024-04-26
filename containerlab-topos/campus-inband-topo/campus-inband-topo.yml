@@ -223,5 +223,15 @@ topology:
     - endpoints: ["CAMPUS-WAN2:eth1", "CAMPUS-SPINE1:eth2"]
     - endpoints: ["CAMPUS-WAN1:eth2", "CAMPUS-SPINE2:eth1"]
     - endpoints: ["CAMPUS-WAN2:eth2", "CAMPUS-SPINE2:eth2"]
-    - endpoints: ["CAMPUS-WAN1:eth3", "macvlan:ens224"]
-    - endpoints: ["CAMPUS-WAN2:eth3", "macvlan:ens256"]
+#    - endpoints: ["CAMPUS-WAN1:eth3", "macvlan:ens224"]
+#    - endpoints: ["CAMPUS-WAN2:eth3", "macvlan:ens256"]
+    - type: macvlan
+      endpoint:
+        node: "CAMPUS-WAN1"
+        interface: "eth3"
+      host-interface: "ens224"
+    - type: macvlan
+      endpoint:
+        node: "CAMPUS-WAN2"
+        interface: "eth3"
+      host-interface: "ens256"
