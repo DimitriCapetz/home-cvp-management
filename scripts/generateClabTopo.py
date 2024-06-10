@@ -64,7 +64,8 @@ mac_script_base = '''sudo touch REPLACE-TOPO/REPLACE-HOSTNAME/flash/ceos-config
 sudo echo "SYSTEMMACADDR=REPLACE-MAC" >> REPLACE-TOPO/REPLACE-HOSTNAME/flash/ceos-config
 sudo echo "SERIALNUMBER=REPLACE-HOSTNAME" >> REPLACE-TOPO/REPLACE-HOSTNAME/flash/ceos-config
 sudo rm REPLACE-TOPO/REPLACE-HOSTNAME/flash/system_mac_address
-sudo cp ../cv-onboarding-token REPLACE-TOPO/REPLACE-HOSTNAME/flash/cv-onboarding-token'''
+sudo cp ../cv-onboarding-token REPLACE-TOPO/REPLACE-HOSTNAME/flash/cv-onboarding-token
+'''
 
 # Create base directory for new topo
 topo_dir = "/workspaces/home-cvp-management/containerlab-topos/" + topo_info["name"]
