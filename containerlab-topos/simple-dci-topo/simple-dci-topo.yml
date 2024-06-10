@@ -1,0 +1,169 @@
+mgmt:
+  bridge: br0
+  ipv4-gw: 10.99.99.1
+  ipv4-subnet: 10.99.99.0/24
+  network: clab_mgmt
+name: simple-dci-topo
+topology:
+  kinds:
+    image: ceos:4.31.2F
+  links:
+  - endpoints:
+    - DC1-SPINE1:eth1
+    - DC1-LEAF1:eth5
+  - endpoints:
+    - DC1-SPINE1:eth1
+    - DC1-BORDER1:eth5
+  - endpoints:
+    - DC1-SPINE1:eth1
+    - DC1-BORDER2:eth5
+  - endpoints:
+    - DC1-SPINE2:eth1
+    - DC1-LEAF1:eth6
+  - endpoints:
+    - DC1-SPINE2:eth1
+    - DC1-BORDER1:eth6
+  - endpoints:
+    - DC1-SPINE2:eth1
+    - DC1-BORDER2:eth6
+  - endpoints:
+    - DC1-BORDER1:eth13
+    - DC1-BORDER2:eth13
+  - endpoints:
+    - DC1-BORDER1:eth14
+    - DC1-BORDER2:eth14
+  - endpoints:
+    - DC2-SPINE1:eth1
+    - DC2-LEAF1:eth5
+  - endpoints:
+    - DC2-SPINE1:eth1
+    - DC2-BORDER1:eth5
+  - endpoints:
+    - DC2-SPINE1:eth1
+    - DC2-BORDER2:eth5
+  - endpoints:
+    - DC2-SPINE2:eth1
+    - DC2-LEAF1:eth6
+  - endpoints:
+    - DC2-SPINE2:eth1
+    - DC2-BORDER1:eth6
+  - endpoints:
+    - DC2-SPINE2:eth1
+    - DC2-BORDER2:eth6
+  - endpoints:
+    - DC2-BORDER1:eth13
+    - DC2-BORDER2:eth13
+  - endpoints:
+    - DC2-BORDER1:eth14
+    - DC2-BORDER2:eth14
+  - endpoints:
+    - DC1-BORDER1:eth1
+    - DC2-BORDER1:eth1
+  - endpoints:
+    - DC1-BORDER2:eth1
+    - DC2-BORDER2:eth1
+  nodes:
+    DC1-BORDER1:
+      binds:
+      - ./configs/dc-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 2
+      mgmt-ipv4: 10.99.99.15
+      startup-config: ./configs/DC1-BORDER1.cfg
+    DC1-BORDER2:
+      binds:
+      - ./configs/dc-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 2
+      mgmt-ipv4: 10.99.99.16
+      startup-config: ./configs/DC1-BORDER2.cfg
+    DC1-LEAF1:
+      binds:
+      - ./configs/dc-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 2
+      mgmt-ipv4: 10.99.99.14
+      startup-config: ./configs/DC1-LEAF1.cfg
+    DC1-SPINE1:
+      binds:
+      - ./configs/dc-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 1
+      mgmt-ipv4: 10.99.99.10
+      startup-config: ./configs/DC1-SPINE1.cfg
+    DC1-SPINE2:
+      binds:
+      - ./configs/dc-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 1
+      mgmt-ipv4: 10.99.99.11
+      startup-config: ./configs/DC1-SPINE2.cfg
+    DC2-BORDER1:
+      binds:
+      - ./configs/dc-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 2
+      mgmt-ipv4: 10.99.99.18
+      startup-config: ./configs/DC2-BORDER1.cfg
+    DC2-BORDER2:
+      binds:
+      - ./configs/dc-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 2
+      mgmt-ipv4: 10.99.99.19
+      startup-config: ./configs/DC2-BORDER2.cfg
+    DC2-LEAF1:
+      binds:
+      - ./configs/dc-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 2
+      mgmt-ipv4: 10.99.99.17
+      startup-config: ./configs/DC2-LEAF1.cfg
+    DC2-SPINE1:
+      binds:
+      - ./configs/dc-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 1
+      mgmt-ipv4: 10.99.99.12
+      startup-config: ./configs/DC2-SPINE1.cfg
+    DC2-SPINE2:
+      binds:
+      - ./configs/dc-spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 1
+      mgmt-ipv4: 10.99.99.13
+      startup-config: ./configs/DC2-SPINE2.cfg
+    graphite:
+      binds:
+      - .:/htdocs/clab
+      env:
+        GRAPHITE_DEFAULT_TYPE: clab
+      exec:
+      - sh -c 'graphite_motd.sh 80'
+      image: netreplica/graphite
+      kind: linux
+      labels:
+        graph-hide: 'yes'
+      mgmt-ipv4: 10.99.99.3
+      ports:
+      - 80:80

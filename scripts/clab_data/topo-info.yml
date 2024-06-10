@@ -1,9 +1,16 @@
 ---
-name: example-topo
+name: simple-dci-topo
 topo-type: dc
 mgmt-ip-start: 10
 mac-start: 00
 nodes:
-  - SWITCH-1: spine
-  - SWITCH-2: leaf
-  - SWITCH-3: leaf
+  - DC1-SPINE1: spine
+  - DC1-SPINE2: spine
+  - DC2-SPINE1: spine
+  - DC2-SPINE2: spine
+  - DC1-LEAF1: leaf
+  - DC1-BORDER1: leaf
+  - DC1-BORDER2: leaf
+  - DC2-LEAF1: leaf
+  - DC2-BORDER1: leaf
+  - DC2-BORDER2: leaf
