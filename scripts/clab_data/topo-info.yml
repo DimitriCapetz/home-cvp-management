@@ -1,3 +1,9 @@
 ---
-topo: example-topo
-type: dc
+name: example-topo
+topo-type: dc
+mgmt-ip-start: 10
+mac-start: 00
+nodes:
+  - SWITCH-1: spine
+  - SWITCH-2: leaf
+  - SWITCH-3: leaf
