@@ -1,16 +1,12 @@
 ---
-name: simple-dci-topo
-topo-type: dc
+name: library-topo
+topo-type: campus
 mgmt-ip-start: 10
 mac-start: 00
 nodes:
-  - DC1-SPINE1: spine
-  - DC1-SPINE2: spine
-  - DC2-SPINE1: spine
-  - DC2-SPINE2: spine
-  - DC1-LEAF1: leaf
-  - DC1-BORDER1: leaf
-  - DC1-BORDER2: leaf
-  - DC2-LEAF1: leaf
-  - DC2-BORDER1: leaf
-  - DC2-BORDER2: leaf
+  - LIBRARY-LEAF1-A: leaf
+  - LIBRARY-LEAF1-B: leaf
+  - LIBRARY-LEAF1-C: leaf
+  - LIBRARY-LEAF1-D: leaf
+  - LIBRARY-HEAD-END1: leaf
+  - LIBRARY-HEAD-END2: leaf

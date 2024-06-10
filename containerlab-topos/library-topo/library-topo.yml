@@ -1,0 +1,105 @@
+mgmt:
+  bridge: br0
+  ipv4-gw: 10.99.99.1
+  ipv4-subnet: 10.99.99.0/24
+  network: clab_mgmt
+name: library-topo
+topology:
+  kinds:
+    ceos:
+      image: ceos:4.31.2F
+  links:
+  - endpoints:
+    - LIBRARY-LEAF1-A:eth3
+    - LIBRARY-LEAF1-B:eth3
+  - endpoints:
+    - LIBRARY-LEAF1-A:eth4
+    - LIBRARY-LEAF1-B:eth4
+  - endpoints:
+    - LIBRARY-LEAF1-A:eth5
+    - LIBRARY-LEAF1-C:eth5
+  - endpoints:
+    - LIBRARY-LEAF1-A:eth6
+    - LIBRARY-LEAF1-D:eth5
+  - endpoints:
+    - LIBRARY-LEAF1-B:eth5
+    - LIBRARY-LEAF1-C:eth6
+  - endpoints:
+    - LIBRARY-LEAF1-B:eth6
+    - LIBRARY-LEAF1-D:eth6
+  - endpoints:
+    - LIBRARY-LEAF1-A:eth8
+    - LIBRARY-HEAD-END1:eth5
+  - endpoints:
+    - LIBRARY-LEAF1-B:eth8
+    - LIBRARY-HEAD-END2:eth5
+  nodes:
+    LIBRARY-HEAD-END1:
+      binds:
+      - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 1
+      mgmt-ipv4: 10.99.99.14
+      startup-config: ./configs/LIBRARY-HEAD-END1.cfg
+    LIBRARY-HEAD-END2:
+      binds:
+      - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 1
+      mgmt-ipv4: 10.99.99.15
+      startup-config: ./configs/LIBRARY-HEAD-END2.cfg
+    LIBRARY-LEAF1-A:
+      binds:
+      - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 2
+      mgmt-ipv4: 10.99.99.10
+      startup-config: ./configs/LIBRARY-LEAF1-A.cfg
+    LIBRARY-LEAF1-B:
+      binds:
+      - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 2
+      mgmt-ipv4: 10.99.99.11
+      startup-config: ./configs/LIBRARY-LEAF1-B.cfg
+    LIBRARY-LEAF1-C:
+      binds:
+      - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 3
+      mgmt-ipv4: 10.99.99.12
+      startup-config: ./configs/LIBRARY-LEAF1-C.cfg
+    LIBRARY-LEAF1-D:
+      binds:
+      - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
+      kind: ceos
+      labels:
+        graph-icon: switch
+        graph-level: 3
+      mgmt-ipv4: 10.99.99.13
+      startup-config: ./configs/LIBRARY-LEAF1-D.cfg
+    graphite:
+      binds:
+      - .:/htdocs/clab
+      env:
+        GRAPHITE_DEFAULT_TOPO: library-topo
+        GRAPHITE_DEFAULT_TYPE: clab
+      exec:
+      - sh -c 'graphite_motd.sh 80'
+      image: netreplica/graphite
+      kind: linux
+      labels:
+        graph-hide: 'yes'
+      mgmt-ipv4: 10.99.99.3
+      ports:
+      - 80:80
