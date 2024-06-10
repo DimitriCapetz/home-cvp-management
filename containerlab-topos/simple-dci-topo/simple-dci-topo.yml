@@ -10,8 +10,59 @@ topology:
       image: ceos:4.31.2F
   links:
   - endpoints:
-    - EXAMPLE-NODE:eth1
-    - EXAMPLE-NODE:eth1
+    - DC1-SPINE1:eth1
+    - DC1-LEAF1:eth5
+  - endpoints:
+    - DC1-SPINE1:eth1
+    - DC1-BORDER1:eth5
+  - endpoints:
+    - DC1-SPINE1:eth1
+    - DC1-BORDER2:eth5
+  - endpoints:
+    - DC1-SPINE2:eth1
+    - DC1-LEAF1:eth6
+  - endpoints:
+    - DC1-SPINE2:eth1
+    - DC1-BORDER1:eth6
+  - endpoints:
+    - DC1-SPINE2:eth1
+    - DC1-BORDER2:eth6
+  - endpoints:
+    - DC1-BORDER1:eth13
+    - DC1-BORDER2:eth13
+  - endpoints:
+    - DC1-BORDER1:eth14
+    - DC1-BORDER2:eth14
+  - endpoints:
+    - DC2-SPINE1:eth1
+    - DC2-LEAF1:eth5
+  - endpoints:
+    - DC2-SPINE1:eth1
+    - DC2-BORDER1:eth5
+  - endpoints:
+    - DC2-SPINE1:eth1
+    - DC2-BORDER2:eth5
+  - endpoints:
+    - DC2-SPINE2:eth1
+    - DC2-LEAF1:eth6
+  - endpoints:
+    - DC2-SPINE2:eth1
+    - DC2-BORDER1:eth6
+  - endpoints:
+    - DC2-SPINE2:eth1
+    - DC2-BORDER2:eth6
+  - endpoints:
+    - DC2-BORDER1:eth13
+    - DC2-BORDER2:eth13
+  - endpoints:
+    - DC2-BORDER1:eth14
+    - DC2-BORDER2:eth14
+  - endpoints:
+    - DC1-BORDER1:eth1
+    - DC2-BORDER1:eth1
+  - endpoints:
+    - DC1-BORDER2:eth1
+    - DC2-BORDER2:eth1
   nodes:
     DC1-BORDER1:
       binds:
