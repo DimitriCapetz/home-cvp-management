@@ -22,6 +22,7 @@ mac_base = "00:1c:73:dc:00:"
 topo_type = topo_info["topo-type"]
 
 topo_name = topo_info["name"]
+mac_topo_name = "clab-" + topo_name
 
 clab_topo_base = {
     "mgmt": {
@@ -112,7 +113,7 @@ for node in topo_info["nodes"]:
     mac_hextet = mac_hextet + 1
     # Create MAC Shell Script Entries
     mac_entry = mac_script_base.replace("REPLACE-HOSTNAME", switch)
-    mac_entry = mac_entry.replace("REPLACE-TOPO", topo_name)
+    mac_entry = mac_entry.replace("REPLACE-TOPO", mac_topo_name)
     mac_entry = mac_entry.replace("REPLACE-MAC", node_mac)
     mac_script += mac_entry
 
