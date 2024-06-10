@@ -11,22 +11,22 @@ topology:
   links:
   - endpoints:
     - DC1-SPINE1:eth1
-    - DC1-LEAF1:eth5
+    - DC1-LEAF1:eth7
   - endpoints:
     - DC1-SPINE1:eth2
-    - DC1-BORDER1:eth5
+    - DC1-BORDER1:eth7
   - endpoints:
     - DC1-SPINE1:eth3
-    - DC1-BORDER2:eth5
+    - DC1-BORDER2:eth7
   - endpoints:
     - DC1-SPINE2:eth1
-    - DC1-LEAF1:eth6
+    - DC1-LEAF1:eth8
   - endpoints:
     - DC1-SPINE2:eth2
-    - DC1-BORDER1:eth6
+    - DC1-BORDER1:eth8
   - endpoints:
     - DC1-SPINE2:eth3
-    - DC1-BORDER2:eth6
+    - DC1-BORDER2:eth8
   - endpoints:
     - DC1-BORDER1:eth13
     - DC1-BORDER2:eth13
@@ -35,22 +35,22 @@ topology:
     - DC1-BORDER2:eth14
   - endpoints:
     - DC2-SPINE1:eth1
-    - DC2-LEAF1:eth5
+    - DC2-LEAF1:eth7
   - endpoints:
     - DC2-SPINE1:eth2
-    - DC2-BORDER1:eth5
+    - DC2-BORDER1:eth7
   - endpoints:
     - DC2-SPINE1:eth3
-    - DC2-BORDER2:eth5
+    - DC2-BORDER2:eth7
   - endpoints:
     - DC2-SPINE2:eth1
-    - DC2-LEAF1:eth6
+    - DC2-LEAF1:eth8
   - endpoints:
     - DC2-SPINE2:eth2
-    - DC2-BORDER1:eth6
+    - DC2-BORDER1:eth8
   - endpoints:
     - DC2-SPINE2:eth3
-    - DC2-BORDER2:eth6
+    - DC2-BORDER2:eth8
   - endpoints:
     - DC2-BORDER1:eth13
     - DC2-BORDER2:eth13
