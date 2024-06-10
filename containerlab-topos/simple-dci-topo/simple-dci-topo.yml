@@ -158,6 +158,7 @@ topology:
       binds:
       - .:/htdocs/clab
       env:
+        GRAPHITE_DEFAULT_TOPO: simple-dci-topo
         GRAPHITE_DEFAULT_TYPE: clab
       exec:
       - sh -c 'graphite_motd.sh 80'

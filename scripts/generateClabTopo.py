@@ -21,6 +21,8 @@ mac_base = "00:1c:73:dc:00:"
 
 topo_type = topo_info["topo-type"]
 
+topo_name = topo_info["name"]
+
 clab_topo_base = {
     "mgmt": {
         "network": "clab_mgmt",
@@ -40,7 +42,8 @@ clab_topo_base = {
                 "image": "netreplica/graphite",
                 "mgmt-ipv4": "10.99.99.3",
                 "env": {
-                    "GRAPHITE_DEFAULT_TYPE": "clab"
+                    "GRAPHITE_DEFAULT_TYPE": "clab",
+                    "GRAPHITE_DEFAULT_TOPO": topo_name
                 },
                 "binds": [".:/htdocs/clab"],
                 "ports": ["80:80"],
@@ -54,7 +57,6 @@ clab_topo_base = {
     }
 }
 
-topo_name = topo_info["name"]
 clab_topo_base["name"] = topo_name
 
 mac_script_base = '''sudo touch REPLACE-TOPO/REPLACE-HOSTNAME/flash/ceos-config
