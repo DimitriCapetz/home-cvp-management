@@ -30,7 +30,9 @@ clab_topo_base = {
     },
     "topology": {
         "kinds": {
-            "image": "ceos:4.31.2F"
+            "ceos": {
+                "image": "ceos:4.31.2F"
+            }
         },
         "nodes": {
             "graphite": {
