@@ -38,14 +38,12 @@ topology:
     - br1:eth1
   - endpoints:
     - LIBRARY-HEAD-END2:eth1
-    - br2:eth1
+    - br1:eth2
   nodes:
 #########################
 # External Links        #
 #########################
     br1:
-      kind: bridge
-    br2:
       kind: bridge
 #########################
 # Head-Ends (no CV)     #
