@@ -7,7 +7,7 @@ name: library-topo
 topology:
   kinds:
     ceos:
-      image: ceos:4.31.2F
+      image: ceos:4.31.3M
   links:
   - endpoints:
     - LIBRARY-LEAF1-A:eth3
@@ -33,7 +33,23 @@ topology:
   - endpoints:
     - LIBRARY-LEAF1-B:eth8
     - LIBRARY-HEAD-END2:eth5
+  - endpoints:
+    - LIBRARY-HEAD-END1:eth1
+    - br1:eth1
+  - endpoints:
+    - LIBRARY-HEAD-END2:eth1
+    - br2:eth2
   nodes:
+#########################
+# External Links        #
+#########################
+    br1:
+      kind: bridge
+    br2:
+      kind: bridge
+#########################
+# Head-Ends (no CV)     #
+#########################
     LIBRARY-HEAD-END1:
       binds:
       - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
