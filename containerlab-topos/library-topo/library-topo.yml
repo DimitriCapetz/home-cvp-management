@@ -38,7 +38,7 @@ topology:
     - br1:eth1
   - endpoints:
     - LIBRARY-HEAD-END2:eth1
-    - br2:eth2
+    - br2:eth1
   nodes:
 #########################
 # External Links        #
