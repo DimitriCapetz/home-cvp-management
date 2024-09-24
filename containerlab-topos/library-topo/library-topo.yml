@@ -10,28 +10,28 @@ topology:
       image: ceos:4.31.3M
   links:
   - endpoints:
-    - LIBRARY-LEAF1-A:eth3
-    - LIBRARY-LEAF1-B:eth3
+    - 085-LL5-POC-EA1:eth3
+    - 085-LL5-POC-EA2:eth3
   - endpoints:
-    - LIBRARY-LEAF1-A:eth4
-    - LIBRARY-LEAF1-B:eth4
+    - 085-LL5-POC-EA1:eth4
+    - 085-LL5-POC-EA2:eth4
   - endpoints:
-    - LIBRARY-LEAF1-A:eth5
-    - LIBRARY-LEAF1-C:eth5
+    - 085-LL5-POC-EA1:eth5
+    - 085-LL5-POC-EA3:eth5
   - endpoints:
-    - LIBRARY-LEAF1-A:eth6
-    - LIBRARY-LEAF1-D:eth5
+    - 085-LL5-POC-EA1:eth6
+    - 085-LL5-POC-EA4:eth5
   - endpoints:
-    - LIBRARY-LEAF1-B:eth5
-    - LIBRARY-LEAF1-C:eth6
+    - 085-LL5-POC-EA2:eth5
+    - 085-LL5-POC-EA3:eth6
   - endpoints:
-    - LIBRARY-LEAF1-B:eth6
-    - LIBRARY-LEAF1-D:eth6
+    - 085-LL5-POC-EA2:eth6
+    - 085-LL5-POC-EA4:eth6
   - endpoints:
-    - LIBRARY-LEAF1-A:eth8
+    - 085-LL5-POC-EA1:eth8
     - LIBRARY-HEAD-END1:eth5
   - endpoints:
-    - LIBRARY-LEAF1-B:eth8
+    - 085-LL5-POC-EA2:eth8
     - LIBRARY-HEAD-END2:eth5
   - endpoints:
     - LIBRARY-HEAD-END1:eth1
@@ -66,7 +66,7 @@ topology:
         graph-level: 1
       mgmt-ipv4: 10.99.99.15
       startup-config: ./configs/LIBRARY-HEAD-END2.cfg
-    LIBRARY-LEAF1-A:
+    085-LL5-POC-EA1:
       binds:
       - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       kind: ceos
@@ -74,8 +74,8 @@ topology:
         graph-icon: switch
         graph-level: 2
       mgmt-ipv4: 10.99.99.10
-      startup-config: ./configs/LIBRARY-LEAF1-A.cfg
-    LIBRARY-LEAF1-B:
+      startup-config: ./configs/085-LL5-POC-EA1.cfg
+    085-LL5-POC-EA2:
       binds:
       - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       kind: ceos
@@ -83,8 +83,8 @@ topology:
         graph-icon: switch
         graph-level: 2
       mgmt-ipv4: 10.99.99.11
-      startup-config: ./configs/LIBRARY-LEAF1-B.cfg
-    LIBRARY-LEAF1-C:
+      startup-config: ./configs/085-LL5-POC-EA2.cfg
+    085-LL5-POC-EA3:
       binds:
       - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       kind: ceos
@@ -92,8 +92,8 @@ topology:
         graph-icon: switch
         graph-level: 3
       mgmt-ipv4: 10.99.99.12
-      startup-config: ./configs/LIBRARY-LEAF1-C.cfg
-    LIBRARY-LEAF1-D:
+      startup-config: ./configs/085-LL5-POC-EA3.cfg
+    085-LL5-POC-EA4:
       binds:
       - ./configs/campus-leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       kind: ceos
@@ -101,7 +101,7 @@ topology:
         graph-icon: switch
         graph-level: 3
       mgmt-ipv4: 10.99.99.13
-      startup-config: ./configs/LIBRARY-LEAF1-D.cfg
+      startup-config: ./configs/085-LL5-POC-EA4.cfg
     graphite:
       binds:
       - .:/htdocs/clab
