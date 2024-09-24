@@ -16,22 +16,22 @@ topology:
     - 085-LL5-POC-EA1:eth4
     - 085-LL5-POC-EA2:eth4
   - endpoints:
-    - 085-LL5-POC-EA1:eth5
+    - 085-LL5-POC-EA1:eth7
     - 085-LL5-POC-EA3:eth5
   - endpoints:
-    - 085-LL5-POC-EA1:eth6
+    - 085-LL5-POC-EA1:eth8
     - 085-LL5-POC-EA4:eth5
   - endpoints:
-    - 085-LL5-POC-EA2:eth5
+    - 085-LL5-POC-EA2:eth7
     - 085-LL5-POC-EA3:eth6
   - endpoints:
-    - 085-LL5-POC-EA2:eth6
+    - 085-LL5-POC-EA2:eth8
     - 085-LL5-POC-EA4:eth6
   - endpoints:
-    - 085-LL5-POC-EA1:eth8
+    - 085-LL5-POC-EA1:eth5
     - LIBRARY-HEAD-END1:eth5
   - endpoints:
-    - 085-LL5-POC-EA2:eth8
+    - 085-LL5-POC-EA2:eth5
     - LIBRARY-HEAD-END2:eth5
   - endpoints:
     - LIBRARY-HEAD-END1:eth1
