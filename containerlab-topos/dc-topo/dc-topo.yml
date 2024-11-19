@@ -199,20 +199,20 @@ topology:
 # WAN Simulation #
 ##################
 
-    dcapetz-DC1-WAN1:
+    dcapetz-DC-WAN1:
       kind: ceos
       mgmt-ipv4: 10.99.99.15
-      startup-config: ./configs/dcapetz-DC1-WAN1.cfg
+      startup-config: ./configs/dcapetz-DC-WAN1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 1
         graph-icon: switch
 
-    dcapetz-DC1-WAN2:
+    dcapetz-DC-WAN2:
       kind: ceos
       mgmt-ipv4: 10.99.99.16
-      startup-config: ./configs/dcapetz-DC1-WAN2.cfg
+      startup-config: ./configs/dcapetz-DC-WAN2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
@@ -285,5 +285,5 @@ topology:
 ###########
 # WAN Sim #
 ###########
-    - endpoints: ["dcapetz-DC1-WAN1:eth1", "dcapetz-DC-BORDER1:eth1"]
-    - endpoints: ["dcapetz-DC1-WAN2:eth1", "dcapetz-DC-BORDER2:eth1"]
+    - endpoints: ["dcapetz-DC-WAN1:eth1", "dcapetz-DC-BORDER1:eth1"]
+    - endpoints: ["dcapetz-DC-WAN2:eth1", "dcapetz-DC-BORDER2:eth1"]
