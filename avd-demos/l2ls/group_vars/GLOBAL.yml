@@ -37,7 +37,7 @@ ntp:
     name: Management1
     vrf: management
   servers:
-    - name: 137.70.8.5
+    - name: 0.pool.ntp.org
       vrf: management
       iburst: True
 timezone: CST6CDT
