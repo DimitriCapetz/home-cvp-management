@@ -53,20 +53,20 @@ topology:
 # SPINE                 #
 #########################
 
-    DC-SPINE1:
+    dcapetz-DC-SPINE1:
       kind: ceos
       mgmt-ipv4: 10.99.99.2
-      startup-config: ./configs/DC-SPINE1.cfg
+      startup-config: ./configs/dcapetz-DC-SPINE1.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 3
         graph-icon: switch
 
-    DC-SPINE2:
+    dcapetz-DC-SPINE2:
       kind: ceos
       mgmt-ipv4: 10.99.99.3
-      startup-config: ./configs/DC-SPINE2.cfg
+      startup-config: ./configs/dcapetz-DC-SPINE2.cfg
       binds:
         - ./configs/spine-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
@@ -77,60 +77,60 @@ topology:
 # LEAF                  #
 #########################
 
-    DC-LEAF1:
+    dcapetz-DC-LEAF1:
       kind: ceos
       mgmt-ipv4: 10.99.99.4
-      startup-config: ./configs/DC-LEAF1.cfg
+      startup-config: ./configs/dcapetz-DC-LEAF1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 4
         graph-icon: switch
 
-    DC-LEAF2:
+    dcapetz-DC-LEAF2:
       kind: ceos
       mgmt-ipv4: 10.99.99.5
-      startup-config: ./configs/DC-LEAF2.cfg
+      startup-config: ./configs/dcapetz-DC-LEAF2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 4
         graph-icon: switch
 
-    DC-LEAF3:
+    dcapetz-DC-LEAF3:
       kind: ceos
       mgmt-ipv4: 10.99.99.6
-      startup-config: ./configs/DC-LEAF3.cfg
+      startup-config: ./configs/dcapetz-DC-LEAF3.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 4
         graph-icon: switch
 
-    DC-LEAF4:
+    dcapetz-DC-LEAF4:
       kind: ceos
       mgmt-ipv4: 10.99.99.7
-      startup-config: ./configs/DC-LEAF4.cfg
+      startup-config: ./configs/dcapetz-DC-LEAF4.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 4
         graph-icon: switch
 
-    DC-LEAF5:
+    dcapetz-DC-LEAF5:
       kind: ceos
       mgmt-ipv4: 10.99.99.8
-      startup-config: ./configs/DC-LEAF5.cfg
+      startup-config: ./configs/dcapetz-DC-LEAF5.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 4
         graph-icon: switch
 
-    DC-LEAF6:
+    dcapetz-DC-LEAF6:
       kind: ceos
       mgmt-ipv4: 10.99.99.9
-      startup-config: ./configs/DC-LEAF6.cfg
+      startup-config: ./configs/dcapetz-DC-LEAF6.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
@@ -141,20 +141,20 @@ topology:
 # BORDER                #
 #########################
 
-    DC-BORDER1:
+    dcapetz-DC-BORDER1:
       kind: ceos
       mgmt-ipv4: 10.99.99.10
-      startup-config: ./configs/DC-BORDER1.cfg
+      startup-config: ./configs/dcapetz-DC-BORDER1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 2
         graph-icon: switch
 
-    DC-BORDER2:
+    dcapetz-DC-BORDER2:
       kind: ceos
       mgmt-ipv4: 10.99.99.11
-      startup-config: ./configs/DC-BORDER2.cfg
+      startup-config: ./configs/dcapetz-DC-BORDER2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
@@ -199,20 +199,20 @@ topology:
 # WAN Simulation #
 ##################
 
-    WAN1:
+    dcapetz-DC1-WAN1:
       kind: ceos
       mgmt-ipv4: 10.99.99.15
-      startup-config: ./configs/WAN1.cfg
+      startup-config: ./configs/dcapetz-DC1-WAN1.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
         graph-level: 1
         graph-icon: switch
 
-    WAN2:
+    dcapetz-DC1-WAN2:
       kind: ceos
       mgmt-ipv4: 10.99.99.16
-      startup-config: ./configs/WAN2.cfg
+      startup-config: ./configs/dcapetz-DC1-WAN2.cfg
       binds:
         - ./configs/leaf-mappings.json:/mnt/flash/EosIntfMapping.json:ro
       labels:
@@ -221,69 +221,69 @@ topology:
 
   links:
 #####################
-# DC-SPINE1 to LEAF #
+# dcapetz-DC-SPINE1 to LEAF #
 #####################
-    - endpoints: ["DC-SPINE1:eth1", "DC-LEAF1:eth3"]
-    - endpoints: ["DC-SPINE1:eth2", "DC-LEAF2:eth3"]
-    - endpoints: ["DC-SPINE1:eth3", "DC-LEAF3:eth3"]
-    - endpoints: ["DC-SPINE1:eth4", "DC-LEAF4:eth3"]
-    - endpoints: ["DC-SPINE1:eth5", "DC-LEAF5:eth3"]
-    - endpoints: ["DC-SPINE1:eth6", "DC-LEAF6:eth3"]
-    - endpoints: ["DC-SPINE1:eth7", "DC-BORDER1:eth3"]
-    - endpoints: ["DC-SPINE1:eth8", "DC-BORDER2:eth3"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth1", "dcapetz-DC-LEAF1:eth3"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth2", "dcapetz-DC-LEAF2:eth3"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth3", "dcapetz-DC-LEAF3:eth3"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth4", "dcapetz-DC-LEAF4:eth3"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth5", "dcapetz-DC-LEAF5:eth3"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth6", "dcapetz-DC-LEAF6:eth3"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth7", "dcapetz-DC-BORDER1:eth3"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth8", "dcapetz-DC-BORDER2:eth3"]
 #####################
-# DC-SPINE2 to LEAF #
+# dcapetz-DC-SPINE2 to LEAF #
 #####################
-    - endpoints: ["DC-SPINE2:eth1", "DC-LEAF1:eth4"]
-    - endpoints: ["DC-SPINE2:eth2", "DC-LEAF2:eth4"]
-    - endpoints: ["DC-SPINE2:eth3", "DC-LEAF3:eth4"]
-    - endpoints: ["DC-SPINE2:eth4", "DC-LEAF4:eth4"]
-    - endpoints: ["DC-SPINE2:eth5", "DC-LEAF5:eth4"]
-    - endpoints: ["DC-SPINE2:eth6", "DC-LEAF6:eth4"]
-    - endpoints: ["DC-SPINE2:eth7", "DC-BORDER1:eth4"]
-    - endpoints: ["DC-SPINE2:eth8", "DC-BORDER2:eth4"]
+    - endpoints: ["dcapetz-DC-SPINE2:eth1", "dcapetz-DC-LEAF1:eth4"]
+    - endpoints: ["dcapetz-DC-SPINE2:eth2", "dcapetz-DC-LEAF2:eth4"]
+    - endpoints: ["dcapetz-DC-SPINE2:eth3", "dcapetz-DC-LEAF3:eth4"]
+    - endpoints: ["dcapetz-DC-SPINE2:eth4", "dcapetz-DC-LEAF4:eth4"]
+    - endpoints: ["dcapetz-DC-SPINE2:eth5", "dcapetz-DC-LEAF5:eth4"]
+    - endpoints: ["dcapetz-DC-SPINE2:eth6", "dcapetz-DC-LEAF6:eth4"]
+    - endpoints: ["dcapetz-DC-SPINE2:eth7", "dcapetz-DC-BORDER1:eth4"]
+    - endpoints: ["dcapetz-DC-SPINE2:eth8", "dcapetz-DC-BORDER2:eth4"]
 ##########################
-# DC-SPINE1 to DC-SPINE2 #
+# dcapetz-DC-SPINE1 to dcapetz-DC-SPINE2 #
 ##########################
-    - endpoints: ["DC-SPINE1:eth9", "DC-SPINE2:eth9"]
-    - endpoints: ["DC-SPINE1:eth10", "DC-SPINE2:eth10"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth9", "dcapetz-DC-SPINE2:eth9"]
+    - endpoints: ["dcapetz-DC-SPINE1:eth10", "dcapetz-DC-SPINE2:eth10"]
 ########################
-# DC-LEAF1 to DC-LEAF2 #
+# dcapetz-DC-LEAF1 to dcapetz-DC-LEAF2 #
 ########################
-    - endpoints: ["DC-LEAF1:eth9", "DC-LEAF2:eth9"]
-    - endpoints: ["DC-LEAF1:eth10", "DC-LEAF2:eth10"]
+    - endpoints: ["dcapetz-DC-LEAF1:eth9", "dcapetz-DC-LEAF2:eth9"]
+    - endpoints: ["dcapetz-DC-LEAF1:eth10", "dcapetz-DC-LEAF2:eth10"]
 ############
 # DC-HOST1 #
 ############
-    - endpoints: ["DC-HOST1:eth1", "DC-LEAF1:eth1"]
-    - endpoints: ["DC-HOST1:eth2", "DC-LEAF2:eth1"]
+    - endpoints: ["DC-HOST1:eth1", "dcapetz-DC-LEAF1:eth1"]
+    - endpoints: ["DC-HOST1:eth2", "dcapetz-DC-LEAF2:eth1"]
 ########################
-# DC-LEAF3 to DC-LEAF4 #
+# dcapetz-DC-LEAF3 to dcapetz-DC-LEAF4 #
 ########################
-    - endpoints: ["DC-LEAF3:eth9", "DC-LEAF4:eth9"]
-    - endpoints: ["DC-LEAF3:eth10", "DC-LEAF4:eth10"]
+    - endpoints: ["dcapetz-DC-LEAF3:eth9", "dcapetz-DC-LEAF4:eth9"]
+    - endpoints: ["dcapetz-DC-LEAF3:eth10", "dcapetz-DC-LEAF4:eth10"]
 ############
 # DC-HOST2 #
 ############
-    - endpoints: ["DC-HOST2:eth1", "DC-LEAF3:eth1"]
-    - endpoints: ["DC-HOST2:eth2", "DC-LEAF4:eth1"]
+    - endpoints: ["DC-HOST2:eth1", "dcapetz-DC-LEAF3:eth1"]
+    - endpoints: ["DC-HOST2:eth2", "dcapetz-DC-LEAF4:eth1"]
 ########################
-# DC-LEAF5 to DC-LEAF6 #
+# dcapetz-DC-LEAF5 to dcapetz-DC-LEAF6 #
 ########################
-    - endpoints: ["DC-LEAF5:eth9", "DC-LEAF6:eth9"]
-    - endpoints: ["DC-LEAF5:eth10", "DC-LEAF6:eth10"]
+    - endpoints: ["dcapetz-DC-LEAF5:eth9", "dcapetz-DC-LEAF6:eth9"]
+    - endpoints: ["dcapetz-DC-LEAF5:eth10", "dcapetz-DC-LEAF6:eth10"]
 ############
 # DC-HOST3 #
 ############
-    - endpoints: ["DC-HOST3:eth1", "DC-LEAF5:eth1"]
-    - endpoints: ["DC-HOST3:eth2", "DC-LEAF6:eth1"]
+    - endpoints: ["DC-HOST3:eth1", "dcapetz-DC-LEAF5:eth1"]
+    - endpoints: ["DC-HOST3:eth2", "dcapetz-DC-LEAF6:eth1"]
 ############################
-# DC-BORDER1 to DC-BORDER2 #
+# dcapetz-DC-BORDER1 to dcapetz-DC-BORDER2 #
 ############################
-    - endpoints: ["DC-BORDER1:eth9", "DC-BORDER2:eth9"]
-    - endpoints: ["DC-BORDER1:eth10", "DC-BORDER2:eth10"]
+    - endpoints: ["dcapetz-DC-BORDER1:eth9", "dcapetz-DC-BORDER2:eth9"]
+    - endpoints: ["dcapetz-DC-BORDER1:eth10", "dcapetz-DC-BORDER2:eth10"]
 ###########
 # WAN Sim #
 ###########
-    - endpoints: ["WAN1:eth1", "DC-BORDER1:eth1"]
-    - endpoints: ["WAN2:eth1", "DC-BORDER2:eth1"]
+    - endpoints: ["dcapetz-DC1-WAN1:eth1", "dcapetz-DC-BORDER1:eth1"]
+    - endpoints: ["dcapetz-DC1-WAN2:eth1", "dcapetz-DC-BORDER2:eth1"]
