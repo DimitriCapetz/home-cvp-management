@@ -10,17 +10,13 @@ help: ## Display help message (*: main entry points / []: part of an entry point
 ################################################################################
 
 .PHONY: fabric-build
-fabric-build: ## Run ansible playbook to build Campus Fabric configuration with CV
-	ansible-playbook playbooks/fabric-build.yml -i inventory/inventory.yml --diff
+fabric-build: ## Run ansible playbook to build Fabric configuration with CV
+	ansible-playbook playbooks/fabric-build.yml -i inventory.yml --diff
 
-.PHONY: fabric-cvp-provision
-fabric-cvp-provision: ## Run ansible playbook to deploy Campus Fabric via CV.
-	ansible-playbook playbooks/cvp-fabric-deploy.yml -i inventory/inventory.yml --diff
-
-.PHONY: fabric-deploy
-fabric-deploy: ## Run ansible playbook to deploy Campus Fabric via CV and execute Change Control.
-	ansible-playbook playbooks/cvp-fabric-deploy.yml --extra-vars "execute_tasks=true" --tags "build,provision,apply" -i inventory/inventory.yml --diff
+.PHONY: fabric-cv-provision
+fabric-cv-provision: ## Run ansible playbook to deploy Fabric via CV.
+	ansible-playbook playbooks/cv-fabric-deploy.yml -i inventory.yml --diff
 
 .PHONY: fabric-validate
-fabric-validate: ## Run ansible playbook to validate Campus Fabric.
-	ansible-playbook playbooks/fabric-validate-state.yml -i inventory/inventory.yml --diff 
+fabric-validate: ## Run ansible playbook to validate Fabric.
+	ansible-playbook playbooks/fabric-validate-state.yml -i inventory.yml --diff 

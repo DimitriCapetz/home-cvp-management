@@ -1,0 +1,121 @@
+---
+
+# Credentials for CVP and EOS Switches
+ansible_user: admin
+ansible_password: Arista123!
+ansible_network_os: arista.eos.eos
+# Configure privilege escalation
+ansible_become: true
+ansible_become_method: enable
+# HTTPAPI configuration
+ansible_connection: httpapi
+ansible_httpapi_port: 443
+ansible_httpapi_use_ssl: true
+ansible_httpapi_validate_certs: false
+ansible_python_interpreter: $(which python3)
+cv_inventory_hostname: CVaaS
+
+# Local Users
+local_users:
+  - name: admin
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$EUtOGPCs9sxT85A7$edwk3hsngEX3Evn7/zShMjvz2DKcw5nhJfanzbvpaibmHPa.djZcQfgvoGGFKXxHeel8kDisthwtue.K7QZ.s.
+
+# AAA
+aaa_authorization:
+  exec:
+    default: local
+
+# OOB Management network default gateway.
+mgmt_gateway: 10.99.99.1
+mgmt_interface_vrf: management
+
+# NTP Servers IP or DNS name, first NTP server will be preferred, and sourced from Management VRF
+ntp:
+  local_interface:
+    name: Management1
+    vrf: management
+  servers:
+    - name: 137.70.8.5
+      vrf: management
+      iburst: True
+timezone: CST6CDT
+
+# Domain/DNS
+ip_name_servers:
+  - ip_address: 1.1.1.1
+    vrf: management
+dns_domain: dime-a-tron.com
+ip_domain_lookup:
+  source_interfaces:
+    - name: Management1
+      vrf: management
+
+# CVaaS TerminAttr Streaming Configuration
+daemon_terminattr:
+  cvaddrs:
+    - apiserver.arista.io:443
+  cvauth:
+    method: token-secure
+    token_file: /mnt/flash/cv-onboarding-token
+  # Temporarily use default VRF for testing
+  cvsourceintf: Management1
+  cvvrf: management
+  disable_aaa: true
+  smashexcludes: ale,flexCounter,hardware,kni,pulse,strata
+
+banners:
+  login: |-
+    ==========================================================================
+    WARNING: Activities on this system are monitored, recorded and subject to
+    audit. Use of this system is expressed consent to such monitoring and
+    recording. Any unauthorized access or use of this system is prohibited
+    and could be subject to criminal and civil penalties.
+    ==========================================================================
+    EOF
+  motd: |-
+    DC L2LS Example Lab
+    EOF
+
+# Event-Monitor - Local CLI Tracking of Hosts and Routes
+event_monitor:
+  enabled: true
+
+# Default Table Timers
+arp:
+  aging:
+    timeout_default: 900
+mac_address_table:
+  aging_time: 1200
+
+# Default Load Interval for CLI Based Show Commands
+load_interval:
+  # Default load interval in seconds.
+  default: 5
+
+# Dummy Loopback for Flow Tracking Hardware
+custom_structured_configuration_loopback_interfaces:
+  - name: Loopback255
+    description: Dummy Loopback for CV Flow Tracking
+    ip_address: 223.255.255.254/32
+
+# Global Flow Tracker Enablement
+flow_tracking:
+  sampled:
+    sample: 10000
+    trackers:
+      - name: CV-FLOW-TRACKING
+        record_export:
+          on_inactive_timeout: 120000
+          on_interval: 1000
+        exporters:
+          - name: CVaaS
+            collector:
+              host: '127.0.0.1'
+            local_interface: Loopback255
+            template_interval: 5000
+    shutdown: false
+
+# Point to Point Links MTU Override for Lab
+p2p_uplinks_mtu: 1500
