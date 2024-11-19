@@ -1,0 +1,15 @@
+---
+- name: "Fetch CV on-prem device inventory"
+  hosts: cvp
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: 'Collect devices facts from {{inventory_hostname}}'
+    tags: [facts, phase1]
+    arista.cvp.cv_facts_v3:
+      facts:
+        - devices
+        #- configlets
+        - containers
+    register: facts_devices
+  - copy: content="{{ facts_devices | to_nice_json }}" dest=playbooks/cv_output.json

@@ -3,4 +3,4 @@ all:
     CVP_SERVERS:
       hosts:
         cvaas:
-          ansible_host: www.cv-prod-na-northeast1-b.arista.io
+          ansible_host: www.arista.io
