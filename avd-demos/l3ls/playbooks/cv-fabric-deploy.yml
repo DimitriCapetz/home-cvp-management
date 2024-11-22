@@ -1,0 +1,10 @@
+---
+- name: Configuration deployment with CV
+  hosts: DC
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: run CV provisioning
+      import_role:
+          name: arista.avd.cv_deploy

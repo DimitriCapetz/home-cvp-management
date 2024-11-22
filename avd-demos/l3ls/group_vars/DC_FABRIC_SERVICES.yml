@@ -1,0 +1,15 @@
+---
+tenants:
+  - name: MY_FABRIC
+    vrfs:
+      - name: INTERNAL
+        vrf_vni: 5001
+        svis:
+          - id: 10
+            name: 'Internal_Services_Ten'
+            enabled: true
+            ip_address_virtual: 10.10.10.1/24
+          - id: 20
+            name: 'Internal_Services_Twenty'
+            enabled: true
+            ip_address_virtual: 10.20.20.1/24
