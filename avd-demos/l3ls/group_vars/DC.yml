@@ -2,8 +2,8 @@
 fabric_name: DC
 
 # Set Design Type to Layer 3 Leaf-Spine with EVPN Overlay
-design:
-  type: l3ls-evpn
+#design:
+#  type: l3ls-evpn
 
 # Set IPv4 Underlay Routing and EVPN Overlay Routing to use eBGP
 #underlay_routing_protocol: ebgp
@@ -15,11 +15,11 @@ fabric_ip_addressing:
     algorithm: same_subnet
 
 # Spine Switches
-l3spine:
+spine:
   defaults:
     platform: cEOS
     loopback_ipv4_pool: 10.1.0.0/24
-    bgp_as: '65432'
+    bgp_as: '65001'
     mgmt_interface: Management1
   nodes:
     - name: dcapetz-DC-SPINE1
@@ -33,7 +33,6 @@ l3spine:
 l3leaf:
   defaults:
     platform: cEOS
-    mlag_peer_ipv4_pool: 10.255.255.254/31
     spanning_tree_priority: 4096 
     spanning_tree_mode: mstp
     loopback_ipv4_pool: 10.1.1.0/24
@@ -42,13 +41,14 @@ l3leaf:
     virtual_router_mac_address: 00:1c:73:00:00:99
     uplink_switches: [ dcapetz-DC-SPINE1, dcapetz-DC-SPINE2 ]
     uplink_interfaces: [ Ethernet49/1, Ethernet50/1 ]
-    uplink_ipv4_pool: 10.0.0.0/22
+    uplink_ipv4_pool: 10.0.0.0/24
     mlag_interfaces: [ Ethernet55/1, Ethernet56/1 ]
     mlag_peer_ipv4_pool: 10.255.255.254/31
-    mlag_peer_l3_ipv4_pool: 10.254.254.0/24
+    mlag_peer_l3_ipv4_pool: 10.254.254.254/31
     mgmt_interface: Management1
   node_groups:
     - group: RACK1
+      bgp_as: '65101'
       nodes:
         - name: dcapetz-DC-LEAF1
           id: 1
@@ -59,6 +59,7 @@ l3leaf:
           mgmt_ip: 10.99.99.5/24
           uplink_switch_interfaces: [ Ethernet2/1, Ethernet2/1 ]
     - group: RACK2
+      bgp_as: '65102'
       nodes:
         - name: dcapetz-DC-LEAF3
           id: 3
@@ -69,12 +70,13 @@ l3leaf:
           mgmt_ip: 10.99.99.7/24
           uplink_switch_interfaces: [ Ethernet4/1, Ethernet4/1 ]
     - group: BORDER
+      bgp_as: '65199'
       nodes:
         - name: dcapetz-DC-BORDER1
           id: 31
           mgmt_ip: 10.99.99.10/24
-          uplink_switch_interfaces: [ Ethernet3/1, Ethernet3/1 ]
+          uplink_switch_interfaces: [ Ethernet7/1, Ethernet7/1 ]
         - name: dcapetz-DC-BORDER2
           id: 32
           mgmt_ip: 10.99.99.11/24
-          uplink_switch_interfaces: [ Ethernet4/1, Ethernet4/1 ]
+          uplink_switch_interfaces: [ Ethernet8/1, Ethernet8/1 ]

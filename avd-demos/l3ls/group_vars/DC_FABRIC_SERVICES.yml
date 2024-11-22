@@ -1,8 +1,10 @@
 ---
 tenants:
   - name: MY_FABRIC
+    mac_vrf_vni_base: 10000
     vrfs:
       - name: INTERNAL
+        mlag_ibgp_peering_vlan: 4092
         vrf_vni: 5001
         svis:
           - id: 10
