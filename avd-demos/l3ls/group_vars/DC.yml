@@ -1,14 +1,6 @@
 ---
 fabric_name: DC
 
-# Set Design Type to Layer 3 Leaf-Spine with EVPN Overlay
-#design:
-#  type: l3ls-evpn
-
-# Set IPv4 Underlay Routing and EVPN Overlay Routing to use eBGP
-#underlay_routing_protocol: ebgp
-#overlay_routing_protocol: ebgp
-
 # Repeat MLAG addressing between pairs
 fabric_ip_addressing:
   mlag:
